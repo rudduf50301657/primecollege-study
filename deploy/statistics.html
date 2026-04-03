@@ -1099,6 +1099,72 @@
     margin-bottom: 10px;
   }
 
+  /* ── Page System ── */
+  .lecture-section { display: none; }
+  .lecture-section.page-visible {
+    display: block;
+    animation: pageSlideIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  @keyframes pageSlideIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero { display: none; }
+  .hero.page-visible {
+    display: block;
+    animation: pageSlideIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .page-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 48px;
+    padding: 24px 0;
+    border-top: 1px solid #2a2a4a;
+    gap: 16px;
+  }
+  .page-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    border-radius: 14px;
+    color: #c4b5fd;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    min-width: 160px;
+  }
+  .page-nav-btn:hover {
+    border-color: #8b5cf6;
+    background: rgba(139,92,246,0.08);
+    transform: translateY(-1px);
+  }
+  .page-nav-btn.prev { justify-content: flex-start; }
+  .page-nav-btn.next { justify-content: flex-end; margin-left: auto; }
+  .page-nav-btn .arrow { font-size: 18px; }
+  .page-nav-btn .btn-label { color: #888; font-size: 11px; font-weight: 400; }
+  .page-nav-btn .btn-text { display: flex; flex-direction: column; }
+  .page-nav-btn.hidden { visibility: hidden; }
+  .page-indicator {
+    color: #555;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  /* sidebar active group highlight */
+  .nav-group.active-group > .lecture-label {
+    background: rgba(139,92,246,0.12);
+    color: #c4b5fd !important;
+  }
+
   /* ── Responsive ── */
   @media (max-width: 900px) {
     .sidebar { display: none; }
@@ -1108,6 +1174,8 @@
     .quiz-card-body { padding: 16px 20px 20px; }
     .quiz-card-header { padding: 16px 20px 0; }
     .quiz-score-bar { padding: 16px 20px; }
+    .page-nav-btn { min-width: 120px; padding: 12px 16px; font-size: 13px; }
+    .page-nav-btn .btn-label { display: none; }
   }
 </style>
 </head>
@@ -5498,6 +5566,19 @@
 
 </div>
 
+<!-- ═══════════ PAGE NAV ═══════════ -->
+<div class="page-nav" id="pageNav">
+  <button class="page-nav-btn prev" id="prevBtn" onclick="navPage(-1)">
+    <span class="arrow">&larr;</span>
+    <span class="btn-text"><span class="btn-label">이전</span><span id="prevName"></span></span>
+  </button>
+  <span class="page-indicator" id="pageIndicator"></span>
+  <button class="page-nav-btn next" id="nextBtn" onclick="navPage(1)">
+    <span class="btn-text" style="align-items:flex-end;"><span class="btn-label">다음</span><span id="nextName"></span></span>
+    <span class="arrow">&rarr;</span>
+  </button>
+</div>
+
 <!-- ═══════════ JAVASCRIPT ═══════════ -->
 <script>
 // Outlier Interactive Demo
@@ -5524,49 +5605,187 @@ function updateOutlier() {
 slider.addEventListener('input', updateOutlier);
 updateOutlier();
 
-// Sidebar active state + auto-open accordion
-const sections = document.querySelectorAll('.lecture-section');
+// ── Page Navigation System ──
+const allSections = document.querySelectorAll('.lecture-section');
 const navLinks = document.querySelectorAll('.sidebar a');
 const navGroups = document.querySelectorAll('.nav-group');
+const hero = document.querySelector('.hero');
 
-// Map section IDs to lecture numbers
-function getLectureNum(id) {
-  if (!id) return -1;
-  const m = id.match(/^(\d+)-/);
-  return m ? parseInt(m[1]) : (id === 'cheatsheet' ? 8 : (id.startsWith('quiz') ? 9 : -1));
+// Define pages: each page = { key, name, sectionIds[] }
+const pages = [
+  { key: 'home', name: '홈' },
+  { key: '1', name: '1강 - 데이터와 통계학', ids: [] },
+  { key: '2', name: '2강 - 데이터 요약 I', ids: [] },
+  { key: '3', name: '3강 - 데이터 수치요약', ids: [] },
+  { key: '4', name: '4강 - 확률', ids: [] },
+  { key: '5', name: '5강 - 확률변수', ids: [] },
+  { key: '6', name: '6강 - 확률분포 1', ids: [] },
+  { key: '7', name: '7강 - 확률분포 2', ids: [] },
+  { key: 'exam', name: '시험 대비', ids: ['summary-all', 'formula-all', 'cheatsheet'] },
+  { key: 'quiz', name: '문제풀기', ids: ['quiz-1'] },
+];
+
+// Auto-populate lecture section IDs
+allSections.forEach(s => {
+  const m = s.id.match(/^(\d+)-/);
+  if (m) {
+    const page = pages.find(p => p.key === m[1]);
+    if (page) page.ids.push(s.id);
+  }
+});
+
+// Map nav-group index to page key
+const groupPageMap = ['1','2','3','4','5','6','7','exam','quiz'];
+
+let currentPageIdx = 0;
+
+function getPageForSection(sectionId) {
+  return pages.findIndex(p => p.ids && p.ids.includes(sectionId));
 }
 
-let lastLecture = -1;
+function showPage(pageIdx, scrollToId) {
+  currentPageIdx = pageIdx;
+  const page = pages[pageIdx];
 
+  // Hide everything
+  hero.classList.remove('page-visible');
+  allSections.forEach(s => s.classList.remove('page-visible'));
+
+  if (page.key === 'home') {
+    hero.classList.add('page-visible');
+  } else {
+    page.ids.forEach(id => {
+      document.getElementById(id).classList.add('page-visible');
+    });
+  }
+
+  // Update sidebar
+  navLinks.forEach(l => l.classList.remove('active'));
+  navGroups.forEach(g => {
+    g.classList.remove('open');
+    g.classList.remove('active-group');
+  });
+
+  if (page.key !== 'home') {
+    const groupIdx = groupPageMap.indexOf(page.key);
+    if (groupIdx >= 0 && navGroups[groupIdx]) {
+      navGroups[groupIdx].classList.add('open');
+      navGroups[groupIdx].classList.add('active-group');
+    }
+    // Highlight specific link if scrollToId given
+    if (scrollToId) {
+      navLinks.forEach(l => {
+        if (l.getAttribute('href') === '#' + scrollToId) l.classList.add('active');
+      });
+    }
+  }
+
+  // Update bottom nav
+  updatePageNav();
+
+  // Scroll
+  if (scrollToId && page.key !== 'home') {
+    setTimeout(() => {
+      const el = document.getElementById(scrollToId);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
+  } else {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+}
+
+function updatePageNav() {
+  const prev = document.getElementById('prevBtn');
+  const next = document.getElementById('nextBtn');
+  const indicator = document.getElementById('pageIndicator');
+  const prevName = document.getElementById('prevName');
+  const nextName = document.getElementById('nextName');
+
+  if (currentPageIdx <= 0) {
+    prev.classList.add('hidden');
+  } else {
+    prev.classList.remove('hidden');
+    prevName.textContent = pages[currentPageIdx - 1].name;
+  }
+
+  if (currentPageIdx >= pages.length - 1) {
+    next.classList.add('hidden');
+  } else {
+    next.classList.remove('hidden');
+    nextName.textContent = pages[currentPageIdx + 1].name;
+  }
+
+  indicator.textContent = (currentPageIdx + 1) + ' / ' + pages.length;
+}
+
+function navPage(dir) {
+  const newIdx = currentPageIdx + dir;
+  if (newIdx >= 0 && newIdx < pages.length) {
+    showPage(newIdx);
+  }
+}
+
+// Sidebar click handlers
+navLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const targetId = link.getAttribute('href').substring(1);
+    const pageIdx = getPageForSection(targetId);
+    if (pageIdx >= 0) {
+      showPage(pageIdx, targetId);
+    }
+  });
+});
+
+// Lecture label click → navigate to that page
+navGroups.forEach((group, i) => {
+  const label = group.querySelector('.lecture-label');
+  if (!label) return;
+  label.onclick = (e) => {
+    // Find corresponding page
+    const pageKey = groupPageMap[i];
+    const pageIdx = pages.findIndex(p => p.key === pageKey);
+    if (pageIdx >= 0) {
+      // Toggle accordion open state
+      navGroups.forEach(g => { if (g !== group) g.classList.remove('open'); });
+      group.classList.add('open');
+      showPage(pageIdx);
+    }
+  };
+});
+
+// Scroll spy within current page
 window.addEventListener('scroll', () => {
+  const page = pages[currentPageIdx];
+  if (!page.ids || page.ids.length <= 1) return;
+
   let current = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 100) {
-      current = s.id;
+  page.ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 120) {
+      current = id;
     }
   });
 
-  // Highlight active link
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + current) {
-      link.classList.add('active');
-    }
-  });
-
-  // Auto-open the corresponding accordion group
-  const lectureNum = getLectureNum(current);
-  if (lectureNum !== lastLecture && lectureNum > 0) {
-    lastLecture = lectureNum;
-    navGroups.forEach((group, i) => {
-      if (i === lectureNum - 1) {
-        group.classList.add('open');
-      } else {
-        group.classList.remove('open');
+  if (current) {
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
       }
     });
   }
 });
+
+// Initialize: show home page
+showPage(0);
+
+// Handle browser back/forward with hash
+if (window.location.hash) {
+  const id = window.location.hash.substring(1);
+  const idx = getPageForSection(id);
+  if (idx >= 0) showPage(idx, id);
+}
 
 // ── Quiz Logic ──
 let quiz1Score = 0;
