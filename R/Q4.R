@@ -20,3 +20,4 @@ for (n in sample_sizes) {
   cat("표본비율 평균:", mean(sample_props), "\n")
   cat("표본비율 표준편차:", sd(sample_props), "\n\n")
 }
+

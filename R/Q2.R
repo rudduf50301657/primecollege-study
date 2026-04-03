@@ -1,3 +1,4 @@
+par(family="AppleGothic")
 # 문제2.
 
 # 데이터 입력
@@ -7,6 +8,8 @@ co2 <- c(450, 520, 480, 550, 510, 610, 470, 530, 570, 500,
 
 # 도수분포표 작성
 freq_table <- table(cut(co2, breaks = seq(400, 650, by = 50)))
+
+# 도수분포표
 print(freq_table)
 
 # 막대그래프 시각화
@@ -14,7 +17,8 @@ barplot(freq_table, main="대기 중 이산화탄소 농도 분포",
         xlab="이산화탄소 농도(ppm)", ylab="빈도",
         names.arg = c("400-450", "450-500", "500-550", "550-600", "600-650"))
 
-par(family="AppleGothic")
+
+
 
 
 
