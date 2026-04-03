@@ -1,0 +1,5 @@
+- [사용자 학습 프로필](user_profile.md) — 통계학개론 수강생, 수학 기호 비숙련, 직관적 설명 선호
+- [과외 스타일 피드백](feedback_teaching_style.md) — 반말, 기호→읽기→의미→예시 순서, Q&A 맥락 포함
+- [Q&A를 스터디가이드에 추가](feedback_add_qa_to_guide.md) — 질문/답변을 HTML 가이드에 반영하여 반복학습
+- [공부 진행 상황](project_study_progress.md) — 1~5강 진행 완료, 6~7강 남음, 과제 4/2 예정
+- [헷갈렸던 핵심 개념들](project_key_struggles.md) — 4~5강에서 질문했던 개념 목록 (복습 포인트)
