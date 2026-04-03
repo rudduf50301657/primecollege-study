@@ -763,6 +763,143 @@
 
   /* ── Responsive ── */
   @media (max-width: 900px) {
+  /* ── Quiz Section ── */
+  .quiz-card {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 24px;
+    transition: border-color 0.3s;
+  }
+  .quiz-card:hover { border-color: #8b5cf6; }
+  .quiz-num {
+    display: inline-block;
+    background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+    color: #fff;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 32px;
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  .quiz-type {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .quiz-type.obj { background: #2d1b69; color: #c4b5fd; }
+  .quiz-type.subj { background: #1a3a2a; color: #86efac; }
+  .quiz-question {
+    font-size: 16px;
+    font-weight: 500;
+    color: #e0e0e0;
+    margin: 16px 0;
+    line-height: 1.8;
+  }
+  .quiz-options { list-style: none; padding: 0; margin: 12px 0; }
+  .quiz-options li {
+    padding: 12px 16px;
+    margin: 6px 0;
+    background: #12121f;
+    border: 2px solid #2a2a4a;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+  }
+  .quiz-options li:hover { border-color: #8b5cf6; background: #1e1e35; }
+  .quiz-options li.selected { border-color: #8b5cf6; background: rgba(139, 92, 246, 0.15); }
+  .quiz-options li.correct { border-color: #22c55e; background: rgba(34, 197, 94, 0.15); }
+  .quiz-options li.wrong { border-color: #ef4444; background: rgba(239, 68, 68, 0.15); }
+  .quiz-textarea {
+    width: 100%;
+    min-height: 80px;
+    background: #12121f;
+    border: 2px solid #2a2a4a;
+    border-radius: 10px;
+    color: #e0e0e0;
+    padding: 12px 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    resize: vertical;
+    transition: border-color 0.2s;
+  }
+  .quiz-textarea:focus { outline: none; border-color: #8b5cf6; }
+  .quiz-submit {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 28px;
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.2s;
+  }
+  .quiz-submit:hover { transform: translateY(-1px); box-shadow: 0 4px 15px rgba(139,92,246,0.4); }
+  .quiz-submit:active { transform: translateY(0); }
+  .quiz-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+  .quiz-result {
+    margin-top: 12px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    display: none;
+  }
+  .quiz-result.correct { display: block; background: rgba(34,197,94,0.1); border: 1px solid #22c55e; color: #86efac; }
+  .quiz-result.wrong { display: block; background: rgba(239,68,68,0.1); border: 1px solid #ef4444; color: #fca5a5; }
+  .quiz-explanation {
+    margin-top: 12px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #1a2a3d, #1a1a3d);
+    border: 1px solid #3b82f6;
+    border-radius: 12px;
+    display: none;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #93c5fd;
+  }
+  .quiz-explanation.show { display: block; }
+  .quiz-explanation strong { color: #60a5fa; }
+  .quiz-score-bar {
+    background: #12121f;
+    border: 1px solid #2a2a4a;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .quiz-score-bar .score-text { font-size: 18px; font-weight: 700; color: #8b5cf6; }
+  .quiz-score-bar .score-detail { font-size: 14px; color: #888; }
+  .quiz-progress {
+    flex: 1;
+    min-width: 200px;
+    height: 8px;
+    background: #2a2a4a;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .quiz-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+    width: 0%;
+  }
+
     .sidebar { display: none; }
     .main { margin-left: 0; padding: 20px; }
     .dist-grid { grid-template-columns: 1fr; }
@@ -885,6 +1022,15 @@
       <a href="#summary-all">1~7강 핵심요약</a>
       <a href="#formula-all">전체 공식 정리</a>
       <a href="#cheatsheet">치트시트</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" style="color: #06b6d4;" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 문제풀기
+    </div>
+    <div class="nav-links">
+      <a href="#quiz-1">1강 연습문제</a>
     </div>
   </div>
 </nav>
@@ -4995,6 +5141,119 @@
 </div>
 
 
+<!-- ═══════════ QUIZ: 1강 ═══════════ -->
+<div class="lecture-section" id="quiz-1">
+<div class="lecture-header">
+  <div class="lecture-num" style="background: linear-gradient(135deg, #06b6d4, #8b5cf6);">Q</div>
+  <h2>1강 연습문제</h2>
+</div>
+
+<div class="quiz-score-bar" id="quiz1-score">
+  <span class="score-text">0 / 5</span>
+  <span class="score-detail">맞은 문제</span>
+  <div class="quiz-progress"><div class="quiz-progress-fill" id="quiz1-progress"></div></div>
+</div>
+
+<!-- Q1: 객관식 -->
+<div class="quiz-card" id="q1">
+  <span class="quiz-num">1</span><span class="quiz-type obj">객관식</span>
+  <div class="quiz-question">
+    통계학의 세 가지 핵심 역할을 올바르게 나열한 것은?
+  </div>
+  <ul class="quiz-options" data-answer="2">
+    <li onclick="selectOption(this)">데이터 수집 → 가설 검증 → 결과 발표</li>
+    <li onclick="selectOption(this)">데이터 수집 → 데이터 요약 → 통계적 추론</li>
+    <li onclick="selectOption(this)">표본 추출 → 그래프 작성 → 모수 결정</li>
+    <li onclick="selectOption(this)">실험 설계 → 데이터 정제 → 머신러닝</li>
+  </ul>
+  <button class="quiz-submit" onclick="submitMC(1)">답 제출하기</button>
+  <div class="quiz-result" id="q1-result"></div>
+  <div class="quiz-explanation" id="q1-explain">
+    <strong>해설:</strong> 통계학은 <strong>데이터 수집(Collection)</strong> → <strong>데이터 요약(Summarization)</strong> → <strong>통계적 추론(Inference)</strong>의 과정으로 정의됩니다. 수집 단계에서는 현상을 왜곡 없이 반영하는 데이터를 모으고, 요약 단계에서는 기술통계를 사용해 패턴을 파악하며, 추론 단계에서는 표본으로부터 모집단에 대한 결론을 도출합니다.
+  </div>
+</div>
+
+<!-- Q2: 객관식 -->
+<div class="quiz-card" id="q2">
+  <span class="quiz-num">2</span><span class="quiz-type obj">객관식</span>
+  <div class="quiz-question">
+    어떤 조사에서 전국 대학생 10,000명의 월평균 생활비를 알기 위해 500명을 무작위로 선정해 조사했다. 이때 <strong>모수(parameter)</strong>에 해당하는 것은?
+  </div>
+  <ul class="quiz-options" data-answer="3">
+    <li onclick="selectOption(this)">조사에 응답한 500명의 평균 생활비</li>
+    <li onclick="selectOption(this)">500명을 뽑는 방법</li>
+    <li onclick="selectOption(this)">전국 대학생 10,000명의 실제 평균 생활비</li>
+    <li onclick="selectOption(this)">조사 결과로 만든 그래프</li>
+  </ul>
+  <button class="quiz-submit" onclick="submitMC(2)">답 제출하기</button>
+  <div class="quiz-result" id="q2-result"></div>
+  <div class="quiz-explanation" id="q2-explain">
+    <strong>해설:</strong> <strong>모수(parameter)</strong>는 모집단 전체의 특성값으로, 고정된 값이지만 대부분 알 수 없습니다. 여기서 모집단은 전국 대학생 10,000명이고, 그들의 실제 평균 생활비가 모수입니다. 반면 500명에서 계산한 평균은 <strong>통계량(statistic)</strong>으로, 어떤 표본을 뽑느냐에 따라 달라집니다.
+  </div>
+</div>
+
+<!-- Q3: 주관식 -->
+<div class="quiz-card" id="q3">
+  <span class="quiz-num">3</span><span class="quiz-type subj">주관식</span>
+  <div class="quiz-question">
+    데이터의 세 가지 기본 요소를 각각 한 단어로 쓰시오. (쉼표로 구분)
+  </div>
+  <textarea class="quiz-textarea" id="q3-input" placeholder="예: OO, OO, OOO"></textarea>
+  <br>
+  <button class="quiz-submit" onclick="submitSA(3)">답 제출하기</button>
+  <div class="quiz-result" id="q3-result"></div>
+  <div class="quiz-explanation" id="q3-explain">
+    <strong>정답: 단위, 변수, 관찰값</strong><br><br>
+    <strong>해설:</strong> 데이터를 표(table)로 생각하면 이해가 쉽습니다.<br>
+    - <strong>단위(Unit)</strong>: 관찰 대상 하나하나 (표의 각 행)<br>
+    - <strong>변수(Variable)</strong>: 측정하는 특성 (표의 각 열)<br>
+    - <strong>관찰값(Observation)</strong>: 특정 단위에서 특정 변수를 측정한 값 (표의 각 셀)
+  </div>
+</div>
+
+<!-- Q4: 주관식 -->
+<div class="quiz-card" id="q4">
+  <span class="quiz-num">4</span><span class="quiz-type subj">주관식</span>
+  <div class="quiz-question">
+    <strong>단순랜덤표집(Simple Random Sampling)</strong>이 왜 중요한지, 그리고 이를 사용하지 않을 때 발생할 수 있는 문제를 한 문장으로 설명하시오.
+  </div>
+  <textarea class="quiz-textarea" id="q4-input" placeholder="답을 입력하세요..."></textarea>
+  <br>
+  <button class="quiz-submit" onclick="submitSA(4)">답 제출하기</button>
+  <div class="quiz-result" id="q4-result"></div>
+  <div class="quiz-explanation" id="q4-explain">
+    <strong>모범답안:</strong> 단순랜덤표집은 모집단의 모든 부분집합이 동일한 확률로 선택될 수 있도록 보장하여, 표본이 모집단을 편향 없이 대표하게 합니다. 이를 사용하지 않으면 특정 집단이 과대/과소 대표되어 <strong>편향된 결론</strong>을 내릴 수 있습니다.<br><br>
+    <strong>해설:</strong> 예를 들어 서울 강남 한 지역에서만 주거비를 조사하면, 전국 평균보다 높은 결과가 나올 수밖에 없습니다. 단순랜덤표집은 이런 <strong>선택 편향(selection bias)</strong>을 방지합니다.
+  </div>
+</div>
+
+<!-- Q5: 객관식 -->
+<div class="quiz-card" id="q5">
+  <span class="quiz-num">5</span><span class="quiz-type obj">객관식</span>
+  <div class="quiz-question">
+    다음 중 <strong>기술통계(descriptive statistics)</strong>에 해당하는 것을 모두 고르면?<br><br>
+    ㄱ. 표본의 평균과 표준편차를 계산한다<br>
+    ㄴ. 표본 결과로 모집단의 평균을 추정한다<br>
+    ㄷ. 데이터를 히스토그램으로 시각화한다<br>
+    ㄹ. 신뢰구간을 구한다
+  </div>
+  <ul class="quiz-options" data-answer="2">
+    <li onclick="selectOption(this)">ㄱ, ㄴ</li>
+    <li onclick="selectOption(this)">ㄱ, ㄷ</li>
+    <li onclick="selectOption(this)">ㄴ, ㄹ</li>
+    <li onclick="selectOption(this)">ㄱ, ㄴ, ㄷ</li>
+  </ul>
+  <button class="quiz-submit" onclick="submitMC(5)">답 제출하기</button>
+  <div class="quiz-result" id="q5-result"></div>
+  <div class="quiz-explanation" id="q5-explain">
+    <strong>정답: ㄱ, ㄷ</strong><br><br>
+    <strong>해설:</strong> <strong>기술통계</strong>는 주어진 데이터를 정리하고 요약하는 것입니다. 평균/표준편차 계산(ㄱ)과 그래프 작성(ㄷ)이 여기에 해당합니다.<br>
+    반면, 표본으로 모집단을 추정하는 것(ㄴ)과 신뢰구간(ㄹ)은 <strong>추론통계(inferential statistics)</strong>에 해당합니다. 추론통계는 표본에서 모집단으로 일반화하는 과정입니다.
+  </div>
+</div>
+
+</div>
+
 <!-- ═══════════ JAVASCRIPT ═══════════ -->
 <script>
 // Outlier Interactive Demo
@@ -5030,7 +5289,7 @@ const navGroups = document.querySelectorAll('.nav-group');
 function getLectureNum(id) {
   if (!id) return -1;
   const m = id.match(/^(\d+)-/);
-  return m ? parseInt(m[1]) : (id === 'cheatsheet' ? 8 : -1);
+  return m ? parseInt(m[1]) : (id === 'cheatsheet' ? 8 : (id.startsWith('quiz') ? 9 : -1));
 }
 
 let lastLecture = -1;
@@ -5064,6 +5323,97 @@ window.addEventListener('scroll', () => {
     });
   }
 });
+
+// ── Quiz Logic ──
+let quiz1Score = 0;
+const quiz1Submitted = {};
+
+function selectOption(li) {
+  const ul = li.parentElement;
+  if (ul.dataset.submitted) return;
+  ul.querySelectorAll('li').forEach(l => l.classList.remove('selected'));
+  li.classList.add('selected');
+}
+
+function submitMC(qNum) {
+  if (quiz1Submitted[qNum]) return;
+  const card = document.getElementById('q' + qNum);
+  const ul = card.querySelector('.quiz-options');
+  const selected = ul.querySelector('li.selected');
+  if (!selected) return;
+
+  const answer = parseInt(ul.dataset.answer);
+  const items = ul.querySelectorAll('li');
+  const selectedIdx = Array.from(items).indexOf(selected) + 1;
+  const resultEl = document.getElementById('q' + qNum + '-result');
+  const explainEl = document.getElementById('q' + qNum + '-explain');
+  const btn = card.querySelector('.quiz-submit');
+
+  ul.dataset.submitted = 'true';
+  btn.disabled = true;
+
+  if (selectedIdx === answer) {
+    selected.classList.remove('selected');
+    selected.classList.add('correct');
+    resultEl.textContent = '정답입니다!';
+    resultEl.className = 'quiz-result correct';
+    quiz1Score++;
+  } else {
+    selected.classList.remove('selected');
+    selected.classList.add('wrong');
+    items[answer - 1].classList.add('correct');
+    resultEl.textContent = '오답입니다. 정답은 ' + answer + '번입니다.';
+    resultEl.className = 'quiz-result wrong';
+  }
+
+  explainEl.classList.add('show');
+  quiz1Submitted[qNum] = true;
+  updateQuizScore();
+}
+
+function submitSA(qNum) {
+  if (quiz1Submitted[qNum]) return;
+  const card = document.getElementById('q' + qNum);
+  const input = document.getElementById('q' + qNum + '-input');
+  const val = input.value.trim();
+  if (!val) return;
+
+  const resultEl = document.getElementById('q' + qNum + '-result');
+  const explainEl = document.getElementById('q' + qNum + '-explain');
+  const btn = card.querySelector('.quiz-submit');
+
+  input.readOnly = true;
+  btn.disabled = true;
+
+  if (qNum === 3) {
+    const normalized = val.replace(/\s/g, '').replace(/,/g, ',');
+    const keywords = ['단위', '변수', '관찰값'];
+    const allMatch = keywords.every(k => normalized.includes(k));
+    if (allMatch) {
+      resultEl.textContent = '정답입니다!';
+      resultEl.className = 'quiz-result correct';
+      quiz1Score++;
+    } else {
+      resultEl.textContent = '아래 해설에서 정답을 확인하세요.';
+      resultEl.className = 'quiz-result wrong';
+    }
+  } else {
+    resultEl.textContent = '답이 제출되었습니다. 아래 해설에서 모범답안을 확인하세요.';
+    resultEl.className = 'quiz-result correct';
+  }
+
+  explainEl.classList.add('show');
+  quiz1Submitted[qNum] = true;
+  updateQuizScore();
+}
+
+function updateQuizScore() {
+  const submitted = Object.keys(quiz1Submitted).length;
+  const scoreBar = document.getElementById('quiz1-score');
+  scoreBar.querySelector('.score-text').textContent = quiz1Score + ' / 5';
+  const progress = document.getElementById('quiz1-progress');
+  progress.style.width = (submitted / 5 * 100) + '%';
+}
 </script>
 
 </div>
