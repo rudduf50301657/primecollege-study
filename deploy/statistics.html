@@ -761,8 +761,6 @@
     font-size: 14px;
   }
 
-  /* ── Responsive ── */
-  @media (max-width: 900px) {
   /* ── Quiz Section ── */
   .quiz-hero {
     text-align: center;
@@ -1101,10 +1099,15 @@
     margin-bottom: 10px;
   }
 
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
     .sidebar { display: none; }
     .main { margin-left: 0; padding: 20px; }
     .dist-grid { grid-template-columns: 1fr; }
     .cv-compare { flex-direction: column; }
+    .quiz-card-body { padding: 16px 20px 20px; }
+    .quiz-card-header { padding: 16px 20px 0; }
+    .quiz-score-bar { padding: 16px 20px; }
   }
 </style>
 </head>
