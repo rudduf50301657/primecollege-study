@@ -903,6 +903,25 @@
   .quiz-textarea:focus { outline: none; border-color: #06b6d4; box-shadow: 0 0 0 3px rgba(6,182,212,0.15); }
   .quiz-textarea[readonly] { opacity: 0.7; cursor: default; }
 
+  .quiz-hint-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 16px; margin-right: 10px; padding: 10px 20px;
+    background: transparent; color: #eab308; border: 1px solid #eab308;
+    border-radius: 12px; font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px; font-weight: 600; cursor: pointer;
+    transition: all 0.2s;
+  }
+  .quiz-hint-btn:hover { background: rgba(234,179,8,0.1); }
+  .quiz-hint {
+    margin-top: 12px; padding: 16px 20px;
+    background: linear-gradient(135deg, rgba(234,179,8,0.06), rgba(234,179,8,0.02));
+    border-left: 4px solid #eab308; border-radius: 0 12px 12px 0;
+    display: none; font-size: 14px; line-height: 1.8; color: #d4c87a;
+    animation: quizFadeIn 0.3s ease;
+  }
+  .quiz-hint.show { display: block; }
+  .quiz-hint strong { color: #eab308; }
+
   .quiz-submit {
     display: inline-flex; align-items: center; gap: 8px;
     margin-top: 16px; padding: 12px 32px;
@@ -5036,12 +5055,18 @@
       <li data-label="C" onclick="selectOption(this)">표본 추출 → 그래프 작성 → 모수 결정</li>
       <li data-label="D" onclick="selectOption(this)">실험 설계 → 데이터 정제 → 머신러닝</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(1)">힌트 보기</button>
+    <div class="quiz-hint" id="q1-hint">통계학의 기본 과정은 '수집 → 요약 → 추론' 3단계로 구성됩니다.</div>
     <button class="quiz-submit" onclick="submitMC(1)">답 제출하기</button>
     <div class="quiz-result" id="q1-result"></div>
     <div class="quiz-explanation" id="q1-explain">
       <div class="quiz-explain-label">해설</div>
+      <strong>핵심 개념: 통계학의 3단계</strong><br><br>
       통계학은 <strong>데이터 수집(Collection)</strong> → <strong>데이터 요약(Summarization)</strong> → <strong>통계적 추론(Inference)</strong>의 과정으로 정의됩니다.<br><br>
-      수집 단계에서는 현상을 왜곡 없이 반영하는 데이터를 모으고, 요약 단계에서는 기술통계를 사용해 패턴을 파악하며, 추론 단계에서는 표본으로부터 모집단에 대한 결론을 도출합니다.
+      ① <strong>수집 단계</strong>: 현상을 왜곡 없이 반영하는 데이터를 모읍니다.<br>
+      ② <strong>요약 단계</strong>: 기술통계를 사용해 패턴을 파악합니다 (평균, 그래프 등).<br>
+      ③ <strong>추론 단계</strong>: 표본으로부터 모집단에 대한 결론을 도출합니다.<br><br>
+      💡 <strong>Tip:</strong> '가설 검증', '머신러닝' 등은 통계학의 3대 핵심 역할에 해당하지 않습니다.
     </div>
   </div>
 </div>
@@ -5059,12 +5084,21 @@
       <li data-label="C" onclick="selectOption(this)">전국 대학생 10,000명의 실제 평균 생활비</li>
       <li data-label="D" onclick="selectOption(this)">조사 결과로 만든 그래프</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(2)">힌트 보기</button>
+    <div class="quiz-hint" id="q2-hint">모수(parameter)는 '모집단 전체'의 특성값이고, 통계량(statistic)은 '표본'에서 계산한 값입니다.</div>
     <button class="quiz-submit" onclick="submitMC(2)">답 제출하기</button>
     <div class="quiz-result" id="q2-result"></div>
     <div class="quiz-explanation" id="q2-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>모수(parameter)</strong>는 모집단 전체의 특성값으로, 고정된 값이지만 대부분 알 수 없습니다.<br><br>
-      여기서 모집단은 전국 대학생 10,000명이고, 그들의 실제 평균 생활비가 모수입니다. 반면 500명에서 계산한 평균은 <strong>통계량(statistic)</strong>으로, 어떤 표본을 뽑느냐에 따라 달라집니다.
+      <strong>핵심 개념: 모수 vs 통계량</strong><br><br>
+      <strong>모수(parameter)</strong>는 모집단 전체의 특성값으로, 고정된 값이지만 대부분 알 수 없습니다.<br>
+      <strong>통계량(statistic)</strong>은 표본 데이터로부터 계산한 값으로, 표본마다 값이 달라집니다.<br><br>
+      이 문제에서:<br>
+      - 모집단 = 전국 대학생 10,000명<br>
+      - 모수 = 10,000명의 <strong>실제 평균</strong> 생활비 (고정된 미지의 값)<br>
+      - 표본 = 무작위로 선정된 500명<br>
+      - 통계량 = 500명의 평균 생활비 (표본마다 변함)<br><br>
+      💡 <strong>주의:</strong> '500명을 뽑는 방법'은 표집방법이지 모수가 아닙니다.
     </div>
   </div>
 </div>
@@ -5082,15 +5116,18 @@
       <li data-label="C" onclick="selectOption(this)">단위, 변수, 관찰값</li>
       <li data-label="D" onclick="selectOption(this)">행, 열, 셀</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(3)">힌트 보기</button>
+    <div class="quiz-hint" id="q3-hint">데이터 테이블에서 행(관찰 대상), 열(측정 특성), 셀(측정 값)을 떠올려 보세요.</div>
     <button class="quiz-submit" onclick="submitMC(3)">답 제출하기</button>
     <div class="quiz-result" id="q3-result"></div>
     <div class="quiz-explanation" id="q3-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 단위, 변수, 관찰값</strong><br><br>
+      <strong>핵심 개념: 데이터의 3대 요소</strong><br><br>
       데이터를 표(table)로 생각하면 이해가 쉽습니다.<br>
       - <strong>단위(Unit)</strong>: 관찰 대상 하나하나 (표의 각 행)<br>
       - <strong>변수(Variable)</strong>: 측정하는 특성 (표의 각 열)<br>
-      - <strong>관찰값(Observation)</strong>: 특정 단위에서 특정 변수를 측정한 값 (표의 각 셀)
+      - <strong>관찰값(Observation)</strong>: 특정 단위에서 특정 변수를 측정한 값 (표의 각 셀)<br><br>
+      💡 <strong>주의:</strong> 모집단·표본·통계량은 통계학의 구성 요소이지 데이터의 기본 요소가 아닙니다.
     </div>
   </div>
 </div>
@@ -5108,12 +5145,19 @@
       <li data-label="C" onclick="selectOption(this)">모수와 통계량이 같아진다</li>
       <li data-label="D" onclick="selectOption(this)">표준편차가 0이 된다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(4)">힌트 보기</button>
+    <div class="quiz-hint" id="q4-hint">단순랜덤표집을 하지 않으면 특정 집단이 과대/과소 대표될 수 있습니다.</div>
     <button class="quiz-submit" onclick="submitMC(4)">답 제출하기</button>
     <div class="quiz-result" id="q4-result"></div>
     <div class="quiz-explanation" id="q4-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 선택 편향(selection bias)이 발생한다</strong><br><br>
-      단순랜덤표집은 모집단의 모든 부분집합이 동일한 확률로 선택될 수 있도록 보장합니다. 이를 사용하지 않으면 특정 집단이 과대/과소 대표되어 <strong>편향된 결론</strong>을 내릴 수 있습니다.
+      <strong>핵심 개념: 단순랜덤표집과 선택 편향</strong><br><br>
+      <strong>단순랜덤표집(SRS)</strong>은 모집단의 모든 부분집합이 동일한 확률로 선택될 수 있도록 보장합니다.<br><br>
+      이를 사용하지 않으면:<br>
+      - 특정 집단이 <strong>과대/과소 대표</strong>될 수 있음<br>
+      - <strong>선택 편향(selection bias)</strong>이 발생<br>
+      - 편향된 결론을 내릴 위험이 높아짐<br><br>
+      💡 <strong>주의:</strong> 표본 크기가 커진다거나 표준편차가 0이 되는 것은 비랜덤표집의 문제가 아닙니다.
     </div>
   </div>
 </div>
@@ -5137,13 +5181,19 @@
       <li data-label="C" onclick="selectOption(this)">ㄴ, ㄹ</li>
       <li data-label="D" onclick="selectOption(this)">ㄱ, ㄴ, ㄷ</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(5)">힌트 보기</button>
+    <div class="quiz-hint" id="q5-hint">기술통계는 '주어진 데이터를 정리·요약'하는 것이고, 추론통계는 '표본→모집단 일반화'입니다.</div>
     <button class="quiz-submit" onclick="submitMC(5)">답 제출하기</button>
     <div class="quiz-result" id="q5-result"></div>
     <div class="quiz-explanation" id="q5-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: ㄱ, ㄷ</strong><br><br>
-      <strong>기술통계</strong>는 주어진 데이터를 정리하고 요약하는 것입니다. 평균/표준편차 계산(ㄱ)과 그래프 작성(ㄷ)이 여기에 해당합니다.<br><br>
-      반면, 표본으로 모집단을 추정하는 것(ㄴ)과 신뢰구간(ㄹ)은 <strong>추론통계(inferential statistics)</strong>에 해당합니다. 추론통계는 표본에서 모집단으로 일반화하는 과정입니다.
+      <strong>핵심 개념: 기술통계 vs 추론통계</strong><br><br>
+      <strong>기술통계(descriptive)</strong>: 주어진 데이터를 정리·요약하는 것<br>
+      → ㄱ(평균·표준편차 계산), ㄷ(히스토그램 시각화)<br><br>
+      <strong>추론통계(inferential)</strong>: 표본에서 모집단으로 일반화하는 것<br>
+      → ㄴ(모집단 평균 추정), ㄹ(신뢰구간 구하기)<br><br>
+      따라서 정답은 <strong>ㄱ, ㄷ</strong>입니다.<br><br>
+      💡 <strong>구분법:</strong> "표본→모집단"이 들어가면 추론통계, "있는 그대로 정리"이면 기술통계입니다.
     </div>
   </div>
 </div>
@@ -5162,12 +5212,19 @@
       <li data-label="C" onclick="selectOption(this)">모집단의 고정된 특성값이다</li>
       <li data-label="D" onclick="selectOption(this)">모수를 추정하기 위해 사용한다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(6)">힌트 보기</button>
+    <div class="quiz-hint" id="q6-hint">'모집단의 고정된 특성값'이 모수인지 통계량인지 구분해 보세요.</div>
     <button class="quiz-submit" onclick="submitMC(6)">답 제출하기</button>
     <div class="quiz-result" id="q6-result"></div>
     <div class="quiz-explanation" id="q6-explain">
       <div class="quiz-explain-label">해설</div>
-      "모집단의 고정된 특성값"은 <strong>모수(parameter)</strong>에 대한 설명입니다.<br><br>
-      <strong>통계량</strong>은 표본에서 계산한 값으로, 표본이 바뀌면 값도 바뀝니다. 모수를 추정하는 데 사용되지만, 그 자체가 모집단의 고정된 값은 아닙니다.
+      <strong>핵심 개념: 통계량(statistic)의 정의</strong><br><br>
+      <strong>통계량</strong>은 표본에서 계산한 값으로 다음 성질을 가집니다:<br>
+      ✓ 표본 데이터로부터 계산 가능 (A)<br>
+      ✓ 표본이 바뀌면 값도 바뀜 (B)<br>
+      ✓ 모수를 추정하는 데 사용 (D)<br><br>
+      ✗ "모집단의 고정된 특성값"은 <strong>모수(parameter)</strong>에 대한 설명입니다 (C가 오답).<br><br>
+      💡 <strong>기억법:</strong> 모수 = 고정(모집단), 통계량 = 변동(표본)
     </div>
   </div>
 </div>
@@ -5186,12 +5243,18 @@
       <li data-label="C" onclick="selectOption(this)">어떤 회사의 전체 직원 500명</li>
       <li data-label="D" onclick="selectOption(this)">공장에서 계속 생산되는 제품의 수명</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(7)">힌트 보기</button>
+    <div class="quiz-hint" id="q7-hint">무한 모집단은 이론적으로 끝없이 늘어날 수 있는 집단입니다. 계속 생산되는 경우를 생각해 보세요.</div>
     <button class="quiz-submit" onclick="submitMC(7)">답 제출하기</button>
     <div class="quiz-result" id="q7-result"></div>
     <div class="quiz-explanation" id="q7-explain">
       <div class="quiz-explain-label">해설</div>
-      A, B, C는 모두 개체 수가 정해져 있는 <strong>유한 모집단</strong>입니다.<br><br>
-      공장에서 계속 생산되는 제품은 이론적으로 끝없이 만들어지므로 <strong>무한 모집단</strong>에 해당합니다. 동전 던지기의 모든 결과도 같은 원리입니다.
+      <strong>핵심 개념: 유한 모집단 vs 무한 모집단</strong><br><br>
+      <strong>유한 모집단</strong>: 구성원의 수가 정해져 있는 집단<br>
+      → A(학생 35명), B(등록 자동차), C(직원 500명)<br><br>
+      <strong>무한 모집단</strong>: 이론적으로 끝없이 늘어날 수 있는 집단<br>
+      → D(공장에서 <strong>계속 생산</strong>되는 제품의 수명)<br><br>
+      💡 <strong>Tip:</strong> '계속', '앞으로', '모든 잠재적' 같은 표현이 나오면 무한 모집단을 의심해 보세요.
     </div>
   </div>
 </div>
@@ -5212,12 +5275,18 @@
       <li data-label="C" onclick="selectOption(this)">400명의 평균 통학 시간</li>
       <li data-label="D" onclick="selectOption(this)">통학 시간이라는 변수</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(8)">힌트 보기</button>
+    <div class="quiz-hint" id="q8-hint">모집단은 '알고 싶은 전체 집단'이고, 표본은 '실제로 조사한 부분집합'입니다.</div>
     <button class="quiz-submit" onclick="submitMC(8)">답 제출하기</button>
     <div class="quiz-result" id="q8-result"></div>
     <div class="quiz-explanation" id="q8-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 재학생 15,000명 전체</strong><br><br>
-      모집단은 "알고 싶은 전체 집단"이므로 재학생 15,000명 전체입니다. 400명은 표본이고, 400명의 평균 통학 시간은 통계량입니다.
+      <strong>핵심 개념: 모집단·표본·통계량 구분</strong><br><br>
+      - <strong>모집단</strong> = 알고 싶은 전체 집단 → 재학생 <strong>15,000명 전체</strong><br>
+      - <strong>표본</strong> = 실제로 조사한 부분집합 → 무작위로 뽑힌 400명<br>
+      - <strong>통계량</strong> = 표본에서 계산한 값 → 400명의 평균 통학 시간<br>
+      - <strong>변수</strong> = 측정하는 특성 → 통학 시간<br><br>
+      💡 <strong>Tip:</strong> "~를 알기 위해"가 나오면 '알고 싶은 전체'가 모집단입니다.
     </div>
   </div>
 </div>
@@ -5248,12 +5317,20 @@
       <li data-label="C" onclick="selectOption(this)">4개</li>
       <li data-label="D" onclick="selectOption(this)">8개</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(9)">힌트 보기</button>
+    <div class="quiz-hint" id="q9-hint">'학생' 열은 단위를 식별하는 이름이지 변수가 아닙니다. 나머지 열만 세어보세요.</div>
     <button class="quiz-submit" onclick="submitMC(9)">답 제출하기</button>
     <div class="quiz-result" id="q9-result"></div>
     <div class="quiz-explanation" id="q9-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 3개 (나이, 전공, GPA)</strong><br><br>
-      변수는 각 단위에 대해 측정하는 <strong>특성(열)</strong>입니다. "학생" 열은 단위(관찰 대상)를 식별하는 이름이지 측정한 특성이 아니므로 변수에 포함하지 않습니다. 단위는 A, B 2명이고, 관찰값은 총 6개(2명 x 3변수)입니다.
+      <strong>핵심 개념: 변수의 개수 세기</strong><br><br>
+      변수는 각 단위에 대해 측정하는 <strong>특성(열)</strong>입니다.<br>
+      - 나이, 전공, GPA → <strong>변수 3개</strong><br>
+      - "학생" 열 → 단위(관찰 대상)를 식별하는 이름이므로 변수 아님<br><br>
+      추가로:<br>
+      - 단위(행) = A, B → 2명<br>
+      - 관찰값(셀) = 2명 × 3변수 = <strong>6개</strong><br><br>
+      💡 <strong>주의:</strong> 열 수(4개)와 변수 수(3개)를 혼동하지 마세요. ID 열은 변수가 아닙니다.
     </div>
   </div>
 </div>
@@ -5272,12 +5349,18 @@
       <li data-label="C" onclick="selectOption(this)">모집단이 유한하면 표본을 뽑을 수 없다</li>
       <li data-label="D" onclick="selectOption(this)">비용·시간이 많이 들거나 파괴검사처럼 전수조사가 불가능한 경우가 있다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(10)">힌트 보기</button>
+    <div class="quiz-hint" id="q10-hint">파괴검사나 비용·시간 문제를 생각해 보세요. 전수조사가 물리적으로 불가능한 경우가 있습니다.</div>
     <button class="quiz-submit" onclick="submitMC(10)">답 제출하기</button>
     <div class="quiz-result" id="q10-result"></div>
     <div class="quiz-explanation" id="q10-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 비용·시간이 많이 들거나 파괴검사처럼 전수조사가 불가능한 경우가 있다</strong><br><br>
-      전수조사는 비용과 시간이 많이 들기 때문에, 유한 모집단이라도 규모가 크면 표본조사가 더 효율적입니다. 또한 파괴검사(예: 전구 수명 테스트)처럼 조사 자체가 대상을 소모하는 경우에는 전수조사가 불가능합니다.
+      <strong>핵심 개념: 표본조사의 필요성</strong><br><br>
+      유한 모집단이라도 표본조사를 하는 이유:<br>
+      ① <strong>비용·시간</strong>: 대규모 모집단은 전수조사가 비효율적<br>
+      ② <strong>파괴검사</strong>: 전구 수명 테스트처럼 조사 자체가 대상을 소모하는 경우<br>
+      ③ <strong>물리적 불가능</strong>: 접근이 어려운 대상<br><br>
+      💡 <strong>주의:</strong> 전수조사가 법적으로 금지된 것은 아니며, 표본조사가 항상 더 정확한 것도 아닙니다.
     </div>
   </div>
 </div>
@@ -5292,11 +5375,20 @@
       <li data-label="C" onclick="selectOption(this)">5명으로 구성된 소규모 팀의 업무 만족도 조사</li>
       <li data-label="D" onclick="selectOption(this)">대한민국 전체 가구의 연간 소득 조사</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(71)">힌트 보기</button>
+    <div class="quiz-hint" id="q71-hint">모집단이 매우 작으면 표본을 뽑는 것보다 전수조사가 더 합리적입니다.</div>
     <button class="quiz-submit" onclick="submitMC(71)">답 제출하기</button>
     <div class="quiz-result" id="q71-result"></div>
     <div class="quiz-explanation" id="q71-explain">
       <div class="quiz-explain-label">해설</div>
-      모집단의 크기가 5명처럼 <strong>매우 작을 때</strong>는 표본을 따로 뽑는 것보다 전수조사가 더 효율적이고 정확합니다. A는 파괴검사이므로 전수조사가 불가능하고, B와 D는 모집단이 너무 커서 표본조사가 적절합니다.
+      <strong>핵심 개념: 전수조사가 필요한 경우</strong><br><br>
+      모집단의 크기가 매우 작을 때는 표본을 따로 뽑는 것보다 <strong>전수조사가 더 효율적이고 정확</strong>합니다.<br><br>
+      각 선택지 분석:<br>
+      - A: 전구 수명 테스트 → <strong>파괴검사</strong>이므로 전수조사 불가능<br>
+      - B: 전국 대학생 → 모집단이 너무 커서 표본조사가 적절<br>
+      - C: <strong>5명</strong> → 매우 작으므로 전수조사가 합리적 ✓<br>
+      - D: 전체 가구 → 모집단이 너무 커서 표본조사가 적절<br><br>
+      💡 <strong>Tip:</strong> 모집단이 작으면 전수조사, 크면 표본조사가 원칙입니다.
     </div>
   </div>
 </div>
@@ -5311,11 +5403,16 @@
       <li data-label="C" onclick="selectOption(this)">변수가 질적 변수이므로 통계 분석이 불가능하다</li>
       <li data-label="D" onclick="selectOption(this)">모집단이 무한하므로 전수조사를 해야 한다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(72)">힌트 보기</button>
+    <div class="quiz-hint" id="q72-hint">자발적 응답 조사에서는 관심이 강한 사람만 응답하는 경향이 있습니다.</div>
     <button class="quiz-submit" onclick="submitMC(72)">답 제출하기</button>
     <div class="quiz-result" id="q72-result"></div>
     <div class="quiz-explanation" id="q72-explain">
       <div class="quiz-explain-label">해설</div>
-      자발적 응답 조사(voluntary response survey)는 <strong>관심이 강한 사람만 응답</strong>하는 경향이 있어 자기선택 편향이 발생합니다. 이는 랜덤표집 원칙을 위반한 것으로, 응답자가 아무리 많아도 모집단을 대표하지 못합니다.
+      <strong>핵심 개념: 자기선택 편향(self-selection bias)</strong><br><br>
+      자발적 응답 조사(voluntary response survey)에서는 <strong>관심이 강한 사람만 응답</strong>하는 경향이 있어 자기선택 편향이 발생합니다.<br><br>
+      이는 랜덤표집 원칙을 위반한 것으로, 응답자가 아무리 많아도 모집단을 대표하지 못합니다.<br><br>
+      💡 <strong>주의:</strong> 표본 크기가 작아서가 아니라, <strong>표집 방법 자체</strong>의 문제입니다. 질적 변수도 통계 분석이 가능합니다.
     </div>
   </div>
 </div>
@@ -5330,11 +5427,18 @@
       <li data-label="C" onclick="selectOption(this)">표본의 크기가 다르기 때문이다</li>
       <li data-label="D" onclick="selectOption(this)">표본추출의 랜덤성에 의한 표집변동(sampling variability) 때문이다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(73)">힌트 보기</button>
+    <div class="quiz-hint" id="q73-hint">같은 모집단에서 다른 표본을 뽑으면 통계량이 달라지는 것은 자연스러운 현상입니다.</div>
     <button class="quiz-submit" onclick="submitMC(73)">답 제출하기</button>
     <div class="quiz-result" id="q73-result"></div>
     <div class="quiz-explanation" id="q73-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>표집변동(sampling variability)</strong>은 서로 다른 표본이 뽑힐 때마다 통계량이 달라지는 자연스러운 현상입니다. 모수는 고정값이고, 이 차이는 측정 오류가 아니라 <strong>랜덤 표본추출의 본질적 특성</strong>입니다. 이것이 바로 추론통계가 필요한 이유이기도 합니다.
+      <strong>핵심 개념: 표집변동(sampling variability)</strong><br><br>
+      <strong>표집변동</strong>은 서로 다른 표본이 뽑힐 때마다 통계량이 달라지는 <strong>자연스러운 현상</strong>입니다.<br><br>
+      - 모수(모평균)는 <strong>고정값</strong>으로 변하지 않음<br>
+      - 통계량(표본평균)은 <strong>어떤 표본을 뽑느냐</strong>에 따라 달라짐<br>
+      - 이는 측정 오류가 아니라 <strong>랜덤 표본추출의 본질적 특성</strong><br><br>
+      💡 <strong>Tip:</strong> 이것이 바로 추론통계가 필요한 이유이기도 합니다.
     </div>
   </div>
 </div>
@@ -5353,11 +5457,18 @@
       <li data-label="C" onclick="selectOption(this)">유한: ㄱ, ㄷ / 무한: ㄴ</li>
       <li data-label="D" onclick="selectOption(this)">유한: ㄴ / 무한: ㄱ, ㄷ</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(74)">힌트 보기</button>
+    <div class="quiz-hint" id="q74-hint">현재 시점에 수가 정해져 있으면 유한, 이론적으로 끝이 없으면 무한 모집단입니다.</div>
     <button class="quiz-submit" onclick="submitMC(74)">답 제출하기</button>
     <div class="quiz-result" id="q74-result"></div>
     <div class="quiz-explanation" id="q74-explain">
       <div class="quiz-explain-label">해설</div>
-      ㄱ은 특정 시점에 등록된 수가 정해져 있으므로 <strong>유한 모집단</strong>입니다. ㄴ은 기계가 계속 생산하므로 끝이 없고, ㄷ은 현재와 미래의 모든 잠재적 환자를 포함하므로 둘 다 <strong>무한 모집단</strong>입니다.
+      <strong>핵심 개념: 유한 vs 무한 모집단 분류</strong><br><br>
+      ㄱ. 2025년 서울시 택시 → 특정 시점에 수가 정해짐 → <strong>유한</strong><br>
+      ㄴ. 기계로 생산할 모든 나사 → 끝없이 생산 가능 → <strong>무한</strong><br>
+      ㄷ. 모든 잠재적 환자 → 현재+미래 포함 → <strong>무한</strong><br><br>
+      따라서 유한: ㄱ / 무한: ㄴ, ㄷ<br><br>
+      💡 <strong>판단 기준:</strong> "특정 시점에 수가 확정"이면 유한, "이론적으로 끝이 없으면" 무한입니다.
     </div>
   </div>
 </div>
@@ -5384,11 +5495,17 @@
       <li data-label="C" onclick="selectOption(this)">6개</li>
       <li data-label="D" onclick="selectOption(this)">8개</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(75)">힌트 보기</button>
+    <div class="quiz-hint" id="q75-hint">관찰값의 수 = 단위(행) × 변수(열)입니다. 단위를 식별하는 열은 변수가 아닙니다.</div>
     <button class="quiz-submit" onclick="submitMC(75)">답 제출하기</button>
     <div class="quiz-result" id="q75-result"></div>
     <div class="quiz-explanation" id="q75-explain">
       <div class="quiz-explain-label">해설</div>
-      단위(환자)는 2명, 변수(체온, 증상 등급, 성별)는 3개입니다. <strong>관찰값은 각 단위에서 각 변수를 측정한 값</strong>이므로 2 × 3 = <strong>6개</strong>입니다. "환자" 열은 단위를 식별하는 이름이지 변수가 아닙니다.
+      <strong>핵심 개념: 관찰값의 개수 = 단위 × 변수</strong><br><br>
+      - 단위(행): 환자 1, 환자 2 → <strong>2명</strong><br>
+      - 변수(열): 체온, 증상 등급, 성별 → <strong>3개</strong> ("환자" 열은 ID이므로 변수 아님)<br>
+      - 관찰값(셀): 2 × 3 = <strong>6개</strong><br><br>
+      💡 <strong>주의:</strong> "환자" 열은 단위를 식별하는 이름이지 측정한 특성이 아니므로 변수에 포함하지 않습니다.
     </div>
   </div>
 </div>
@@ -5403,11 +5520,20 @@
       <li data-label="C" onclick="selectOption(this)">모수는 항상 정확히 알 수 있고, 통계량은 추정치이다</li>
       <li data-label="D" onclick="selectOption(this)">모수는 고정된 미지의 값이고, 통계량은 표본에서 계산한 모수의 추정치이다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(76)">힌트 보기</button>
+    <div class="quiz-hint" id="q76-hint">모수는 모집단에서, 통계량은 표본에서 계산합니다. 어느 쪽이 고정값인지 생각해 보세요.</div>
     <button class="quiz-submit" onclick="submitMC(76)">답 제출하기</button>
     <div class="quiz-result" id="q76-result"></div>
     <div class="quiz-explanation" id="q76-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>모수</strong>는 모집단 전체의 특성값으로 하나의 <strong>고정된 값</strong>이지만 대부분 알 수 없습니다. <strong>통계량</strong>은 표본 데이터로부터 계산한 값으로, 표본마다 달라지며 모수를 <strong>추정</strong>하는 데 사용됩니다.
+      <strong>핵심 개념: 모수와 통계량의 구분</strong><br><br>
+      <strong>모수(parameter)</strong>: 모집단 전체의 특성값 → <strong>고정된 미지의 값</strong><br>
+      <strong>통계량(statistic)</strong>: 표본 데이터에서 계산한 값 → <strong>표본마다 달라지는 추정치</strong><br><br>
+      각 선택지 분석:<br>
+      - A: 설명이 반대 → ✗<br>
+      - B: 모수는 고정값(변하지 않음) → ✗<br>
+      - C: 모수는 대부분 알 수 없음 → ✗<br>
+      - D: <strong>올바른 설명</strong> → ✓
     </div>
   </div>
 </div>
@@ -5422,11 +5548,18 @@
       <li data-label="C" onclick="selectOption(this)">설문조사(survey)</li>
       <li data-label="D" onclick="selectOption(this)">전수조사(census)</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(77)">힌트 보기</button>
+    <div class="quiz-hint" id="q77-hint">연구자가 처리(treatment)를 직접 부여하면 실험, 개입 없이 관찰하면 관찰연구입니다.</div>
     <button class="quiz-submit" onclick="submitMC(77)">답 제출하기</button>
     <div class="quiz-result" id="q77-result"></div>
     <div class="quiz-explanation" id="q77-explain">
       <div class="quiz-explain-label">해설</div>
-      연구자가 처리(treatment)를 <strong>직접 부여</strong>하고 그 효과를 측정하는 것은 <strong>실험</strong>입니다. 관찰연구는 개입 없이 있는 그대로 관찰하는 것이고, 설문조사는 질문을 통해 데이터를 수집하는 방법입니다. 실험은 인과관계 파악에 가장 강력한 방법입니다.
+      <strong>핵심 개념: 데이터 수집 방법 구분</strong><br><br>
+      <strong>실험(experiment)</strong>: 연구자가 처리(treatment)를 <strong>직접 부여</strong>하고 효과 측정<br>
+      <strong>관찰연구</strong>: 개입 없이 있는 그대로 관찰<br>
+      <strong>설문조사</strong>: 질문을 통해 데이터 수집<br><br>
+      이 문제에서 연구자는 자원자를 <strong>무작위로 실험군/대조군에 배정</strong>하고 실험했으므로 <strong>실험</strong>입니다.<br><br>
+      💡 <strong>Tip:</strong> 실험은 인과관계 파악에 가장 강력한 방법입니다.
     </div>
   </div>
 </div>
@@ -5441,11 +5574,19 @@
       <li data-label="C" onclick="selectOption(this)">전수조사를 하지 않았으므로 결과가 무의미하다</li>
       <li data-label="D" onclick="selectOption(this)">모집단이 무한하므로 표본조사가 불가능하다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(78)">힌트 보기</button>
+    <div class="quiz-hint" id="q78-hint">특정 집단만 대상으로 하면 랜덤표집 원칙이 위반됩니다.</div>
     <button class="quiz-submit" onclick="submitMC(78)">답 제출하기</button>
     <div class="quiz-result" id="q78-result"></div>
     <div class="quiz-explanation" id="q78-explain">
       <div class="quiz-explain-label">해설</div>
-      동문회에 등록한 사람만을 대상으로 하면, 등록하지 않은 졸업생(예: 연봉이 낮아 동문회에 관심이 없는 사람)이 체계적으로 배제됩니다. 이는 <strong>편의표본(convenience sample)</strong>으로, 모집단 전체를 대표하지 못하는 <strong>선택 편향</strong>이 발생합니다.
+      <strong>핵심 개념: 편의표본과 선택 편향</strong><br><br>
+      동문회에 등록한 사람만 대상으로 하면:<br>
+      - 등록하지 않은 졸업생이 체계적으로 <strong>배제</strong>됨<br>
+      - 예: 연봉이 낮은 사람은 동문회에 관심이 적을 수 있음<br>
+      - 이는 <strong>편의표본(convenience sample)</strong><br>
+      - <strong>선택 편향(selection bias)</strong> 발생<br><br>
+      💡 <strong>핵심:</strong> 모집단 전체를 대표하지 못하는 표본은 아무리 커도 편향된 결론을 줍니다.
     </div>
   </div>
 </div>
@@ -5460,11 +5601,17 @@
       <li data-label="C" onclick="selectOption(this)">6.2시간은 통계량(표본평균)이며, 이를 바탕으로 모집단 평균을 추정할 수 있다</li>
       <li data-label="D" onclick="selectOption(this)">1,000명은 전수조사이므로 표본이 아니다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(79)">힌트 보기</button>
+    <div class="quiz-hint" id="q79-hint">1,000명에서 계산한 값은 모수가 아니라 통계량(표본에서 계산한 값)입니다.</div>
     <button class="quiz-submit" onclick="submitMC(79)">답 제출하기</button>
     <div class="quiz-result" id="q79-result"></div>
     <div class="quiz-explanation" id="q79-explain">
       <div class="quiz-explain-label">해설</div>
-      1,000명에서 계산한 6.2시간은 <strong>통계량(statistic)</strong>이지 모수가 아닙니다. 이 통계량을 이용해 모집단(A 지역 20~30대 전체)의 평균 수면 시간이라는 모수를 <strong>추정(추론통계)</strong>할 수 있습니다. 다른 표본을 뽑으면 다른 값이 나올 수 있습니다.
+      <strong>핵심 개념: 통계량과 추론통계</strong><br><br>
+      - 1,000명에서 계산한 6.2시간 = <strong>통계량(표본평균)</strong> (모수가 아님)<br>
+      - 이 통계량으로 모집단(A 지역 20~30대 전체)의 평균을 <strong>추정</strong> 가능<br>
+      - 다른 표본을 뽑으면 다른 값이 나올 수 있음 (표집변동)<br><br>
+      💡 <strong>주의:</strong> "정확히 6.2시간이다"라고 단정할 수 없으며, 추론통계는 항상 불확실성이 따릅니다.
     </div>
   </div>
 </div>
@@ -5479,11 +5626,20 @@
       <li data-label="C" onclick="selectOption(this)">모집단의 모든 개체를 직접 측정하는 것</li>
       <li data-label="D" onclick="selectOption(this)">데이터의 평균과 분산을 정확히 계산하는 것</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(80)">힌트 보기</button>
+    <div class="quiz-hint" id="q80-hint">추론통계의 핵심은 '표본 → 모집단'으로의 일반화이며, 항상 불확실성이 따릅니다.</div>
     <button class="quiz-submit" onclick="submitMC(80)">답 제출하기</button>
     <div class="quiz-result" id="q80-result"></div>
     <div class="quiz-explanation" id="q80-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>추론통계</strong>는 표본에서 얻은 정보를 바탕으로 <strong>모집단에 대한 결론</strong>을 내리는 것이 목적입니다. 이때 결론에는 항상 <strong>불확실성(오차, 신뢰수준)</strong>이 수반됩니다. A와 D는 기술통계, C는 전수조사에 해당합니다.
+      <strong>핵심 개념: 추론통계의 목적</strong><br><br>
+      <strong>추론통계(inferential statistics)</strong>의 궁극적 목적:<br>
+      → 표본 정보를 이용하여 모집단에 대한 결론을 <strong>불확실성과 함께</strong> 도출하는 것<br><br>
+      각 선택지 분석:<br>
+      - A: 그래프 시각화 → <strong>기술통계</strong><br>
+      - B: <strong>정답</strong> ✓<br>
+      - C: 전체 측정 → <strong>전수조사</strong><br>
+      - D: 평균·분산 계산 → <strong>기술통계</strong>
     </div>
   </div>
 </div>
@@ -5511,12 +5667,21 @@
       <li data-label="C" onclick="selectOption(this)">자녀 수 (0, 1, 2, 3명)</li>
       <li data-label="D" onclick="selectOption(this)">키 (172.5cm)</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(11)">힌트 보기</button>
+    <div class="quiz-hint" id="q11-hint">이산형은 '셀 수 있는' 값, 연속형은 '소수점이 가능한' 값, 질적 변수는 숫자가 아닌 범주입니다.</div>
     <button class="quiz-submit" onclick="submitMC(11)">답 제출하기</button>
     <div class="quiz-result" id="q11-result"></div>
     <div class="quiz-explanation" id="q11-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 자녀 수</strong><br><br>
-      이산형 변수는 <strong>"0.5명"이 불가능</strong>한, 셀 수 있는 숫자입니다. 몸무게와 키는 소수점이 가능하므로 <strong>연속형</strong>, 혈액형은 숫자가 아닌 범주이므로 <strong>질적 변수(명목형)</strong>입니다.
+      <strong>핵심 개념: 변수의 유형 분류</strong><br><br>
+      <strong>양적 변수(quantitative)</strong>: 숫자로 측정<br>
+      - <strong>이산형</strong>: 셀 수 있는 값 (0, 1, 2, 3...)<br>
+      - <strong>연속형</strong>: 소수점이 가능한 값 (65.3, 172.5...)<br><br>
+      <strong>질적 변수(qualitative)</strong>: 범주로 분류<br>
+      - <strong>명목형</strong>: 순서 없음 (혈액형: A, B, O, AB)<br>
+      - <strong>순서형</strong>: 순서 있음 (학점: A > B > C)<br><br>
+      자녀 수는 "0.5명"이 불가능하므로 <strong>양적-이산형</strong>입니다.<br><br>
+      💡 <strong>구분법:</strong> "셀 수 있으면" 이산형, "잴 수 있으면" 연속형, "숫자가 아니면" 질적 변수입니다.
     </div>
   </div>
 </div>
@@ -5535,11 +5700,22 @@
       <li data-label="C" onclick="selectOption(this)">둘 다 동일하며 이름만 다르다</li>
       <li data-label="D" onclick="selectOption(this)">히스토그램은 3차원이고 막대그래프는 2차원이다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(12)">힌트 보기</button>
+    <div class="quiz-hint" id="q12-hint">막대그래프는 질적 데이터(간격 있음), 히스토그램은 양적 데이터(막대 붙어 있음)에 사용됩니다.</div>
     <button class="quiz-submit" onclick="submitMC(12)">답 제출하기</button>
     <div class="quiz-result" id="q12-result"></div>
     <div class="quiz-explanation" id="q12-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>막대그래프</strong>는 질적 데이터용으로 막대 사이에 <strong>간격이 있고</strong>, <strong>히스토그램</strong>은 양적 데이터(연속형)용으로 막대가 <strong>붙어 있습니다</strong>. 히스토그램에서 막대가 붙어 있는 이유는 연속된 숫자 구간을 나타내기 때문입니다.
+      <strong>핵심 개념: 막대그래프 vs 히스토그램</strong><br><br>
+      <strong>막대그래프(bar chart)</strong>:<br>
+      - 질적 데이터(범주형)용<br>
+      - 막대 사이에 <strong>간격이 있음</strong><br>
+      - 막대 순서 변경 가능<br><br>
+      <strong>히스토그램(histogram)</strong>:<br>
+      - 양적 데이터(연속형)용<br>
+      - 막대가 <strong>붙어 있음</strong><br>
+      - 연속된 숫자 구간을 나타내므로 순서 변경 불가<br><br>
+      💡 <strong>기억법:</strong> 히스토그램에서 막대가 붙어 있는 이유 = 연속된 숫자 구간이므로 빈틈이 없습니다.
     </div>
   </div>
 </div>
@@ -5560,11 +5736,18 @@
       <li data-label="C" onclick="selectOption(this)">데이터를 더 많이 모으면 해결된다</li>
       <li data-label="D" onclick="selectOption(this)">특이점(100) 때문에 평균이 왜곡되었으므로 중앙값이 더 적절하다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(13)">힌트 보기</button>
+    <div class="quiz-hint" id="q13-hint">특이점이 있으면 평균이 왜곡됩니다. 이런 경우 어떤 대표값이 더 적절할까요?</div>
     <button class="quiz-submit" onclick="submitMC(13)">답 제출하기</button>
     <div class="quiz-result" id="q13-result"></div>
     <div class="quiz-explanation" id="q13-explain">
       <div class="quiz-explain-label">해설</div>
-      100이라는 <strong>특이점</strong> 때문에 평균(22)이 대부분의 데이터(1~4)와 동떨어져 있습니다. 이런 경우 <strong>중앙값(3)</strong>이 데이터의 중심을 더 잘 나타냅니다. 평균은 특이점에 민감하다는 것이 핵심입니다.
+      <strong>핵심 개념: 평균의 특이점 민감성</strong><br><br>
+      데이터 {1, 2, 3, 4, 100}에서:<br>
+      - <strong>평균</strong> = (1+2+3+4+100)/5 = <strong>22</strong> → 대부분의 데이터(1~4)와 동떨어짐<br>
+      - <strong>중앙값</strong> = 3 → 데이터의 중심을 더 잘 표현<br><br>
+      100이라는 <strong>특이점(outlier)</strong>이 평균을 크게 끌어올렸습니다.<br><br>
+      💡 <strong>원칙:</strong> 특이점이 있거나 분포가 치우쳐 있으면 → 중앙값, 대칭이면 → 평균이 적절합니다.
     </div>
   </div>
 </div>
@@ -5583,12 +5766,18 @@
       <li data-label="C" onclick="selectOption(this)">불편추정(unbiased estimation)을 위해 — n으로 나누면 분산이 과소추정됨</li>
       <li data-label="D" onclick="selectOption(this)">자유도를 n+1로 맞추기 위해</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(14)">힌트 보기</button>
+    <div class="quiz-hint" id="q14-hint">표본분산에서 나누는 수에 주목하세요. n-1로 나누는 것은 불편추정과 관련됩니다.</div>
     <button class="quiz-submit" onclick="submitMC(14)">답 제출하기</button>
     <div class="quiz-result" id="q14-result"></div>
     <div class="quiz-explanation" id="q14-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 불편추정(unbiased estimation)을 위해</strong><br><br>
-      표본은 모집단보다 작기 때문에 n으로 나누면 분산이 실제보다 작게 나옵니다. (n-1)로 나누면 모집단 분산에 더 가까운 불편추정값을 얻을 수 있습니다.
+      <strong>핵심 개념: 불편추정과 자유도</strong><br><br>
+      <strong>표본분산</strong>을 n이 아닌 <strong>(n-1)</strong>로 나누는 이유:<br><br>
+      ① 표본은 모집단의 일부이므로, n으로 나누면 분산이 <strong>과소추정</strong>됨<br>
+      ② (n-1)로 나누면 모분산에 더 가까운 <strong>불편추정값(unbiased estimate)</strong>을 얻음<br>
+      ③ (n-1)은 <strong>자유도(degrees of freedom)</strong>라고 하며, 표본평균을 하나 고정하면 나머지 n-1개만 자유롭게 변할 수 있기 때문<br><br>
+      💡 <strong>주의:</strong> 모분산(σ²)은 N으로 나누고, 표본분산(s²)은 (n-1)로 나눕니다.
     </div>
   </div>
 </div>
@@ -5607,13 +5796,18 @@
       <li data-label="C" onclick="selectOption(this)">표준편차가 11 > 7이므로 21세 그룹의 변동이 더 크다</li>
       <li data-label="D" onclick="selectOption(this)">변이계수로는 두 그룹을 비교할 수 없다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(15)">힌트 보기</button>
+    <div class="quiz-hint" id="q15-hint">변이계수(CV) = 표준편차/평균입니다. 단위나 평균 크기가 다른 데이터를 비교할 때 사용하세요.</div>
     <button class="quiz-submit" onclick="submitMC(15)">답 제출하기</button>
     <div class="quiz-result" id="q15-result"></div>
     <div class="quiz-explanation" id="q15-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 9세 그룹의 변동이 더 크다</strong><br><br>
-      21세 CV = 11 / 72 = <strong>0.153</strong>, 9세 CV = 7 / 32 = <strong>0.219</strong><br>
-      표준편차만 보면 11 > 7로 21세가 크지만, 평균 자체가 다르므로 변이계수(상대적 퍼짐)로 비교해야 합니다.
+      <strong>핵심 개념: 변이계수(CV)로 상대적 비교</strong><br><br>
+      CV(변이계수) = 표준편차 / 평균<br><br>
+      21세: CV = 11/72 = <strong>0.153</strong> (약 15.3%)<br>
+      9세: CV = 7/32 = <strong>0.219</strong> (약 21.9%)<br><br>
+      표준편차만 보면 11 > 7로 21세가 크지만, 평균 대비 상대적 퍼짐을 비교하면 9세 그룹이 더 큽니다.<br><br>
+      💡 <strong>핵심:</strong> 평균이나 단위가 다른 데이터를 비교할 때는 반드시 CV(무차원)를 사용해야 합니다.
     </div>
   </div>
 </div>
@@ -5630,12 +5824,19 @@
       <li data-label="C" onclick="selectOption(this)">누적도수는 해당 계급까지의 도수를 모두 합한 값이다</li>
       <li data-label="D" onclick="selectOption(this)">계급의 수가 많을수록 항상 더 정확한 분포를 나타낸다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(41)">힌트 보기</button>
+    <div class="quiz-hint" id="q41-hint">계급의 수가 너무 많거나 너무 적으면 어떤 문제가 생기는지 생각해 보세요.</div>
     <button class="quiz-submit" onclick="submitMC(41)">답 제출하기</button>
     <div class="quiz-result" id="q41-result"></div>
     <div class="quiz-explanation" id="q41-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: D</strong><br><br>
-      계급의 수가 너무 많으면 각 계급의 도수가 작아져 분포의 전체적인 패턴을 파악하기 어렵습니다. 반대로 너무 적으면 정보가 손실됩니다. 적절한 계급 수를 선택하는 것이 중요합니다.
+      <strong>핵심 개념: 도수분포표와 계급 수의 선택</strong><br><br>
+      도수분포표의 올바른 설명:<br>
+      ✓ A: 데이터를 구간(계급)으로 나누어 빈도 정리<br>
+      ✓ B: 상대도수 = 해당 계급 도수 / 전체 도수<br>
+      ✓ C: 누적도수 = 해당 계급까지의 도수 합<br><br>
+      ✗ D: 계급 수가 많을수록 항상 정확하지는 <strong>않습니다</strong>. 너무 많으면 각 계급의 도수가 작아져 패턴 파악이 어렵고, 너무 적으면 정보가 손실됩니다.<br><br>
+      💡 <strong>Tip:</strong> 적절한 계급 수를 선택하는 것이 중요합니다.
     </div>
   </div>
 </div>
@@ -5651,12 +5852,18 @@
       <li data-label="C" onclick="selectOption(this)">대칭 분포(symmetric)</li>
       <li data-label="D" onclick="selectOption(this)">균등 분포(uniform)</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(42)">힌트 보기</button>
+    <div class="quiz-hint" id="q42-hint">분포의 이름은 '긴 꼬리의 방향'으로 정합니다. 왼쪽 봉우리 + 오른쪽 꼬리라면?</div>
     <button class="quiz-submit" onclick="submitMC(42)">답 제출하기</button>
     <div class="quiz-result" id="q42-result"></div>
     <div class="quiz-explanation" id="q42-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 오른쪽 꼬리 분포</strong><br><br>
-      분포의 4가지 모양: <strong>대칭, 오른쪽 꼬리(양의 왜도), 왼쪽 꼬리(음의 왜도), 균등</strong>. 긴 꼬리가 오른쪽에 있으면 오른쪽 꼬리 분포입니다. 대표적 예시로 소득 분포가 있습니다.
+      <strong>핵심 개념: 분포 모양의 4가지 유형</strong><br><br>
+      ① <strong>대칭(symmetric)</strong>: 좌우가 거울상<br>
+      ② <strong>오른쪽 꼬리(right-skewed)</strong>: 왼쪽 봉우리 + 오른쪽 긴 꼬리 (양의 왜도)<br>
+      ③ <strong>왼쪽 꼬리(left-skewed)</strong>: 오른쪽 봉우리 + 왼쪽 긴 꼬리 (음의 왜도)<br>
+      ④ <strong>균등(uniform)</strong>: 모든 구간이 비슷<br><br>
+      💡 <strong>기억법:</strong> 분포 이름은 <strong>긴 꼬리의 방향</strong>으로 정합니다. 예: 소득 분포 = 오른쪽 꼬리.
     </div>
   </div>
 </div>
@@ -5672,12 +5879,19 @@
       <li data-label="C" onclick="selectOption(this)">5</li>
       <li data-label="D" onclick="selectOption(this)">8</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(43)">힌트 보기</button>
+    <div class="quiz-hint" id="q43-hint">최빈값(mode)은 데이터에서 가장 많이 나타나는 값입니다.</div>
     <button class="quiz-submit" onclick="submitMC(43)">답 제출하기</button>
     <div class="quiz-result" id="q43-result"></div>
     <div class="quiz-explanation" id="q43-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 5</strong><br><br>
-      최빈값은 데이터에서 <strong>가장 많이 나타나는 값</strong>입니다. 5가 3번으로 가장 많이 등장하므로 최빈값은 5입니다. 4.75는 평균, 8은 최댓값입니다.
+      <strong>핵심 개념: 최빈값(mode)</strong><br><br>
+      <strong>최빈값</strong> = 데이터에서 <strong>가장 많이 나타나는 값</strong><br><br>
+      데이터 {2, 3, 3, 5, 5, 5, 7, 8}에서:<br>
+      - 2: 1번, 3: 2번, <strong>5: 3번(최다)</strong>, 7: 1번, 8: 1번<br>
+      - 최빈값 = <strong>5</strong><br><br>
+      참고: 평균 = (2+3+3+5+5+5+7+8)/8 = 38/8 = 4.75<br><br>
+      💡 <strong>Tip:</strong> 최빈값이 여러 개일 수도 있고(다봉분포), 없을 수도 있습니다(모든 값이 1번씩).
     </div>
   </div>
 </div>
@@ -5693,15 +5907,21 @@
       <li data-label="C" onclick="selectOption(this)">√(18) ≈ 4.24</li>
       <li data-label="D" onclick="selectOption(this)">6</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(44)">힌트 보기</button>
+    <div class="quiz-hint" id="q44-hint">표본표준편차: 편차제곱합을 (n-1)로 나눈 후 제곱근을 구합니다.</div>
     <button class="quiz-submit" onclick="submitMC(44)">답 제출하기</button>
     <div class="quiz-result" id="q44-result"></div>
     <div class="quiz-explanation" id="q44-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 3</strong><br><br>
-      편차: (4−7)=−3, (7−7)=0, (10−7)=3<br>
-      편차제곱합 = 9+0+9 = 18<br>
-      표본분산 s² = 18/(3−1) = 9<br>
-      표본표준편차 s = √9 = <strong>3</strong>
+      <strong>핵심 개념: 표본표준편차 계산</strong><br><br>
+      데이터 {4, 7, 10}, 평균 = 7<br><br>
+      <strong>단계별 풀이:</strong><br>
+      ① 편차: (4−7)=−3, (7−7)=0, (10−7)=3<br>
+      ② 편차제곱: 9, 0, 9<br>
+      ③ 편차제곱합 = 9+0+9 = 18<br>
+      ④ 표본분산 s² = 18/(3−1) = 18/2 = <strong>9</strong><br>
+      ⑤ 표본표준편차 s = √9 = <strong>3</strong><br><br>
+      💡 <strong>주의:</strong> 표본이므로 <strong>(n-1)</strong>로 나눕니다. n으로 나누면 s² = 6이 됩니다.
     </div>
   </div>
 </div>
@@ -5717,12 +5937,18 @@
       <li data-label="C" onclick="selectOption(this)">데이터가 대칭 분포일 때만 0이 된다</li>
       <li data-label="D" onclick="selectOption(this)">편차를 절댓값으로 변환하기 때문이다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(45)">힌트 보기</button>
+    <div class="quiz-hint" id="q45-hint">평균의 정의를 수식으로 써보면 Σ(xᵢ − x̄) = 0이 됩니다. 분포 모양과는 관계없습니다.</div>
     <button class="quiz-submit" onclick="submitMC(45)">답 제출하기</button>
     <div class="quiz-result" id="q45-result"></div>
     <div class="quiz-explanation" id="q45-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: A</strong><br><br>
-      평균의 정의에 의해 Σ(xᵢ − x̄) = Σxᵢ − nx̄ = Σxᵢ − Σxᵢ = <strong>0</strong>. 이는 분포의 모양과 관계없이 <strong>항상</strong> 성립합니다. 이 때문에 산포를 측정할 때 편차의 합이 아닌 <strong>편차의 제곱합</strong>을 사용합니다.
+      <strong>핵심 개념: 편차의 합 = 0인 이유</strong><br><br>
+      <strong>수학적 증명:</strong><br>
+      Σ(xᵢ − x̄) = Σxᵢ − nx̄ = Σxᵢ − n × (Σxᵢ/n) = Σxᵢ − Σxᵢ = <strong>0</strong><br><br>
+      이는 분포의 모양과 관계없이 <strong>항상</strong> 성립합니다.<br>
+      평균이 데이터의 <strong>무게중심(balancing point)</strong>이므로, 양의 편차와 음의 편차가 정확히 상쇄됩니다.<br><br>
+      💡 <strong>Tip:</strong> 편차의 합이 항상 0이기 때문에, 산포를 측정할 때는 <strong>편차의 제곱합</strong>을 사용합니다.
     </div>
   </div>
 </div>
@@ -5737,11 +5963,19 @@
       <li data-label="C" onclick="selectOption(this)">최빈값 < 중앙값 < 평균</li>
       <li data-label="D" onclick="selectOption(this)">중앙값 < 최빈값 < 평균</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(81)">힌트 보기</button>
+    <div class="quiz-hint" id="q81-hint">오른쪽 꼬리 분포에서는 큰 극단값이 평균을 오른쪽으로 끌어당깁니다.</div>
     <button class="quiz-submit" onclick="submitMC(81)">답 제출하기</button>
     <div class="quiz-result" id="q81-result"></div>
     <div class="quiz-explanation" id="q81-explain">
       <div class="quiz-explain-label">해설</div>
-      오른쪽 꼬리 분포(양의 왜도)에서는 극단적으로 큰 값들이 평균을 오른쪽으로 끌어당깁니다. 따라서 <strong>최빈값 < 중앙값 < 평균</strong> 순서가 됩니다. 왼쪽 꼬리 분포에서는 이 순서가 반대입니다.
+      <strong>핵심 개념: 비대칭 분포에서의 평균·중앙값·최빈값 관계</strong><br><br>
+      <strong>오른쪽 꼬리 분포(양의 왜도)</strong>에서는:<br>
+      - 극단적으로 큰 값들이 <strong>평균</strong>을 오른쪽으로 끌어당김<br>
+      - <strong>최빈값 < 중앙값 < 평균</strong> 순서가 됨<br><br>
+      반대로 <strong>왼쪽 꼬리 분포</strong>에서는: 평균 < 중앙값 < 최빈값<br>
+      <strong>대칭 분포</strong>에서는: 평균 ≈ 중앙값 ≈ 최빈값<br><br>
+      💡 <strong>기억법:</strong> 평균은 항상 <strong>긴 꼬리 방향</strong>으로 끌려갑니다.
     </div>
   </div>
 </div>
@@ -5756,14 +5990,19 @@
       <li data-label="C" onclick="selectOption(this)">40</li>
       <li data-label="D" onclick="selectOption(this)">8</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(82)">힌트 보기</button>
+    <div class="quiz-hint" id="q82-hint">모분산은 N으로 나누고, 표본분산은 (n-1)로 나눕니다.</div>
     <button class="quiz-submit" onclick="submitMC(82)">답 제출하기</button>
     <div class="quiz-result" id="q82-result"></div>
     <div class="quiz-explanation" id="q82-explain">
       <div class="quiz-explain-label">해설</div>
-      평균 = (2+4+6+8+10)/5 = 6<br>
-      편차제곱합 = (−4)²+(−2)²+0²+2²+4² = 16+4+0+4+16 = 40<br>
-      <strong>모분산</strong> σ² = 40/<strong>5</strong> = <strong>8</strong><br><br>
-      모분산은 N으로 나누고, 표본분산은 (n-1)로 나눈다는 점에 주의하세요. 표본분산이라면 40/4 = 10이 됩니다.
+      <strong>핵심 개념: 모분산 vs 표본분산</strong><br><br>
+      데이터 {2, 4, 6, 8, 10} (모집단 전체)<br>
+      평균 = (2+4+6+8+10)/5 = 6<br><br>
+      편차제곱: (−4)²+(−2)²+0²+2²+4² = 16+4+0+4+16 = 40<br><br>
+      <strong>모분산</strong> σ² = 40/<strong>5</strong> = <strong>8</strong> (N으로 나눔)<br>
+      참고) 표본분산이라면 s² = 40/<strong>4</strong> = <strong>10</strong> (n-1로 나눔)<br><br>
+      💡 <strong>핵심 구분:</strong> 모집단 전체 → N으로 나눔, 표본 → (n-1)로 나눔
     </div>
   </div>
 </div>
@@ -5778,14 +6017,18 @@
       <li data-label="C" onclick="selectOption(this)">두 반의 CV가 같다</li>
       <li data-label="D" onclick="selectOption(this)">표준편차가 더 큰 반 B가 항상 CV도 크다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(83)">힌트 보기</button>
+    <div class="quiz-hint" id="q83-hint">CV = 표준편차/평균으로 계산합니다. 두 반의 CV를 각각 구해보세요.</div>
     <button class="quiz-submit" onclick="submitMC(83)">답 제출하기</button>
     <div class="quiz-result" id="q83-result"></div>
     <div class="quiz-explanation" id="q83-explain">
       <div class="quiz-explain-label">해설</div>
-      CV = 표준편차/평균<br>
-      반 A: CV = 5/80 = <strong>0.0625</strong><br>
-      반 B: CV = 6/60 = <strong>0.1</strong><br><br>
-      표준편차만 보면 B(6) > A(5)이지만, 평균 대비 상대적 변동을 보면 B가 더 큽니다. <strong>CV는 단위나 평균 크기가 다른 데이터의 변동을 비교</strong>할 때 유용합니다.
+      <strong>핵심 개념: 변이계수(CV) 비교</strong><br><br>
+      CV = 표준편차 / 평균<br><br>
+      반 A: CV = 5/80 = <strong>0.0625</strong> (6.25%)<br>
+      반 B: CV = 6/60 = <strong>0.1</strong> (10%)<br><br>
+      표준편차만 보면 B(6) > A(5)이지만, 평균 대비 상대적 변동을 보면 <strong>B가 더 큽니다</strong>.<br><br>
+      💡 <strong>Tip:</strong> CV는 단위나 평균 크기가 다른 데이터의 변동을 공정하게 비교할 때 유용합니다.
     </div>
   </div>
 </div>
@@ -5800,13 +6043,18 @@
       <li data-label="C" onclick="selectOption(this)">변하지 않는다</li>
       <li data-label="D" onclick="selectOption(this)">60에서 75로 증가한다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(84)">힌트 보기</button>
+    <div class="quiz-hint" id="q84-hint">특이점 제거 전후의 평균을 각각 계산해 보세요. 평균은 특이점에 매우 민감합니다.</div>
     <button class="quiz-submit" onclick="submitMC(84)">답 제출하기</button>
     <div class="quiz-result" id="q84-result"></div>
     <div class="quiz-explanation" id="q84-explain">
       <div class="quiz-explain-label">해설</div>
-      원래 평균 = (10+20+30+40+200)/5 = 300/5 = <strong>60</strong><br>
-      특이점 제거 후 = (10+20+30+40)/4 = 100/4 = <strong>25</strong><br><br>
-      평균이 60에서 25로 <strong>크게 감소</strong>했습니다. 이는 평균이 특이점에 매우 민감하다는 것을 보여줍니다. 반면 중앙값은 제거 전 30, 제거 후 25로 변화가 작습니다.
+      <strong>핵심 개념: 특이점이 평균에 미치는 영향</strong><br><br>
+      <strong>제거 전:</strong> (10+20+30+40+200)/5 = 300/5 = <strong>60</strong><br>
+      <strong>제거 후:</strong> (10+20+30+40)/4 = 100/4 = <strong>25</strong><br><br>
+      평균이 60에서 25로 <strong>크게 감소</strong>(-35)했습니다.<br>
+      반면 중앙값은 제거 전 30, 제거 후 25로 변화가 작습니다(-5).<br><br>
+      💡 <strong>핵심:</strong> 평균은 특이점에 매우 민감하고, 중앙값은 강건(robust)합니다.
     </div>
   </div>
 </div>
@@ -5825,13 +6073,17 @@
       <li data-label="C" onclick="selectOption(this)">ㄱ 명목형, ㄴ 이산형, ㄷ 연속형</li>
       <li data-label="D" onclick="selectOption(this)">ㄱ 순서형, ㄴ 이산형, ㄷ 연속형</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(85)">힌트 보기</button>
+    <div class="quiz-hint" id="q85-hint">순서가 있는 범주는 순서형, 셀 수 있는 숫자는 이산형, 소수점이 가능한 숫자는 연속형입니다.</div>
     <button class="quiz-submit" onclick="submitMC(85)">답 제출하기</button>
     <div class="quiz-result" id="q85-result"></div>
     <div class="quiz-explanation" id="q85-explain">
       <div class="quiz-explain-label">해설</div>
-      ㄱ. 학점은 A > B > C > D > F로 <strong>순서가 있는 질적 변수(순서형)</strong>입니다. 명목형과 혼동하지 마세요.<br>
-      ㄴ. 커피 잔 수는 0, 1, 2, 3... 으로 <strong>셀 수 있는 양적 변수(이산형)</strong>입니다.<br>
-      ㄷ. 몸무게는 소수점이 가능한 <strong>연속형 양적 변수</strong>입니다.
+      <strong>핵심 개념: 변수 유형의 정확한 분류</strong><br><br>
+      ㄱ. 학점(A, B, C, D, F): 순서가 있는 범주 → <strong>순서형(ordinal)</strong><br>
+      ㄴ. 커피 잔 수(0, 1, 2, 3): 셀 수 있는 숫자 → <strong>이산형(discrete)</strong><br>
+      ㄷ. 몸무게(kg): 소수점 가능 → <strong>연속형(continuous)</strong><br><br>
+      💡 <strong>주의:</strong> 학점은 순서가 있으므로 <strong>명목형이 아닌 순서형</strong>입니다. 순서가 없는 범주(혈액형, 성별)만 명목형입니다.
     </div>
   </div>
 </div>
@@ -5846,12 +6098,20 @@
       <li data-label="C" onclick="selectOption(this)">0.25</li>
       <li data-label="D" onclick="selectOption(this)">50</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(86)">힌트 보기</button>
+    <div class="quiz-hint" id="q86-hint">상대도수 = 해당 계급의 도수 ÷ 전체 도수입니다.</div>
     <button class="quiz-submit" onclick="submitMC(86)">답 제출하기</button>
     <div class="quiz-result" id="q86-result"></div>
     <div class="quiz-explanation" id="q86-explain">
       <div class="quiz-explain-label">해설</div>
-      상대도수 = 해당 계급의 도수 / 전체 도수 = 50 / 200 = <strong>0.25</strong><br><br>
-      상대도수는 0과 1 사이의 값이며, 모든 계급의 상대도수를 합하면 반드시 <strong>1</strong>이 됩니다. 백분율로는 25%에 해당합니다.
+      <strong>핵심 개념: 상대도수 계산</strong><br><br>
+      <strong>상대도수</strong> = 해당 계급의 도수 / 전체 도수<br>
+      = 50 / 200 = <strong>0.25</strong> (= 25%)<br><br>
+      성질:<br>
+      - 0과 1 사이의 값<br>
+      - 모든 계급의 상대도수 합 = <strong>1</strong><br>
+      - 백분율로 환산: 0.25 × 100 = 25%<br><br>
+      💡 <strong>주의:</strong> D(50)는 도수(절대도수)이지 상대도수가 아닙니다.
     </div>
   </div>
 </div>
@@ -5866,14 +6126,20 @@
       <li data-label="C" onclick="selectOption(this)">10</li>
       <li data-label="D" onclick="selectOption(this)">8</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(87)">힌트 보기</button>
+    <div class="quiz-hint" id="q87-hint">각 값에서 평균을 빼고 제곱한 후 모두 더하면 편차제곱합(SS)이 됩니다.</div>
     <button class="quiz-submit" onclick="submitMC(87)">답 제출하기</button>
     <div class="quiz-result" id="q87-result"></div>
     <div class="quiz-explanation" id="q87-explain">
       <div class="quiz-explain-label">해설</div>
+      <strong>핵심 개념: 편차제곱합(SS) 계산</strong><br><br>
+      데이터 {1, 3, 5, 7, 9}, 평균 = 5<br><br>
       편차: (1−5)=−4, (3−5)=−2, (5−5)=0, (7−5)=2, (9−5)=4<br>
       편차제곱: 16, 4, 0, 4, 16<br>
-      편차제곱합 SS = 16+4+0+4+16 = <strong>40</strong><br><br>
-      이 값을 (n-1)=4로 나누면 표본분산 s²=10, n=5로 나누면 모분산 σ²=8이 됩니다.
+      <strong>SS</strong> = 16+4+0+4+16 = <strong>40</strong><br><br>
+      이 값을 활용하면:<br>
+      - 표본분산 s² = SS/(n-1) = 40/4 = 10<br>
+      - 모분산 σ² = SS/n = 40/5 = 8
     </div>
   </div>
 </div>
@@ -5888,13 +6154,18 @@
       <li data-label="C" onclick="selectOption(this)">왼쪽 꼬리 분포, 왜도 > 0</li>
       <li data-label="D" onclick="selectOption(this)">대칭 분포, 왜도 = 0</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(88)">힌트 보기</button>
+    <div class="quiz-hint" id="q88-hint">분포의 이름과 왜도의 부호는 '긴 꼬리의 방향'과 같습니다.</div>
     <button class="quiz-submit" onclick="submitMC(88)">답 제출하기</button>
     <div class="quiz-result" id="q88-result"></div>
     <div class="quiz-explanation" id="q88-explain">
       <div class="quiz-explain-label">해설</div>
-      왼쪽으로 긴 꼬리 → <strong>왼쪽 꼬리 분포(left-skewed, 음의 왜도)</strong><br>
-      오른쪽으로 긴 꼬리 → 오른쪽 꼬리 분포(right-skewed, 양의 왜도)<br><br>
-      왜도의 부호는 <strong>긴 꼬리의 방향</strong>과 같습니다. 왼쪽 꼬리 분포의 예시: 쉬운 시험의 점수 분포(대부분 높은 점수, 일부만 낮은 점수).
+      <strong>핵심 개념: 왜도(skewness)와 분포 이름</strong><br><br>
+      <strong>왜도의 부호</strong> = <strong>긴 꼬리의 방향</strong><br><br>
+      - 왼쪽 긴 꼬리 → <strong>왼쪽 꼬리 분포(left-skewed)</strong> → 왜도 < 0 (음의 왜도)<br>
+      - 오른쪽 긴 꼬리 → 오른쪽 꼬리 분포(right-skewed) → 왜도 > 0 (양의 왜도)<br>
+      - 대칭 → 왜도 = 0<br><br>
+      💡 <strong>예시:</strong> 왼쪽 꼬리 분포의 대표적 예 = 쉬운 시험의 점수 분포 (대부분 높은 점수, 일부만 낮은 점수)
     </div>
   </div>
 </div>
@@ -5909,11 +6180,21 @@
       <li data-label="C" onclick="selectOption(this)">데이터의 개수가 1개여야 한다</li>
       <li data-label="D" onclick="selectOption(this)">모든 데이터 값이 동일해야 한다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(89)">힌트 보기</button>
+    <div class="quiz-hint" id="q89-hint">표준편차 = 0이면 모든 편차가 0이어야 합니다. 이것이 의미하는 바를 생각해 보세요.</div>
     <button class="quiz-submit" onclick="submitMC(89)">답 제출하기</button>
     <div class="quiz-result" id="q89-result"></div>
     <div class="quiz-explanation" id="q89-explain">
       <div class="quiz-explain-label">해설</div>
-      표준편차 = 0이면 모든 편차(xᵢ − x̄)가 0이어야 합니다. 이는 <strong>모든 데이터 값이 평균과 같다</strong>, 즉 모든 값이 동일하다는 뜻입니다. 예: {5, 5, 5, 5}의 표준편차는 0입니다. 데이터가 1개인 경우 표본분산은 정의되지 않습니다(n-1=0).
+      <strong>핵심 개념: 표준편차가 0인 조건</strong><br><br>
+      표준편차 = 0이면 모든 편차(xᵢ − x̄)가 0이어야 합니다.<br>
+      즉, <strong>모든 데이터 값이 평균과 같다</strong> = 모든 값이 동일합니다.<br><br>
+      예: {5, 5, 5, 5}의 표준편차 = 0<br><br>
+      각 선택지 분석:<br>
+      - A: 대칭이어도 퍼짐이 있으면 표준편차 > 0 → ✗<br>
+      - B: 평균이 0이어도 값이 다르면 표준편차 > 0 → ✗<br>
+      - C: 1개인 경우 표본분산은 정의되지 않음(n-1=0) → ✗<br>
+      - D: <strong>정답</strong> ✓
     </div>
   </div>
 </div>
@@ -5928,13 +6209,20 @@
       <li data-label="C" onclick="selectOption(this)">평균은 변하지 않고, 표준편차가 10 증가한다</li>
       <li data-label="D" onclick="selectOption(this)">평균과 표준편차 모두 변하지 않는다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(90)">힌트 보기</button>
+    <div class="quiz-hint" id="q90-hint">모든 값에 상수를 더하면 위치만 이동합니다. 퍼짐 정도(표준편차)는 바뀔까요?</div>
     <button class="quiz-submit" onclick="submitMC(90)">답 제출하기</button>
     <div class="quiz-result" id="q90-result"></div>
     <div class="quiz-explanation" id="q90-explain">
       <div class="quiz-explain-label">해설</div>
-      모든 값에 상수 c를 더하면: 새 평균 = 원래 평균 + c, 새 표준편차 = 원래 표준편차 (변화 없음)<br><br>
-      원래 평균 = 7, 새 평균 = 17 (10 증가)<br>
-      표준편차는 데이터의 <strong>퍼짐 정도</strong>를 측정하므로, 모든 값을 같은 양만큼 이동시키면 퍼짐은 변하지 않습니다.
+      <strong>핵심 개념: 데이터 변환과 통계량의 변화</strong><br><br>
+      모든 값에 상수 c를 <strong>더하면</strong>:<br>
+      - 새 평균 = 원래 평균 + c (위치 이동)<br>
+      - 새 표준편차 = 원래 표준편차 (<strong>변화 없음</strong>)<br><br>
+      원래 평균 = (3+5+7+9+11)/5 = 7<br>
+      새 평균 = 7 + 10 = <strong>17</strong> (10 증가)<br>
+      표준편차: 모든 값을 같은 양만큼 이동시키면 <strong>퍼짐은 변하지 않음</strong><br><br>
+      💡 <strong>Tip:</strong> 상수를 곱하면(×c) 표준편차도 |c|배가 됩니다.
     </div>
   </div>
 </div>
@@ -5962,13 +6250,17 @@
       <li data-label="C" onclick="selectOption(this)">7.5</li>
       <li data-label="D" onclick="selectOption(this)">8.33</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(16)">힌트 보기</button>
+    <div class="quiz-hint" id="q16-hint">짝수 개의 데이터에서 중앙값은 가운데 두 값의 평균입니다.</div>
     <button class="quiz-submit" onclick="submitMC(16)">답 제출하기</button>
     <div class="quiz-result" id="q16-result"></div>
     <div class="quiz-explanation" id="q16-explain">
       <div class="quiz-explain-label">해설</div>
-      데이터가 6개(짝수)이므로 가운데 2개의 평균을 구합니다.<br>
-      정렬: 3, 5, <strong>7, 8</strong>, 12, 15<br>
-      중앙값 = (7 + 8) ÷ 2 = <strong>7.5</strong>
+      <strong>핵심 개념: 짝수 개 데이터의 중앙값</strong><br><br>
+      데이터가 <strong>짝수</strong>개이면 가운데 두 값의 평균을 구합니다.<br><br>
+      정렬: 3, 5, <strong>7, 8</strong>, 12, 15 (6개 데이터)<br>
+      중앙값 = (7 + 8) ÷ 2 = <strong>7.5</strong><br><br>
+      💡 <strong>기억법:</strong> 홀수 개 → 가운데 값, 짝수 개 → 가운데 두 값의 평균
     </div>
   </div>
 </div>
@@ -5987,14 +6279,18 @@
       <li data-label="C" onclick="selectOption(this)">평균 = 중앙값</li>
       <li data-label="D" onclick="selectOption(this)">알 수 없다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(17)">힌트 보기</button>
+    <div class="quiz-hint" id="q17-hint">평균은 항상 '긴 꼬리 쪽'으로 끌려갑니다.</div>
     <button class="quiz-submit" onclick="submitMC(17)">답 제출하기</button>
     <div class="quiz-result" id="q17-result"></div>
     <div class="quiz-explanation" id="q17-explain">
       <div class="quiz-explain-label">해설</div>
+      <strong>핵심 개념: 비대칭 분포에서 평균과 중앙값의 관계</strong><br><br>
       평균은 항상 <strong>긴 꼬리 쪽으로 끌려갑니다</strong>.<br><br>
-      - 오른쪽 꼬리(right-skewed) → 평균 > 중앙값 (예: 연봉 분포)<br>
+      - <strong>오른쪽 꼬리(right-skewed)</strong> → 평균 > 중앙값 (예: 연봉 분포)<br>
       - 왼쪽 꼬리(left-skewed) → 평균 < 중앙값 (예: 쉬운 시험)<br>
-      - 대칭 → 평균 ≈ 중앙값
+      - 대칭 → 평균 ≈ 중앙값<br><br>
+      💡 <strong>Tip:</strong> 극단적으로 큰 값이 있으면 평균이 오른쪽으로 끌려가 중앙값보다 커집니다.
     </div>
   </div>
 </div>
@@ -6016,12 +6312,19 @@
       <li data-label="C" onclick="selectOption(this)">40</li>
       <li data-label="D" onclick="selectOption(this)">15</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(18)">힌트 보기</button>
+    <div class="quiz-hint" id="q18-hint">IQR = Q3 − Q1입니다. 범위(최댓값 − 최솟값)와 혼동하지 마세요.</div>
     <button class="quiz-submit" onclick="submitMC(18)">답 제출하기</button>
     <div class="quiz-result" id="q18-result"></div>
     <div class="quiz-explanation" id="q18-explain">
       <div class="quiz-explain-label">해설</div>
-      IQR = Q3 − Q1 = 55 − 25 = <strong>30</strong><br><br>
-      IQR은 데이터의 <strong>가운데 50%</strong>가 퍼진 범위입니다. 범위(최댓값−최솟값=70)와 혼동하지 마세요.
+      <strong>핵심 개념: IQR(사분위수 범위)</strong><br><br>
+      <strong>IQR</strong> = Q3 − Q1 = 55 − 25 = <strong>30</strong><br><br>
+      IQR은 데이터의 <strong>가운데 50%</strong>가 퍼진 범위입니다.<br><br>
+      혼동하기 쉬운 것들:<br>
+      - 범위(Range) = 최댓값 − 최솟값 = 80 − 10 = 70 (전체 범위)<br>
+      - IQR = Q3 − Q1 = 30 (중앙 50%의 범위)<br><br>
+      💡 <strong>Tip:</strong> IQR은 특이점에 덜 민감하여 데이터의 퍼짐을 측정하기에 더 안정적입니다.
     </div>
   </div>
 </div>
@@ -6040,12 +6343,20 @@
       <li data-label="C" onclick="selectOption(this)">최빈값 + 범위</li>
       <li data-label="D" onclick="selectOption(this)">평균 + IQR</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(19)">힌트 보기</button>
+    <div class="quiz-hint" id="q19-hint">특이점에 민감하지 않은(robust한) 통계량 조합을 생각해 보세요.</div>
     <button class="quiz-submit" onclick="submitMC(19)">답 제출하기</button>
     <div class="quiz-result" id="q19-result"></div>
     <div class="quiz-explanation" id="q19-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 중앙값 + IQR</strong><br><br>
-      평균과 표준편차는 특이점에 민감하지만, 중앙값과 IQR은 특이점의 영향을 거의 받지 않습니다. 반대로 대칭 분포이고 특이점이 없으면 평균 + 표준편차를 사용합니다.
+      <strong>핵심 개념: 특이점에 강건한 통계량</strong><br><br>
+      <strong>특이점에 민감한 통계량:</strong> 평균, 표준편차, 범위<br>
+      <strong>특이점에 강건한 통계량:</strong> 중앙값, IQR<br><br>
+      따라서 특이점이 있을 때:<br>
+      - 중심위치 → <strong>중앙값</strong><br>
+      - 산포 → <strong>IQR</strong><br><br>
+      대칭이고 특이점이 없으면 → 평균 + 표준편차가 더 정보를 많이 담고 있습니다.<br><br>
+      💡 <strong>원칙:</strong> 분포 확인 → 대칭이면 평균+SD, 치우쳐 있으면 중앙값+IQR
     </div>
   </div>
 </div>
@@ -6064,17 +6375,20 @@
       <li data-label="C" onclick="selectOption(this)">8, 25, 33.5, 41, 52</li>
       <li data-label="D" onclick="selectOption(this)">8, 28, 33.5, 37, 52</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(20)">힌트 보기</button>
+    <div class="quiz-hint" id="q20-hint">다섯수치요약: 최솟값, Q1, 중앙값, Q3, 최댓값을 순서대로 구합니다.</div>
     <button class="quiz-submit" onclick="submitMC(20)">답 제출하기</button>
     <div class="quiz-result" id="q20-result"></div>
     <div class="quiz-explanation" id="q20-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 8, 25, 33.5, 41, 52</strong><br><br>
-      데이터 10개 (이미 정렬됨)<br>
+      <strong>핵심 개념: 다섯수치요약 계산</strong><br><br>
+      데이터 10개 (이미 정렬): {8, 23, 25, 28, 32, 35, 37, 41, 42, 52}<br><br>
       - 최솟값 = <strong>8</strong><br>
       - Q1 = 하위 5개 {8,23,25,28,32}의 중앙값 = <strong>25</strong><br>
       - 중앙값 = (32+35)/2 = <strong>33.5</strong><br>
       - Q3 = 상위 5개 {35,37,41,42,52}의 중앙값 = <strong>41</strong><br>
-      - 최댓값 = <strong>52</strong>, IQR = 41 - 25 = 16
+      - 최댓값 = <strong>52</strong><br>
+      - IQR = 41 − 25 = <strong>16</strong>
     </div>
   </div>
 </div>
@@ -6090,12 +6404,20 @@
       <li data-label="C" onclick="selectOption(this)">음수가 될 수 있다</li>
       <li data-label="D" onclick="selectOption(this)">단위가 원래 데이터와 다르다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(46)">힌트 보기</button>
+    <div class="quiz-hint" id="q46-hint">범위는 오직 최댓값과 최솟값, 두 극단값에만 의존합니다.</div>
     <button class="quiz-submit" onclick="submitMC(46)">답 제출하기</button>
     <div class="quiz-result" id="q46-result"></div>
     <div class="quiz-explanation" id="q46-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: B</strong><br><br>
-      범위 = 최댓값 − 최솟값으로 계산이 매우 간단하지만, <strong>오직 2개의 극단값</strong>만 사용하므로 나머지 데이터의 분포를 전혀 반영하지 못합니다. 특이점이 하나만 있어도 범위가 크게 왜곡됩니다.
+      <strong>핵심 개념: 범위(Range)의 약점</strong><br><br>
+      범위 = 최댓값 − 최솟값<br><br>
+      <strong>장점:</strong> 계산이 매우 간단<br>
+      <strong>약점:</strong><br>
+      - 오직 <strong>2개의 극단값</strong>만 사용<br>
+      - 나머지 데이터의 분포를 전혀 반영하지 못함<br>
+      - 특이점이 하나만 있어도 크게 왜곡됨<br><br>
+      💡 <strong>Tip:</strong> 범위는 음수가 될 수 없고(최댓값 ≥ 최솟값), 단위는 원래 데이터와 같습니다.
     </div>
   </div>
 </div>
@@ -6111,12 +6433,18 @@
       <li data-label="C" onclick="selectOption(this)">전체 학생 중 80%가 이 학생보다 낮은 점수를 받았다</li>
       <li data-label="D" onclick="selectOption(this)">전체 학생 중 80%가 이 학생보다 높은 점수를 받았다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(47)">힌트 보기</button>
+    <div class="quiz-hint" id="q47-hint">k번째 백분위수(Pₖ)는 데이터의 k%가 그 값 이하인 지점입니다.</div>
     <button class="quiz-submit" onclick="submitMC(47)">답 제출하기</button>
     <div class="quiz-result" id="q47-result"></div>
     <div class="quiz-explanation" id="q47-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: C</strong><br><br>
-      k번째 백분위수(Pₖ)란 데이터의 <strong>k%가 그 값 이하</strong>인 지점입니다. P₈₀이면 전체의 80%가 그 값보다 같거나 낮고, 상위 20%에 해당합니다. 점수 자체(80점)와는 다른 개념입니다.
+      <strong>핵심 개념: 백분위수의 의미</strong><br><br>
+      <strong>k번째 백분위수(Pₖ)</strong> = 데이터의 <strong>k%가 그 값 이하</strong>인 지점<br><br>
+      P₈₀이면:<br>
+      - 전체의 <strong>80%</strong>가 그 값보다 같거나 낮음<br>
+      - <strong>상위 20%</strong>에 해당<br><br>
+      💡 <strong>주의:</strong> 점수 자체(80점)와 백분위수(80번째)는 다른 개념입니다. P₈₀ = 65점일 수도 있습니다.
     </div>
   </div>
 </div>
@@ -6132,12 +6460,20 @@
       <li data-label="C" onclick="selectOption(this)">상자 안의 선 = 평균, 상자 양 끝 = Q1과 Q3</li>
       <li data-label="D" onclick="selectOption(this)">상자 안의 선 = 중앙값, 상자 양 끝 = Q1과 Q3</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(48)">힌트 보기</button>
+    <div class="quiz-hint" id="q48-hint">상자그림의 구조: 상자 안의 선은 중앙값, 양 끝은 Q1과 Q3입니다.</div>
     <button class="quiz-submit" onclick="submitMC(48)">답 제출하기</button>
     <div class="quiz-result" id="q48-result"></div>
     <div class="quiz-explanation" id="q48-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: D</strong><br><br>
-      상자그림의 구조: 상자의 왼쪽 끝 = <strong>Q1</strong>, 상자 안의 선 = <strong>중앙값(Q2)</strong>, 상자의 오른쪽 끝 = <strong>Q3</strong>. 수염(whisker)은 Q1−1.5×IQR과 Q3+1.5×IQR 범위까지이며, 그 바깥의 점은 특이점입니다.
+      <strong>핵심 개념: 상자그림(box plot)의 구조</strong><br><br>
+      상자그림의 5가지 요소:<br>
+      - 상자 왼쪽 끝 = <strong>Q1</strong><br>
+      - 상자 안의 선 = <strong>중앙값(Q2)</strong><br>
+      - 상자 오른쪽 끝 = <strong>Q3</strong><br>
+      - 수염(whisker) = Q1−1.5×IQR ~ Q3+1.5×IQR 범위<br>
+      - 수염 바깥의 점 = <strong>특이점(outlier)</strong><br><br>
+      💡 <strong>주의:</strong> 상자 안의 선은 <strong>평균이 아닌 중앙값</strong>입니다.
     </div>
   </div>
 </div>
@@ -6153,12 +6489,18 @@
       <li data-label="C" onclick="selectOption(this)">모든 데이터 값이 동일할 때</li>
       <li data-label="D" onclick="selectOption(this)">데이터의 개수가 짝수일 때</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(49)">힌트 보기</button>
+    <div class="quiz-hint" id="q49-hint">중앙값은 순서만 고려하므로 극단값의 영향을 거의 받지 않습니다.</div>
     <button class="quiz-submit" onclick="submitMC(49)">답 제출하기</button>
     <div class="quiz-result" id="q49-result"></div>
     <div class="quiz-explanation" id="q49-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: A</strong><br><br>
-      중앙값의 최대 장점은 <strong>특이점에 강건(robust)</strong>하다는 것입니다. 평균은 극단값에 의해 크게 끌려가지만, 중앙값은 순서만 고려하므로 극단값의 영향을 거의 받지 않습니다. 연봉 분포처럼 치우친 데이터에서는 중앙값이 더 적절합니다.
+      <strong>핵심 개념: 중앙값의 강건성</strong><br><br>
+      <strong>중앙값</strong>의 최대 장점 = <strong>특이점에 강건(robust)</strong><br><br>
+      - 평균: 극단값에 의해 크게 끌려감<br>
+      - 중앙값: 순서만 고려하므로 극단값의 영향을 거의 받지 않음<br><br>
+      예: {1,2,3,4,1000}에서 평균=202, 중앙값=3<br><br>
+      💡 <strong>활용:</strong> 연봉 분포처럼 치우친 데이터에서는 중앙값이 더 적절합니다.
     </div>
   </div>
 </div>
@@ -6174,12 +6516,17 @@
       <li data-label="C" onclick="selectOption(this)">분산과 표준편차 모두</li>
       <li data-label="D" onclick="selectOption(this)">변이계수</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(50)">힌트 보기</button>
+    <div class="quiz-hint" id="q50-hint">분산은 편차를 제곱하므로 단위도 제곱됩니다. 표준편차는 루트를 씌우면?</div>
     <button class="quiz-submit" onclick="submitMC(50)">답 제출하기</button>
     <div class="quiz-result" id="q50-result"></div>
     <div class="quiz-explanation" id="q50-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 표준편차</strong><br><br>
-      분산은 편차를 <strong>제곱</strong>하므로 단위가 원래 데이터의 제곱(예: cm²)입니다. <strong>표준편차</strong>는 분산에 루트를 씌우므로 원래 데이터와 같은 단위(예: cm)를 갖습니다. 변이계수(CV)는 표준편차/평균으로 <strong>단위가 없는</strong> 무차원 수입니다.
+      <strong>핵심 개념: 분산, 표준편차, 변이계수의 단위</strong><br><br>
+      <strong>분산</strong>: 편차를 <strong>제곱</strong>하므로 단위도 제곱 (예: cm²)<br>
+      <strong>표준편차</strong>: 분산에 <strong>루트</strong>를 씌우므로 <strong>원래 데이터와 같은 단위</strong> (예: cm)<br>
+      <strong>변이계수(CV)</strong>: 표준편차/평균이므로 <strong>단위 없음</strong>(무차원 수)<br><br>
+      💡 <strong>Tip:</strong> 해석의 직관성 면에서 표준편차 > 분산입니다. "평균에서 ±3cm" 같은 해석이 가능합니다.
     </div>
   </div>
 </div>
@@ -6194,14 +6541,19 @@
       <li data-label="C" onclick="selectOption(this)">Q1 = 6, Q3 = 12</li>
       <li data-label="D" onclick="selectOption(this)">Q1 = 4, Q3 = 12</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(91)">힌트 보기</button>
+    <div class="quiz-hint" id="q91-hint">데이터를 반으로 나누고, 하위 절반의 중앙값이 Q1, 상위 절반의 중앙값이 Q3입니다.</div>
     <button class="quiz-submit" onclick="submitMC(91)">답 제출하기</button>
     <div class="quiz-result" id="q91-result"></div>
     <div class="quiz-explanation" id="q91-explain">
       <div class="quiz-explain-label">해설</div>
-      데이터 8개를 반으로 나눕니다.<br>
+      <strong>핵심 개념: Q1, Q3 계산법</strong><br><br>
+      데이터 8개: {2, 4, 6, 8, 10, 12, 14, 16}<br><br>
+      반으로 나누기:<br>
       하위 4개: {2, 4, 6, 8} → Q1 = (4+6)/2 = <strong>5</strong><br>
       상위 4개: {10, 12, 14, 16} → Q3 = (12+14)/2 = <strong>13</strong><br>
-      IQR = 13 - 5 = 8
+      IQR = 13 − 5 = <strong>8</strong><br><br>
+      💡 <strong>기억법:</strong> Q1은 하위 절반의 중앙값, Q3은 상위 절반의 중앙값입니다.
     </div>
   </div>
 </div>
@@ -6216,15 +6568,20 @@
       <li data-label="C" onclick="selectOption(this)">60</li>
       <li data-label="D" onclick="selectOption(this)">75</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(92)">힌트 보기</button>
+    <div class="quiz-hint" id="q92-hint">1.5×IQR 규칙: 하한 = Q1 − 1.5×IQR, 상한 = Q3 + 1.5×IQR 바깥이면 특이점입니다.</div>
     <button class="quiz-submit" onclick="submitMC(92)">답 제출하기</button>
     <div class="quiz-result" id="q92-result"></div>
     <div class="quiz-explanation" id="q92-explain">
       <div class="quiz-explain-label">해설</div>
-      IQR = Q3 − Q1 = 40 − 20 = 20<br>
-      1.5 × IQR = 30<br>
+      <strong>핵심 개념: 1.5×IQR 규칙으로 특이점 판별</strong><br><br>
+      IQR = Q3 − Q1 = 40 − 20 = <strong>20</strong><br>
+      1.5 × IQR = <strong>30</strong><br><br>
       하한 울타리: Q1 − 30 = 20 − 30 = <strong>−10</strong><br>
       상한 울타리: Q3 + 30 = 40 + 30 = <strong>70</strong><br><br>
-      −10 미만이거나 70 초과인 값이 특이점입니다. 15, 45, 60은 범위 안에 있지만 <strong>75 > 70</strong>이므로 특이점입니다.
+      −10 미만이거나 70 초과인 값이 특이점:<br>
+      - 15 (범위 안) ✗ | 45 (범위 안) ✗ | 60 (범위 안) ✗<br>
+      - <strong>75 > 70 → 특이점</strong> ✓
     </div>
   </div>
 </div>
@@ -6239,11 +6596,19 @@
       <li data-label="C" onclick="selectOption(this)">A의 데이터 수가 B보다 많다</li>
       <li data-label="D" onclick="selectOption(this)">A에 특이점이 더 많다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(93)">힌트 보기</button>
+    <div class="quiz-hint" id="q93-hint">상자그림에서 상자의 너비는 IQR(중앙 50%의 퍼짐)을 나타냅니다.</div>
     <button class="quiz-submit" onclick="submitMC(93)">답 제출하기</button>
     <div class="quiz-result" id="q93-result"></div>
     <div class="quiz-explanation" id="q93-explain">
       <div class="quiz-explain-label">해설</div>
-      상자그림에서 상자의 너비는 <strong>IQR(Q3 − Q1)</strong>을 나타냅니다. 상자가 넓다는 것은 중앙 50%의 데이터가 <strong>더 넓은 범위에 퍼져 있다</strong>는 의미입니다. 평균의 크기나 데이터 수, 특이점의 수와는 직접적인 관련이 없습니다.
+      <strong>핵심 개념: 상자그림의 너비 해석</strong><br><br>
+      상자그림에서 상자의 너비 = <strong>IQR(Q3 − Q1)</strong><br><br>
+      상자가 넓다 = 중앙 50%의 데이터가 <strong>더 넓은 범위에 퍼져 있다</strong><br><br>
+      💡 <strong>주의:</strong> 상자의 너비는 다음과 직접적 관련이 <strong>없습니다</strong>:<br>
+      - 평균의 크기<br>
+      - 데이터의 수<br>
+      - 특이점의 수
     </div>
   </div>
 </div>
@@ -6258,11 +6623,18 @@
       <li data-label="C" onclick="selectOption(this)">28명</li>
       <li data-label="D" onclick="selectOption(this)">82명</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(94)">힌트 보기</button>
+    <div class="quiz-hint" id="q94-hint">k번째 백분위수면 k%가 그 값 이하이므로, 상위는 (100-k)%입니다.</div>
     <button class="quiz-submit" onclick="submitMC(94)">답 제출하기</button>
     <div class="quiz-result" id="q94-result"></div>
     <div class="quiz-explanation" id="q94-explain">
       <div class="quiz-explain-label">해설</div>
-      72번째 백분위수는 전체의 <strong>72%가 그 값 이하</strong>라는 의미입니다. 따라서 100명 중 약 72명이 이 학생 이하이고, 이 학생보다 높은 점수를 받은 학생은 약 100 − 72 = <strong>28명</strong>입니다.
+      <strong>핵심 개념: 백분위수에서 순위 계산</strong><br><br>
+      72번째 백분위수(P₇₂)의 의미:<br>
+      - 전체의 <strong>72%</strong>가 이 학생 <strong>이하</strong><br>
+      - 이 학생보다 높은 점수 = <strong>상위 28%</strong><br><br>
+      100명 기준: 약 100 − 72 = <strong>28명</strong>이 이 학생보다 높은 점수를 받았습니다.<br><br>
+      💡 <strong>Tip:</strong> Pₖ에 해당하면 상위 (100-k)%에 위치합니다.
     </div>
   </div>
 </div>
@@ -6277,14 +6649,20 @@
       <li data-label="C" onclick="selectOption(this)">오른쪽 꼬리 분포(right-skewed)</li>
       <li data-label="D" onclick="selectOption(this)">균등 분포(uniform)</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(95)">힌트 보기</button>
+    <div class="quiz-hint" id="q95-hint">중앙값을 기준으로 Q1까지의 거리와 Q3까지의 거리를 비교해 보세요.</div>
     <button class="quiz-submit" onclick="submitMC(95)">답 제출하기</button>
     <div class="quiz-result" id="q95-result"></div>
     <div class="quiz-explanation" id="q95-explain">
       <div class="quiz-explain-label">해설</div>
-      대칭 여부를 판단하려면 중앙값을 기준으로 양쪽을 비교합니다.<br>
-      중앙값 − Q1 = 50 − 45 = 5, Q3 − 중앙값 = 55 − 50 = 5 (같음)<br>
-      중앙값 − 최솟값 = 50 − 30 = 20, 최댓값 − 중앙값 = 70 − 50 = 20 (같음)<br><br>
-      양쪽이 대칭적이므로 <strong>대략 대칭에 가까운 분포</strong>입니다.
+      <strong>핵심 개념: 다섯수치요약으로 분포 모양 판단</strong><br><br>
+      대칭 여부: 중앙값을 기준으로 양쪽을 비교합니다.<br><br>
+      중앙값 − Q1 = 50 − 45 = <strong>5</strong><br>
+      Q3 − 중앙값 = 55 − 50 = <strong>5</strong> (같음)<br>
+      중앙값 − 최솟값 = 50 − 30 = <strong>20</strong><br>
+      최댓값 − 중앙값 = 70 − 50 = <strong>20</strong> (같음)<br><br>
+      양쪽이 대칭적이므로 <strong>대략 대칭에 가까운 분포</strong>입니다.<br><br>
+      💡 <strong>판단법:</strong> 간격이 비슷하면 대칭, 한쪽이 크면 그 쪽으로 꼬리가 길다.
     </div>
   </div>
 </div>
@@ -6299,13 +6677,18 @@
       <li data-label="C" onclick="selectOption(this)">중앙값 = 5, 평균 = 14.5</li>
       <li data-label="D" onclick="selectOption(this)">중앙값 = 5, 평균 = 5</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(96)">힌트 보기</button>
+    <div class="quiz-hint" id="q96-hint">특이점이 있을 때 평균과 중앙값 중 어느 것이 더 영향을 받는지 비교해 보세요.</div>
     <button class="quiz-submit" onclick="submitMC(96)">답 제출하기</button>
     <div class="quiz-result" id="q96-result"></div>
     <div class="quiz-explanation" id="q96-explain">
       <div class="quiz-explain-label">해설</div>
-      10개 데이터이므로 중앙값 = (5번째 + 6번째)/2 = (5+5)/2 = <strong>5</strong><br>
-      평균 = (5×9 + 100)/10 = 145/10 = <strong>14.5</strong><br><br>
-      특이점 100이 평균을 14.5로 끌어올렸지만, 중앙값은 5로 거의 영향을 받지 않았습니다. 이것이 <strong>중앙값이 특이점에 강건(robust)한</strong> 이유입니다.
+      <strong>핵심 개념: 특이점이 평균과 중앙값에 미치는 영향 비교</strong><br><br>
+      데이터: {5, 5, 5, 5, 5, 5, 5, 5, 5, 100}<br><br>
+      <strong>중앙값</strong> = (5번째+6번째)/2 = (5+5)/2 = <strong>5</strong><br>
+      <strong>평균</strong> = (5×9 + 100)/10 = 145/10 = <strong>14.5</strong><br><br>
+      특이점 100이 평균을 14.5로 끌어올렸지만, 중앙값은 5로 거의 영향을 받지 않았습니다.<br><br>
+      💡 <strong>핵심:</strong> 이것이 중앙값이 특이점에 <strong>강건(robust)</strong>한 이유입니다.
     </div>
   </div>
 </div>
@@ -6320,14 +6703,18 @@
       <li data-label="C" onclick="selectOption(this)">범위 = 50, IQR = 20</li>
       <li data-label="D" onclick="selectOption(this)">범위 = 30, IQR = 40</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(97)">힌트 보기</button>
+    <div class="quiz-hint" id="q97-hint">범위 = 최댓값 − 최솟값, IQR = Q3 − Q1입니다.</div>
     <button class="quiz-submit" onclick="submitMC(97)">답 제출하기</button>
     <div class="quiz-result" id="q97-result"></div>
     <div class="quiz-explanation" id="q97-explain">
       <div class="quiz-explain-label">해설</div>
-      범위 = 최댓값 − 최솟값 = 50 − 10 = <strong>40</strong><br>
-      5개 데이터: Q1 = 20 (2번째), Q3 = 40 (4번째)<br>
-      IQR = Q3 − Q1 = 40 − 20 = <strong>20</strong><br><br>
-      범위는 극단값 2개만 사용하고, IQR은 중앙 50%의 퍼짐을 나타냅니다.
+      <strong>핵심 개념: 범위(Range)와 IQR 비교</strong><br><br>
+      데이터: {10, 20, 30, 40, 50}<br><br>
+      <strong>범위</strong> = 최댓값 − 최솟값 = 50 − 10 = <strong>40</strong><br>
+      <strong>Q1</strong> = 20 (2번째), <strong>Q3</strong> = 40 (4번째)<br>
+      <strong>IQR</strong> = Q3 − Q1 = 40 − 20 = <strong>20</strong><br><br>
+      💡 <strong>차이:</strong> 범위는 극단값 2개만 사용(특이점에 민감), IQR은 중앙 50%의 퍼짐(더 안정적)
     </div>
   </div>
 </div>
@@ -6342,13 +6729,18 @@
       <li data-label="C" onclick="selectOption(this)">판단할 수 없다</li>
       <li data-label="D" onclick="selectOption(this)">오른쪽 꼬리 분포(양의 왜도)</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(98)">힌트 보기</button>
+    <div class="quiz-hint" id="q98-hint">중앙값에서 Q1까지의 거리와 Q3까지의 거리를 비교하여 치우침 방향을 판단합니다.</div>
     <button class="quiz-submit" onclick="submitMC(98)">답 제출하기</button>
     <div class="quiz-result" id="q98-result"></div>
     <div class="quiz-explanation" id="q98-explain">
       <div class="quiz-explain-label">해설</div>
-      중앙값 − Q1 = 35 − 30 = 5 (왼쪽 간격)<br>
-      Q3 − 중앙값 = 60 − 35 = 25 (오른쪽 간격)<br><br>
-      오른쪽 간격이 왼쪽보다 훨씬 크므로 <strong>오른쪽 꼬리 분포(양의 왜도, right-skewed)</strong>입니다. 상자그림에서 보면 중앙값 선이 상자의 왼쪽에 치우쳐 있는 모양이 됩니다.
+      <strong>핵심 개념: 다섯수치요약으로 왜도 판단</strong><br><br>
+      중앙값 기준 양쪽 간격 비교:<br>
+      중앙값 − Q1 = 35 − 30 = <strong>5</strong> (왼쪽 간격)<br>
+      Q3 − 중앙값 = 60 − 35 = <strong>25</strong> (오른쪽 간격)<br><br>
+      오른쪽 간격이 왼쪽보다 훨씬 크므로 → <strong>오른쪽 꼬리 분포(양의 왜도)</strong><br><br>
+      💡 <strong>시각화:</strong> 상자그림에서 중앙값 선이 상자의 왼쪽에 치우쳐 있는 모양이 됩니다.
     </div>
   </div>
 </div>
@@ -6363,11 +6755,19 @@
       <li data-label="C" onclick="selectOption(this)">X의 데이터 수가 Y보다 적다</li>
       <li data-label="D" onclick="selectOption(this)">두 데이터셋의 분포는 동일하다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(99)">힌트 보기</button>
+    <div class="quiz-hint" id="q99-hint">상자그림에서 상자가 넓고 수염이 길면 데이터의 변동성(산포)이 크다는 의미입니다.</div>
     <button class="quiz-submit" onclick="submitMC(99)">답 제출하기</button>
     <div class="quiz-result" id="q99-result"></div>
     <div class="quiz-explanation" id="q99-explain">
       <div class="quiz-explain-label">해설</div>
-      상자그림에서 <strong>상자의 너비 = IQR</strong>, <strong>수염의 길이 = 데이터의 범위</strong>를 반영합니다. Y의 상자가 넓고 수염이 길며 특이점까지 있다는 것은 <strong>데이터가 훨씬 넓게 퍼져 있다(변동성이 크다)</strong>는 것을 의미합니다.
+      <strong>핵심 개념: 상자그림으로 변동성 비교</strong><br><br>
+      상자그림에서:<br>
+      - <strong>상자의 너비</strong> = IQR (중앙 50%의 퍼짐)<br>
+      - <strong>수염의 길이</strong> = 데이터의 범위 반영<br>
+      - <strong>특이점</strong> = 극단적 값<br><br>
+      Y의 상자가 넓고 수염이 길며 특이점까지 있다면 → <strong>데이터가 훨씬 넓게 퍼져 있음(변동성이 크다)</strong><br><br>
+      💡 <strong>주의:</strong> 평균의 크기나 데이터 수와는 직접적 관련이 없습니다.
     </div>
   </div>
 </div>
@@ -6382,14 +6782,18 @@
       <li data-label="C" onclick="selectOption(this)">왼쪽 꼬리 분포(left-skewed)</li>
       <li data-label="D" onclick="selectOption(this)">균등 분포</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(100)">힌트 보기</button>
+    <div class="quiz-hint" id="q100-hint">평균이 긴 꼬리 쪽으로 끌려간다면, 중앙값 > 평균일 때 꼬리는 어느 쪽에 있을까요?</div>
     <button class="quiz-submit" onclick="submitMC(100)">답 제출하기</button>
     <div class="quiz-result" id="q100-result"></div>
     <div class="quiz-explanation" id="q100-explain">
       <div class="quiz-explain-label">해설</div>
-      평균은 항상 <strong>긴 꼬리 쪽으로 끌려갑니다</strong>.<br>
-      - 중앙값 > 평균 → 평균이 왼쪽으로 끌림 → <strong>왼쪽 꼬리 분포(left-skewed)</strong><br>
+      <strong>핵심 개념: 평균·중앙값 관계로 분포 모양 추정</strong><br><br>
+      평균은 항상 <strong>긴 꼬리 쪽</strong>으로 끌려갑니다.<br><br>
+      - 중앙값 > 평균 → 평균이 <strong>왼쪽</strong>으로 끌림 → <strong>왼쪽 꼬리 분포(left-skewed)</strong><br>
       - 중앙값 < 평균 → 평균이 오른쪽으로 끌림 → 오른쪽 꼬리 분포(right-skewed)<br>
-      - 중앙값 ≈ 평균 → 대칭 분포
+      - 중앙값 ≈ 평균 → 대칭 분포<br><br>
+      💡 <strong>기억법:</strong> 평균이 끌려간 방향 = 긴 꼬리의 방향
     </div>
   </div>
 </div>
@@ -6413,11 +6817,15 @@
       <li data-label="C" onclick="selectOption(this)">35</li>
       <li data-label="D" onclick="selectOption(this)">42</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(21)">힌트 보기</button>
+    <div class="quiz-hint" id="q21-hint">₇C₃ = 7! / (3! × 4!)로 계산합니다. 분자를 (7×6×5), 분모를 (3×2×1)로 간단히 할 수 있습니다.</div>
     <button class="quiz-submit" onclick="submitMC(21)">답 제출하기</button>
     <div class="quiz-result" id="q21-result"></div>
     <div class="quiz-explanation" id="q21-explain">
       <div class="quiz-explain-label">해설</div>
-      ₇C₃ = 7! / (3! × 4!) = (7×6×5) / (3×2×1) = 210 / 6 = <strong>35</strong>
+      <strong>핵심 개념: 조합(Combination) 계산</strong><br><br>
+      ₇C₃ = 7! / (3! × 4!) = (7×6×5) / (3×2×1) = 210 / 6 = <strong>35</strong><br><br>
+      💡 <strong>빠른 방법:</strong> 분자는 위에서 3개(7,6,5)만 곱하고, 분모는 3!로 나누기
     </div>
   </div>
 </div>
@@ -6432,11 +6840,16 @@
       <li data-label="C" onclick="selectOption(this)">0.3</li>
       <li data-label="D" onclick="selectOption(this)">0.1</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(22)">힌트 보기</button>
+    <div class="quiz-hint" id="q22-hint">이 문제는 덧셈법칙 P(A∪B) = P(A) + P(B) − P(A∩B)를 활용합니다.</div>
     <button class="quiz-submit" onclick="submitMC(22)">답 제출하기</button>
     <div class="quiz-result" id="q22-result"></div>
     <div class="quiz-explanation" id="q22-explain">
       <div class="quiz-explain-label">해설</div>
-      덧셈법칙: P(A∪B) = P(A) + P(B) − P(A∩B) = 0.4 + 0.5 − 0.2 = <strong>0.7</strong>
+      <strong>핵심 개념: 덧셈법칙(Addition Rule)</strong><br><br>
+      P(A∪B) = P(A) + P(B) − P(A∩B)<br>
+      = 0.4 + 0.5 − 0.2 = <strong>0.7</strong><br><br>
+      💡 <strong>주의:</strong> P(A∩B)를 빼지 않으면(=0.9) 교집합 부분을 이중으로 세게 됩니다. 배반(P(A∩B)=0)일 때만 단순 합산이 됩니다.
     </div>
   </div>
 </div>
@@ -6451,13 +6864,17 @@
       <li data-label="C" onclick="selectOption(this)">3/5</li>
       <li data-label="D" onclick="selectOption(this)">4/5</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(23)">힌트 보기</button>
+    <div class="quiz-hint" id="q23-hint">'적어도 1개'는 여사건을 이용하면 쉽습니다: 1 − P(0개).</div>
     <button class="quiz-submit" onclick="submitMC(23)">답 제출하기</button>
     <div class="quiz-result" id="q23-result"></div>
     <div class="quiz-explanation" id="q23-explain">
       <div class="quiz-explain-label">해설</div>
-      여사건 활용: P(적어도 1개) = 1 − P(0개)<br>
-      P(0개) = ₄C₃ / ₆C₃ = 4/20 = 1/5<br>
-      P(적어도 1개) = 1 − 1/5 = <strong>4/5</strong>
+      <strong>핵심 개념: 여사건을 이용한 확률 계산</strong><br><br>
+      "적어도 1개" = 1 − P(0개)<br><br>
+      P(불량 0개) = ₄C₃ / ₆C₃ = 4/20 = 1/5<br>
+      P(적어도 1개 불량) = 1 − 1/5 = <strong>4/5</strong><br><br>
+      💡 <strong>Tip:</strong> "적어도 하나"가 나오면 여사건(전혀 없는 경우)을 빼는 것이 훨씬 쉽습니다.
     </div>
   </div>
 </div>
@@ -6472,12 +6889,17 @@
       <li data-label="C" onclick="selectOption(this)">0.50</li>
       <li data-label="D" onclick="selectOption(this)">0.30</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(24)">힌트 보기</button>
+    <div class="quiz-hint" id="q24-hint">곱셈법칙: P(A∩B) = P(A) × P(B|A)를 적용하세요.</div>
     <button class="quiz-submit" onclick="submitMC(24)">답 제출하기</button>
     <div class="quiz-result" id="q24-result"></div>
     <div class="quiz-explanation" id="q24-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 0.15</strong><br><br>
-      곱셈법칙: P(A∩B) = P(A) × P(B|A) = 0.3 × 0.5 = <strong>0.15</strong>
+      <strong>핵심 개념: 곱셈법칙(Multiplication Rule)</strong><br><br>
+      P(A∩B) = P(A) × P(B|A) = 0.3 × 0.5 = <strong>0.15</strong><br><br>
+      이는 조건부 확률의 정의를 변형한 것입니다:<br>
+      P(B|A) = P(A∩B)/P(A) → P(A∩B) = P(A) × P(B|A)<br><br>
+      💡 <strong>Tip:</strong> 독립이면 P(B|A) = P(B)이므로 P(A∩B) = P(A)×P(B)로 단순화됩니다.
     </div>
   </div>
 </div>
@@ -6492,13 +6914,17 @@
       <li data-label="C" onclick="selectOption(this)">P(A|B) = P(B)</li>
       <li data-label="D" onclick="selectOption(this)">P(A∪B) = P(A) × P(B)</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(25)">힌트 보기</button>
+    <div class="quiz-hint" id="q25-hint">독립이면 한 사건의 발생이 다른 사건의 확률에 영향을 주지 않습니다.</div>
     <button class="quiz-submit" onclick="submitMC(25)">답 제출하기</button>
     <div class="quiz-result" id="q25-result"></div>
     <div class="quiz-explanation" id="q25-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: P(A∩B) = P(A) × P(B)</strong><br><br>
-      두 사건이 독립이면 한 사건의 발생이 다른 사건의 확률에 <strong>영향을 주지 않습니다</strong>.<br>
-      즉, P(A|B) = P(A)이고, 이때 P(A∩B) = P(A) × P(B)로 구합니다.
+      <strong>핵심 개념: 사건의 독립</strong><br><br>
+      두 사건이 <strong>독립</strong>이면 한 사건의 발생이 다른 사건의 확률에 영향을 주지 않습니다.<br><br>
+      독립의 조건: <strong>P(A∩B) = P(A) × P(B)</strong><br>
+      동치 조건: P(A|B) = P(A), P(B|A) = P(B)<br><br>
+      💡 <strong>주의:</strong> 독립 ≠ 배반. 배반(P(A∩B)=0)인 두 사건이 확률>0이면 절대 독립이 아닙니다.
     </div>
   </div>
 </div>
@@ -6514,13 +6940,16 @@
       <li data-label="C" onclick="selectOption(this)">30</li>
       <li data-label="D" onclick="selectOption(this)">60</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(51)">힌트 보기</button>
+    <div class="quiz-hint" id="q51-hint">순열은 순서가 중요하므로 ₅P₃ = 5!/(5-3)!로 계산합니다.</div>
     <button class="quiz-submit" onclick="submitMC(51)">답 제출하기</button>
     <div class="quiz-result" id="q51-result"></div>
     <div class="quiz-explanation" id="q51-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 60</strong><br><br>
-      ₅P₃ = 5!/(5−3)! = 5!/2! = (5×4×3×2×1)/(2×1) = <strong>60</strong><br>
-      순열은 순서가 중요하므로 조합(₅C₃=10)보다 큽니다. 순열 = 조합 × r!
+      <strong>핵심 개념: 순열(Permutation) 계산</strong><br><br>
+      ₅P₃ = 5!/(5−3)! = 5!/2! = (5×4×3×2×1)/(2×1) = <strong>60</strong><br><br>
+      빠른 방법: 위에서 3개만 곱하기 = 5×4×3 = <strong>60</strong><br><br>
+      💡 <strong>순열 vs 조합:</strong> 순열은 순서 중요(₅P₃=60), 조합은 순서 무관(₅C₃=10). 순열 = 조합 × r!
     </div>
   </div>
 </div>
@@ -6536,13 +6965,16 @@
       <li data-label="C" onclick="selectOption(this)">1.0</li>
       <li data-label="D" onclick="selectOption(this)">−0.3</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(52)">힌트 보기</button>
+    <div class="quiz-hint" id="q52-hint">여사건의 확률: P(Aᶜ) = 1 − P(A)입니다.</div>
     <button class="quiz-submit" onclick="submitMC(52)">답 제출하기</button>
     <div class="quiz-result" id="q52-result"></div>
     <div class="quiz-explanation" id="q52-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 0.3</strong><br><br>
-      여사건의 확률: P(Aᶜ) = 1 − P(A) = 1 − 0.7 = <strong>0.3</strong><br>
-      어떤 사건이 일어날 확률과 일어나지 않을 확률의 합은 항상 1입니다.
+      <strong>핵심 개념: 여사건의 확률</strong><br><br>
+      <strong>여사건 공식:</strong> P(Aᶜ) = 1 − P(A) = 1 − 0.7 = <strong>0.3</strong><br><br>
+      핵심 성질: P(A) + P(Aᶜ) = <strong>1</strong> (항상)<br><br>
+      💡 <strong>주의:</strong> 확률은 항상 0과 1 사이이므로 음수(-0.3)는 불가능합니다.
     </div>
   </div>
 </div>
@@ -6558,12 +6990,18 @@
       <li data-label="C" onclick="selectOption(this)">S = {1, 2, 3, 4, 5, 6}</li>
       <li data-label="D" onclick="selectOption(this)">S = {0, 1, 2, 3, 4, 5, 6}</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(53)">힌트 보기</button>
+    <div class="quiz-hint" id="q53-hint">표본공간(S)은 실험에서 나올 수 있는 모든 가능한 결과의 집합입니다.</div>
     <button class="quiz-submit" onclick="submitMC(53)">답 제출하기</button>
     <div class="quiz-result" id="q53-result"></div>
     <div class="quiz-explanation" id="q53-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: C</strong><br><br>
-      표본공간(S)은 실험에서 나올 수 있는 <strong>모든 가능한 결과의 집합</strong>입니다. 주사위는 1부터 6까지 나올 수 있으므로 S = {1, 2, 3, 4, 5, 6}이며, 0은 나올 수 없습니다.
+      <strong>핵심 개념: 표본공간(Sample Space)</strong><br><br>
+      <strong>표본공간(S)</strong> = 실험에서 나올 수 있는 <strong>모든 가능한 결과의 집합</strong><br><br>
+      주사위 1개: S = {1, 2, 3, 4, 5, 6}<br>
+      - 0은 나올 수 없으므로 포함 안 됨<br>
+      - {짝수, 홀수}는 사건(event)이지 표본공간이 아님<br><br>
+      💡 <strong>Tip:</strong> 표본공간은 가장 세밀한 수준에서 모든 결과를 나열한 것입니다.
     </div>
   </div>
 </div>
@@ -6579,12 +7017,20 @@
       <li data-label="C" onclick="selectOption(this)">서로 배반인 사건들의 합사건 확률은 각 확률의 합과 같다</li>
       <li data-label="D" onclick="selectOption(this)">임의의 두 사건 A, B에 대해 P(A∪B) = P(A) + P(B)</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(54)">힌트 보기</button>
+    <div class="quiz-hint" id="q54-hint">P(A∪B) = P(A) + P(B)는 서로 배반일 때만 성립합니다.</div>
     <button class="quiz-submit" onclick="submitMC(54)">답 제출하기</button>
     <div class="quiz-result" id="q54-result"></div>
     <div class="quiz-explanation" id="q54-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: D</strong><br><br>
-      P(A∪B) = P(A) + P(B)는 A와 B가 <strong>서로 배반(mutually exclusive)</strong>일 때만 성립합니다. 일반적인 경우에는 P(A∪B) = P(A) + P(B) − <strong>P(A∩B)</strong>로 중복을 빼야 합니다.
+      <strong>핵심 개념: 확률의 공리와 덧셈법칙</strong><br><br>
+      확률의 3대 공리:<br>
+      ① 0 ≤ P(A) ≤ 1<br>
+      ② P(S) = 1<br>
+      ③ 서로 배반인 사건들: P(A∪B) = P(A) + P(B)<br><br>
+      D가 틀린 이유: P(A∪B) = P(A) + P(B)는 <strong>서로 배반일 때만</strong> 성립합니다.<br>
+      일반적으로: P(A∪B) = P(A) + P(B) − <strong>P(A∩B)</strong><br><br>
+      💡 <strong>핵심:</strong> 중복(교집합)을 빼는 것을 잊지 마세요!
     </div>
   </div>
 </div>
@@ -6600,13 +7046,18 @@
       <li data-label="C" onclick="selectOption(this)">0.20</li>
       <li data-label="D" onclick="selectOption(this)">0.60</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(55)">힌트 보기</button>
+    <div class="quiz-hint" id="q55-hint">곱셈법칙: P(A∩B) = P(A) × P(B|A)를 사용하세요.</div>
     <button class="quiz-submit" onclick="submitMC(55)">답 제출하기</button>
     <div class="quiz-result" id="q55-result"></div>
     <div class="quiz-explanation" id="q55-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 0.24</strong><br><br>
-      곱셈법칙: P(A∩B) = P(A) × P(B|A) = 0.6 × 0.4 = <strong>0.24</strong><br>
-      조건부 확률의 정의 P(B|A) = P(A∩B)/P(A)를 변형한 것입니다.
+      <strong>핵심 개념: 곱셈법칙 적용</strong><br><br>
+      <strong>곱셈법칙:</strong> P(A∩B) = P(A) × P(B|A)<br>
+      = 0.6 × 0.4 = <strong>0.24</strong><br><br>
+      이는 조건부 확률의 정의를 변형한 것:<br>
+      P(B|A) = P(A∩B)/P(A) → P(A∩B) = P(A) × P(B|A)<br><br>
+      💡 <strong>Tip:</strong> A가 독립이면 P(B|A) = P(B)이므로 P(A∩B) = 0.6 × P(B)가 됩니다.
     </div>
   </div>
 </div>
@@ -6621,14 +7072,18 @@
       <li data-label="C" onclick="selectOption(this)">6/45</li>
       <li data-label="D" onclick="selectOption(this)">1/5</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(101)">힌트 보기</button>
+    <div class="quiz-hint" id="q101-hint">비복원추출에서는 조합을 사용합니다. 빨간 공에서 2개, 전체에서 2개를 뽑는 조합을 구하세요.</div>
     <button class="quiz-submit" onclick="submitMC(101)">답 제출하기</button>
     <div class="quiz-result" id="q101-result"></div>
     <div class="quiz-explanation" id="q101-explain">
       <div class="quiz-explain-label">해설</div>
-      빨간 공 2개를 뽑는 경우의 수: ₄C₂ = 6<br>
-      전체에서 2개를 뽑는 경우의 수: ₁₀C₂ = 45<br>
+      <strong>핵심 개념: 비복원추출의 확률 계산</strong><br><br>
+      빨간 공 4개, 파란 공 6개 (총 10개)에서 2개 동시 추출:<br><br>
+      빨간 공 2개 선택: ₄C₂ = 6<br>
+      전체에서 2개 선택: ₁₀C₂ = 45<br>
       P = 6/45 = <strong>2/15</strong> ≈ 0.133<br><br>
-      6/45를 약분하면 2/15가 됩니다. 4/25 = 0.16은 복원추출(독립)일 때의 값이므로 주의하세요.
+      💡 <strong>주의:</strong> 4/25 = 0.16은 복원추출(독립)일 때의 값 (4/10)² 입니다. 비복원에서는 조합을 사용하세요.
     </div>
   </div>
 </div>
@@ -6643,16 +7098,18 @@
       <li data-label="C" onclick="selectOption(this)">약 17%</li>
       <li data-label="D" onclick="selectOption(this)">약 1%</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(102)">힌트 보기</button>
+    <div class="quiz-hint" id="q102-hint">베이즈 정리를 사용합니다. 먼저 P(양성) = P(양성|질병)P(질병) + P(양성|정상)P(정상)을 구하세요.</div>
     <button class="quiz-submit" onclick="submitMC(102)">답 제출하기</button>
     <div class="quiz-result" id="q102-result"></div>
     <div class="quiz-explanation" id="q102-explain">
       <div class="quiz-explain-label">해설</div>
-      베이즈 정리 적용:<br>
-      P(질병|양성) = P(양성|질병)×P(질병) / P(양성)<br>
+      <strong>핵심 개념: 베이즈 정리와 양성예측도</strong><br><br>
+      <strong>베이즈 정리:</strong> P(질병|양성) = P(양성|질병)×P(질병) / P(양성)<br><br>
       P(양성) = P(양성|질병)×P(질병) + P(양성|정상)×P(정상)<br>
-      = 0.99×0.01 + 0.05×0.99 = 0.0099 + 0.0495 = 0.0594<br>
+      = 0.99×0.01 + 0.05×0.99 = 0.0099 + 0.0495 = 0.0594<br><br>
       P(질병|양성) = 0.0099/0.0594 ≈ <strong>0.167 (약 17%)</strong><br><br>
-      유병률이 낮으면 양성 판정을 받아도 실제 질병일 확률이 낮을 수 있습니다. 이것이 <strong>베이즈 정리</strong>의 핵심 교훈입니다.
+      💡 <strong>핵심 교훈:</strong> 유병률이 낮으면 양성 판정을 받아도 실제 질병일 확률이 생각보다 낮습니다.
     </div>
   </div>
 </div>
@@ -6667,12 +7124,17 @@
       <li data-label="C" onclick="selectOption(this)">0.2</li>
       <li data-label="D" onclick="selectOption(this)">0.8</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(103)">힌트 보기</button>
+    <div class="quiz-hint" id="q103-hint">조건부 확률: P(B|A) = P(A∩B) / P(A)를 적용하세요.</div>
     <button class="quiz-submit" onclick="submitMC(103)">답 제출하기</button>
     <div class="quiz-result" id="q103-result"></div>
     <div class="quiz-explanation" id="q103-explain">
       <div class="quiz-explain-label">해설</div>
-      조건부 확률: P(B|A) = P(A∩B)/P(A) = 0.2/0.5 = <strong>0.4</strong><br><br>
-      이 경우 P(B|A) = 0.4 = P(B)이므로 A와 B는 <strong>독립</strong>입니다. 즉, A의 발생이 B의 확률에 영향을 주지 않습니다.
+      <strong>핵심 개념: 조건부 확률</strong><br><br>
+      P(B|A) = P(A∩B)/P(A) = 0.2/0.5 = <strong>0.4</strong><br><br>
+      이 경우 P(B|A) = 0.4 = P(B)이므로 A와 B는 <strong>독립</strong>입니다.<br>
+      즉, A의 발생이 B의 확률에 영향을 주지 않습니다.<br><br>
+      💡 <strong>확인법:</strong> P(B|A) = P(B)이면 독립, 아니면 종속입니다.
     </div>
   </div>
 </div>
@@ -6687,13 +7149,17 @@
       <li data-label="C" onclick="selectOption(this)">독립도 아니고 배반도 아니다</li>
       <li data-label="D" onclick="selectOption(this)">배반이지만 독립은 아니다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(104)">힌트 보기</button>
+    <div class="quiz-hint" id="q104-hint">배반: P(A∩B)=0, 독립: P(A∩B)=P(A)×P(B). 두 조건이 동시에 성립하는지 확인해 보세요.</div>
     <button class="quiz-submit" onclick="submitMC(104)">답 제출하기</button>
     <div class="quiz-result" id="q104-result"></div>
     <div class="quiz-explanation" id="q104-explain">
       <div class="quiz-explain-label">해설</div>
-      P(A∩B) = 0이므로 <strong>배반(mutually exclusive)</strong>입니다.<br>
-      독립이려면 P(A∩B) = P(A)×P(B) = 0.3×0.4 = 0.12여야 하지만 실제로는 0이므로 <strong>독립이 아닙니다</strong>.<br><br>
-      핵심: 확률이 0이 아닌 두 배반 사건은 <strong>절대 독립이 될 수 없습니다</strong>. 하나가 일어나면 다른 하나는 절대 일어나지 않으므로 서로 영향을 줍니다.
+      <strong>핵심 개념: 배반과 독립의 관계</strong><br><br>
+      P(A∩B) = 0 → <strong>배반(mutually exclusive)</strong> ✓<br>
+      독립 검증: P(A)×P(B) = 0.3×0.4 = 0.12 ≠ 0 → <strong>독립 아님</strong> ✗<br><br>
+      💡 <strong>핵심 원칙:</strong> 확률이 0이 아닌 두 배반 사건은 <strong>절대 독립이 될 수 없습니다</strong>.<br>
+      이유: 하나가 일어나면 다른 하나는 절대 일어나지 않으므로 서로 영향을 줍니다.
     </div>
   </div>
 </div>
@@ -6708,15 +7174,18 @@
       <li data-label="C" onclick="selectOption(this)">0.07</li>
       <li data-label="D" onclick="selectOption(this)">0.02</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(105)">힌트 보기</button>
+    <div class="quiz-hint" id="q105-hint">전확률법칙: P(불량) = P(불량|A)×P(A) + P(불량|B)×P(B)를 적용하세요.</div>
     <button class="quiz-submit" onclick="submitMC(105)">답 제출하기</button>
     <div class="quiz-result" id="q105-result"></div>
     <div class="quiz-explanation" id="q105-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>전확률법칙</strong> 적용:<br>
+      <strong>핵심 개념: 전확률법칙(Law of Total Probability)</strong><br><br>
       P(불량) = P(불량|A)×P(A) + P(불량|B)×P(B)<br>
       = 0.02×0.6 + 0.05×0.4<br>
       = 0.012 + 0.020 = <strong>0.032</strong><br><br>
-      전체 불량률은 각 공장의 불량률을 생산 비율로 가중평균한 것입니다.
+      전체 불량률은 각 공장의 불량률을 <strong>생산 비율로 가중평균</strong>한 것입니다.<br><br>
+      💡 <strong>Tip:</strong> 전확률법칙은 베이즈 정리의 분모를 구하는 데도 사용됩니다.
     </div>
   </div>
 </div>
@@ -6731,13 +7200,17 @@
       <li data-label="C" onclick="selectOption(this)">392</li>
       <li data-label="D" onclick="selectOption(this)">448</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(106)">힌트 보기</button>
+    <div class="quiz-hint" id="q106-hint">₈P₃ = 8×7×6, ₈C₃ = 8!/(3!×5!)을 각각 계산해서 더하세요.</div>
     <button class="quiz-submit" onclick="submitMC(106)">답 제출하기</button>
     <div class="quiz-result" id="q106-result"></div>
     <div class="quiz-explanation" id="q106-explain">
       <div class="quiz-explain-label">해설</div>
+      <strong>핵심 개념: 순열과 조합 합산</strong><br><br>
       ₈P₃ = 8×7×6 = <strong>336</strong> (순서 O)<br>
       ₈C₃ = 8!/(3!×5!) = 336/6 = <strong>56</strong> (순서 X)<br>
-      ₈P₃ + ₈C₃ = 336 + 56 = <strong>392</strong>
+      합: 336 + 56 = <strong>392</strong><br><br>
+      💡 <strong>관계:</strong> ₙPᵣ = ₙCᵣ × r! 이므로, 336 = 56 × 6 이 성립합니다.
     </div>
   </div>
 </div>
@@ -6758,16 +7231,20 @@
       <li data-label="C" onclick="selectOption(this)">P(A∩B) = 0.25, P(A∪B) = 0.60</li>
       <li data-label="D" onclick="selectOption(this)">P(A∩B) = 0.15, P(A∪B) = 0.75</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(107)">힌트 보기</button>
+    <div class="quiz-hint" id="q107-hint">확률표에서 P(A∩B)는 A행 B열의 값을 직접 읽으면 됩니다.</div>
     <button class="quiz-submit" onclick="submitMC(107)">답 제출하기</button>
     <div class="quiz-result" id="q107-result"></div>
     <div class="quiz-explanation" id="q107-explain">
       <div class="quiz-explain-label">해설</div>
-      확률표에서 직접 읽습니다:<br>
-      P(A∩B) = <strong>0.15</strong> (A행, B열)<br>
+      <strong>핵심 개념: 확률표(결합확률표) 읽기</strong><br><br>
+      확률표에서 직접 읽기:<br>
+      P(A∩B) = <strong>0.15</strong> (A행, B열의 값)<br><br>
+      주변확률 계산:<br>
       P(A) = 0.15 + 0.25 = 0.40<br>
-      P(B) = 0.15 + 0.35 = 0.50<br>
-      P(A∪B) = P(A) + P(B) − P(A∩B) = 0.40 + 0.50 − 0.15 = <strong>0.75</strong><br><br>
-      또는 P(A∪B) = 1 − P(Aᶜ∩Bᶜ) = 1 − 0.25 = 0.75
+      P(B) = 0.15 + 0.35 = 0.50<br><br>
+      덧셈법칙: P(A∪B) = 0.40 + 0.50 − 0.15 = <strong>0.75</strong><br>
+      또는: P(A∪B) = 1 − P(Aᶜ∩Bᶜ) = 1 − 0.25 = 0.75
     </div>
   </div>
 </div>
@@ -6782,15 +7259,18 @@
       <li data-label="C" onclick="selectOption(this)">11/36</li>
       <li data-label="D" onclick="selectOption(this)">1/36</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(108)">힌트 보기</button>
+    <div class="quiz-hint" id="q108-hint">'적어도 하나'는 여사건을 이용합니다: 1 − P(둘 다 6이 아님).</div>
     <button class="quiz-submit" onclick="submitMC(108)">답 제출하기</button>
     <div class="quiz-result" id="q108-result"></div>
     <div class="quiz-explanation" id="q108-explain">
       <div class="quiz-explain-label">해설</div>
-      여사건 활용: P(적어도 1개가 6) = 1 − P(둘 다 6이 아님)<br>
+      <strong>핵심 개념: 여사건을 이용한 "적어도 하나" 계산</strong><br><br>
+      P(적어도 1개가 6) = 1 − P(둘 다 6이 아님)<br><br>
       P(6이 아님) = 5/6<br>
       P(둘 다 6 아님) = (5/6)² = 25/36<br>
       P(적어도 1개가 6) = 1 − 25/36 = <strong>11/36</strong> ≈ 0.306<br><br>
-      "적어도 하나"는 여사건을 이용하면 쉽게 풀 수 있습니다.
+      💡 <strong>전략:</strong> "적어도 하나"는 항상 여사건(=하나도 아닌 경우)을 빼는 것이 쉽습니다.
     </div>
   </div>
 </div>
@@ -6805,13 +7285,18 @@
       <li data-label="C" onclick="selectOption(this)">0.3</li>
       <li data-label="D" onclick="selectOption(this)">계산할 수 없다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(109)">힌트 보기</button>
+    <div class="quiz-hint" id="q109-hint">서로 배반인 사건들의 합집합 확률은 각 확률의 단순 합입니다.</div>
     <button class="quiz-submit" onclick="submitMC(109)">답 제출하기</button>
     <div class="quiz-result" id="q109-result"></div>
     <div class="quiz-explanation" id="q109-explain">
       <div class="quiz-explain-label">해설</div>
-      서로 배반인 사건들의 합집합 확률은 <strong>각 확률의 단순 합</strong>입니다:<br>
+      <strong>핵심 개념: 배반 사건의 합사건 확률</strong><br><br>
+      서로 배반(mutually exclusive)인 사건들:<br>
       P(A∪B∪C) = P(A) + P(B) + P(C) = 0.3 + 0.5 + 0.2 = <strong>1.0</strong><br><br>
-      합이 1이라는 것은 A, B, C가 표본공간을 완전히 분할(partition)한다는 의미입니다. 반드시 셋 중 하나는 일어납니다.
+      합이 1이라는 것은 A, B, C가 표본공간을 <strong>완전히 분할(partition)</strong>한다는 의미입니다.<br>
+      반드시 셋 중 하나는 일어납니다.<br><br>
+      💡 <strong>Tip:</strong> 배반이면 교집합이 없으므로 단순 합산이 가능합니다.
     </div>
   </div>
 </div>
@@ -6826,15 +7311,18 @@
       <li data-label="C" onclick="selectOption(this)">13/52</li>
       <li data-label="D" onclick="selectOption(this)">12/51</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(110)">힌트 보기</button>
+    <div class="quiz-hint" id="q110-hint">비복원추출에서는 첫 번째 뽑기가 두 번째 확률에 영향을 줍니다.</div>
     <button class="quiz-submit" onclick="submitMC(110)">답 제출하기</button>
     <div class="quiz-result" id="q110-result"></div>
     <div class="quiz-explanation" id="q110-explain">
       <div class="quiz-explain-label">해설</div>
-      비복원추출이므로 곱셈법칙을 사용합니다:<br>
+      <strong>핵심 개념: 비복원추출의 곱셈법칙</strong><br><br>
+      비복원추출이므로 조건부 확률을 곱합니다:<br>
       P(1번째 하트) = 13/52<br>
       P(2번째 하트 | 1번째 하트) = 12/51<br>
       P(둘 다 하트) = (13/52) × (12/51) = 156/2652 = <strong>1/17</strong> ≈ 0.059<br><br>
-      복원추출이었다면 (13/52)² = 1/16이 되므로 주의하세요.
+      💡 <strong>주의:</strong> 복원추출이면 (13/52)² = 1/16이 됩니다. 비복원에서는 두 번째 뽑기의 확률이 달라집니다.
     </div>
   </div>
 </div>
@@ -6863,11 +7351,17 @@
       <li data-label="C" onclick="selectOption(this)">1.0</li>
       <li data-label="D" onclick="selectOption(this)">1.2</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(26)">힌트 보기</button>
+    <div class="quiz-hint" id="q26-hint">기댓값 E(X) = Σ x × P(X=x)로 각 값에 확률을 곱해서 더합니다.</div>
     <button class="quiz-submit" onclick="submitMC(26)">답 제출하기</button>
     <div class="quiz-result" id="q26-result"></div>
     <div class="quiz-explanation" id="q26-explain">
       <div class="quiz-explain-label">해설</div>
-      E(X) = 0×0.3 + 1×0.5 + 2×0.2 = 0 + 0.5 + 0.4 = <strong>0.9</strong>
+      <strong>핵심 개념: 기댓값(Expected Value) 계산</strong><br><br>
+      E(X) = Σ x × P(X=x)<br>
+      = 0×0.3 + 1×0.5 + 2×0.2<br>
+      = 0 + 0.5 + 0.4 = <strong>0.9</strong><br><br>
+      💡 <strong>의미:</strong> 기댓값은 확률변수의 "장기 평균"으로, 이 실험을 무한히 반복하면 평균이 0.9에 수렴합니다.
     </div>
   </div>
 </div>
@@ -6882,13 +7376,16 @@
       <li data-label="C" onclick="selectOption(this)">36</li>
       <li data-label="D" onclick="selectOption(this)">38</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(27)">힌트 보기</button>
+    <div class="quiz-hint" id="q27-hint">Var(aX+b) = a²Var(X)입니다. 상수 b는 분산에 영향을 주지 않습니다.</div>
     <button class="quiz-submit" onclick="submitMC(27)">답 제출하기</button>
     <div class="quiz-result" id="q27-result"></div>
     <div class="quiz-explanation" id="q27-explain">
       <div class="quiz-explain-label">해설</div>
-      Var(aX+b) = a²Var(X)<br>
+      <strong>핵심 개념: 선형변환의 분산</strong><br><br>
+      <strong>공식:</strong> Var(aX+b) = a²Var(X)<br><br>
       Var(3X+2) = 3² × 4 = 9 × 4 = <strong>36</strong><br><br>
-      주의: b(=2)는 분산에 영향 없음! 위치 이동은 퍼짐 정도를 안 바꿈.
+      💡 <strong>핵심:</strong> 상수 b(=2)를 더하는 것은 위치만 이동시키므로 분산에 영향 없음! 상수 a(=3)를 곱하면 분산은 a²배가 됩니다.
     </div>
   </div>
 </div>
@@ -6903,12 +7400,16 @@
       <li data-label="C" onclick="selectOption(this)">15</li>
       <li data-label="D" onclick="selectOption(this)">-1.5</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(28)">힌트 보기</button>
+    <div class="quiz-hint" id="q28-hint">Z = (X − μ) / σ 공식에 값을 대입하세요.</div>
     <button class="quiz-submit" onclick="submitMC(28)">답 제출하기</button>
     <div class="quiz-result" id="q28-result"></div>
     <div class="quiz-explanation" id="q28-explain">
       <div class="quiz-explain-label">해설</div>
-      Z = (X − μ) / σ = (85 − 70) / 10 = 15/10 = <strong>1.5</strong><br><br>
-      "평균에서 표준편차 1.5개만큼 위에 있다"는 의미입니다.
+      <strong>핵심 개념: Z-점수(표준화)</strong><br><br>
+      <strong>공식:</strong> Z = (X − μ) / σ = (85 − 70) / 10 = 15/10 = <strong>1.5</strong><br><br>
+      <strong>해석:</strong> 85점은 평균(70)에서 표준편차(10) <strong>1.5개만큼 위</strong>에 있다는 의미입니다.<br><br>
+      💡 <strong>Tip:</strong> Z > 0이면 평균 위, Z < 0이면 평균 아래, Z = 0이면 평균과 같습니다.
     </div>
   </div>
 </div>
@@ -6923,13 +7424,16 @@
       <li data-label="C" onclick="selectOption(this)">11</li>
       <li data-label="D" onclick="selectOption(this)">16</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(29)">힌트 보기</button>
+    <div class="quiz-hint" id="q29-hint">기댓값의 선형성: E(aX+b) = aE(X) + b를 이용하세요.</div>
     <button class="quiz-submit" onclick="submitMC(29)">답 제출하기</button>
     <div class="quiz-result" id="q29-result"></div>
     <div class="quiz-explanation" id="q29-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 11</strong><br><br>
-      E(aX+b) = aE(X) + b<br>
-      E(2X+5) = 2×3 + 5 = <strong>11</strong>
+      <strong>핵심 개념: 기댓값의 선형성</strong><br><br>
+      <strong>공식:</strong> E(aX+b) = aE(X) + b<br><br>
+      E(2X+5) = 2×3 + 5 = 6 + 5 = <strong>11</strong><br><br>
+      💡 <strong>Tip:</strong> 기댓값에서는 상수를 그대로 꺼낼 수 있습니다. 분산과 달리 상수 b도 그대로 더해집니다.
     </div>
   </div>
 </div>
@@ -6944,13 +7448,18 @@
       <li data-label="C" onclick="selectOption(this)">1.30</li>
       <li data-label="D" onclick="selectOption(this)">0.90</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(30)">힌트 보기</button>
+    <div class="quiz-hint" id="q30-hint">분산의 간편식: Var(X) = E(X²) − [E(X)]²을 사용하세요. 먼저 E(X²)을 구합니다.</div>
     <button class="quiz-submit" onclick="submitMC(30)">답 제출하기</button>
     <div class="quiz-result" id="q30-result"></div>
     <div class="quiz-explanation" id="q30-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 0.49</strong><br><br>
+      <strong>핵심 개념: 분산의 간편식</strong><br><br>
+      Var(X) = E(X²) − [E(X)]²<br><br>
       E(X²) = 0²×0.3 + 1²×0.5 + 2²×0.2 = 0 + 0.5 + 0.8 = <strong>1.3</strong><br>
-      Var(X) = E(X²) − [E(X)]² = 1.3 − 0.81 = <strong>0.49</strong>
+      [E(X)]² = 0.9² = <strong>0.81</strong><br>
+      Var(X) = 1.3 − 0.81 = <strong>0.49</strong><br><br>
+      💡 <strong>주의:</strong> E(X²) ≠ [E(X)]²입니다. 이 차이가 바로 분산입니다.
     </div>
   </div>
 </div>
@@ -6966,13 +7475,19 @@
       <li data-label="C" onclick="selectOption(this)">어떤 전구의 수명(시간)</li>
       <li data-label="D" onclick="selectOption(this)">주사위를 던져서 나온 눈의 수</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(56)">힌트 보기</button>
+    <div class="quiz-hint" id="q56-hint">이산형은 셀 수 있는 값, 연속형은 구간 내 어떤 실수값이든 가능합니다.</div>
     <button class="quiz-submit" onclick="submitMC(56)">답 제출하기</button>
     <div class="quiz-result" id="q56-result"></div>
     <div class="quiz-explanation" id="q56-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 전구의 수명</strong><br><br>
-      <strong>이산 확률변수</strong>: 셀 수 있는 값(앞면 수, 학생 수, 눈의 수)<br>
-      <strong>연속 확률변수</strong>: 구간 내 어떤 실수값이든 가능(수명, 무게, 키 등). 전구 수명은 1000.5시간처럼 소수점 값이 가능하므로 연속형입니다.
+      <strong>핵심 개념: 이산 vs 연속 확률변수</strong><br><br>
+      <strong>이산 확률변수</strong>: 셀 수 있는 값 (0, 1, 2, 3...)<br>
+      → 앞면 수, 학생 수, 주사위 눈<br><br>
+      <strong>연속 확률변수</strong>: 구간 내 어떤 실수값이든 가능<br>
+      → 전구 수명, 키, 몸무게<br><br>
+      전구 수명은 1000.5시간처럼 소수점 값이 가능하므로 <strong>연속형</strong>입니다.<br><br>
+      💡 <strong>구분법:</strong> "~의 수"는 이산형, "~의 양/길이/시간"은 연속형인 경우가 많습니다.
     </div>
   </div>
 </div>
@@ -6988,12 +7503,17 @@
       <li data-label="C" onclick="selectOption(this)">E(X) = 0이다</li>
       <li data-label="D" onclick="selectOption(this)">각 P(X=x) ≥ 0이고, 모든 확률의 합 ΣP(X=x) = 1이다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(57)">힌트 보기</button>
+    <div class="quiz-hint" id="q57-hint">확률분포의 두 가지 필수 조건: (1) 각 확률 ≥ 0, (2) 모든 확률의 합 = 1.</div>
     <button class="quiz-submit" onclick="submitMC(57)">답 제출하기</button>
     <div class="quiz-result" id="q57-result"></div>
     <div class="quiz-explanation" id="q57-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: D</strong><br><br>
-      확률분포의 두 가지 필수 조건: (1) 각 확률값이 <strong>0 이상</strong>, (2) 모든 확률의 합이 정확히 <strong>1</strong>. 확률이 0인 값이 있을 수 있으므로 A는 틀립니다(0 이상이면 됨).
+      <strong>핵심 개념: 확률분포의 유효 조건</strong><br><br>
+      이산 확률변수의 확률분포가 유효하려면:<br>
+      ① 각 P(X=x) ≥ <strong>0</strong> (음수 불가, 0은 가능)<br>
+      ② 모든 확률의 합 ΣP(X=x) = <strong>1</strong><br><br>
+      💡 <strong>주의:</strong> A(모든 확률이 0보다 크다)는 틀립니다. 확률이 0인 값이 있을 수 있습니다(0 이상이면 됨).
     </div>
   </div>
 </div>
@@ -7009,12 +7529,17 @@
       <li data-label="C" onclick="selectOption(this)">P(X ≥ 3) = 0.75</li>
       <li data-label="D" onclick="selectOption(this)">P(X > 3) = 0.75</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(58)">힌트 보기</button>
+    <div class="quiz-hint" id="q58-hint">누적분포함수(CDF)의 정의: F(x) = P(X ≤ x)입니다.</div>
     <button class="quiz-submit" onclick="submitMC(58)">답 제출하기</button>
     <div class="quiz-result" id="q58-result"></div>
     <div class="quiz-explanation" id="q58-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: A</strong><br><br>
-      누적분포함수(CDF)의 정의: F(x) = <strong>P(X ≤ x)</strong>. 즉, X가 x <strong>이하</strong>일 확률을 나타냅니다. F(3) = 0.75이면 X가 3 이하일 확률이 75%라는 뜻입니다.
+      <strong>핵심 개념: 누적분포함수(CDF)</strong><br><br>
+      <strong>정의:</strong> F(x) = P(X ≤ x)<br><br>
+      F(3) = 0.75의 의미: <strong>P(X ≤ 3) = 0.75</strong><br>
+      → X가 3 <strong>이하</strong>일 확률이 75%<br><br>
+      💡 <strong>주의:</strong> CDF는 "이하(≤)" 확률입니다. "이상(≥)"은 1 − F(x)로 구합니다.
     </div>
   </div>
 </div>
@@ -7030,12 +7555,18 @@
       <li data-label="C" onclick="selectOption(this)">Var(X) = E(X) − [E(X)]² 로 계산한다</li>
       <li data-label="D" onclick="selectOption(this)">Var(X)의 단위는 원래 확률변수와 같다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(59)">힌트 보기</button>
+    <div class="quiz-hint" id="q59-hint">Var(X)는 편차의 제곱의 기댓값이므로 항상 0 이상입니다.</div>
     <button class="quiz-submit" onclick="submitMC(59)">답 제출하기</button>
     <div class="quiz-result" id="q59-result"></div>
     <div class="quiz-explanation" id="q59-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: B</strong><br><br>
-      Var(X)는 편차의 제곱의 기댓값이므로 항상 <strong>0 이상</strong>(A 오류). 공식은 Var(X) = E(X²) − [E(X)]²(C 오류). 단위는 원래의 <strong>제곱</strong>(D 오류). Var(X)가 크면 값들이 평균에서 멀리 퍼져 있다는 의미입니다.
+      <strong>핵심 개념: 분산의 성질</strong><br><br>
+      Var(X)의 성질:<br>
+      ✓ 항상 <strong>0 이상</strong> (편차의 제곱이므로) → A 오류<br>
+      ✓ Var(X)가 클수록 값이 평균에서 더 멀리 흩어짐 → <strong>B 정답</strong><br>
+      ✗ 공식: Var(X) = E(<strong>X²</strong>) − [E(X)]² → C 오류(E(X)가 아닌 E(X²))<br>
+      ✗ 단위: 원래의 <strong>제곱</strong> (cm → cm²) → D 오류
     </div>
   </div>
 </div>
@@ -7051,14 +7582,18 @@
       <li data-label="C" onclick="selectOption(this)">12</li>
       <li data-label="D" onclick="selectOption(this)">144</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(60)">힌트 보기</button>
+    <div class="quiz-hint" id="q60-hint">SD(aX+b) = |a| × SD(X)입니다. 절댓값에 주의하세요.</div>
     <button class="quiz-submit" onclick="submitMC(60)">답 제출하기</button>
     <div class="quiz-result" id="q60-result"></div>
     <div class="quiz-explanation" id="q60-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 12</strong><br><br>
-      SD(aX+b) = |a| × SD(X). 상수 b를 더하는 것은 위치만 이동시키므로 표준편차에 영향 없습니다.<br>
-      SD(3X+7) = 3 × 4 = <strong>12</strong><br>
-      (참고: Var(3X+7) = 9 × 16 = 144이고, SD = √144 = 12)
+      <strong>핵심 개념: 선형변환의 표준편차</strong><br><br>
+      <strong>공식:</strong> SD(aX+b) = |a| × SD(X)<br><br>
+      SD(3X+7) = 3 × 4 = <strong>12</strong><br><br>
+      상수 b(=7)를 더하는 것은 위치만 이동시키므로 표준편차에 영향 없습니다.<br>
+      참고: Var(3X+7) = 9 × 16 = 144, SD = √144 = 12<br><br>
+      💡 <strong>주의:</strong> 표준편차에는 절댓값(|a|)을 사용합니다. 음수가 될 수 없습니다.
     </div>
   </div>
 </div>
@@ -7078,14 +7613,20 @@
       <li data-label="C" onclick="selectOption(this)">3.5</li>
       <li data-label="D" onclick="selectOption(this)">4.9</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(111)">힌트 보기</button>
+    <div class="quiz-hint" id="q111-hint">E(X²) = Σ x² × P(X=x)로 각 값의 제곱에 확률을 곱해서 더합니다.</div>
     <button class="quiz-submit" onclick="submitMC(111)">답 제출하기</button>
     <div class="quiz-result" id="q111-result"></div>
     <div class="quiz-explanation" id="q111-explain">
       <div class="quiz-explain-label">해설</div>
-      E(X²) = 1²×0.2 + 2²×0.5 + 3²×0.3<br>
-      = 1×0.2 + 4×0.5 + 9×0.3<br>
+      <strong>핵심 개념: E(X²) 계산</strong><br><br>
+      E(X²) = Σ x² × P(X=x)<br>
+      = 1²×0.2 + 2²×0.5 + 3²×0.3<br>
       = 0.2 + 2.0 + 2.7 = <strong>4.9</strong><br><br>
-      참고: E(X) = 1×0.2 + 2×0.5 + 3×0.3 = 2.1이므로, E(X²) ≠ [E(X)]² = 4.41입니다. 이 차이가 바로 Var(X) = 4.9 − 4.41 = 0.49입니다.
+      참고: E(X) = 2.1이므로 [E(X)]² = 4.41<br>
+      <strong>E(X²) ≠ [E(X)]²</strong> (4.9 ≠ 4.41)<br>
+      이 차이가 Var(X) = 4.9 − 4.41 = 0.49<br><br>
+      💡 <strong>핵심:</strong> "제곱의 기댓값 ≠ 기댓값의 제곱" — 항상 E(X²) ≥ [E(X)]²입니다.
     </div>
   </div>
 </div>
@@ -7100,13 +7641,17 @@
       <li data-label="C" onclick="selectOption(this)">Var(X) = E(X²) − [E(X)]²</li>
       <li data-label="D" onclick="selectOption(this)">Var(X) = E(X) − E(X²)</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(112)">힌트 보기</button>
+    <div class="quiz-hint" id="q112-hint">정의식: E[(X-μ)²], 간편식: E(X²) − [E(X)]². 어느 것이 계산하기 쉬운지 비교해 보세요.</div>
     <button class="quiz-submit" onclick="submitMC(112)">답 제출하기</button>
     <div class="quiz-result" id="q112-result"></div>
     <div class="quiz-explanation" id="q112-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>정의식</strong>: Var(X) = E[(X − μ)²] — 편차의 제곱의 기댓값<br>
-      <strong>간편식</strong>: Var(X) = E(X²) − [E(X)]² — 계산이 더 간편<br><br>
-      두 공식은 동일한 결과를 줍니다. B는 표본분산이고, D는 부호가 틀렸습니다.
+      <strong>핵심 개념: 분산의 두 가지 공식</strong><br><br>
+      <strong>정의식:</strong> Var(X) = E[(X − μ)²] — 편차의 제곱의 기댓값<br>
+      <strong>간편식:</strong> Var(X) = E(X²) − [E(X)]² — 계산이 더 간편<br><br>
+      두 공식은 수학적으로 동일한 결과를 줍니다.<br><br>
+      💡 <strong>주의:</strong> B는 표본분산(Σ(xᵢ−x̄)²/(n−1))이고, D는 부호가 틀렸습니다(E(X²)−[E(X)]²이 맞음).
     </div>
   </div>
 </div>
@@ -7126,15 +7671,19 @@
       <li data-label="C" onclick="selectOption(this)">0.2</li>
       <li data-label="D" onclick="selectOption(this)">0.5</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(113)">힌트 보기</button>
+    <div class="quiz-hint" id="q113-hint">확률분포의 필수 조건: 모든 확률의 합 = 1을 이용하여 k를 구하세요.</div>
     <button class="quiz-submit" onclick="submitMC(113)">답 제출하기</button>
     <div class="quiz-result" id="q113-result"></div>
     <div class="quiz-explanation" id="q113-explain">
       <div class="quiz-explain-label">해설</div>
-      확률분포의 필수 조건: <strong>모든 확률의 합 = 1</strong><br>
+      <strong>핵심 개념: 확률분포의 합 = 1 조건</strong><br><br>
+      모든 확률의 합 = 1이므로:<br>
       0.1 + 0.3 + k + 0.2 = 1<br>
       0.6 + k = 1<br>
       k = <strong>0.4</strong><br><br>
-      또한 각 확률은 0 이상이어야 하며, k = 0.4 > 0이므로 유효합니다.
+      검증: k = 0.4 ≥ 0 ✓, 합계 = 0.1+0.3+0.4+0.2 = 1 ✓<br><br>
+      💡 <strong>Tip:</strong> 미지수가 있으면 "합 = 1"을 이용하여 구합니다.
     </div>
   </div>
 </div>
@@ -7149,13 +7698,16 @@
       <li data-label="C" onclick="selectOption(this)">80</li>
       <li data-label="D" onclick="selectOption(this)">90</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(114)">힌트 보기</button>
+    <div class="quiz-hint" id="q114-hint">Z = (X − μ)/σ를 X에 대해 풀면 X = μ + Z × σ가 됩니다.</div>
     <button class="quiz-submit" onclick="submitMC(114)">답 제출하기</button>
     <div class="quiz-result" id="q114-result"></div>
     <div class="quiz-explanation" id="q114-explain">
       <div class="quiz-explain-label">해설</div>
-      표준화의 역변환: X = μ + Z × σ<br>
-      X = 60 + 1.5 × 10 = 60 + 15 = <strong>75</strong><br><br>
-      Z = (X − μ)/σ에서 X에 대해 풀면 X = μ + Zσ입니다. Z = 1.5이므로 평균에서 표준편차 1.5개만큼 위에 있는 값입니다.
+      <strong>핵심 개념: 표준화의 역변환</strong><br><br>
+      Z = (X − μ)/σ를 X에 대해 풀면:<br>
+      <strong>X = μ + Z × σ</strong> = 60 + 1.5 × 10 = 60 + 15 = <strong>75</strong><br><br>
+      💡 <strong>해석:</strong> Z = 1.5이므로 평균(60)에서 표준편차(10) 1.5개만큼 위에 있는 값입니다.
     </div>
   </div>
 </div>
@@ -7170,13 +7722,17 @@
       <li data-label="C" onclick="selectOption(this)">E(Y) = −15, SD(Y) = 6</li>
       <li data-label="D" onclick="selectOption(this)">E(Y) = 25, SD(Y) = 6</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(115)">힌트 보기</button>
+    <div class="quiz-hint" id="q115-hint">E(aX+b) = aE(X)+b, SD(aX+b) = |a|×SD(X)를 적용하세요. 표준편차는 항상 0 이상입니다.</div>
     <button class="quiz-submit" onclick="submitMC(115)">답 제출하기</button>
     <div class="quiz-result" id="q115-result"></div>
     <div class="quiz-explanation" id="q115-explain">
       <div class="quiz-explain-label">해설</div>
-      E(aX+b) = aE(X) + b = (−2)(10) + 5 = <strong>−15</strong><br>
-      SD(aX+b) = |a| × SD(X) = |−2| × 3 = <strong>6</strong><br><br>
-      핵심: 표준편차에는 <strong>절댓값</strong>을 사용합니다. 표준편차는 항상 0 이상이므로 음수가 될 수 없습니다. 상수 b(=5)는 분산과 표준편차에 영향을 주지 않습니다.
+      <strong>핵심 개념: 선형변환의 기댓값과 표준편차</strong><br><br>
+      Y = −2X + 5<br><br>
+      E(Y) = aE(X) + b = (−2)(10) + 5 = <strong>−15</strong><br>
+      SD(Y) = |a| × SD(X) = |−2| × 3 = <strong>6</strong><br><br>
+      💡 <strong>핵심:</strong> 표준편차에는 <strong>절댓값</strong>을 사용합니다. SD는 항상 0 이상이므로 음수가 될 수 없습니다. 상수 b는 분산과 표준편차에 영향을 주지 않습니다.
     </div>
   </div>
 </div>
@@ -7191,13 +7747,17 @@
       <li data-label="C" onclick="selectOption(this)">−1</li>
       <li data-label="D" onclick="selectOption(this)">알 수 없다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(116)">힌트 보기</button>
+    <div class="quiz-hint" id="q116-hint">독립인 두 확률변수의 공분산은 항상 0입니다. 하지만 역은 성립하지 않습니다.</div>
     <button class="quiz-submit" onclick="submitMC(116)">답 제출하기</button>
     <div class="quiz-result" id="q116-result"></div>
     <div class="quiz-explanation" id="q116-explain">
       <div class="quiz-explain-label">해설</div>
-      공분산의 정의: Cov(X,Y) = E(XY) − E(X)E(Y)<br>
-      X, Y가 독립이면 E(XY) = E(X)E(Y)이므로 Cov(X,Y) = <strong>0</strong><br><br>
-      주의: 공분산이 0이라고 반드시 독립은 아닙니다(역은 성립하지 않음). 하지만 독립이면 반드시 공분산은 0입니다.
+      <strong>핵심 개념: 독립과 공분산의 관계</strong><br><br>
+      Cov(X,Y) = E(XY) − E(X)E(Y)<br><br>
+      X, Y가 <strong>독립</strong>이면 E(XY) = E(X)E(Y)이므로:<br>
+      Cov(X,Y) = <strong>0</strong><br><br>
+      💡 <strong>중요한 주의점:</strong> "독립 → Cov=0"은 성립하지만, "Cov=0 → 독립"은 <strong>성립하지 않습니다</strong>(역이 안 됨). 비선형 관계가 있을 수 있습니다.
     </div>
   </div>
 </div>
@@ -7212,13 +7772,18 @@
       <li data-label="C" onclick="selectOption(this)">3</li>
       <li data-label="D" onclick="selectOption(this)">5</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(117)">힌트 보기</button>
+    <div class="quiz-hint" id="q117-hint">E(X²) = Σ x² × P(X=x)를 계산하세요. E(X²) ≠ [E(X)]²에 주의하세요.</div>
     <button class="quiz-submit" onclick="submitMC(117)">답 제출하기</button>
     <div class="quiz-result" id="q117-result"></div>
     <div class="quiz-explanation" id="q117-explain">
       <div class="quiz-explain-label">해설</div>
+      <strong>핵심 개념: E(X²) 계산과 의미</strong><br><br>
       E(X²) = 1²×0.5 + 3²×0.5 = 0.5 + 4.5 = <strong>5</strong><br><br>
-      참고: E(X) = 1×0.5 + 3×0.5 = 2이므로 [E(X)]² = 4<br>
-      E(X²) ≠ [E(X)]²라는 것에 주의하세요. Var(X) = 5 − 4 = 1입니다.
+      참고: E(X) = 1×0.5 + 3×0.5 = 2<br>
+      [E(X)]² = 4<br>
+      Var(X) = E(X²) − [E(X)]² = 5 − 4 = 1<br><br>
+      💡 <strong>핵심:</strong> E(X²) ≠ [E(X)]² — 이 차이가 분산입니다.
     </div>
   </div>
 </div>
@@ -7233,14 +7798,17 @@
       <li data-label="C" onclick="selectOption(this)">Var(X+5) = 16, Var(3X) = 48</li>
       <li data-label="D" onclick="selectOption(this)">Var(X+5) = 21, Var(3X) = 144</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(118)">힌트 보기</button>
+    <div class="quiz-hint" id="q118-hint">Var(aX+b) = a²Var(X)입니다. 상수 더하기는 분산에 영향 없고, 곱하기는 제곱으로 영향합니다.</div>
     <button class="quiz-submit" onclick="submitMC(118)">답 제출하기</button>
     <div class="quiz-result" id="q118-result"></div>
     <div class="quiz-explanation" id="q118-explain">
       <div class="quiz-explain-label">해설</div>
-      Var(aX+b) = a²Var(X) (상수 b는 분산에 영향 없음)<br><br>
-      Var(X+5): a=1, b=5 → 1²×16 = <strong>16</strong> (상수 더하기는 분산 불변)<br>
-      Var(3X): a=3, b=0 → 3²×16 = 9×16 = <strong>144</strong> (상수 곱하기는 제곱으로 영향)<br><br>
-      핵심: 분산에서 상수 <strong>더하기는 무시</strong>, 상수 <strong>곱하기는 제곱</strong>으로 반영됩니다.
+      <strong>핵심 개념: 분산에 대한 상수의 영향</strong><br><br>
+      공식: Var(aX+b) = a²Var(X)<br><br>
+      <strong>Var(X+5)</strong>: a=1, b=5 → 1²×16 = <strong>16</strong> (상수 더하기 = 분산 불변)<br>
+      <strong>Var(3X)</strong>: a=3, b=0 → 3²×16 = 9×16 = <strong>144</strong> (상수 곱하기 = 제곱으로 영향)<br><br>
+      💡 <strong>기억법:</strong> 분산에서 상수 <strong>더하기는 무시</strong>, 상수 <strong>곱하기는 제곱</strong>으로 반영됩니다.
     </div>
   </div>
 </div>
@@ -7255,13 +7823,16 @@
       <li data-label="C" onclick="selectOption(this)">4.2</li>
       <li data-label="D" onclick="selectOption(this)">5.0</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(119)">힌트 보기</button>
+    <div class="quiz-hint" id="q119-hint">먼저 E(X)를 구하고, E(2X+1) = 2E(X) + 1을 적용하세요.</div>
     <button class="quiz-submit" onclick="submitMC(119)">답 제출하기</button>
     <div class="quiz-result" id="q119-result"></div>
     <div class="quiz-explanation" id="q119-explain">
       <div class="quiz-explain-label">해설</div>
-      E(X) = 0×0.4 + 1×0.4 + 4×0.2 = 0 + 0.4 + 0.8 = <strong>1.2</strong><br>
-      E(2X+1) = 2×E(X) + 1 = 2×1.2 + 1 = <strong>3.4</strong><br><br>
-      기댓값의 선형성: E(aX+b) = aE(X) + b. 기댓값 연산에서는 상수를 그대로 꺼낼 수 있습니다.
+      <strong>핵심 개념: 기댓값의 선형성 활용</strong><br><br>
+      ① E(X) = 0×0.4 + 1×0.4 + 4×0.2 = 0 + 0.4 + 0.8 = <strong>1.2</strong><br>
+      ② E(2X+1) = 2×E(X) + 1 = 2×1.2 + 1 = <strong>3.4</strong><br><br>
+      💡 <strong>Tip:</strong> E(aX+b) = aE(X) + b — 기댓값 연산에서는 상수를 그대로 꺼낼 수 있습니다.
     </div>
   </div>
 </div>
@@ -7276,13 +7847,19 @@
       <li data-label="C" onclick="selectOption(this)">Var(X) = E(X²) − [E(X)]²</li>
       <li data-label="D" onclick="selectOption(this)">Var(X+Y) = Var(X) + Var(Y) (항상 성립)</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(120)">힌트 보기</button>
+    <div class="quiz-hint" id="q120-hint">Var(X+Y) = Var(X) + Var(Y)는 X와 Y가 독립일 때만 성립합니다.</div>
     <button class="quiz-submit" onclick="submitMC(120)">답 제출하기</button>
     <div class="quiz-result" id="q120-result"></div>
     <div class="quiz-explanation" id="q120-explain">
       <div class="quiz-explain-label">해설</div>
-      Var(X+Y) = Var(X) + Var(Y)는 X와 Y가 <strong>독립일 때만</strong> 성립합니다.<br>
-      일반적으로는 Var(X+Y) = Var(X) + Var(Y) + <strong>2Cov(X,Y)</strong>입니다.<br><br>
-      A, B, C는 모두 올바른 성질입니다. 상수의 분산은 0이고, 분산은 편차의 제곱이므로 항상 0 이상입니다.
+      <strong>핵심 개념: Var(X+Y)의 조건</strong><br><br>
+      <strong>Var(X+Y) = Var(X) + Var(Y)</strong>는 X와 Y가 <strong>독립일 때만</strong> 성립합니다.<br><br>
+      일반 공식: Var(X+Y) = Var(X) + Var(Y) + <strong>2Cov(X,Y)</strong><br><br>
+      올바른 성질들:<br>
+      ✓ Var(X) ≥ 0 (항상 0 이상)<br>
+      ✓ Var(c) = 0 (상수의 분산)<br>
+      ✓ Var(X) = E(X²) − [E(X)]² (간편식)
     </div>
   </div>
 </div>
@@ -7306,12 +7883,17 @@
       <li data-label="C" onclick="selectOption(this)">E(X)=7, Var(X)=2.1</li>
       <li data-label="D" onclick="selectOption(this)">E(X)=0.3, Var(X)=0.21</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(31)">힌트 보기</button>
+    <div class="quiz-hint" id="q31-hint">이항분포 B(n,p): E(X) = np, Var(X) = np(1-p)를 적용하세요.</div>
     <button class="quiz-submit" onclick="submitMC(31)">답 제출하기</button>
     <div class="quiz-result" id="q31-result"></div>
     <div class="quiz-explanation" id="q31-explain">
       <div class="quiz-explain-label">해설</div>
-      이항분포 B(n,p): E(X) = np = 10×0.3 = <strong>3</strong><br>
-      Var(X) = np(1−p) = 10×0.3×0.7 = <strong>2.1</strong>
+      <strong>핵심 개념: 이항분포의 기댓값과 분산</strong><br><br>
+      X ~ B(n, p)일 때:<br>
+      <strong>E(X)</strong> = np = 10×0.3 = <strong>3</strong><br>
+      <strong>Var(X)</strong> = np(1−p) = 10×0.3×0.7 = <strong>2.1</strong><br><br>
+      💡 <strong>기억법:</strong> 이항분포에서 E(X)=np는 "n번 중 성공 비율"이고, Var(X)에는 (1-p)가 곱해집니다.
     </div>
   </div>
 </div>
@@ -7326,12 +7908,19 @@
       <li data-label="C" onclick="selectOption(this)">평균과 분산이 같다</li>
       <li data-label="D" onclick="selectOption(this)">연속형 분포이다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(32)">힌트 보기</button>
+    <div class="quiz-hint" id="q32-hint">포아송분포의 독특한 특징: 평균과 분산의 관계를 생각해 보세요.</div>
     <button class="quiz-submit" onclick="submitMC(32)">답 제출하기</button>
     <div class="quiz-result" id="q32-result"></div>
     <div class="quiz-explanation" id="q32-explain">
       <div class="quiz-explain-label">해설</div>
-      포아송분포 Poi(m): <strong>E(X) = m, Var(X) = m</strong><br>
-      평균과 분산이 같다는 것이 포아송분포만의 특징입니다.
+      <strong>핵심 개념: 포아송분포의 특징</strong><br><br>
+      포아송분포 Poi(m)의 <strong>독특한 특징</strong>:<br>
+      <strong>E(X) = m, Var(X) = m</strong> → 평균과 분산이 같다!<br><br>
+      다른 선택지 분석:<br>
+      - A: m이 작으면 오른쪽 꼬리, m이 크면 대칭에 가까움 → ✗<br>
+      - B: 분산 = m으로 1이 아님 → ✗<br>
+      - D: 이산형 분포임 → ✗
     </div>
   </div>
 </div>
@@ -7346,12 +7935,19 @@
       <li data-label="C" onclick="selectOption(this)">95%</li>
       <li data-label="D" onclick="selectOption(this)">99.7%</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(33)">힌트 보기</button>
+    <div class="quiz-hint" id="q33-hint">정규분포의 68-95-99.7 법칙을 떠올려 보세요. ±1σ는 몇 %인가요?</div>
     <button class="quiz-submit" onclick="submitMC(33)">답 제출하기</button>
     <div class="quiz-result" id="q33-result"></div>
     <div class="quiz-explanation" id="q33-explain">
       <div class="quiz-explain-label">해설</div>
-      정규분포의 68-95-99.7 법칙:<br>
-      ±1σ → <strong>68%</strong>, ±2σ → 95%, ±3σ → 99.7%
+      <strong>핵심 개념: 68-95-99.7 법칙</strong><br><br>
+      정규분포 N(μ, σ²)에서:<br>
+      - ±1σ 범위 → 약 <strong>68%</strong><br>
+      - ±2σ 범위 → 약 <strong>95%</strong><br>
+      - ±3σ 범위 → 약 <strong>99.7%</strong><br><br>
+      N(100, 15²): μ=100, σ=15<br>
+      85~115 = 100 ± 15 = μ ± 1σ → 약 <strong>68%</strong>
     </div>
   </div>
 </div>
@@ -7366,13 +7962,16 @@
       <li data-label="C" onclick="selectOption(this)">1.5</li>
       <li data-label="D" onclick="selectOption(this)">30</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(34)">힌트 보기</button>
+    <div class="quiz-hint" id="q34-hint">표준화 공식 Z = (X − μ) / σ에 값을 대입하세요.</div>
     <button class="quiz-submit" onclick="submitMC(34)">답 제출하기</button>
     <div class="quiz-result" id="q34-result"></div>
     <div class="quiz-explanation" id="q34-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 1</strong><br><br>
-      Z = (X − μ) / σ = (530 − 500) / 30 = <strong>1</strong><br>
-      P(X ≥ 530) = P(Z ≥ 1) = 1 − 0.8413 = <strong>0.1587</strong>
+      <strong>핵심 개념: 정규분포의 표준화</strong><br><br>
+      Z = (X − μ) / σ = (530 − 500) / 30 = <strong>1</strong><br><br>
+      P(X ≥ 530) = P(Z ≥ 1) = 1 − P(Z ≤ 1) = 1 − 0.8413 = <strong>0.1587</strong><br><br>
+      💡 <strong>Tip:</strong> Z = 1은 "평균에서 표준편차 1개만큼 위"라는 의미입니다.
     </div>
   </div>
 </div>
@@ -7387,12 +7986,17 @@
       <li data-label="C" onclick="selectOption(this)">0.3125</li>
       <li data-label="D" onclick="selectOption(this)">0.5000</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(35)">힌트 보기</button>
+    <div class="quiz-hint" id="q35-hint">이항분포 공식: P(X=k) = ₙCₖ × pᵏ × (1-p)ⁿ⁻ᵏ를 적용하세요.</div>
     <button class="quiz-submit" onclick="submitMC(35)">답 제출하기</button>
     <div class="quiz-result" id="q35-result"></div>
     <div class="quiz-explanation" id="q35-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 0.3125</strong><br><br>
-      P(X=2) = ₅C₂ × 0.5² × 0.5³ = 10 × 0.25 × 0.125 = <strong>0.3125</strong>
+      <strong>핵심 개념: 이항분포의 확률 계산</strong><br><br>
+      X ~ B(5, 0.5), P(X=2) = ?<br><br>
+      P(X=2) = ₅C₂ × 0.5² × 0.5³<br>
+      = 10 × 0.25 × 0.125 = <strong>0.3125</strong><br><br>
+      💡 <strong>공식:</strong> P(X=k) = ₙCₖ × pᵏ × (1-p)ⁿ⁻ᵏ
     </div>
   </div>
 </div>
@@ -7408,12 +8012,18 @@
       <li data-label="C" onclick="selectOption(this)">시행 횟수 n은 무한대여야 한다</li>
       <li data-label="D" onclick="selectOption(this)">매 시행에서 성공 확률 p는 일정하다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(61)">힌트 보기</button>
+    <div class="quiz-hint" id="q61-hint">이항분포 조건: (1) 성공/실패, (2) 독립, (3) p 일정, (4) n 고정. 위반되는 것을 찾으세요.</div>
     <button class="quiz-submit" onclick="submitMC(61)">답 제출하기</button>
     <div class="quiz-result" id="q61-result"></div>
     <div class="quiz-explanation" id="q61-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: C</strong><br><br>
-      이항분포의 조건: (1) 결과가 성공/실패 2가지, (2) 각 시행이 독립, (3) 성공 확률 p가 일정, (4) 시행 횟수 n이 <strong>고정</strong>. n은 무한대가 아니라 유한한 고정값이어야 합니다.
+      <strong>핵심 개념: 이항분포의 4가지 조건</strong><br><br>
+      ① 결과가 성공/실패 <strong>2가지</strong><br>
+      ② 각 시행이 <strong>독립</strong><br>
+      ③ 성공 확률 p가 <strong>일정</strong><br>
+      ④ 시행 횟수 n이 <strong>고정</strong> (유한한 값)<br><br>
+      C("n은 무한대")가 오답: n은 무한대가 아니라 <strong>유한한 고정값</strong>이어야 합니다.
     </div>
   </div>
 </div>
@@ -7429,14 +8039,16 @@
       <li data-label="C" onclick="selectOption(this)">두 분포는 동일하며 이름만 다르다</li>
       <li data-label="D" onclick="selectOption(this)">초기하분포는 비복원추출(각 시행이 종속)이고, 이항분포는 복원추출(각 시행이 독립)이다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(62)">힌트 보기</button>
+    <div class="quiz-hint" id="q62-hint">비복원추출(종속)이면 초기하분포, 복원추출(독립)이면 이항분포입니다.</div>
     <button class="quiz-submit" onclick="submitMC(62)">답 제출하기</button>
     <div class="quiz-result" id="q62-result"></div>
     <div class="quiz-explanation" id="q62-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: D</strong><br><br>
-      <strong>이항분포</strong>: 복원추출로 각 시행이 독립, 성공 확률 p가 일정<br>
-      <strong>초기하분포</strong>: 비복원추출로 각 시행이 종속, 뽑을 때마다 성공 확률이 변함<br>
-      단, 모집단이 표본에 비해 매우 크면 초기하분포는 이항분포에 근사합니다.
+      <strong>핵심 개념: 초기하분포 vs 이항분포</strong><br><br>
+      <strong>이항분포</strong>: 복원추출 → 각 시행 독립 → 성공 확률 p 일정<br>
+      <strong>초기하분포</strong>: 비복원추출 → 각 시행 종속 → 뽑을 때마다 확률 변함<br><br>
+      💡 <strong>근사:</strong> 모집단이 표본에 비해 매우 크면(N >> n), 비복원이라도 확률 변화가 미미하여 이항분포로 근사 가능합니다.
     </div>
   </div>
 </div>
@@ -7452,12 +8064,16 @@
       <li data-label="C" onclick="selectOption(this)">0.68</li>
       <li data-label="D" onclick="selectOption(this)">1</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(63)">힌트 보기</button>
+    <div class="quiz-hint" id="q63-hint">정규분포는 평균을 중심으로 완벽하게 대칭입니다.</div>
     <button class="quiz-submit" onclick="submitMC(63)">답 제출하기</button>
     <div class="quiz-result" id="q63-result"></div>
     <div class="quiz-explanation" id="q63-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 0.5</strong><br><br>
-      정규분포는 평균 μ를 중심으로 <strong>완벽하게 대칭</strong>입니다. 따라서 평균 이하일 확률과 평균 이상일 확률이 각각 <strong>0.5(50%)</strong>입니다.
+      <strong>핵심 개념: 정규분포의 대칭성</strong><br><br>
+      정규분포는 평균 μ를 중심으로 <strong>완벽하게 대칭</strong>입니다.<br><br>
+      따라서: P(X ≤ μ) = P(X ≥ μ) = <strong>0.5 (50%)</strong><br><br>
+      💡 <strong>활용:</strong> 대칭성 덕분에 P(X ≥ μ+a) = P(X ≤ μ−a)가 성립합니다.
     </div>
   </div>
 </div>
@@ -7473,12 +8089,21 @@
       <li data-label="C" onclick="selectOption(this)">0.025</li>
       <li data-label="D" onclick="selectOption(this)">0.500</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(64)">힌트 보기</button>
+    <div class="quiz-hint" id="q64-hint">Z = 1.96은 통계학에서 가장 중요한 값 중 하나입니다. 95% 신뢰구간과 관련됩니다.</div>
     <button class="quiz-submit" onclick="submitMC(64)">답 제출하기</button>
     <div class="quiz-result" id="q64-result"></div>
     <div class="quiz-explanation" id="q64-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 0.975</strong><br><br>
-      Z = 1.96은 통계학에서 가장 중요한 값 중 하나입니다. P(Z ≤ 1.96) = <strong>0.975</strong>이며, 이는 P(−1.96 ≤ Z ≤ 1.96) = 0.95(95%)를 의미합니다. 95% 신뢰구간에서 사용되는 핵심 값입니다.
+      <strong>핵심 개념: 중요한 Z값 — 1.96</strong><br><br>
+      P(Z ≤ 1.96) = <strong>0.975</strong><br>
+      → P(−1.96 ≤ Z ≤ 1.96) = 0.95 (95%)<br><br>
+      자주 쓰이는 Z값:<br>
+      - 상위 10%: z = 1.28<br>
+      - 상위 5%: z = 1.645<br>
+      - 상위 2.5%: z = <strong>1.96</strong><br>
+      - 상위 1%: z = 2.33<br><br>
+      💡 <strong>활용:</strong> 95% 신뢰구간에서 사용되는 핵심 값입니다.
     </div>
   </div>
 </div>
@@ -7494,12 +8119,18 @@
       <li data-label="C" onclick="selectOption(this)">n이 크고 p가 매우 작을 때 (np = m이 적당한 크기)</li>
       <li data-label="D" onclick="selectOption(this)">n이 작고 p = 0.5일 때</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(65)">힌트 보기</button>
+    <div class="quiz-hint" id="q65-hint">이항분포의 포아송 근사 조건: n이 크고 p가 매우 작을 때(np가 적당한 크기).</div>
     <button class="quiz-submit" onclick="submitMC(65)">답 제출하기</button>
     <div class="quiz-result" id="q65-result"></div>
     <div class="quiz-explanation" id="q65-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: C</strong><br><br>
-      이항분포 B(n, p)에서 <strong>n이 크고 p가 매우 작으면</strong>(보통 n ≥ 20, p ≤ 0.05) 포아송분포 Poi(m)으로 근사할 수 있습니다 (m = np). 예: 드문 사건(불량품률, 사고 발생률 등)을 모델링할 때 사용합니다.
+      <strong>핵심 개념: 이항분포의 포아송 근사</strong><br><br>
+      조건: <strong>n이 크고 p가 매우 작을 때</strong> (보통 n ≥ 20, p ≤ 0.05)<br>
+      B(n, p) ≈ Poi(m), 여기서 m = np<br><br>
+      예: 불량품률(p=0.01)인 공장에서 100개를 검사할 때<br>
+      → B(100, 0.01) ≈ Poi(1)<br><br>
+      💡 <strong>Tip:</strong> "드문 사건"을 모델링할 때 포아송 근사가 유용합니다.
     </div>
   </div>
 </div>
@@ -7514,14 +8145,18 @@
       <li data-label="C" onclick="selectOption(this)">약 0.167</li>
       <li data-label="D" onclick="selectOption(this)">약 0.400</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(121)">힌트 보기</button>
+    <div class="quiz-hint" id="q121-hint">P(X ≤ 1) = P(X=0) + P(X=1)을 각각 이항분포 공식으로 계산하세요.</div>
     <button class="quiz-submit" onclick="submitMC(121)">답 제출하기</button>
     <div class="quiz-result" id="q121-result"></div>
     <div class="quiz-explanation" id="q121-explain">
       <div class="quiz-explain-label">해설</div>
-      P(X=0) = ₁₀C₀ × 0.4⁰ × 0.6¹⁰ = 1 × 1 × 0.00605 ≈ 0.006<br>
-      P(X=1) = ₁₀C₁ × 0.4¹ × 0.6⁹ = 10 × 0.4 × 0.01008 ≈ 0.040<br>
-      P(X≤1) = 0.006 + 0.040 ≈ <strong>0.046</strong><br><br>
-      이항분포의 누적확률은 각 경우를 더하여 구합니다.
+      <strong>핵심 개념: 이항분포의 누적확률 계산</strong><br><br>
+      X ~ B(10, 0.4), P(X ≤ 1) = P(X=0) + P(X=1)<br><br>
+      P(X=0) = ₁₀C₀ × 0.4⁰ × 0.6¹⁰ ≈ 0.006<br>
+      P(X=1) = ₁₀C₁ × 0.4¹ × 0.6⁹ ≈ 0.040<br>
+      P(X≤1) ≈ 0.006 + 0.040 = <strong>약 0.046</strong><br><br>
+      💡 <strong>Tip:</strong> 이항분포의 누적확률은 각 경우를 개별적으로 계산해서 더합니다.
     </div>
   </div>
 </div>
@@ -7536,14 +8171,18 @@
       <li data-label="C" onclick="selectOption(this)">약 0.180</li>
       <li data-label="D" onclick="selectOption(this)">약 0.224</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(122)">힌트 보기</button>
+    <div class="quiz-hint" id="q122-hint">포아송분포 공식: P(X=x) = e⁻ᵐ × mˣ / x!에 m=3, x=2를 대입하세요.</div>
     <button class="quiz-submit" onclick="submitMC(122)">답 제출하기</button>
     <div class="quiz-result" id="q122-result"></div>
     <div class="quiz-explanation" id="q122-explain">
       <div class="quiz-explain-label">해설</div>
-      포아송분포 공식: P(X=x) = e⁻ᵐ × mˣ / x!<br>
-      m = 3, x = 2:<br>
-      P(X=2) = e⁻³ × 3² / 2! = 0.0498 × 9 / 2 = 0.0498 × 4.5 ≈ <strong>0.224</strong><br><br>
-      포아송분포는 단위 시간(또는 단위 공간)당 드물게 발생하는 사건의 횟수를 모델링합니다.
+      <strong>핵심 개념: 포아송분포 공식 적용</strong><br><br>
+      P(X=x) = e⁻ᵐ × mˣ / x!<br><br>
+      m = 3 (시간당 평균), x = 2:<br>
+      P(X=2) = e⁻³ × 3² / 2!<br>
+      = 0.0498 × 9 / 2 = 0.0498 × 4.5 ≈ <strong>0.224</strong><br><br>
+      💡 <strong>핵심:</strong> 포아송분포는 "단위 시간(또는 공간)당 드물게 발생하는 사건의 횟수"를 모델링합니다.
     </div>
   </div>
 </div>
@@ -7558,14 +8197,18 @@
       <li data-label="C" onclick="selectOption(this)">약 99.7%</li>
       <li data-label="D" onclick="selectOption(this)">약 50%</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(123)">힌트 보기</button>
+    <div class="quiz-hint" id="q123-hint">주어진 범위가 μ ± 몇 σ인지 계산해 보세요. 68-95-99.7 법칙을 적용합니다.</div>
     <button class="quiz-submit" onclick="submitMC(123)">답 제출하기</button>
     <div class="quiz-result" id="q123-result"></div>
     <div class="quiz-explanation" id="q123-explain">
       <div class="quiz-explain-label">해설</div>
-      μ = 200, σ = 25<br>
+      <strong>핵심 개념: 68-95-99.7 법칙 적용</strong><br><br>
+      X ~ N(200, 25²) → μ = 200, σ = 25<br><br>
       150 = 200 − 2×25 = μ − 2σ<br>
       250 = 200 + 2×25 = μ + 2σ<br><br>
-      68-95-99.7 법칙에 의해 P(μ−2σ ≤ X ≤ μ+2σ) ≈ <strong>95%</strong>
+      P(μ−2σ ≤ X ≤ μ+2σ) ≈ <strong>95%</strong><br><br>
+      💡 <strong>기억법:</strong> ±1σ=68%, ±2σ=95%, ±3σ=99.7%
     </div>
   </div>
 </div>
@@ -7580,17 +8223,20 @@
       <li data-label="C" onclick="selectOption(this)">1.645</li>
       <li data-label="D" onclick="selectOption(this)">1.28</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(124)">힌트 보기</button>
+    <div class="quiz-hint" id="q124-hint">P(Z > z) = 0.05이면 P(Z ≤ z) = 0.95입니다. 자주 쓰이는 Z값을 떠올려 보세요.</div>
     <button class="quiz-submit" onclick="submitMC(124)">답 제출하기</button>
     <div class="quiz-result" id="q124-result"></div>
     <div class="quiz-explanation" id="q124-explain">
       <div class="quiz-explain-label">해설</div>
+      <strong>핵심 개념: 상위 백분율에 해당하는 Z값</strong><br><br>
       P(Z > z) = 0.05 → P(Z ≤ z) = 0.95<br>
-      Z표에서 누적확률 0.95에 해당하는 값은 <strong>z = 1.645</strong><br><br>
-      자주 쓰이는 Z값:<br>
-      - 상위 10%: z = 1.28<br>
-      - 상위 5%: z = <strong>1.645</strong><br>
-      - 상위 2.5%: z = 1.96<br>
-      - 상위 1%: z = 2.33
+      Z표에서 누적확률 0.95에 해당하는 값 = <strong>z = 1.645</strong><br><br>
+      자주 쓰이는 Z값 정리:<br>
+      - 상위 10% (90%): z = 1.28<br>
+      - 상위 5% (95%): z = <strong>1.645</strong><br>
+      - 상위 2.5% (97.5%): z = 1.96<br>
+      - 상위 1% (99%): z = 2.33
     </div>
   </div>
 </div>
@@ -7605,12 +8251,19 @@
       <li data-label="C" onclick="selectOption(this)">합격률 60%인 시험에서 5명이 독립적으로 응시하는 경우</li>
       <li data-label="D" onclick="selectOption(this)">카드 52장에서 비복원으로 5장을 뽑아 하트의 수를 세는 경우</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(125)">힌트 보기</button>
+    <div class="quiz-hint" id="q125-hint">이항분포의 핵심 조건: 각 시행이 독립이고 성공 확률이 일정해야 합니다.</div>
     <button class="quiz-submit" onclick="submitMC(125)">답 제출하기</button>
     <div class="quiz-result" id="q125-result"></div>
     <div class="quiz-explanation" id="q125-explain">
       <div class="quiz-explain-label">해설</div>
-      이항분포의 핵심 조건: 각 시행이 <strong>독립</strong>이고 성공 확률 p가 <strong>일정</strong>해야 합니다.<br><br>
-      D는 <strong>비복원추출</strong>이므로 한 장을 뽑을 때마다 남은 카드 구성이 바뀌어 확률이 변합니다. 이 경우 이항분포가 아닌 <strong>초기하분포</strong>를 사용해야 합니다. (단, 모집단이 표본에 비해 매우 크면 이항분포로 근사 가능)
+      <strong>핵심 개념: 이항분포 조건 위반 사례</strong><br><br>
+      이항분포 핵심 조건: 각 시행이 <strong>독립</strong>이고 p가 <strong>일정</strong><br><br>
+      D가 위반하는 이유:<br>
+      - 카드 52장에서 <strong>비복원</strong>으로 뽑으면<br>
+      - 한 장을 뽑을 때마다 남은 카드 구성이 바뀜<br>
+      - 확률이 변하므로 <strong>이항분포가 아닌 초기하분포</strong> 사용<br><br>
+      💡 <strong>Tip:</strong> 모집단이 표본에 비해 매우 크면 이항분포로 근사 가능합니다.
     </div>
   </div>
 </div>
@@ -7625,16 +8278,19 @@
       <li data-label="C" onclick="selectOption(this)">₅C₂ × 0.4² × 0.6³</li>
       <li data-label="D" onclick="selectOption(this)">(₈C₂ × ₁₂C₃) / ₂₀P₅</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(126)">힌트 보기</button>
+    <div class="quiz-hint" id="q126-hint">초기하분포 공식: (성공 중 k개 선택) × (실패 중 나머지 선택) / (전체 중 n개 선택).</div>
     <button class="quiz-submit" onclick="submitMC(126)">답 제출하기</button>
     <div class="quiz-result" id="q126-result"></div>
     <div class="quiz-explanation" id="q126-explain">
       <div class="quiz-explain-label">해설</div>
-      초기하분포 공식: P(X=k) = (ₐCₖ × ₙ₋ₐCₙ₋ₖ) / ₙCₙ<br><br>
-      빨간 공(성공) 8개 중 2개 선택: ₈C₂ = 28<br>
-      흰 공(실패) 12개 중 3개 선택: ₁₂C₃ = 220<br>
-      전체 20개 중 5개 선택: ₂₀C₅ = 15504<br>
-      P = <strong>(₈C₂ × ₁₂C₃) / ₂₀C₅</strong> = 28×220/15504 ≈ 0.397<br><br>
-      C는 이항분포 공식, D는 분모가 순열이므로 오답입니다.
+      <strong>핵심 개념: 초기하분포 공식</strong><br><br>
+      P(X=k) = (ₐCₖ × ₙ₋ₐCₘ₋ₖ) / ₙCₘ<br><br>
+      빨간(성공) 8개 중 2개: ₈C₂ = 28<br>
+      흰(실패) 12개 중 3개: ₁₂C₃ = 220<br>
+      전체 20개 중 5개: ₂₀C₅ = 15504<br>
+      P = <strong>(₈C₂ × ₁₂C₃) / ₂₀C₅</strong> ≈ 0.397<br><br>
+      💡 <strong>주의:</strong> C(이항분포 공식)와 D(분모가 순열)는 오답입니다.
     </div>
   </div>
 </div>
@@ -7649,14 +8305,19 @@
       <li data-label="C" onclick="selectOption(this)">0.16</li>
       <li data-label="D" onclick="selectOption(this)">0.025</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(127)">힌트 보기</button>
+    <div class="quiz-hint" id="q127-hint">68-95-99.7 법칙에서 ±1σ 안에 68%가 있으면, 한쪽 꼬리는 얼마인지 계산해 보세요.</div>
     <button class="quiz-submit" onclick="submitMC(127)">답 제출하기</button>
     <div class="quiz-result" id="q127-result"></div>
     <div class="quiz-explanation" id="q127-explain">
       <div class="quiz-explain-label">해설</div>
-      68-95-99.7 법칙에서 P(μ−σ ≤ X ≤ μ+σ) ≈ 0.68<br>
-      대칭성에 의해 바깥 양쪽 꼬리의 합 = 1 − 0.68 = 0.32<br>
+      <strong>핵심 개념: 정규분포의 꼬리 확률</strong><br><br>
+      68-95-99.7 법칙에서:<br>
+      P(μ−σ ≤ X ≤ μ+σ) ≈ 0.68<br>
+      바깥 양쪽 꼬리의 합 = 1 − 0.68 = 0.32<br>
       한쪽 꼬리 = 0.32/2 = <strong>0.16</strong><br><br>
-      즉, P(X ≤ μ−σ) ≈ 0.16이고, P(X ≥ μ+σ) ≈ 0.16입니다.
+      즉, P(X ≤ μ−σ) ≈ 0.16, P(X ≥ μ+σ) ≈ 0.16<br><br>
+      💡 <strong>기억법:</strong> 대칭이므로 한쪽 꼬리 = (1 − 중앙 확률) / 2
     </div>
   </div>
 </div>
@@ -7671,14 +8332,18 @@
       <li data-label="C" onclick="selectOption(this)">약 99.7%</li>
       <li data-label="D" onclick="selectOption(this)">약 50%</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(128)">힌트 보기</button>
+    <div class="quiz-hint" id="q128-hint">70과 130이 μ에서 각각 몇 σ 떨어져 있는지 계산해 보세요.</div>
     <button class="quiz-submit" onclick="submitMC(128)">답 제출하기</button>
     <div class="quiz-result" id="q128-result"></div>
     <div class="quiz-explanation" id="q128-explain">
       <div class="quiz-explain-label">해설</div>
-      μ = 100, σ = 15<br>
+      <strong>핵심 개념: 68-95-99.7 법칙 실전 적용</strong><br><br>
+      X ~ N(100, 15²) → μ = 100, σ = 15<br><br>
       70 = 100 − 2×15 = μ − 2σ<br>
       130 = 100 + 2×15 = μ + 2σ<br><br>
-      P(μ−2σ ≤ X ≤ μ+2σ) ≈ <strong>95%</strong> (68-95-99.7 법칙)
+      P(μ−2σ ≤ X ≤ μ+2σ) ≈ <strong>95%</strong><br><br>
+      💡 <strong>Tip:</strong> 먼저 주어진 값이 μ에서 몇 σ 떨어져 있는지 계산하면 법칙을 적용할 수 있습니다.
     </div>
   </div>
 </div>
@@ -7693,13 +8358,17 @@
       <li data-label="C" onclick="selectOption(this)">0.68, 0.68</li>
       <li data-label="D" onclick="selectOption(this)">0.50, 0.68</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(129)">힌트 보기</button>
+    <div class="quiz-hint" id="q129-hint">±1σ 범위와 대칭성을 각각 적용하세요.</div>
     <button class="quiz-submit" onclick="submitMC(129)">답 제출하기</button>
     <div class="quiz-result" id="q129-result"></div>
     <div class="quiz-explanation" id="q129-explain">
       <div class="quiz-explain-label">해설</div>
-      P(−1 ≤ Z ≤ 1) ≈ <strong>0.68</strong> (68-95-99.7 법칙의 ±1σ)<br>
-      P(Z > 0) = <strong>0.50</strong> (표준정규분포는 0을 중심으로 대칭)<br><br>
-      표준정규분포 N(0,1)에서 평균=0이므로 P(Z ≤ 0) = P(Z ≥ 0) = 0.5입니다.
+      <strong>핵심 개념: 표준정규분포의 두 가지 성질</strong><br><br>
+      ① P(−1 ≤ Z ≤ 1) ≈ <strong>0.68</strong> → 68-95-99.7 법칙의 ±1σ<br>
+      ② P(Z > 0) = <strong>0.50</strong> → 표준정규분포는 0을 중심으로 대칭<br><br>
+      표준정규분포 N(0,1)에서 평균=0이므로:<br>
+      P(Z ≤ 0) = P(Z ≥ 0) = 0.5
     </div>
   </div>
 </div>
@@ -7714,15 +8383,18 @@
       <li data-label="C" onclick="selectOption(this)">9/256</li>
       <li data-label="D" onclick="selectOption(this)">28/256</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(130)">힌트 보기</button>
+    <div class="quiz-hint" id="q130-hint">P(X ≥ 7) = P(X=7) + P(X=8)을 이항분포 공식으로 각각 계산하세요.</div>
     <button class="quiz-submit" onclick="submitMC(130)">답 제출하기</button>
     <div class="quiz-result" id="q130-result"></div>
     <div class="quiz-explanation" id="q130-explain">
       <div class="quiz-explain-label">해설</div>
-      P(X≥7) = P(X=7) + P(X=8)<br>
-      P(X=7) = ₈C₇ × 0.5⁷ × 0.5¹ = 8 × (1/256) = 8/256<br>
-      P(X=8) = ₈C₈ × 0.5⁸ = 1 × (1/256) = 1/256<br>
+      <strong>핵심 개념: 이항분포의 상위 꼬리 확률</strong><br><br>
+      X ~ B(8, 0.5), P(X ≥ 7) = P(X=7) + P(X=8)<br><br>
+      P(X=7) = ₈C₇ × 0.5⁷ × 0.5¹ = 8/256<br>
+      P(X=8) = ₈C₈ × 0.5⁸ = 1/256<br>
       P(X≥7) = 8/256 + 1/256 = <strong>9/256</strong> ≈ 0.035<br><br>
-      0.5⁸ = 1/256이고, 이항계수 ₈C₇ = 8, ₈C₈ = 1입니다.
+      💡 <strong>Tip:</strong> 0.5⁸ = 1/256이고, ₈C₇ = 8, ₈C₈ = 1입니다.
     </div>
   </div>
 </div>
@@ -7746,12 +8418,17 @@
       <li data-label="C" onclick="selectOption(this)">σ²/n</li>
       <li data-label="D" onclick="selectOption(this)">nσ²</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(36)">힌트 보기</button>
+    <div class="quiz-hint" id="q36-hint">표본평균의 분산: Var(X̄) = σ²/n입니다. n이 커지면 분산은 줄어듭니다.</div>
     <button class="quiz-submit" onclick="submitMC(36)">답 제출하기</button>
     <div class="quiz-result" id="q36-result"></div>
     <div class="quiz-explanation" id="q36-explain">
       <div class="quiz-explain-label">해설</div>
-      Var(X̄) = <strong>σ²/n</strong><br><br>
-      표본 크기 n이 커질수록 표본평균의 분산이 줄어듭니다. 이는 표본이 클수록 평균이 더 안정적이라는 뜻입니다.
+      <strong>핵심 개념: 표본평균의 분산</strong><br><br>
+      모집단: 평균 μ, 분산 σ²<br>
+      표본평균 X̄의 분산: <strong>Var(X̄) = σ²/n</strong><br><br>
+      n이 커질수록 분산이 줄어듦 → 표본평균이 더 안정적<br><br>
+      💡 <strong>주의:</strong> σ²/n²이 아닌 σ²/<strong>n</strong>입니다. 또한 nσ²은 전체 합의 분산(Var(ΣXᵢ))입니다.
     </div>
   </div>
 </div>
@@ -7766,11 +8443,20 @@
       <li data-label="C" onclick="selectOption(this)">개별 관측값이 정규분포를 따르게 된다</li>
       <li data-label="D" onclick="selectOption(this)">모집단 분포에 관계없이 n이 충분히 크면 표본평균이 근사적으로 정규분포를 따른다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(37)">힌트 보기</button>
+    <div class="quiz-hint" id="q37-hint">중심극한정리(CLT)는 모집단 분포에 관계없이 n이 충분히 크면 표본평균이 정규분포를 따른다는 것입니다.</div>
     <button class="quiz-submit" onclick="submitMC(37)">답 제출하기</button>
     <div class="quiz-result" id="q37-result"></div>
     <div class="quiz-explanation" id="q37-explain">
       <div class="quiz-explain-label">해설</div>
-      중심극한정리: <strong>모집단의 분포가 무엇이든</strong>, n이 충분히 크면(보통 n≥30) 표본평균 X̄는 근사적으로 정규분포 N(μ, σ²/n)을 따릅니다. 통계학에서 가장 중요한 정리입니다.
+      <strong>핵심 개념: 중심극한정리(CLT)</strong><br><br>
+      <strong>모집단의 분포가 무엇이든</strong>, n이 충분히 크면(보통 n≥30):<br>
+      X̄ ~ N(μ, σ²/n) (근사적으로 정규분포)<br><br>
+      오답 분석:<br>
+      - A: 모집단이 정규분포가 아니어도 됨 → ✗<br>
+      - B: n이 충분히 커야 함 → ✗<br>
+      - C: 개별 관측값이 아닌 표본평균이 정규분포 → ✗<br><br>
+      💡 <strong>핵심:</strong> CLT는 통계학에서 가장 중요한 정리입니다.
     </div>
   </div>
 </div>
@@ -7785,13 +8471,19 @@
       <li data-label="C" onclick="selectOption(this)">카이제곱분포 χ²(n-1)</li>
       <li data-label="D" onclick="selectOption(this)">이항분포 B(n,p)</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(38)">힌트 보기</button>
+    <div class="quiz-hint" id="q38-hint">σ를 알면 Z를 쓰고, σ를 모르면 t를 씁니다.</div>
     <button class="quiz-submit" onclick="submitMC(38)">답 제출하기</button>
     <div class="quiz-result" id="q38-result"></div>
     <div class="quiz-explanation" id="q38-explain">
       <div class="quiz-explain-label">해설</div>
-      σ를 알면 → Z = (X̄−μ)/(σ/√n) ~ <strong>N(0,1)</strong><br>
-      σ를 모르면 → t = (X̄−μ)/(S/√n) ~ <strong>t(n-1)</strong><br><br>
-      t-분포는 정규분포보다 꼬리가 두껍고, n이 커지면 정규분포에 가까워집니다.
+      <strong>핵심 개념: Z-분포 vs t-분포 선택</strong><br><br>
+      <strong>σ를 알 때:</strong> Z = (X̄−μ)/(σ/√n) ~ <strong>N(0,1)</strong><br>
+      <strong>σ를 모를 때:</strong> t = (X̄−μ)/(S/√n) ~ <strong>t(n-1)</strong><br><br>
+      t-분포의 특징:<br>
+      - 정규분포보다 <strong>꼬리가 두꺼움</strong><br>
+      - n이 커지면 N(0,1)에 <strong>수렴</strong><br><br>
+      💡 <strong>실무:</strong> σ를 모르는 경우가 대부분이므로 t-분포를 더 자주 사용합니다.
     </div>
   </div>
 </div>
@@ -7806,14 +8498,17 @@
       <li data-label="C" onclick="selectOption(this)">2</li>
       <li data-label="D" onclick="selectOption(this)">0.4</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(39)">힌트 보기</button>
+    <div class="quiz-hint" id="q39-hint">표준오차(SE) = σ/√n으로 계산합니다.</div>
     <button class="quiz-submit" onclick="submitMC(39)">답 제출하기</button>
     <div class="quiz-result" id="q39-result"></div>
     <div class="quiz-explanation" id="q39-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 2</strong><br><br>
+      <strong>핵심 개념: 표준오차(Standard Error) 계산</strong><br><br>
       E(X̄) = μ = <strong>50</strong><br>
-      SD(X̄) = σ/√n = 10/√25 = 10/5 = <strong>2</strong><br>
-      표본평균의 표준편차(표준오차)는 모표준편차를 √n으로 나눈 값입니다.
+      <strong>SD(X̄) = σ/√n</strong> = 10/√25 = 10/5 = <strong>2</strong><br><br>
+      표준오차 = 표본평균의 표준편차 = 모표준편차/√n<br><br>
+      💡 <strong>의미:</strong> 표본평균들의 퍼짐 정도를 나타냅니다. n이 클수록 표준오차가 작아집니다.
     </div>
   </div>
 </div>
@@ -7828,14 +8523,18 @@
       <li data-label="C" onclick="selectOption(this)">카이제곱분포 χ²(n-1)</li>
       <li data-label="D" onclick="selectOption(this)">이항분포 B(n,p)</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(40)">힌트 보기</button>
+    <div class="quiz-hint" id="q40-hint">σ를 모르는 상태에서 어떤 분포를 사용하는지 생각해 보세요.</div>
     <button class="quiz-submit" onclick="submitMC(40)">답 제출하기</button>
     <div class="quiz-result" id="q40-result"></div>
     <div class="quiz-explanation" id="q40-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: t-분포 t(n-1)</strong><br><br>
-      σ를 알면 → Z = (X̄−μ)/(σ/√n) ~ <strong>N(0,1)</strong><br>
-      σ를 모르면 → t = (X̄−μ)/(S/√n) ~ <strong>t(n-1)</strong><br>
-      모분산 추정 → <strong>카이제곱분포 χ²(n-1)</strong>
+      <strong>핵심 개념: 검정에서 사용하는 분포 선택</strong><br><br>
+      <strong>모평균 검정:</strong><br>
+      - σ를 알 때 → Z = (X̄−μ)/(σ/√n) ~ N(0,1) → <strong>Z-검정</strong><br>
+      - σ를 모를 때 → t = (X̄−μ)/(S/√n) ~ t(n-1) → <strong>t-검정</strong><br><br>
+      <strong>모분산 검정:</strong><br>
+      - χ² = (n-1)S²/σ₀² ~ <strong>카이제곱분포 χ²(n-1)</strong>
     </div>
   </div>
 </div>
@@ -7851,12 +8550,18 @@
       <li data-label="C" onclick="selectOption(this)">n ≥ 30</li>
       <li data-label="D" onclick="selectOption(this)">n ≥ 100</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(66)">힌트 보기</button>
+    <div class="quiz-hint" id="q66-hint">중심극한정리는 통상 n이 얼마 이상일 때 잘 적용되는지 생각해 보세요.</div>
     <button class="quiz-submit" onclick="submitMC(66)">답 제출하기</button>
     <div class="quiz-result" id="q66-result"></div>
     <div class="quiz-explanation" id="q66-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: n ≥ 30</strong><br><br>
-      중심극한정리는 모집단이 정규분포가 아니더라도 표본 크기가 충분히 크면(통상 <strong>n ≥ 30</strong>) 표본평균이 근사적으로 정규분포를 따른다는 것입니다. 단, 모집단이 이미 정규분포이면 n이 작아도 성립합니다.
+      <strong>핵심 개념: CLT의 최소 표본 크기</strong><br><br>
+      중심극한정리는 통상 <strong>n ≥ 30</strong>일 때 잘 적용됩니다.<br><br>
+      예외:<br>
+      - 모집단이 이미 정규분포이면 n이 작아도 성립<br>
+      - 모집단이 매우 비대칭이면 더 큰 n이 필요할 수 있음<br><br>
+      💡 <strong>기억법:</strong> "n ≥ 30"은 CLT의 경험적 기준입니다.
     </div>
   </div>
 </div>
@@ -7872,12 +8577,19 @@
       <li data-label="C" onclick="selectOption(this)">t-분포는 표준정규분포보다 꼬리가 얇다</li>
       <li data-label="D" onclick="selectOption(this)">t-분포는 표준정규분포보다 꼬리가 두껍고, 자유도가 커지면 표준정규분포에 수렴한다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(67)">힌트 보기</button>
+    <div class="quiz-hint" id="q67-hint">t-분포는 정규분포보다 꼬리가 두껍고, 자유도가 커지면 정규분포에 수렴합니다.</div>
     <button class="quiz-submit" onclick="submitMC(67)">답 제출하기</button>
     <div class="quiz-result" id="q67-result"></div>
     <div class="quiz-explanation" id="q67-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: D</strong><br><br>
-      t-분포는 평균 0, 좌우 대칭이지만 표준정규분포보다 <strong>꼬리가 두껍습니다</strong>(극단값이 나올 확률이 더 높음). 이는 σ 대신 S를 사용하는 불확실성을 반영합니다. 자유도(n−1)가 커지면 N(0,1)에 수렴합니다.
+      <strong>핵심 개념: t-분포의 특성</strong><br><br>
+      t-분포 vs 표준정규분포:<br>
+      - 평균: 둘 다 <strong>0</strong><br>
+      - 대칭: 둘 다 <strong>좌우 대칭</strong><br>
+      - 꼬리: t-분포가 <strong>더 두꺼움</strong> (극단값 확률이 높음)<br>
+      - 수렴: 자유도(n−1)가 커지면 N(0,1)에 <strong>수렴</strong><br><br>
+      💡 <strong>이유:</strong> σ 대신 S를 사용하는 불확실성이 꼬리의 두께로 반영됩니다.
     </div>
   </div>
 </div>
@@ -7893,14 +8605,18 @@
       <li data-label="C" onclick="selectOption(this)">평균 = 0.4, 분산 = 0.24</li>
       <li data-label="D" onclick="selectOption(this)">평균 = 60, 분산 = 24</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(68)">힌트 보기</button>
+    <div class="quiz-hint" id="q68-hint">이항분포 B(n,p)의 정규근사: N(np, np(1-p))를 적용하세요.</div>
     <button class="quiz-submit" onclick="submitMC(68)">답 제출하기</button>
     <div class="quiz-result" id="q68-result"></div>
     <div class="quiz-explanation" id="q68-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: 평균 = 40, 분산 = 24</strong><br><br>
-      이항분포 B(n, p)에서 n이 충분히 크면 정규분포 N(np, np(1−p))로 근사합니다.<br>
+      <strong>핵심 개념: 이항분포의 정규근사</strong><br><br>
+      B(n, p) ≈ N(np, np(1−p)) (n이 충분히 클 때)<br><br>
+      X ~ B(100, 0.4):<br>
       평균 = np = 100×0.4 = <strong>40</strong><br>
-      분산 = np(1−p) = 100×0.4×0.6 = <strong>24</strong>
+      분산 = np(1−p) = 100×0.4×0.6 = <strong>24</strong><br><br>
+      💡 <strong>조건:</strong> np ≥ 5이고 n(1−p) ≥ 5이면 정규근사가 적절합니다.
     </div>
   </div>
 </div>
@@ -7916,12 +8632,19 @@
       <li data-label="C" onclick="selectOption(this)">모비율의 가설검정</li>
       <li data-label="D" onclick="selectOption(this)">단일 표본의 중앙값 검정</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(69)">힌트 보기</button>
+    <div class="quiz-hint" id="q69-hint">F-분포는 두 분산의 비(ratio)를 비교할 때 사용됩니다.</div>
     <button class="quiz-submit" onclick="submitMC(69)">답 제출하기</button>
     <div class="quiz-result" id="q69-result"></div>
     <div class="quiz-explanation" id="q69-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: B</strong><br><br>
-      F-분포는 두 카이제곱분포의 비로 정의되며, 주로 <strong>두 모집단의 분산을 비교</strong>하거나 <strong>분산분석(ANOVA)</strong>에서 사용됩니다. F = (S₁²/σ₁²) / (S₂²/σ₂²) 형태로 분산의 비율을 검정합니다.
+      <strong>핵심 개념: F-분포의 용도</strong><br><br>
+      <strong>F-분포</strong>는 두 카이제곱분포의 비로 정의됩니다.<br><br>
+      주요 용도:<br>
+      ① 두 모집단의 <strong>분산 비교</strong>: F = S₁²/S₂²<br>
+      ② <strong>분산분석(ANOVA)</strong>: 여러 그룹의 평균 비교<br>
+      ③ <strong>회귀분석</strong>의 유의성 검정<br><br>
+      💡 <strong>특징:</strong> F-분포는 항상 0 이상이고, 오른쪽으로 치우친 비대칭 분포입니다.
     </div>
   </div>
 </div>
@@ -7937,13 +8660,19 @@
       <li data-label="C" onclick="selectOption(this)">μ ± 1.96 × σ/√n</li>
       <li data-label="D" onclick="selectOption(this)">X̄ ± 1.96 × σ/√n</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(70)">힌트 보기</button>
+    <div class="quiz-hint" id="q70-hint">신뢰구간 공식: 중심은 X̄(표본평균), 오차한계는 z × σ/√n입니다.</div>
     <button class="quiz-submit" onclick="submitMC(70)">답 제출하기</button>
     <div class="quiz-result" id="q70-result"></div>
     <div class="quiz-explanation" id="q70-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong style="color:#22c55e;">정답: D</strong><br><br>
-      구간추정 공식: <strong>X̄ ± z(α/2) × σ/√n</strong><br>
-      95% 신뢰구간에서 z(0.025) = 1.96. 중심은 모평균 μ가 아닌 <strong>표본평균 X̄</strong>이고, 오차한계는 σ/√n(표준오차)에 z값을 곱한 것입니다. σ를 모르면 t-분포를 사용합니다.
+      <strong>핵심 개념: 신뢰구간 공식 (σ 아는 경우)</strong><br><br>
+      95% 신뢰구간: <strong>X̄ ± 1.96 × σ/√n</strong><br><br>
+      구성 요소:<br>
+      - 중심: <strong>X̄</strong> (표본평균, μ가 아님!)<br>
+      - 오차한계: z(α/2) × σ/√n<br>
+      - z(0.025) = 1.96 (95% 신뢰수준)<br><br>
+      💡 <strong>주의:</strong> σ를 모르면 S를 사용하고 t-분포를 적용합니다.
     </div>
   </div>
 </div>
@@ -7958,14 +8687,19 @@
       <li data-label="C" onclick="selectOption(this)">약 95%</li>
       <li data-label="D" onclick="selectOption(this)">약 99.7%</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(131)">힌트 보기</button>
+    <div class="quiz-hint" id="q131-hint">표준오차 SE = σ/√n을 구하고, Z값으로 변환한 뒤 68-95-99.7 법칙을 적용하세요.</div>
     <button class="quiz-submit" onclick="submitMC(131)">답 제출하기</button>
     <div class="quiz-result" id="q131-result"></div>
     <div class="quiz-explanation" id="q131-explain">
       <div class="quiz-explain-label">해설</div>
-      표준오차 SE = σ/√n = 20/√100 = 20/10 = <strong>2</strong><br>
-      Z₁ = (78−80)/2 = −1, Z₂ = (82−80)/2 = 1<br>
+      <strong>핵심 개념: 표본평균의 분포와 확률 계산</strong><br><br>
+      X̄의 분포: N(μ, σ²/n) = N(80, (20/10)²) = N(80, 4)<br>
+      표준오차 SE = σ/√n = 20/√100 = <strong>2</strong><br><br>
+      Z₁ = (78−80)/2 = −1<br>
+      Z₂ = (82−80)/2 = 1<br>
       P(−1 ≤ Z ≤ 1) ≈ <strong>0.68 (약 68%)</strong><br><br>
-      표본평균의 분포: X̄ ~ N(80, 2²). 원래 모집단보다 훨씬 좁은 분포입니다.
+      💡 <strong>핵심:</strong> 표본평균의 분포(SE=2)는 원래 모집단(σ=20)보다 훨씬 좁습니다.
     </div>
   </div>
 </div>
@@ -7980,14 +8714,17 @@
       <li data-label="C" onclick="selectOption(this)">0.0456</li>
       <li data-label="D" onclick="selectOption(this)">0.5000</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(132)">힌트 보기</button>
+    <div class="quiz-hint" id="q132-hint">SE = σ/√n을 구하고 Z = (X̄ − μ)/SE로 표준화하세요.</div>
     <button class="quiz-submit" onclick="submitMC(132)">답 제출하기</button>
     <div class="quiz-result" id="q132-result"></div>
     <div class="quiz-explanation" id="q132-explain">
       <div class="quiz-explain-label">해설</div>
-      σ = √36 = 6, SE = σ/√n = 6/√9 = 6/3 = 2<br>
+      <strong>핵심 개념: 표본평균의 확률 - Z값 계산</strong><br><br>
+      σ = √36 = 6, SE = σ/√n = 6/√9 = 6/3 = <strong>2</strong><br>
       Z = (54 − 50)/2 = <strong>2</strong><br>
       P(X̄ > 54) = P(Z > 2) = <strong>0.0228</strong><br><br>
-      표본평균이 모평균에서 2 표준오차 이상 떨어질 확률은 약 2.3%로 매우 낮습니다.
+      💡 <strong>해석:</strong> 표본평균이 모평균에서 2 표준오차 이상 떨어질 확률은 약 2.3%로 매우 낮습니다.
     </div>
   </div>
 </div>
@@ -8002,12 +8739,16 @@
       <li data-label="C" onclick="selectOption(this)">15</li>
       <li data-label="D" onclick="selectOption(this)">4</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(133)">힌트 보기</button>
+    <div class="quiz-hint" id="q133-hint">t-분포의 자유도 = n − 1입니다.</div>
     <button class="quiz-submit" onclick="submitMC(133)">답 제출하기</button>
     <div class="quiz-result" id="q133-result"></div>
     <div class="quiz-explanation" id="q133-explain">
       <div class="quiz-explain-label">해설</div>
+      <strong>핵심 개념: t-분포의 자유도</strong><br><br>
       t-분포의 자유도 = <strong>n − 1</strong> = 16 − 1 = <strong>15</strong><br><br>
-      자유도가 1 줄어드는 이유는 표본평균 X̄를 계산하는 데 1개의 정보를 소비했기 때문입니다. 자유도가 클수록 t-분포는 표준정규분포에 가까워집니다.
+      1이 줄어드는 이유: 표본평균 X̄를 계산하는 데 1개의 정보를 소비했기 때문<br><br>
+      💡 <strong>Tip:</strong> 자유도가 클수록 t-분포는 표준정규분포에 가까워집니다. df ≥ 30이면 거의 같습니다.
     </div>
   </div>
 </div>
@@ -8022,14 +8763,20 @@
       <li data-label="C" onclick="selectOption(this)">n을 절반으로 줄인다</li>
       <li data-label="D" onclick="selectOption(this)">n을 4배로 늘린다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(134)">힌트 보기</button>
+    <div class="quiz-hint" id="q134-hint">신뢰구간 폭은 1/√n에 비례합니다. 폭을 절반으로 줄이려면 n을 어떻게 해야 할까요?</div>
     <button class="quiz-submit" onclick="submitMC(134)">답 제출하기</button>
     <div class="quiz-result" id="q134-result"></div>
     <div class="quiz-explanation" id="q134-explain">
       <div class="quiz-explain-label">해설</div>
-      신뢰구간 폭 = 2 × z × σ/√n에서, 폭은 <strong>1/√n</strong>에 비례합니다.<br>
-      폭을 절반으로 줄이려면: 1/√n' = (1/2) × (1/√n)<br>
-      √n' = 2√n → n' = <strong>4n</strong><br><br>
-      즉, 정밀도를 2배로 높이려면 표본 크기를 <strong>4배</strong>로 늘려야 합니다. 이것이 대규모 조사에 비용이 많이 드는 이유입니다.
+      <strong>핵심 개념: 표본 크기와 신뢰구간 폭의 관계</strong><br><br>
+      신뢰구간 폭 ∝ 1/√n<br><br>
+      폭을 절반으로 줄이려면:<br>
+      1/√n' = (1/2) × (1/√n)<br>
+      √n' = 2√n<br>
+      <strong>n' = 4n</strong><br><br>
+      정밀도를 2배 높이려면 표본 크기를 <strong>4배</strong>로 늘려야 합니다.<br><br>
+      💡 <strong>Tip:</strong> 이것이 대규모 조사에 비용이 많이 드는 이유입니다.
     </div>
   </div>
 </div>
@@ -8044,12 +8791,17 @@
       <li data-label="C" onclick="selectOption(this)">12</li>
       <li data-label="D" onclick="selectOption(this)">1.2</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(135)">힌트 보기</button>
+    <div class="quiz-hint" id="q135-hint">카이제곱 검정통계량: χ² = (n-1)S²/σ₀²를 계산하세요.</div>
     <button class="quiz-submit" onclick="submitMC(135)">답 제출하기</button>
     <div class="quiz-result" id="q135-result"></div>
     <div class="quiz-explanation" id="q135-explain">
       <div class="quiz-explain-label">해설</div>
-      χ² = (n−1)S²/σ₀² = (21−1)×12/10 = 20×12/10 = 240/10 = <strong>24</strong><br><br>
-      카이제곱 통계량은 표본분산이 귀무가설의 모분산과 얼마나 다른지를 측정합니다. 자유도 = n−1 = 20인 χ² 분포에서 24의 위치를 확인하여 p-value를 구합니다.
+      <strong>핵심 개념: 카이제곱 검정통계량</strong><br><br>
+      <strong>공식:</strong> χ² = (n−1)S²/σ₀²<br><br>
+      = (21−1)×12/10 = 20×12/10 = 240/10 = <strong>24</strong><br><br>
+      이 값을 자유도 20인 χ²분포에서 비교하여 p-value를 구합니다.<br><br>
+      💡 <strong>용도:</strong> 카이제곱 검정은 모분산이 특정 값과 다른지 검정할 때 사용합니다.
     </div>
   </div>
 </div>
@@ -8064,14 +8816,17 @@
       <li data-label="C" onclick="selectOption(this)">SE(n=25)는 SE(n=100)의 4배</li>
       <li data-label="D" onclick="selectOption(this)">SE(n=25)는 SE(n=100)의 절반</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(136)">힌트 보기</button>
+    <div class="quiz-hint" id="q136-hint">SE = σ/√n으로 각각 계산하여 비율을 구하세요.</div>
     <button class="quiz-submit" onclick="submitMC(136)">답 제출하기</button>
     <div class="quiz-result" id="q136-result"></div>
     <div class="quiz-explanation" id="q136-explain">
       <div class="quiz-explain-label">해설</div>
+      <strong>핵심 개념: 표본 크기에 따른 표준오차 변화</strong><br><br>
       SE(n=25) = 15/√25 = 15/5 = <strong>3</strong><br>
       SE(n=100) = 15/√100 = 15/10 = <strong>1.5</strong><br>
       비율: 3/1.5 = <strong>2배</strong><br><br>
-      표본 크기를 4배로 늘리면(25→100) 표준오차는 절반이 됩니다. SE ∝ 1/√n이므로 정밀도를 높이려면 표본 크기를 제곱으로 늘려야 합니다.
+      💡 <strong>핵심 원리:</strong> SE ∝ 1/√n이므로, 표본 크기를 4배로 늘리면 표준오차는 절반이 됩니다.
     </div>
   </div>
 </div>
@@ -8086,15 +8841,18 @@
       <li data-label="C" onclick="selectOption(this)">Z ≈ 1.54</li>
       <li data-label="D" onclick="selectOption(this)">Z ≈ 2.00</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(137)">힌트 보기</button>
+    <div class="quiz-hint" id="q137-hint">이항분포의 정규근사에서 μ = np, σ = √(np(1-p))를 구하고 Z = (X-μ)/σ를 계산하세요.</div>
     <button class="quiz-submit" onclick="submitMC(137)">답 제출하기</button>
     <div class="quiz-result" id="q137-result"></div>
     <div class="quiz-explanation" id="q137-explain">
       <div class="quiz-explain-label">해설</div>
-      이항분포의 정규근사: N(np, np(1−p))<br>
-      μ = np = 200×0.3 = 60<br>
-      σ = √(np(1−p)) = √(200×0.3×0.7) = √42 ≈ 6.48<br>
+      <strong>핵심 개념: 이항분포의 정규근사 — Z값 계산</strong><br><br>
+      X ~ B(200, 0.3) → 정규근사 N(np, np(1−p))<br>
+      μ = np = 200×0.3 = <strong>60</strong><br>
+      σ = √(np(1−p)) = √(200×0.3×0.7) = √42 ≈ <strong>6.48</strong><br>
       Z = (70 − 60)/6.48 ≈ <strong>1.54</strong><br><br>
-      n이 충분히 크고 np ≥ 5, n(1−p) ≥ 5를 만족하면 정규근사를 사용할 수 있습니다. (np=60, n(1-p)=140 모두 만족)
+      💡 <strong>검증:</strong> np=60 ≥ 5 ✓, n(1−p)=140 ≥ 5 ✓ → 정규근사 사용 가능
     </div>
   </div>
 </div>
@@ -8109,12 +8867,18 @@
       <li data-label="C" onclick="selectOption(this)">같은 방법으로 여러 번 구간을 만들면, 그 중 약 95%가 모평균을 포함한다</li>
       <li data-label="D" onclick="selectOption(this)">데이터의 95%가 이 구간에 들어간다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(138)">힌트 보기</button>
+    <div class="quiz-hint" id="q138-hint">신뢰구간의 올바른 해석은 '방법의 신뢰도'입니다. 특정 구간의 확률이 아닙니다.</div>
     <button class="quiz-submit" onclick="submitMC(138)">답 제출하기</button>
     <div class="quiz-result" id="q138-result"></div>
     <div class="quiz-explanation" id="q138-explain">
       <div class="quiz-explain-label">해설</div>
-      신뢰구간의 올바른 해석: <strong>같은 방법으로 반복적으로 표본을 뽑아 구간을 만들면, 그 중 약 95%가 모평균을 포함</strong>합니다.<br><br>
-      A는 흔한 오해입니다. 모평균은 <strong>고정된 값</strong>이므로 "확률"이 아니라 "이 구간에 들어있거나 아니거나" 둘 중 하나입니다. 신뢰도 95%는 <strong>방법의 신뢰도</strong>이지, 특정 구간의 확률이 아닙니다.
+      <strong>핵심 개념: 신뢰구간의 올바른 해석</strong><br><br>
+      올바른 해석: <strong>"같은 방법으로 반복적으로 표본을 뽑아 구간을 만들면, 그 중 약 95%가 모평균을 포함한다"</strong><br><br>
+      흔한 오해 (A): "모평균이 이 구간에 있을 확률이 95%" → ✗<br>
+      - 모평균은 <strong>고정된 값</strong>이므로 "확률"이 아님<br>
+      - "들어있거나 아니거나" 둘 중 하나<br><br>
+      💡 <strong>핵심:</strong> 95%는 <strong>방법의 신뢰도</strong>이지, 특정 구간의 확률이 아닙니다.
     </div>
   </div>
 </div>
@@ -8129,14 +8893,17 @@
       <li data-label="C" onclick="selectOption(this)">모집단이 정규분포이면 Z-검정, 아니면 t-검정</li>
       <li data-label="D" onclick="selectOption(this)">양측검정이면 Z-검정, 단측검정이면 t-검정</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(139)">힌트 보기</button>
+    <div class="quiz-hint" id="q139-hint">Z와 t를 구분하는 핵심 기준은 모표준편차 σ를 알고 있는지 여부입니다.</div>
     <button class="quiz-submit" onclick="submitMC(139)">답 제출하기</button>
     <div class="quiz-result" id="q139-result"></div>
     <div class="quiz-explanation" id="q139-explain">
       <div class="quiz-explain-label">해설</div>
-      Z와 t를 구분하는 <strong>핵심 기준</strong>은 <strong>모표준편차 σ의 알고 있음 여부</strong>입니다.<br><br>
-      - σ를 알 때: Z = (X̄−μ)/(σ/√n) ~ N(0,1) → <strong>Z-검정</strong><br>
-      - σ를 모를 때: t = (X̄−μ)/(S/√n) ~ t(n−1) → <strong>t-검정</strong><br><br>
-      B는 관례적인 경험칙이지 정확한 구분 기준은 아닙니다. 실무에서는 σ를 모르는 경우가 대부분이므로 t-검정을 더 자주 사용합니다.
+      <strong>핵심 개념: Z-검정 vs t-검정의 구분 기준</strong><br><br>
+      핵심 기준: <strong>모표준편차 σ를 아는지 여부</strong><br><br>
+      - σ를 <strong>알 때</strong>: Z = (X̄−μ)/(σ/√n) ~ N(0,1) → <strong>Z-검정</strong><br>
+      - σ를 <strong>모를 때</strong>: t = (X̄−μ)/(S/√n) ~ t(n−1) → <strong>t-검정</strong><br><br>
+      💡 <strong>주의:</strong> "n > 30이면 Z, 아니면 t"는 관례적 경험칙이지 정확한 기준은 아닙니다. 실무에서는 σ를 모르는 경우가 대부분이므로 t-검정을 더 자주 씁니다.
     </div>
   </div>
 </div>
@@ -8151,12 +8918,18 @@
       <li data-label="C" onclick="selectOption(this)">모집단 전체의 데이터 분포이다</li>
       <li data-label="D" onclick="selectOption(this)">표본을 크기 순으로 정렬한 분포이다</li>
     </ul>
+    <button class="quiz-hint-btn" onclick="showHint(140)">힌트 보기</button>
+    <div class="quiz-hint" id="q140-hint">표본분포는 '하나의 표본' 분포가 아니라 '가능한 모든 표본의 통계량' 분포입니다.</div>
     <button class="quiz-submit" onclick="submitMC(140)">답 제출하기</button>
     <div class="quiz-result" id="q140-result"></div>
     <div class="quiz-explanation" id="q140-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>표본분포</strong>는 동일한 모집단에서 같은 크기의 표본을 <strong>반복적으로 뽑았을 때</strong>, 통계량(표본평균, 표본비율 등)이 이루는 분포입니다.<br><br>
-      A는 "표본의 도수분포", C는 "모집단분포"에 대한 설명입니다. 표본분포는 실제로 반복 추출하지 않고 이론적으로 도출하며, <strong>중심극한정리</strong>가 그 핵심 근거입니다.
+      <strong>핵심 개념: 표본분포(Sampling Distribution)</strong><br><br>
+      <strong>표본분포</strong> = 동일한 모집단에서 같은 크기의 표본을 <strong>반복적으로 뽑았을 때</strong>, 통계량(표본평균, 표본비율 등)이 이루는 분포<br><br>
+      혼동하기 쉬운 개념들:<br>
+      - A: 하나의 표본의 데이터 분포 = <strong>표본의 도수분포</strong><br>
+      - C: 모집단 전체의 데이터 분포 = <strong>모집단분포</strong><br><br>
+      💡 <strong>핵심:</strong> 표본분포는 실제로 반복 추출하지 않고 이론적으로 도출하며, <strong>중심극한정리</strong>가 그 핵심 근거입니다.
     </div>
   </div>
 </div>
@@ -8603,6 +9376,11 @@ document.querySelectorAll('.sidebar a:not([data-quiz]):not([data-calc]):not([dat
 
 // ── Quiz Logic ──
 const quiz1Submitted = {};
+
+function showHint(qNum) {
+  const hint = document.getElementById('q' + qNum + '-hint');
+  if (hint) hint.classList.toggle('show');
+}
 
 function selectOption(li) {
   const ul = li.parentElement;
