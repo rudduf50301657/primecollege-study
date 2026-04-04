@@ -5136,7 +5136,7 @@
 
 <div class="quiz-hero">
   <h3>공학용 계산기 가이드</h3>
-  <p>시험에 필요한 계산기 사용법 | 버튼 누르는 순서를 따라해 보세요</p>
+  <p>시험에 필요한 계산기 사용법 | 14개 예제로 모든 버튼 연습하기</p>
 </div>
 
 <div class="calc-wrap">
@@ -5261,18 +5261,97 @@
 </div>
 
 <div class="guide-card">
-  <h4>예제 7: 분산 계산</h4>
-  <p class="goal">데이터 {2, 4, 6}의 표본분산 s² 구하기 (평균=4)</p>
-  <p style="color:#888; font-size:13px; margin-bottom:12px;">s² = Σ(xᵢ−x̄)² ÷ (n−1)</p>
+  <h4>예제 7: x² 제곱 버튼</h4>
+  <p class="goal">7² = ?</p>
   <ol class="step-list">
-    <li><span class="key-badge">(</span><span class="key-badge">2</span><span class="key-badge op-key">−</span><span class="key-badge">4</span><span class="key-badge">)</span> <span class="key-badge fn-key">x²</span> 입력</li>
-    <li><span class="key-badge op-key">+</span> <span class="key-badge">(</span><span class="key-badge">4</span><span class="key-badge op-key">−</span><span class="key-badge">4</span><span class="key-badge">)</span> <span class="key-badge fn-key">x²</span> 입력</li>
-    <li><span class="key-badge op-key">+</span> <span class="key-badge">(</span><span class="key-badge">6</span><span class="key-badge op-key">−</span><span class="key-badge">4</span><span class="key-badge">)</span> <span class="key-badge fn-key">x²</span> 입력</li>
-    <li><span class="key-badge op-key">=</span> → <strong>8</strong></li>
+    <li><span class="key-badge">7</span> 입력</li>
+    <li><span class="key-badge fn-key">x²</span> 누르기</li>
+  </ol>
+  <div class="guide-result">결과: 49</div>
+  <button class="try-btn" onclick="runDemo(['7','sq'])">따라해 보기</button>
+</div>
+
+<div class="guide-card">
+  <h4>예제 8: 역수 ⅟x</h4>
+  <p class="goal">1 ÷ 8 = ?</p>
+  <ol class="step-list">
+    <li><span class="key-badge">8</span> 입력</li>
+    <li><span class="key-badge fn-key">⅟x</span> 누르기</li>
+  </ol>
+  <div class="guide-result">결과: 0.125</div>
+  <button class="try-btn" onclick="runDemo(['8','inv'])">따라해 보기</button>
+</div>
+
+<div class="guide-card">
+  <h4>예제 9: 분산 간편 공식</h4>
+  <p class="goal">데이터 {2, 4, 6}의 표본분산 s²</p>
+  <p style="color:#888; font-size:13px; margin-bottom:12px;">간편 공식: s² = (Σxᵢ² − n·x̄²) ÷ (n−1)<br>Σxᵢ² = 4+16+36 = 56, n=3, x̄=4</p>
+  <ol class="step-list">
+    <li><span class="key-badge">(</span> <span class="key-badge">2</span> <span class="key-badge fn-key">x²</span> <span class="key-badge op-key">+</span> <span class="key-badge">4</span> <span class="key-badge fn-key">x²</span> <span class="key-badge op-key">+</span> <span class="key-badge">6</span> <span class="key-badge fn-key">x²</span></li>
+    <li><span class="key-badge op-key">−</span> <span class="key-badge">3</span> <span class="key-badge op-key">×</span> <span class="key-badge">4</span> <span class="key-badge fn-key">x²</span> <span class="key-badge">)</span></li>
     <li><span class="key-badge op-key">÷</span> <span class="key-badge">(</span><span class="key-badge">3</span><span class="key-badge op-key">−</span><span class="key-badge">1</span><span class="key-badge">)</span> <span class="key-badge op-key">=</span></li>
   </ol>
   <div class="guide-result">결과: s² = 4</div>
-  <button class="try-btn" onclick="runDemo(['(','2','-','4',')','sq','+','(','4','-','4',')','sq','+','(','6','-','4',')','sq','=','÷','(','3','-','1',')','='])">따라해 보기</button>
+  <button class="try-btn" onclick="runDemo(['(','2','sq','+','4','sq','+','6','sq','-','3','×','4','sq',')','÷','(','3','-','1',')','='])">따라해 보기</button>
+</div>
+
+<div class="guide-card">
+  <h4>예제 10: 복합 계산 — 변이계수</h4>
+  <p class="goal">CV = s ÷ x̄ (표준편차=2, 평균=4)</p>
+  <p style="color:#888; font-size:13px; margin-bottom:12px;">위 분산 결과(s²=4)에서 √4 = 2가 표준편차</p>
+  <ol class="step-list">
+    <li><span class="key-badge">4</span> <span class="key-badge fn-key">²√x</span> → <strong>√(4) = 2</strong></li>
+    <li><span class="key-badge op-key">÷</span> <span class="key-badge">4</span> <span class="key-badge op-key">=</span></li>
+  </ol>
+  <div class="guide-result">결과: CV = 0.5</div>
+  <button class="try-btn" onclick="runDemo(['4','sqrt','÷','4','='])">따라해 보기</button>
+</div>
+
+<div class="guide-card">
+  <h4>예제 11: log₁₀ 사용하기</h4>
+  <p class="goal">log₁₀(1000) = ?</p>
+  <ol class="step-list">
+    <li><span class="key-badge">1</span><span class="key-badge">0</span><span class="key-badge">0</span><span class="key-badge">0</span> 입력</li>
+    <li><span class="key-badge fn-key">log</span> 누르기</li>
+  </ol>
+  <div class="guide-result">결과: 3</div>
+  <button class="try-btn" onclick="runDemo(['1','0','0','0','log'])">따라해 보기</button>
+</div>
+
+<div class="guide-card">
+  <h4>예제 12: 10의 거듭제곱</h4>
+  <p class="goal">10⁴ = ?</p>
+  <ol class="step-list">
+    <li><span class="key-badge">4</span> 입력</li>
+    <li><span class="key-badge fn-key">10ˣ</span> 누르기</li>
+  </ol>
+  <div class="guide-result">결과: 10000</div>
+  <button class="try-btn" onclick="runDemo(['4','10pow'])">따라해 보기</button>
+</div>
+
+<div class="guide-card">
+  <h4>예제 13: 이항분포 확률 계산</h4>
+  <p class="goal">P(X=2) when X~B(5, 0.3)<br>= ₅C₂ × 0.3² × 0.7³</p>
+  <p style="color:#888; font-size:13px; margin-bottom:12px;">이항분포 공식을 단계별로 계산합니다.</p>
+  <ol class="step-list">
+    <li>₅C₂: <span class="key-badge">5</span> <span class="key-badge op-key">×</span> <span class="key-badge">4</span> <span class="key-badge op-key">÷</span> <span class="key-badge">(</span><span class="key-badge">2</span> <span class="key-badge fn-key">n!</span><span class="key-badge">)</span> → <strong>10</strong></li>
+    <li><span class="key-badge op-key">×</span> <span class="key-badge">0</span><span class="key-badge">.</span><span class="key-badge">3</span> <span class="key-badge fn-key">xʸ</span> <span class="key-badge">2</span></li>
+    <li><span class="key-badge op-key">×</span> <span class="key-badge">0</span><span class="key-badge">.</span><span class="key-badge">7</span> <span class="key-badge fn-key">xʸ</span> <span class="key-badge">3</span></li>
+    <li><span class="key-badge op-key">=</span></li>
+  </ol>
+  <div class="guide-result">결과: 0.3087</div>
+  <button class="try-btn" onclick="runDemo(['5','×','4','÷','(','2','fact',')','×','0','.','3','pow','2','×','0','.','7','pow','3','='])">따라해 보기</button>
+</div>
+
+<div class="guide-card">
+  <h4>예제 14: 표준화 Z값 계산</h4>
+  <p class="goal">Z = (X − μ) ÷ σ<br>X=75, μ=60, σ=10</p>
+  <ol class="step-list">
+    <li><span class="key-badge">(</span><span class="key-badge">7</span><span class="key-badge">5</span> <span class="key-badge op-key">−</span> <span class="key-badge">6</span><span class="key-badge">0</span><span class="key-badge">)</span></li>
+    <li><span class="key-badge op-key">÷</span> <span class="key-badge">1</span><span class="key-badge">0</span> <span class="key-badge op-key">=</span></li>
+  </ol>
+  <div class="guide-result">결과: Z = 1.5</div>
+  <button class="try-btn" onclick="runDemo(['(','7','5','-','6','0',')','÷','1','0','='])">따라해 보기</button>
 </div>
 
 </div>
