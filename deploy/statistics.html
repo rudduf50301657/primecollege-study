@@ -1240,6 +1240,8 @@
     </div>
     <div class="nav-links">
       <a href="#quiz-1" data-quiz>1강 연습문제</a>
+      <a href="#quiz-2" data-quiz>2강 연습문제</a>
+      <a href="#quiz-3" data-quiz>3강 연습문제</a>
     </div>
   </div>
 
@@ -5253,6 +5255,258 @@
       예를 들어 전국 5,000만 명의 건강 상태를 전수조사하면 비용이 막대하고 시간이 오래 걸립니다. 또한 파괴검사(예: 전구 수명 테스트)처럼 조사 자체가 대상을 소모하는 경우에는 전수조사가 불가능합니다.
     </div>
   </div>
+</div>
+
+<!-- ═══════════ 2강 연습문제 ═══════════ -->
+<div style="margin-top:60px; padding-top:40px; border-top:2px solid #2a2a4a;">
+<div class="quiz-hero">
+  <h3>2강 - 데이터 요약 I</h3>
+  <p>객관식 3문항 + 주관식 2문항</p>
+</div>
+
+<!-- Q11 -->
+<div class="quiz-card" id="q11">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">1</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 중 <strong>양적 변수 - 이산형</strong>에 해당하는 것은?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">몸무게 (65.3kg)</li>
+      <li data-label="B" onclick="selectOption(this)">혈액형 (A, B, O, AB)</li>
+      <li data-label="C" onclick="selectOption(this)">자녀 수 (0, 1, 2, 3명)</li>
+      <li data-label="D" onclick="selectOption(this)">키 (172.5cm)</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(11)">답 제출하기</button>
+    <div class="quiz-result" id="q11-result"></div>
+    <div class="quiz-explanation" id="q11-explain">
+      <div class="quiz-explain-label">해설</div>
+      <strong style="color:#22c55e;">정답: 자녀 수</strong><br><br>
+      이산형 변수는 <strong>"0.5명"이 불가능</strong>한, 셀 수 있는 숫자입니다. 몸무게와 키는 소수점이 가능하므로 <strong>연속형</strong>, 혈액형은 숫자가 아닌 범주이므로 <strong>질적 변수(명목형)</strong>입니다.
+    </div>
+  </div>
+</div>
+
+<!-- Q12 -->
+<div class="quiz-card" id="q12">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">2</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question"><strong>막대그래프</strong>와 <strong>히스토그램</strong>의 차이로 옳은 것은?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">막대그래프는 양적 데이터, 히스토그램은 질적 데이터에 사용</li>
+      <li data-label="B" onclick="selectOption(this)">막대그래프는 막대 사이에 간격이 있고, 히스토그램은 막대가 붙어 있다</li>
+      <li data-label="C" onclick="selectOption(this)">둘 다 동일하며 이름만 다르다</li>
+      <li data-label="D" onclick="selectOption(this)">히스토그램은 3차원이고 막대그래프는 2차원이다</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(12)">답 제출하기</button>
+    <div class="quiz-result" id="q12-result"></div>
+    <div class="quiz-explanation" id="q12-explain">
+      <div class="quiz-explain-label">해설</div>
+      <strong>막대그래프</strong>는 질적 데이터용으로 막대 사이에 <strong>간격이 있고</strong>, <strong>히스토그램</strong>은 양적 데이터(연속형)용으로 막대가 <strong>붙어 있습니다</strong>. 히스토그램에서 막대가 붙어 있는 이유는 연속된 숫자 구간을 나타내기 때문입니다.
+    </div>
+  </div>
+</div>
+
+<!-- Q13 -->
+<div class="quiz-card" id="q13">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">3</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      데이터 {1, 2, 3, 4, 100}의 평균은 22이다. 이 상황에 대한 설명으로 <strong>가장 적절한</strong> 것은?
+    </div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">평균이 데이터의 중심을 잘 나타내고 있다</li>
+      <li data-label="B" onclick="selectOption(this)">분산을 (n)으로 나누어야 한다</li>
+      <li data-label="C" onclick="selectOption(this)">데이터를 더 많이 모으면 해결된다</li>
+      <li data-label="D" onclick="selectOption(this)">특이점(100) 때문에 평균이 왜곡되었으므로 중앙값이 더 적절하다</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(13)">답 제출하기</button>
+    <div class="quiz-result" id="q13-result"></div>
+    <div class="quiz-explanation" id="q13-explain">
+      <div class="quiz-explain-label">해설</div>
+      100이라는 <strong>특이점</strong> 때문에 평균(22)이 대부분의 데이터(1~4)와 동떨어져 있습니다. 이런 경우 <strong>중앙값(3)</strong>이 데이터의 중심을 더 잘 나타냅니다. 평균은 특이점에 민감하다는 것이 핵심입니다.
+    </div>
+  </div>
+</div>
+
+<!-- Q14 -->
+<div class="quiz-card" id="q14">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">4</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">표본분산을 구할 때 (n)이 아닌 <strong>(n-1)</strong>로 나누는 이유를 간단히 설명하시오.</div>
+    <textarea class="quiz-textarea" id="q14-input" placeholder="답을 입력하세요..."></textarea>
+    <br>
+    <button class="quiz-submit" onclick="submitSA(14)">답 제출하기</button>
+    <div class="quiz-result" id="q14-result"></div>
+    <div class="quiz-explanation" id="q14-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      표본분산에서 (n-1)로 나누는 이유는 <strong>불편추정(unbiased estimation)</strong>을 위해서입니다. 표본은 모집단보다 작기 때문에 n으로 나누면 분산이 실제보다 작게 나옵니다. (n-1)로 나누면 모집단 분산에 더 가까운 추정값을 얻을 수 있습니다.
+    </div>
+  </div>
+</div>
+
+<!-- Q15 -->
+<div class="quiz-card" id="q15">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">5</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">21세 남자의 몸무게 (평균 72kg, 표준편차 11kg)와 9세 남아의 몸무게 (평균 32kg, 표준편차 7kg)를 비교하려 한다. <strong>변이계수(CV)</strong>를 각각 구하고, 어느 그룹의 변동이 더 큰지 답하시오.</div>
+    <textarea class="quiz-textarea" id="q15-input" placeholder="21세 CV = ..., 9세 CV = ..., 더 큰 쪽은 ..."></textarea>
+    <br>
+    <button class="quiz-submit" onclick="submitSA(15)">답 제출하기</button>
+    <div class="quiz-result" id="q15-result"></div>
+    <div class="quiz-explanation" id="q15-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      21세 CV = 11 ÷ 72 = <strong>0.153</strong><br>
+      9세 CV = 7 ÷ 32 = <strong>0.219</strong><br><br>
+      <strong>9세 그룹</strong>의 변동이 더 큽니다. 표준편차만 보면 11 > 7로 21세가 크지만, 평균 자체가 다르므로 변이계수(상대적 퍼짐)로 비교해야 합니다.
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════ 3강 연습문제 ═══════════ -->
+<div style="margin-top:60px; padding-top:40px; border-top:2px solid #2a2a4a;">
+<div class="quiz-hero">
+  <h3>3강 - 데이터 수치요약</h3>
+  <p>객관식 3문항 + 주관식 2문항</p>
+</div>
+
+<!-- Q16 -->
+<div class="quiz-card" id="q16">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">1</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">데이터 {3, 5, 7, 8, 12, 15}의 <strong>중앙값</strong>은?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">7</li>
+      <li data-label="B" onclick="selectOption(this)">8</li>
+      <li data-label="C" onclick="selectOption(this)">7.5</li>
+      <li data-label="D" onclick="selectOption(this)">8.33</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(16)">답 제출하기</button>
+    <div class="quiz-result" id="q16-result"></div>
+    <div class="quiz-explanation" id="q16-explain">
+      <div class="quiz-explain-label">해설</div>
+      데이터가 6개(짝수)이므로 가운데 2개의 평균을 구합니다.<br>
+      정렬: 3, 5, <strong>7, 8</strong>, 12, 15<br>
+      중앙값 = (7 + 8) ÷ 2 = <strong>7.5</strong>
+    </div>
+  </div>
+</div>
+
+<!-- Q17 -->
+<div class="quiz-card" id="q17">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">2</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">오른쪽 꼬리 분포(right-skewed)에서 평균과 중앙값의 관계는?</div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">평균 > 중앙값</li>
+      <li data-label="B" onclick="selectOption(this)">평균 < 중앙값</li>
+      <li data-label="C" onclick="selectOption(this)">평균 = 중앙값</li>
+      <li data-label="D" onclick="selectOption(this)">알 수 없다</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(17)">답 제출하기</button>
+    <div class="quiz-result" id="q17-result"></div>
+    <div class="quiz-explanation" id="q17-explain">
+      <div class="quiz-explain-label">해설</div>
+      평균은 항상 <strong>긴 꼬리 쪽으로 끌려갑니다</strong>.<br><br>
+      - 오른쪽 꼬리(right-skewed) → 평균 > 중앙값 (예: 연봉 분포)<br>
+      - 왼쪽 꼬리(left-skewed) → 평균 < 중앙값 (예: 쉬운 시험)<br>
+      - 대칭 → 평균 ≈ 중앙값
+    </div>
+  </div>
+</div>
+
+<!-- Q18 -->
+<div class="quiz-card" id="q18">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">3</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      데이터의 다섯수치요약이 다음과 같다: 최솟값=10, Q1=25, 중앙값=40, Q3=55, 최댓값=80.<br>
+      <strong>IQR</strong>은?
+    </div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">70</li>
+      <li data-label="B" onclick="selectOption(this)">30</li>
+      <li data-label="C" onclick="selectOption(this)">40</li>
+      <li data-label="D" onclick="selectOption(this)">15</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(18)">답 제출하기</button>
+    <div class="quiz-result" id="q18-result"></div>
+    <div class="quiz-explanation" id="q18-explain">
+      <div class="quiz-explain-label">해설</div>
+      IQR = Q3 − Q1 = 55 − 25 = <strong>30</strong><br><br>
+      IQR은 데이터의 <strong>가운데 50%</strong>가 퍼진 범위입니다. 범위(최댓값−최솟값=70)와 혼동하지 마세요.
+    </div>
+  </div>
+</div>
+
+<!-- Q19 -->
+<div class="quiz-card" id="q19">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">4</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">데이터에 특이점이 있을 때, 중심위치와 산포를 측정하기 위해 각각 어떤 통계량을 사용하는 것이 적절한지 쓰시오.</div>
+    <textarea class="quiz-textarea" id="q19-input" placeholder="중심위치: ..., 산포: ..."></textarea>
+    <br>
+    <button class="quiz-submit" onclick="submitSA(19)">답 제출하기</button>
+    <div class="quiz-result" id="q19-result"></div>
+    <div class="quiz-explanation" id="q19-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      중심위치: <strong>중앙값</strong><br>
+      산포: <strong>IQR (사분위수 범위)</strong><br><br>
+      평균과 표준편차는 특이점에 민감하지만, 중앙값과 IQR은 특이점의 영향을 거의 받지 않습니다. 반대로 대칭 분포이고 특이점이 없으면 평균 + 표준편차를 사용합니다.
+    </div>
+  </div>
+</div>
+
+<!-- Q20 -->
+<div class="quiz-card" id="q20">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">5</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">데이터 {8, 23, 25, 28, 32, 35, 37, 41, 42, 52}의 <strong>다섯수치요약</strong>(최솟값, Q1, 중앙값, Q3, 최댓값)을 구하시오.</div>
+    <textarea class="quiz-textarea" id="q20-input" placeholder="최솟값=..., Q1=..., 중앙값=..., Q3=..., 최댓값=..."></textarea>
+    <br>
+    <button class="quiz-submit" onclick="submitSA(20)">답 제출하기</button>
+    <div class="quiz-result" id="q20-result"></div>
+    <div class="quiz-explanation" id="q20-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      데이터 10개 (이미 정렬됨)<br><br>
+      - 최솟값 = <strong>8</strong><br>
+      - Q1 = 하위 5개 {8,23,25,28,32}의 중앙값 = <strong>25</strong><br>
+      - 중앙값 = (32+35)÷2 = <strong>33.5</strong><br>
+      - Q3 = 상위 5개 {35,37,41,42,52}의 중앙값 = <strong>41</strong><br>
+      - 최댓값 = <strong>52</strong><br>
+      - IQR = 41 − 25 = 16
+    </div>
+  </div>
+</div>
 </div>
 
 </div><!-- /view-quiz -->
