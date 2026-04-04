@@ -4951,6 +4951,7 @@ function getLectureNum(id) {
 let lastLecture = -1;
 
 window.addEventListener('scroll', () => {
+  if (!viewStudy.classList.contains('active')) return;
   let current = '';
   sections.forEach(s => {
     if (window.scrollY >= s.offsetTop - 100) {
