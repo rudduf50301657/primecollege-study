@@ -5885,8 +5885,8 @@ function lookupZ() {
   // Highlight matching cell
   const tbody = document.getElementById('zTableBody');
   tbody.querySelectorAll('td').forEach(td => td.classList.remove('highlight'));
-  const rowIdx = Math.round(absZ * 10);
-  const colIdx = Math.round((absZ * 100) % 10);
+  const rowIdx = Math.floor(absZ * 10 + 0.001);
+  const colIdx = Math.floor((absZ * 100 + 0.001) % 10);
   const rows = tbody.querySelectorAll('tr');
   if (rows[rowIdx]) {
     const cells = rows[rowIdx].querySelectorAll('td');
