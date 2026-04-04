@@ -760,10 +760,10 @@
     color: #c4b5fd;
     font-size: 14px;
   }
-  /* ── View Toggle (study ↔ quiz) ── */
-  .view-study, .view-quiz { display: none; }
+  /* ── View Toggle ── */
+  .view-study, .view-quiz, .view-calc { display: none; }
   .view-study.active { display: block; }
-  .view-quiz.active { display: block; animation: viewIn 0.3s ease; }
+  .view-quiz.active, .view-calc.active { display: block; animation: viewIn 0.3s ease; }
   @keyframes viewIn {
     from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
@@ -912,6 +912,90 @@
     text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
   }
 
+  /* ── Calculator ── */
+  .calc-wrap {
+    display: flex; gap: 32px; flex-wrap: wrap; margin-bottom: 40px;
+  }
+  .calc-container {
+    background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 20px;
+    padding: 20px; width: 320px; flex-shrink: 0;
+    position: sticky; top: 20px; align-self: flex-start;
+  }
+  .calc-display {
+    background: #0d1117; border: 1px solid #333; border-radius: 12px;
+    padding: 16px; margin-bottom: 12px; text-align: right; min-height: 70px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+  }
+  .calc-expr { font-size: 13px; color: #666; min-height: 18px; word-break: break-all; }
+  .calc-result { font-size: 28px; font-weight: 700; color: #e0e0e0; word-break: break-all; }
+  .calc-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px;
+  }
+  .calc-btn {
+    padding: 12px 4px; border: none; border-radius: 10px;
+    font-family: 'Noto Sans KR', sans-serif; font-size: 13px; font-weight: 600;
+    cursor: pointer; transition: all 0.15s; background: #12121f; color: #e0e0e0;
+  }
+  .calc-btn:hover { background: #2a2a4a; transform: scale(1.05); }
+  .calc-btn:active { transform: scale(0.95); }
+  .calc-btn.op { background: #2d1b69; color: #c4b5fd; }
+  .calc-btn.op:hover { background: #3d2b79; }
+  .calc-btn.fn { background: #1a3a2a; color: #86efac; font-size: 12px; }
+  .calc-btn.fn:hover { background: #2a4a3a; }
+  .calc-btn.eq { background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: #fff; }
+  .calc-btn.eq:hover { box-shadow: 0 4px 12px rgba(139,92,246,0.4); }
+  .calc-btn.ac { background: #3d1a1a; color: #fca5a5; }
+  .calc-btn.ac:hover { background: #4d2a2a; }
+  .calc-btn.highlight { animation: calcPulse 0.6s ease; }
+  @keyframes calcPulse {
+    0% { box-shadow: 0 0 0 0 rgba(139,92,246,0.6); }
+    50% { box-shadow: 0 0 0 6px rgba(139,92,246,0); }
+    100% { box-shadow: none; }
+  }
+
+  .calc-guide { flex: 1; min-width: 300px; }
+  .guide-card {
+    background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 16px;
+    padding: 24px; margin-bottom: 20px; transition: border-color 0.3s;
+  }
+  .guide-card:hover { border-color: rgba(34,197,94,0.4); }
+  .guide-card h4 { color: #22c55e; font-size: 16px; margin-bottom: 12px; }
+  .guide-card .goal { color: #888; font-size: 14px; margin-bottom: 16px; }
+  .step-list { list-style: none; padding: 0; counter-reset: step; }
+  .step-list li {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 0; border-bottom: 1px solid #1e1e35;
+    font-size: 14px; counter-increment: step;
+  }
+  .step-list li:last-child { border-bottom: none; }
+  .step-list li::before {
+    content: counter(step);
+    display: flex; align-items: center; justify-content: center;
+    width: 24px; height: 24px; border-radius: 50%;
+    background: #2d1b69; color: #c4b5fd;
+    font-size: 12px; font-weight: 700; flex-shrink: 0;
+  }
+  .key-badge {
+    display: inline-block; padding: 3px 10px;
+    background: #2a2a4a; border: 1px solid #3a3a5c; border-radius: 6px;
+    font-family: monospace; font-size: 13px; color: #e0e0e0; font-weight: 600;
+  }
+  .key-badge.fn-key { background: #1a3a2a; border-color: #22c55e; color: #86efac; }
+  .key-badge.op-key { background: #2d1b69; border-color: #8b5cf6; color: #c4b5fd; }
+  .guide-result {
+    margin-top: 12px; padding: 12px 16px;
+    background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.2);
+    border-radius: 10px; font-weight: 700; color: #86efac; font-size: 15px;
+  }
+  .try-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 12px; padding: 8px 20px;
+    background: linear-gradient(135deg, #22c55e, #16a34a); color: #fff;
+    border: none; border-radius: 10px; font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s;
+  }
+  .try-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(34,197,94,0.3); }
+
   /* ── Responsive ── */
   @media (max-width: 900px) {
     .sidebar { display: none; }
@@ -1047,6 +1131,15 @@
     </div>
     <div class="nav-links">
       <a href="#quiz-1" data-quiz>1강 연습문제</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" style="color: #22c55e;" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 도구
+    </div>
+    <div class="nav-links">
+      <a href="#calc" data-calc>공학용 계산기</a>
     </div>
   </div>
 </nav>
@@ -5038,6 +5131,137 @@
 
 </div><!-- /view-quiz -->
 
+<!-- ── Calculator View ── -->
+<div class="view-calc">
+
+<div class="quiz-hero">
+  <h3>공학용 계산기 가이드</h3>
+  <p>시험에 필요한 계산기 사용법 | 버튼 누르는 순서를 따라해 보세요</p>
+</div>
+
+<div class="calc-wrap">
+
+<!-- 계산기 본체 -->
+<div class="calc-container">
+  <div class="calc-display">
+    <div class="calc-expr" id="calcExpr"></div>
+    <div class="calc-result" id="calcResult">0</div>
+  </div>
+  <div class="calc-grid">
+    <button class="calc-btn fn" onclick="calcFn('sin')">sin</button>
+    <button class="calc-btn fn" onclick="calcFn('cos')">cos</button>
+    <button class="calc-btn fn" onclick="calcFn('ln')">ln</button>
+    <button class="calc-btn fn" onclick="calcFn('nPr')">nPr</button>
+    <button class="calc-btn fn" onclick="calcFn('nCr')">nCr</button>
+    <button class="calc-btn fn" onclick="calcFn('sqrt')">√</button>
+    <button class="calc-btn fn" onclick="calcFn('pow')">x<sup>y</sup></button>
+    <button class="calc-btn fn" onclick="calcFn('sq')">x²</button>
+    <button class="calc-btn fn" onclick="calcFn('fact')">n!</button>
+    <button class="calc-btn fn" onclick="calcFn('inv')">1/x</button>
+    <button class="calc-btn" onclick="calcInput('7')">7</button>
+    <button class="calc-btn" onclick="calcInput('8')">8</button>
+    <button class="calc-btn" onclick="calcInput('9')">9</button>
+    <button class="calc-btn op" onclick="calcInput('(')">(</button>
+    <button class="calc-btn op" onclick="calcInput(')')">)</button>
+    <button class="calc-btn" onclick="calcInput('4')">4</button>
+    <button class="calc-btn" onclick="calcInput('5')">5</button>
+    <button class="calc-btn" onclick="calcInput('6')">6</button>
+    <button class="calc-btn op" onclick="calcInput('×')">×</button>
+    <button class="calc-btn op" onclick="calcInput('÷')">÷</button>
+    <button class="calc-btn" onclick="calcInput('1')">1</button>
+    <button class="calc-btn" onclick="calcInput('2')">2</button>
+    <button class="calc-btn" onclick="calcInput('3')">3</button>
+    <button class="calc-btn op" onclick="calcInput('+')">+</button>
+    <button class="calc-btn op" onclick="calcInput('-')">−</button>
+    <button class="calc-btn" onclick="calcInput('0')">0</button>
+    <button class="calc-btn" onclick="calcInput('.')">.</button>
+    <button class="calc-btn ac" onclick="calcClear()">AC</button>
+    <button class="calc-btn ac" onclick="calcDel()">⌫</button>
+    <button class="calc-btn eq" onclick="calcEval()">=</button>
+  </div>
+</div>
+
+<!-- 사용법 가이드 -->
+<div class="calc-guide">
+
+<div class="guide-card">
+  <h4>예제 1: 조합 ₁₀C₃ 구하기</h4>
+  <p class="goal">10개 중 3개를 순서 없이 뽑는 경우의 수</p>
+  <ol class="step-list">
+    <li><span class="key-badge">1</span> <span class="key-badge">0</span> 입력</li>
+    <li><span class="key-badge fn-key">nCr</span> 누르기</li>
+    <li><span class="key-badge">3</span> 입력</li>
+    <li><span class="key-badge op-key">=</span> 누르기</li>
+  </ol>
+  <div class="guide-result">결과: 120</div>
+  <button class="try-btn" onclick="runDemo(['1','0','nCr','3','='])">따라해 보기</button>
+</div>
+
+<div class="guide-card">
+  <h4>예제 2: 순열 ₅P₂ 구하기</h4>
+  <p class="goal">5개 중 2개를 순서 있게 뽑는 경우의 수</p>
+  <ol class="step-list">
+    <li><span class="key-badge">5</span> 입력</li>
+    <li><span class="key-badge fn-key">nPr</span> 누르기</li>
+    <li><span class="key-badge">2</span> 입력</li>
+    <li><span class="key-badge op-key">=</span> 누르기</li>
+  </ol>
+  <div class="guide-result">결과: 20</div>
+  <button class="try-btn" onclick="runDemo(['5','nPr','2','='])">따라해 보기</button>
+</div>
+
+<div class="guide-card">
+  <h4>예제 3: 팩토리얼 5! 구하기</h4>
+  <p class="goal">5 × 4 × 3 × 2 × 1</p>
+  <ol class="step-list">
+    <li><span class="key-badge">5</span> 입력</li>
+    <li><span class="key-badge fn-key">n!</span> 누르기</li>
+  </ol>
+  <div class="guide-result">결과: 120</div>
+  <button class="try-btn" onclick="runDemo(['5','fact'])">따라해 보기</button>
+</div>
+
+<div class="guide-card">
+  <h4>예제 4: 제곱근 √144 구하기</h4>
+  <p class="goal">144의 양의 제곱근</p>
+  <ol class="step-list">
+    <li><span class="key-badge">1</span> <span class="key-badge">4</span> <span class="key-badge">4</span> 입력</li>
+    <li><span class="key-badge fn-key">√</span> 누르기</li>
+  </ol>
+  <div class="guide-result">결과: 12</div>
+  <button class="try-btn" onclick="runDemo(['1','4','4','sqrt'])">따라해 보기</button>
+</div>
+
+<div class="guide-card">
+  <h4>예제 5: 거듭제곱 2⁸ 구하기</h4>
+  <p class="goal">2의 8승</p>
+  <ol class="step-list">
+    <li><span class="key-badge">2</span> 입력</li>
+    <li><span class="key-badge fn-key">x<sup>y</sup></span> 누르기</li>
+    <li><span class="key-badge">8</span> 입력</li>
+    <li><span class="key-badge op-key">=</span> 누르기</li>
+  </ol>
+  <div class="guide-result">결과: 256</div>
+  <button class="try-btn" onclick="runDemo(['2','pow','8','='])">따라해 보기</button>
+</div>
+
+<div class="guide-card">
+  <h4>예제 6: 분산 계산</h4>
+  <p class="goal">데이터 {2, 4, 6}의 표본분산 구하기 (평균=4)</p>
+  <ol class="step-list">
+    <li>각 편차 제곱의 합: <span class="key-badge">(</span><span class="key-badge">2</span><span class="key-badge op-key">−</span><span class="key-badge">4</span><span class="key-badge">)</span><span class="key-badge fn-key">x²</span><span class="key-badge op-key">+</span><span class="key-badge">(</span><span class="key-badge">4</span><span class="key-badge op-key">−</span><span class="key-badge">4</span><span class="key-badge">)</span><span class="key-badge fn-key">x²</span><span class="key-badge op-key">+</span><span class="key-badge">(</span><span class="key-badge">6</span><span class="key-badge op-key">−</span><span class="key-badge">4</span><span class="key-badge">)</span><span class="key-badge fn-key">x²</span></li>
+    <li><span class="key-badge op-key">=</span> 누르면 <strong>8</strong></li>
+    <li><span class="key-badge op-key">÷</span> <span class="key-badge">(</span><span class="key-badge">3</span><span class="key-badge op-key">−</span><span class="key-badge">1</span><span class="key-badge">)</span> <span class="key-badge op-key">=</span></li>
+  </ol>
+  <div class="guide-result">결과: s² = 4</div>
+  <button class="try-btn" onclick="runDemo(['(','2','-','4',')','sq','+','(','4','-','4',')','sq','+','(','6','-','4',')','sq','=','÷','(','3','-','1',')','='])">따라해 보기</button>
+</div>
+
+</div>
+</div>
+
+</div><!-- /view-calc -->
+
 <!-- ═══════════ JAVASCRIPT ═══════════ -->
 <script>
 // Outlier Interactive Demo
@@ -5109,16 +5333,21 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// ── View Toggle (study ↔ quiz) ──
+// ── View Toggle (study ↔ quiz ↔ calc) ──
 const viewStudy = document.querySelector('.view-study');
 const viewQuiz = document.querySelector('.view-quiz');
-const quizLinks = document.querySelectorAll('[data-quiz]');
-const studyLinks = document.querySelectorAll('.sidebar a:not([data-quiz])');
+const viewCalc = document.querySelector('.view-calc');
+const allViews = [viewStudy, viewQuiz, viewCalc];
+
+function hideAllViews() {
+  allViews.forEach(v => v.classList.remove('active'));
+  navGroups.forEach(g => g.classList.remove('open'));
+  navLinks.forEach(l => l.classList.remove('active'));
+}
 
 function showStudy(targetId) {
+  hideAllViews();
   viewStudy.classList.add('active');
-  viewQuiz.classList.remove('active');
-  navGroups.forEach(g => g.classList.remove('open'));
   if (targetId) {
     const el = document.getElementById(targetId);
     if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
@@ -5127,31 +5356,35 @@ function showStudy(targetId) {
   }
 }
 
-function showQuiz() {
-  viewStudy.classList.remove('active');
-  viewQuiz.classList.add('active');
-  navGroups.forEach(g => g.classList.remove('open'));
-  const quizGroup = navGroups[navGroups.length - 1];
-  if (quizGroup) quizGroup.classList.add('open');
+function showView(view, groupIdx) {
+  hideAllViews();
+  view.classList.add('active');
+  if (groupIdx >= 0 && navGroups[groupIdx]) navGroups[groupIdx].classList.add('open');
   window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
-quizLinks.forEach(link => {
+document.querySelectorAll('[data-quiz]').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
-    showQuiz();
-    navLinks.forEach(l => l.classList.remove('active'));
+    showView(viewQuiz, navGroups.length - 2);
     link.classList.add('active');
   });
 });
 
-studyLinks.forEach(link => {
+document.querySelectorAll('[data-calc]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    showView(viewCalc, navGroups.length - 1);
+    link.classList.add('active');
+  });
+});
+
+document.querySelectorAll('.sidebar a:not([data-quiz]):not([data-calc])').forEach(link => {
   link.addEventListener('click', e => {
     if (!viewStudy.classList.contains('active')) {
       e.preventDefault();
       const id = link.getAttribute('href').substring(1);
       showStudy(id);
-      navLinks.forEach(l => l.classList.remove('active'));
       link.classList.add('active');
     }
   });
@@ -5232,6 +5465,170 @@ function submitSA(qNum) {
 
 }
 
+// ── Calculator Logic ──
+let calcExpr = '';
+const calcDisplay = document.getElementById('calcResult');
+const calcExprDisplay = document.getElementById('calcExpr');
+
+function calcUpdate() {
+  calcExprDisplay.textContent = calcExpr || '';
+}
+
+function calcInput(ch) {
+  calcExpr += ch;
+  calcDisplay.textContent = calcExpr;
+  calcUpdate();
+}
+
+function calcClear() {
+  calcExpr = '';
+  calcDisplay.textContent = '0';
+  calcExprDisplay.textContent = '';
+}
+
+function calcDel() {
+  calcExpr = calcExpr.slice(0, -1);
+  calcDisplay.textContent = calcExpr || '0';
+  calcUpdate();
+}
+
+function factorial(n) {
+  if (n < 0) return NaN;
+  if (n === 0 || n === 1) return 1;
+  let r = 1;
+  for (let i = 2; i <= n; i++) r *= i;
+  return r;
+}
+
+function perm(n, r) {
+  return factorial(n) / factorial(n - r);
+}
+
+function comb(n, r) {
+  return factorial(n) / (factorial(r) * factorial(n - r));
+}
+
+function calcFn(fn) {
+  const expr = calcExpr;
+  let val;
+  try {
+    val = Function('"use strict"; return (' + expr.replace(/×/g,'*').replace(/÷/g,'/').replace(/−/g,'-') + ')')();
+  } catch(e) { val = NaN; }
+
+  if (fn === 'sqrt') {
+    const r = Math.sqrt(val);
+    calcExpr = '' + (Number.isInteger(r) ? r : +r.toFixed(10));
+    calcDisplay.textContent = calcExpr;
+    calcExprDisplay.textContent = '√(' + expr + ')';
+  } else if (fn === 'sq') {
+    const r = val * val;
+    calcExpr = '' + (Number.isInteger(r) ? r : +r.toFixed(10));
+    calcDisplay.textContent = calcExpr;
+    calcExprDisplay.textContent = '(' + expr + ')²';
+  } else if (fn === 'fact') {
+    const r = factorial(Math.round(val));
+    calcExpr = '' + r;
+    calcDisplay.textContent = calcExpr;
+    calcExprDisplay.textContent = expr + '!';
+  } else if (fn === 'inv') {
+    const r = 1 / val;
+    calcExpr = '' + +r.toFixed(10);
+    calcDisplay.textContent = calcExpr;
+    calcExprDisplay.textContent = '1/(' + expr + ')';
+  } else if (fn === 'sin') {
+    const r = Math.sin(val);
+    calcExpr = '' + +r.toFixed(10);
+    calcDisplay.textContent = calcExpr;
+    calcExprDisplay.textContent = 'sin(' + expr + ')';
+  } else if (fn === 'cos') {
+    const r = Math.cos(val);
+    calcExpr = '' + +r.toFixed(10);
+    calcDisplay.textContent = calcExpr;
+    calcExprDisplay.textContent = 'cos(' + expr + ')';
+  } else if (fn === 'ln') {
+    const r = Math.log(val);
+    calcExpr = '' + +r.toFixed(10);
+    calcDisplay.textContent = calcExpr;
+    calcExprDisplay.textContent = 'ln(' + expr + ')';
+  } else if (fn === 'nCr') {
+    calcExpr += ' nCr ';
+    calcDisplay.textContent = calcExpr;
+    calcUpdate();
+  } else if (fn === 'nPr') {
+    calcExpr += ' nPr ';
+    calcDisplay.textContent = calcExpr;
+    calcUpdate();
+  } else if (fn === 'pow') {
+    calcExpr += '^';
+    calcDisplay.textContent = calcExpr;
+    calcUpdate();
+  }
+}
+
+function calcEval() {
+  let expr = calcExpr;
+  try {
+    // Handle nCr
+    expr = expr.replace(/(\d+)\s*nCr\s*(\d+)/g, (_, n, r) => comb(+n, +r));
+    // Handle nPr
+    expr = expr.replace(/(\d+)\s*nPr\s*(\d+)/g, (_, n, r) => perm(+n, +r));
+    // Handle ^
+    expr = expr.replace(/(\d+\.?\d*)\^(\d+\.?\d*)/g, (_, b, e) => Math.pow(+b, +e));
+    // Replace display chars
+    expr = expr.replace(/×/g, '*').replace(/÷/g, '/').replace(/−/g, '-');
+    const result = Function('"use strict"; return (' + expr + ')')();
+    const display = Number.isInteger(result) ? '' + result : '' + +result.toFixed(10);
+    calcExprDisplay.textContent = calcExpr;
+    calcExpr = display;
+    calcDisplay.textContent = display;
+  } catch(e) {
+    calcDisplay.textContent = 'Error';
+    calcExpr = '';
+  }
+}
+
+// Demo runner - animates button presses
+function runDemo(steps) {
+  calcClear();
+  let i = 0;
+  function next() {
+    if (i >= steps.length) return;
+    const step = steps[i];
+    // Find and highlight the button
+    const btns = document.querySelectorAll('.calc-btn');
+    btns.forEach(b => {
+      const txt = b.textContent.trim();
+      const match = (
+        (step === txt) ||
+        (step === 'nCr' && txt === 'nCr') ||
+        (step === 'nPr' && txt === 'nPr') ||
+        (step === 'sqrt' && txt === '√') ||
+        (step === 'sq' && txt === 'x²') ||
+        (step === 'fact' && txt === 'n!') ||
+        (step === 'pow' && txt === 'xy') ||
+        (step === '=' && txt === '=') ||
+        (step === '-' && txt === '−')
+      );
+      if (match) b.classList.add('highlight');
+    });
+    // Execute the step
+    if (['sqrt','sq','fact','inv','sin','cos','ln','nCr','nPr','pow'].includes(step)) {
+      calcFn(step);
+    } else if (step === '=') {
+      calcEval();
+    } else if (step === '-') {
+      calcInput('-');
+    } else {
+      calcInput(step);
+    }
+    i++;
+    setTimeout(() => {
+      btns.forEach(b => b.classList.remove('highlight'));
+      setTimeout(next, 300);
+    }, 500);
+  }
+  next();
+}
 </script>
 
 </div>
