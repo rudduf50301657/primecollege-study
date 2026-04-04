@@ -25,10 +25,42 @@
     height: 100vh;
     background: #161625;
     border-right: 1px solid #2a2a4a;
-    padding: 20px 0;
+    padding: 20px 0 0;
     overflow-y: auto;
     z-index: 100;
+    display: flex;
+    flex-direction: column;
   }
+  .sidebar-content { flex: 1; overflow-y: auto; }
+  .sidebar-bottom {
+    border-top: 1px solid #2a2a4a;
+    padding: 12px 16px;
+    display: flex; flex-direction: column; gap: 8px;
+    flex-shrink: 0;
+  }
+  .sidebar-bottom a, .sidebar-bottom select {
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .sb-back {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 12px;
+    background: #12121f; border: 1px solid #2a2a4a; border-radius: 10px;
+    color: #888; text-decoration: none; font-size: 13px; font-weight: 500;
+    transition: all 0.2s;
+  }
+  .sb-back:hover { color: #c4b5fd; border-color: #8b5cf6; background: rgba(139,92,246,0.08); }
+  .sb-select {
+    padding: 10px 12px;
+    background: #12121f; border: 1px solid #2a2a4a; border-radius: 10px;
+    color: #e0e0e0; font-size: 13px; font-weight: 500;
+    cursor: pointer; appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    transition: border-color 0.2s;
+  }
+  .sb-select:hover { border-color: #8b5cf6; }
+  .sb-select:focus { outline: none; border-color: #8b5cf6; }
   .sidebar h2 {
     color: #8b5cf6;
     font-size: 14px;
@@ -1087,6 +1119,7 @@
 
 <!-- ═══════════ SIDEBAR ═══════════ -->
 <nav class="sidebar">
+<div class="sidebar-content">
   <h2>목차</h2>
 
   <div class="nav-group">
@@ -1220,6 +1253,15 @@
       <a href="#ttable" data-ttable>t-분포표</a>
     </div>
   </div>
+</div>
+
+<div class="sidebar-bottom">
+  <select class="sb-select" onchange="if(this.value) location.href=this.value">
+    <option selected disabled>과목 전환</option>
+    <option value="/statistics.html" selected>통계학개론</option>
+  </select>
+  <a href="/" class="sb-back">&larr; 홈으로 돌아가기</a>
+</div>
 </nav>
 
 <!-- ═══════════ MAIN ═══════════ -->
