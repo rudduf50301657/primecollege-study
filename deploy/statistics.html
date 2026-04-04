@@ -1298,6 +1298,7 @@
     <option disabled>대학기초영어 (준비중)</option>
   </select>
   <a href="/" class="sb-back">&larr; 홈으로 돌아가기</a>
+  <div id="visitor-stats" style="text-align:center; padding:8px 0 2px; font-size:11px; color:#555; letter-spacing:0.3px;"></div>
 </div>
 </nav>
 
@@ -9709,5 +9710,16 @@ const tData = {
   <button class="fab" onclick="document.getElementById('fabMenu').classList.toggle('open')">?</button>
 </div>
 
+<script>
+fetch('/api/visitors')
+  .then(r => r.json())
+  .then(d => {
+    const el = document.getElementById('visitor-stats');
+    if (el && d.visitors != null) {
+      el.textContent = '\uD83D\uDC41\uFE0F ' + d.visitors + '\uBA85 \uBC29\uBB38 \u00B7 ' + d.views + '\uD68C \uC870\uD68C';
+    }
+  })
+  .catch(() => {});
+</script>
 </body>
 </html>
