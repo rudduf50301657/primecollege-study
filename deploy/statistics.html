@@ -5501,73 +5501,33 @@ function factorial(n) {
   return r;
 }
 
-function calcFn(fn) {
-  const expr = calcExpr;
-  let val;
-  try {
-    val = Function('"use strict"; return (' + expr.replace(/×/g,'*').replace(/÷/g,'/').replace(/−/g,'-') + ')')();
-  } catch(e) { val = NaN; }
+function fmt(n) {
+  return Number.isInteger(n) ? '' + n : '' + +n.toFixed(10);
+}
 
-  if (fn === 'sqrt') {
-    const r = Math.sqrt(val);
-    calcExpr = '' + (Number.isInteger(r) ? r : +r.toFixed(10));
-    calcDisplay.textContent = calcExpr;
-    calcExprDisplay.textContent = '√(' + expr + ')';
-  } else if (fn === 'sq') {
-    const r = val * val;
-    calcExpr = '' + (Number.isInteger(r) ? r : +r.toFixed(10));
-    calcDisplay.textContent = calcExpr;
-    calcExprDisplay.textContent = '(' + expr + ')²';
-  } else if (fn === 'fact') {
-    const r = factorial(Math.round(val));
-    calcExpr = '' + r;
-    calcDisplay.textContent = calcExpr;
-    calcExprDisplay.textContent = expr + '!';
-  } else if (fn === 'inv') {
-    const r = 1 / val;
-    calcExpr = '' + +r.toFixed(10);
-    calcDisplay.textContent = calcExpr;
-    calcExprDisplay.textContent = '1/(' + expr + ')';
-  } else if (fn === 'sin') {
-    const r = Math.sin(val);
-    calcExpr = '' + +r.toFixed(10);
-    calcDisplay.textContent = calcExpr;
-    calcExprDisplay.textContent = 'sin(' + expr + ')';
-  } else if (fn === 'cos') {
-    const r = Math.cos(val);
-    calcExpr = '' + +r.toFixed(10);
-    calcDisplay.textContent = calcExpr;
-    calcExprDisplay.textContent = 'cos(' + expr + ')';
-  } else if (fn === 'ln') {
-    const r = Math.log(val);
-    calcExpr = '' + +r.toFixed(10);
-    calcDisplay.textContent = calcExpr;
-    calcExprDisplay.textContent = 'ln(' + expr + ')';
-  } else if (fn === 'abs') {
-    const r = Math.abs(val);
-    calcExpr = '' + (Number.isInteger(r) ? r : +r.toFixed(10));
-    calcDisplay.textContent = calcExpr;
-    calcExprDisplay.textContent = '|' + expr + '|';
-  } else if (fn === 'exp') {
-    const r = Math.exp(val);
-    calcExpr = '' + +r.toFixed(10);
-    calcDisplay.textContent = calcExpr;
-    calcExprDisplay.textContent = 'e^(' + expr + ')';
-  } else if (fn === '10pow') {
-    const r = Math.pow(10, val);
-    calcExpr = '' + (Number.isInteger(r) ? r : +r.toFixed(10));
-    calcDisplay.textContent = calcExpr;
-    calcExprDisplay.textContent = '10^(' + expr + ')';
-  } else if (fn === 'log') {
-    const r = Math.log10(val);
-    calcExpr = '' + +r.toFixed(10);
-    calcDisplay.textContent = calcExpr;
-    calcExprDisplay.textContent = 'log(' + expr + ')';
-  } else if (fn === 'pow') {
+// Extract trailing number from expression, apply fn, put it back
+function applyUnary(fnCalc) {
+  const m = calcExpr.match(/(.*?)(\d+\.?\d*)$/);
+  if (!m) return;
+  const prefix = m[1];
+  const val = parseFloat(m[2]);
+  const r = fnCalc(val);
+  calcExpr = prefix + fmt(r);
+  calcDisplay.textContent = calcExpr;
+  calcUpdate();
+}
+
+function calcFn(fn) {
+  if (fn === 'pow') {
     calcExpr += '^';
     calcDisplay.textContent = calcExpr;
     calcUpdate();
+    return;
   }
+  const ops = { sqrt: Math.sqrt, sq: v => v*v, fact: v => factorial(Math.round(v)),
+    inv: v => 1/v, abs: Math.abs, sin: Math.sin, cos: Math.cos,
+    ln: Math.log, log: Math.log10, exp: Math.exp, '10pow': v => Math.pow(10,v) };
+  if (ops[fn]) applyUnary(ops[fn]);
 }
 
 function calcEval() {
@@ -5576,7 +5536,7 @@ function calcEval() {
     // Handle ^
     expr = expr.replace(/(\d+\.?\d*)\^(\d+\.?\d*)/g, (_, b, e) => Math.pow(+b, +e));
     // Replace display chars
-    expr = expr.replace(/×/g, '*').replace(/÷/g, '/').replace(/−/g, '-');
+    expr = expr.replace(/×/g, '*').replace(/÷/g, '/').replace(/−/g, '-').replace(/%/g, '%');
     const result = Function('"use strict"; return (' + expr + ')')();
     const display = Number.isInteger(result) ? '' + result : '' + +result.toFixed(10);
     calcExprDisplay.textContent = calcExpr;
