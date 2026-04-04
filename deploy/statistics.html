@@ -793,9 +793,9 @@
     font-size: 14px;
   }
   /* ── View Toggle ── */
-  .view-study, .view-quiz, .view-calc, .view-ztable, .view-ttable { display: none; }
+  .view-study, .view-quiz-1, .view-quiz-2, .view-quiz-3, .view-calc, .view-ztable, .view-ttable { display: none; }
   .view-study.active { display: block; }
-  .view-quiz.active, .view-calc.active, .view-ztable.active, .view-ttable.active { display: block; animation: viewIn 0.3s ease; }
+  .view-quiz-1.active, .view-quiz-2.active, .view-quiz-3.active, .view-calc.active, .view-ztable.active, .view-ttable.active { display: block; animation: viewIn 0.3s ease; }
   @keyframes viewIn {
     from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
@@ -1239,9 +1239,9 @@
       <span class="nav-arrow">▶</span> 문제풀기
     </div>
     <div class="nav-links">
-      <a href="#quiz-1" data-quiz>1강 연습문제</a>
-      <a href="#quiz-2" data-quiz>2강 연습문제</a>
-      <a href="#quiz-3" data-quiz>3강 연습문제</a>
+      <a href="#quiz-1" data-quiz="1">1강 연습문제</a>
+      <a href="#quiz-2" data-quiz="2">2강 연습문제</a>
+      <a href="#quiz-3" data-quiz="3">3강 연습문제</a>
     </div>
   </div>
 
@@ -5004,7 +5004,7 @@
 </div><!-- /view-study -->
 
 <!-- ── Quiz View ── -->
-<div class="view-quiz">
+<div class="view-quiz-1">
 
 <div class="quiz-hero">
   <h3>1강 - 데이터와 통계학</h3>
@@ -5257,8 +5257,10 @@
   </div>
 </div>
 
+</div><!-- /view-quiz-1 -->
+
 <!-- ═══════════ 2강 연습문제 ═══════════ -->
-<div style="margin-top:60px; padding-top:40px; border-top:2px solid #2a2a4a;">
+<div class="view-quiz-2">
 <div class="quiz-hero">
   <h3>2강 - 데이터 요약 I</h3>
   <p>객관식 3문항 + 주관식 2문항</p>
@@ -5375,10 +5377,11 @@
     </div>
   </div>
 </div>
-</div>
+
+</div><!-- /view-quiz-2 -->
 
 <!-- ═══════════ 3강 연습문제 ═══════════ -->
-<div style="margin-top:60px; padding-top:40px; border-top:2px solid #2a2a4a;">
+<div class="view-quiz-3">
 <div class="quiz-hero">
   <h3>3강 - 데이터 수치요약</h3>
   <p>객관식 3문항 + 주관식 2문항</p>
@@ -5507,9 +5510,7 @@
     </div>
   </div>
 </div>
-</div>
-
-</div><!-- /view-quiz -->
+</div><!-- /view-quiz-3 -->
 
 <!-- ── Calculator View ── -->
 <div class="view-calc">
@@ -5868,11 +5869,14 @@ window.addEventListener('scroll', () => {
 
 // ── View Toggle (study ↔ quiz ↔ calc) ──
 const viewStudy = document.querySelector('.view-study');
-const viewQuiz = document.querySelector('.view-quiz');
+const viewQuiz1 = document.querySelector('.view-quiz-1');
+const viewQuiz2 = document.querySelector('.view-quiz-2');
+const viewQuiz3 = document.querySelector('.view-quiz-3');
 const viewCalc = document.querySelector('.view-calc');
 const viewZtable = document.querySelector('.view-ztable');
 const viewTtable = document.querySelector('.view-ttable');
-const allViews = [viewStudy, viewQuiz, viewCalc, viewZtable, viewTtable];
+const quizViews = { '1': viewQuiz1, '2': viewQuiz2, '3': viewQuiz3 };
+const allViews = [viewStudy, viewQuiz1, viewQuiz2, viewQuiz3, viewCalc, viewZtable, viewTtable];
 
 function hideAllViews() {
   allViews.forEach(v => v.classList.remove('active'));
@@ -5901,7 +5905,8 @@ function showView(view, groupIdx) {
 document.querySelectorAll('[data-quiz]').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
-    showView(viewQuiz, navGroups.length - 2);
+    const num = link.getAttribute('data-quiz');
+    showView(quizViews[num], navGroups.length - 2);
     link.classList.add('active');
   });
 });
