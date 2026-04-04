@@ -96,6 +96,23 @@
     h1 { font-size: 32px; }
     .subjects { grid-template-columns: 1fr 1fr; }
   }
+  .fab {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+    border: none; border-radius: 50%;
+    color: #fff; font-size: 22px; font-weight: 700;
+    cursor: pointer; z-index: 999;
+    box-shadow: 0 4px 16px rgba(139,92,246,0.4);
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+  }
+  .fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 24px rgba(139,92,246,0.5);
+  }
 </style>
 </head>
 <body>
@@ -122,6 +139,8 @@
   </div>
 
   <p class="footer">프라임칼리지 벼락치기 연구소</p>
+
+  <a href="https://open.kakao.com/o/s9OGoOoi" target="_blank" class="fab" title="버그 제보하기">?</a>
 
 </body>
 </html>
