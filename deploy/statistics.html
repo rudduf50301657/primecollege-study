@@ -799,48 +799,6 @@
   }
   .quiz-hero p { color: #888; font-size: 14px; position: relative; }
 
-  .quiz-score-bar {
-    background: linear-gradient(135deg, #12121f, #1a1a30);
-    border: 1px solid #2a2a4a;
-    border-radius: 16px;
-    padding: 24px 28px;
-    margin-bottom: 28px;
-    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
-    position: relative; overflow: hidden;
-  }
-  .quiz-score-bar::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, #06b6d4, #8b5cf6, #06b6d4);
-  }
-  .score-icon {
-    width: 48px; height: 48px;
-    background: linear-gradient(135deg, #06b6d4, #8b5cf6);
-    border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 22px; color: #fff; font-weight: 900; flex-shrink: 0;
-  }
-  .score-info { display: flex; flex-direction: column; gap: 2px; }
-  .quiz-score-bar .score-text {
-    font-size: 22px; font-weight: 900;
-    background: linear-gradient(135deg, #06b6d4, #8b5cf6);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  }
-  .quiz-score-bar .score-detail { font-size: 13px; color: #666; }
-  .quiz-progress {
-    flex: 1; min-width: 180px; height: 10px;
-    background: #1e1e35; border-radius: 5px; overflow: hidden;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
-  }
-  .quiz-progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #06b6d4, #8b5cf6);
-    border-radius: 5px;
-    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    width: 0%; box-shadow: 0 0 12px rgba(139,92,246,0.4);
-  }
-
   .quiz-card {
     background: #1a1a2e; border: 1px solid #2a2a4a;
     border-radius: 20px; padding: 0; margin-bottom: 28px;
@@ -4832,14 +4790,6 @@
   <p>객관식 3문항 + 주관식 2문항 | 문제를 풀고 실력을 확인해 보세요</p>
 </div>
 
-<div class="quiz-score-bar" id="quiz1-score">
-  <div class="score-icon">Q</div>
-  <div class="score-info">
-    <span class="score-text">0 / 5</span>
-    <span class="score-detail">맞은 문제</span>
-  </div>
-  <div class="quiz-progress"><div class="quiz-progress-fill" id="quiz1-progress"></div></div>
-</div>
 
 <div class="quiz-card" id="q1">
   <div class="quiz-card-header">
@@ -5079,7 +5029,6 @@ studyLinks.forEach(link => {
 });
 
 // ── Quiz Logic ──
-let quiz1Score = 0;
 const quiz1Submitted = {};
 
 function selectOption(li) {
@@ -5109,7 +5058,7 @@ function submitMC(qNum) {
     selected.classList.add('correct');
     resultEl.innerHTML = '&#10003; 정답입니다!';
     resultEl.className = 'quiz-result correct';
-    quiz1Score++;
+
   } else {
     selected.classList.remove('selected');
     selected.classList.add('wrong');
@@ -5119,7 +5068,7 @@ function submitMC(qNum) {
   }
   explainEl.classList.add('show');
   quiz1Submitted[qNum] = true;
-  updateQuizScore();
+
 }
 
 function submitSA(qNum) {
@@ -5140,7 +5089,7 @@ function submitSA(qNum) {
     if (allMatch) {
       resultEl.innerHTML = '&#10003; 정답입니다!';
       resultEl.className = 'quiz-result correct';
-      quiz1Score++;
+  
     } else {
       resultEl.innerHTML = '&#10007; 아래 해설에서 정답을 확인하세요.';
       resultEl.className = 'quiz-result wrong';
@@ -5151,14 +5100,9 @@ function submitSA(qNum) {
   }
   explainEl.classList.add('show');
   quiz1Submitted[qNum] = true;
-  updateQuizScore();
+
 }
 
-function updateQuizScore() {
-  const submitted = Object.keys(quiz1Submitted).length;
-  document.getElementById('quiz1-score').querySelector('.score-text').textContent = quiz1Score + ' / 5';
-  document.getElementById('quiz1-progress').style.width = (submitted / 5 * 100) + '%';
-}
 </script>
 
 </div>
