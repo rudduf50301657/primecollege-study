@@ -5518,11 +5518,27 @@ function factorial(n) {
   return r;
 }
 
-// Wrap trailing number in function notation (like Windows calc)
+// Wrap trailing number or parenthesized group in function notation
 function wrapLastNum(fnName) {
-  const m = calcExpr.match(/(.*?)(\d+\.?\d*)$/);
-  if (!m) return;
-  calcExpr = m[1] + fnName + '(' + m[2] + ')';
+  // Case 1: ends with ) → wrap the whole parenthesized group
+  if (calcExpr.endsWith(')')) {
+    let depth = 0;
+    let i = calcExpr.length - 1;
+    for (; i >= 0; i--) {
+      if (calcExpr[i] === ')') depth++;
+      if (calcExpr[i] === '(') depth--;
+      if (depth === 0) break;
+    }
+    const prefix = calcExpr.substring(0, i);
+    const group = calcExpr.substring(i);
+    calcExpr = prefix + fnName + group;
+  }
+  // Case 2: ends with a number
+  else {
+    const m = calcExpr.match(/(.*?)(\d+\.?\d*)$/);
+    if (!m) return;
+    calcExpr = m[1] + fnName + '(' + m[2] + ')';
+  }
   calcDisplay.textContent = calcExpr;
   calcUpdate();
 }
