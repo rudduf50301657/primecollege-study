@@ -5288,16 +5288,21 @@
 </div>
 
 <div class="guide-card">
-  <h4>예제 9: 분산 간편 공식</h4>
+  <h4>예제 9: 분산 계산</h4>
   <p class="goal">데이터 {2, 4, 6}의 표본분산 s²</p>
-  <p style="color:#888; font-size:13px; margin-bottom:12px;">간편 공식: s² = (Σxᵢ² − n×평균²) ÷ (n−1)<br>Σxᵢ² = 4+16+36 = 56, n=3, 평균=4</p>
+  <p style="color:#888; font-size:13px; margin-bottom:12px;">
+    s² = (Σxᵢ² − n×평균²) ÷ (n−1)<br>
+    평균 = (2+4+6)÷3 = 4<br>
+    Σxᵢ² = 2²+4²+6² = 4+16+36 = <strong>56</strong><br>
+    n×평균² = 3×4² = 3×16 = <strong>48</strong>
+  </p>
   <ol class="step-list">
-    <li><span class="key-badge">(</span> <span class="key-badge">2</span> <span class="key-badge fn-key">x²</span> <span class="key-badge op-key">+</span> <span class="key-badge">4</span> <span class="key-badge fn-key">x²</span> <span class="key-badge op-key">+</span> <span class="key-badge">6</span> <span class="key-badge fn-key">x²</span></li>
-    <li><span class="key-badge op-key">−</span> <span class="key-badge">3</span> <span class="key-badge op-key">×</span> <span class="key-badge">4</span> <span class="key-badge fn-key">x²</span> <span class="key-badge">)</span></li>
-    <li><span class="key-badge op-key">÷</span> <span class="key-badge">(</span><span class="key-badge">3</span><span class="key-badge op-key">−</span><span class="key-badge">1</span><span class="key-badge">)</span> <span class="key-badge op-key">=</span></li>
+    <li>Σxᵢ² 구하기: <span class="key-badge">2</span> <span class="key-badge fn-key">x²</span> <span class="key-badge op-key">+</span> <span class="key-badge">4</span> <span class="key-badge fn-key">x²</span> <span class="key-badge op-key">+</span> <span class="key-badge">6</span> <span class="key-badge fn-key">x²</span> <span class="key-badge op-key">=</span> → <strong>56</strong></li>
+    <li>n×평균² 빼기: <span class="key-badge op-key">−</span> <span class="key-badge">4</span> <span class="key-badge">8</span> <span class="key-badge op-key">=</span> → <strong>8</strong></li>
+    <li>(n−1)로 나누기: <span class="key-badge op-key">÷</span> <span class="key-badge">2</span> <span class="key-badge op-key">=</span></li>
   </ol>
   <div class="guide-result">결과: s² = 4</div>
-  <button class="try-btn" onclick="runDemo(['(','2','sq','+','4','sq','+','6','sq','-','3','×','4','sq',')','÷','(','3','-','1',')','='])">따라해 보기</button>
+  <button class="try-btn" onclick="runDemo(['2','sq','+','4','sq','+','6','sq','=','-','4','8','=','÷','2','='])">따라해 보기</button>
 </div>
 
 <div class="guide-card">
