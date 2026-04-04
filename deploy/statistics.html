@@ -793,9 +793,9 @@
     font-size: 14px;
   }
   /* ── View Toggle ── */
-  .view-study, .view-quiz-1, .view-quiz-2, .view-quiz-3, .view-calc, .view-ztable, .view-ttable { display: none; }
+  .view-study, .view-quiz-1, .view-quiz-2, .view-quiz-3, .view-quiz-4, .view-quiz-5, .view-quiz-6, .view-quiz-7, .view-calc, .view-ztable, .view-ttable { display: none; }
   .view-study.active { display: block; }
-  .view-quiz-1.active, .view-quiz-2.active, .view-quiz-3.active, .view-calc.active, .view-ztable.active, .view-ttable.active { display: block; animation: viewIn 0.3s ease; }
+  .view-quiz-1.active, .view-quiz-2.active, .view-quiz-3.active, .view-quiz-4.active, .view-quiz-5.active, .view-quiz-6.active, .view-quiz-7.active, .view-calc.active, .view-ztable.active, .view-ttable.active { display: block; animation: viewIn 0.3s ease; }
   @keyframes viewIn {
     from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
@@ -1242,6 +1242,10 @@
       <a href="#quiz-1" data-quiz="1">1강 연습문제</a>
       <a href="#quiz-2" data-quiz="2">2강 연습문제</a>
       <a href="#quiz-3" data-quiz="3">3강 연습문제</a>
+      <a href="#quiz-4" data-quiz="4">4강 연습문제</a>
+      <a href="#quiz-5" data-quiz="5">5강 연습문제</a>
+      <a href="#quiz-6" data-quiz="6">6강 연습문제</a>
+      <a href="#quiz-7" data-quiz="7">7강 연습문제</a>
     </div>
   </div>
 
@@ -5512,6 +5516,408 @@
 </div>
 </div><!-- /view-quiz-3 -->
 
+<!-- ═══════════ 4강 연습문제 ═══════════ -->
+<div class="view-quiz-4">
+<div class="quiz-hero">
+  <h3>4강 - 확률</h3>
+  <p>객관식 3문항 + 주관식 2문항</p>
+</div>
+
+<div class="quiz-card" id="q21">
+  <div class="quiz-card-header"><div class="quiz-num q-obj">1</div><span class="quiz-type obj">객관식</span></div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">₇C₃의 값은?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">21</li>
+      <li data-label="B" onclick="selectOption(this)">210</li>
+      <li data-label="C" onclick="selectOption(this)">35</li>
+      <li data-label="D" onclick="selectOption(this)">42</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(21)">답 제출하기</button>
+    <div class="quiz-result" id="q21-result"></div>
+    <div class="quiz-explanation" id="q21-explain">
+      <div class="quiz-explain-label">해설</div>
+      ₇C₃ = 7! / (3! × 4!) = (7×6×5) / (3×2×1) = 210 / 6 = <strong>35</strong>
+    </div>
+  </div>
+</div>
+
+<div class="quiz-card" id="q22">
+  <div class="quiz-card-header"><div class="quiz-num q-obj">2</div><span class="quiz-type obj">객관식</span></div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">P(A) = 0.4, P(B) = 0.5, P(A∩B) = 0.2일 때, P(A∪B)는?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">0.9</li>
+      <li data-label="B" onclick="selectOption(this)">0.7</li>
+      <li data-label="C" onclick="selectOption(this)">0.3</li>
+      <li data-label="D" onclick="selectOption(this)">0.1</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(22)">답 제출하기</button>
+    <div class="quiz-result" id="q22-result"></div>
+    <div class="quiz-explanation" id="q22-explain">
+      <div class="quiz-explain-label">해설</div>
+      덧셈법칙: P(A∪B) = P(A) + P(B) − P(A∩B) = 0.4 + 0.5 − 0.2 = <strong>0.7</strong>
+    </div>
+  </div>
+</div>
+
+<div class="quiz-card" id="q23">
+  <div class="quiz-card-header"><div class="quiz-num q-obj">3</div><span class="quiz-type obj">객관식</span></div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">제품 6개 중 불량 2개가 있다. 3개를 뽑을 때 <strong>적어도 1개</strong> 불량이 나올 확률은?</div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">1/5</li>
+      <li data-label="B" onclick="selectOption(this)">2/5</li>
+      <li data-label="C" onclick="selectOption(this)">3/5</li>
+      <li data-label="D" onclick="selectOption(this)">4/5</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(23)">답 제출하기</button>
+    <div class="quiz-result" id="q23-result"></div>
+    <div class="quiz-explanation" id="q23-explain">
+      <div class="quiz-explain-label">해설</div>
+      여사건 활용: P(적어도 1개) = 1 − P(0개)<br>
+      P(0개) = ₄C₃ / ₆C₃ = 4/20 = 1/5<br>
+      P(적어도 1개) = 1 − 1/5 = <strong>4/5</strong>
+    </div>
+  </div>
+</div>
+
+<div class="quiz-card" id="q24">
+  <div class="quiz-card-header"><div class="quiz-num q-subj">4</div><span class="quiz-type subj">주관식</span></div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">P(A) = 0.3, P(B|A) = 0.5일 때, P(A∩B)를 구하시오.</div>
+    <textarea class="quiz-textarea" id="q24-input" placeholder="P(A∩B) = ..."></textarea>
+    <br><button class="quiz-submit" onclick="submitSA(24)">답 제출하기</button>
+    <div class="quiz-result" id="q24-result"></div>
+    <div class="quiz-explanation" id="q24-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      곱셈법칙: P(A∩B) = P(A) × P(B|A) = 0.3 × 0.5 = <strong>0.15</strong>
+    </div>
+  </div>
+</div>
+
+<div class="quiz-card" id="q25">
+  <div class="quiz-card-header"><div class="quiz-num q-subj">5</div><span class="quiz-type subj">주관식</span></div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">두 사건 A, B가 <strong>독립</strong>이라 함은 무엇을 의미하는지 설명하고, 독립일 때 P(A∩B)를 어떻게 구하는지 쓰시오.</div>
+    <textarea class="quiz-textarea" id="q25-input" placeholder="답을 입력하세요..."></textarea>
+    <br><button class="quiz-submit" onclick="submitSA(25)">답 제출하기</button>
+    <div class="quiz-result" id="q25-result"></div>
+    <div class="quiz-explanation" id="q25-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      두 사건이 독립이면 한 사건의 발생이 다른 사건의 확률에 <strong>영향을 주지 않습니다</strong>.<br>
+      즉, P(A|B) = P(A)이고, 이때 <strong>P(A∩B) = P(A) × P(B)</strong>로 구합니다.<br>
+      예: 동전 1번째와 2번째 던지기는 서로 독립입니다.
+    </div>
+  </div>
+</div>
+</div><!-- /view-quiz-4 -->
+
+<!-- ═══════════ 5강 연습문제 ═══════════ -->
+<div class="view-quiz-5">
+<div class="quiz-hero">
+  <h3>5강 - 확률변수</h3>
+  <p>객관식 3문항 + 주관식 2문항</p>
+</div>
+
+<div class="quiz-card" id="q26">
+  <div class="quiz-card-header"><div class="quiz-num q-obj">1</div><span class="quiz-type obj">객관식</span></div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">확률변수 X의 확률분포가 다음과 같을 때, E(X)는?<br><br>
+      <table style="border-collapse:collapse; font-size:14px;">
+        <tr style="border-bottom:2px solid #555;"><th style="padding:6px 16px; color:#c4b5fd;">X</th><th style="padding:6px 16px;">0</th><th style="padding:6px 16px;">1</th><th style="padding:6px 16px;">2</th></tr>
+        <tr><td style="padding:6px 16px; color:#c4b5fd;">P(X)</td><td style="padding:6px 16px;">0.3</td><td style="padding:6px 16px;">0.5</td><td style="padding:6px 16px;">0.2</td></tr>
+      </table>
+    </div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">0.5</li>
+      <li data-label="B" onclick="selectOption(this)">0.9</li>
+      <li data-label="C" onclick="selectOption(this)">1.0</li>
+      <li data-label="D" onclick="selectOption(this)">1.2</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(26)">답 제출하기</button>
+    <div class="quiz-result" id="q26-result"></div>
+    <div class="quiz-explanation" id="q26-explain">
+      <div class="quiz-explain-label">해설</div>
+      E(X) = 0×0.3 + 1×0.5 + 2×0.2 = 0 + 0.5 + 0.4 = <strong>0.9</strong>
+    </div>
+  </div>
+</div>
+
+<div class="quiz-card" id="q27">
+  <div class="quiz-card-header"><div class="quiz-num q-obj">2</div><span class="quiz-type obj">객관식</span></div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">E(X) = 5, Var(X) = 4일 때, Y = 3X + 2의 분산 Var(Y)는?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">12</li>
+      <li data-label="B" onclick="selectOption(this)">14</li>
+      <li data-label="C" onclick="selectOption(this)">36</li>
+      <li data-label="D" onclick="selectOption(this)">38</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(27)">답 제출하기</button>
+    <div class="quiz-result" id="q27-result"></div>
+    <div class="quiz-explanation" id="q27-explain">
+      <div class="quiz-explain-label">해설</div>
+      Var(aX+b) = a²Var(X)<br>
+      Var(3X+2) = 3² × 4 = 9 × 4 = <strong>36</strong><br><br>
+      주의: b(=2)는 분산에 영향 없음! 위치 이동은 퍼짐 정도를 안 바꿈.
+    </div>
+  </div>
+</div>
+
+<div class="quiz-card" id="q28">
+  <div class="quiz-card-header"><div class="quiz-num q-obj">3</div><span class="quiz-type obj">객관식</span></div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">시험 점수 X의 평균이 70, 표준편차가 10일 때, 85점의 Z값(표준화 점수)은?</div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">1.5</li>
+      <li data-label="B" onclick="selectOption(this)">0.85</li>
+      <li data-label="C" onclick="selectOption(this)">15</li>
+      <li data-label="D" onclick="selectOption(this)">-1.5</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(28)">답 제출하기</button>
+    <div class="quiz-result" id="q28-result"></div>
+    <div class="quiz-explanation" id="q28-explain">
+      <div class="quiz-explain-label">해설</div>
+      Z = (X − μ) / σ = (85 − 70) / 10 = 15/10 = <strong>1.5</strong><br><br>
+      "평균에서 표준편차 1.5개만큼 위에 있다"는 의미입니다.
+    </div>
+  </div>
+</div>
+
+<div class="quiz-card" id="q29">
+  <div class="quiz-card-header"><div class="quiz-num q-subj">4</div><span class="quiz-type subj">주관식</span></div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">E(X) = 3일 때, E(2X+5)를 구하시오.</div>
+    <textarea class="quiz-textarea" id="q29-input" placeholder="E(2X+5) = ..."></textarea>
+    <br><button class="quiz-submit" onclick="submitSA(29)">답 제출하기</button>
+    <div class="quiz-result" id="q29-result"></div>
+    <div class="quiz-explanation" id="q29-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      E(aX+b) = aE(X) + b<br>
+      E(2X+5) = 2×3 + 5 = <strong>11</strong>
+    </div>
+  </div>
+</div>
+
+<div class="quiz-card" id="q30">
+  <div class="quiz-card-header"><div class="quiz-num q-subj">5</div><span class="quiz-type subj">주관식</span></div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">분산의 간편 공식 Var(X) = E(X²) − [E(X)]² 를 이용하여, 위 Q1의 확률분포에서 Var(X)를 구하시오. (E(X)=0.9)</div>
+    <textarea class="quiz-textarea" id="q30-input" placeholder="E(X²) = ..., Var(X) = ..."></textarea>
+    <br><button class="quiz-submit" onclick="submitSA(30)">답 제출하기</button>
+    <div class="quiz-result" id="q30-result"></div>
+    <div class="quiz-explanation" id="q30-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      E(X²) = 0²×0.3 + 1²×0.5 + 2²×0.2 = 0 + 0.5 + 0.8 = <strong>1.3</strong><br>
+      Var(X) = E(X²) − [E(X)]² = 1.3 − 0.81 = <strong>0.49</strong>
+    </div>
+  </div>
+</div>
+</div><!-- /view-quiz-5 -->
+
+<!-- ═══════════ 6강 연습문제 ═══════════ -->
+<div class="view-quiz-6">
+<div class="quiz-hero">
+  <h3>6강 - 확률분포 1</h3>
+  <p>객관식 3문항 + 주관식 2문항</p>
+</div>
+
+<div class="quiz-card" id="q31">
+  <div class="quiz-card-header"><div class="quiz-num q-obj">1</div><span class="quiz-type obj">객관식</span></div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">X ~ B(10, 0.3)일 때, E(X)와 Var(X)는?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">E(X)=3, Var(X)=3</li>
+      <li data-label="B" onclick="selectOption(this)">E(X)=3, Var(X)=2.1</li>
+      <li data-label="C" onclick="selectOption(this)">E(X)=7, Var(X)=2.1</li>
+      <li data-label="D" onclick="selectOption(this)">E(X)=0.3, Var(X)=0.21</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(31)">답 제출하기</button>
+    <div class="quiz-result" id="q31-result"></div>
+    <div class="quiz-explanation" id="q31-explain">
+      <div class="quiz-explain-label">해설</div>
+      이항분포 B(n,p): E(X) = np = 10×0.3 = <strong>3</strong><br>
+      Var(X) = np(1−p) = 10×0.3×0.7 = <strong>2.1</strong>
+    </div>
+  </div>
+</div>
+
+<div class="quiz-card" id="q32">
+  <div class="quiz-card-header"><div class="quiz-num q-obj">2</div><span class="quiz-type obj">객관식</span></div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">포아송분포의 <strong>독특한 특징</strong>은?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">항상 대칭이다</li>
+      <li data-label="B" onclick="selectOption(this)">분산이 항상 1이다</li>
+      <li data-label="C" onclick="selectOption(this)">평균과 분산이 같다</li>
+      <li data-label="D" onclick="selectOption(this)">연속형 분포이다</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(32)">답 제출하기</button>
+    <div class="quiz-result" id="q32-result"></div>
+    <div class="quiz-explanation" id="q32-explain">
+      <div class="quiz-explain-label">해설</div>
+      포아송분포 Poi(m): <strong>E(X) = m, Var(X) = m</strong><br>
+      평균과 분산이 같다는 것이 포아송분포만의 특징입니다.
+    </div>
+  </div>
+</div>
+
+<div class="quiz-card" id="q33">
+  <div class="quiz-card-header"><div class="quiz-num q-obj">3</div><span class="quiz-type obj">객관식</span></div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">정규분포 N(100, 15²)에서 ±1σ 범위(85~115)에 포함되는 데이터의 비율은 약?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">50%</li>
+      <li data-label="B" onclick="selectOption(this)">68%</li>
+      <li data-label="C" onclick="selectOption(this)">95%</li>
+      <li data-label="D" onclick="selectOption(this)">99.7%</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(33)">답 제출하기</button>
+    <div class="quiz-result" id="q33-result"></div>
+    <div class="quiz-explanation" id="q33-explain">
+      <div class="quiz-explain-label">해설</div>
+      정규분포의 68-95-99.7 법칙:<br>
+      ±1σ → <strong>68%</strong>, ±2σ → 95%, ±3σ → 99.7%
+    </div>
+  </div>
+</div>
+
+<div class="quiz-card" id="q34">
+  <div class="quiz-card-header"><div class="quiz-num q-subj">4</div><span class="quiz-type subj">주관식</span></div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">X ~ N(500, 30²)일 때, P(X ≥ 530)을 구하기 위한 Z값을 계산하시오.</div>
+    <textarea class="quiz-textarea" id="q34-input" placeholder="Z = ..."></textarea>
+    <br><button class="quiz-submit" onclick="submitSA(34)">답 제출하기</button>
+    <div class="quiz-result" id="q34-result"></div>
+    <div class="quiz-explanation" id="q34-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      Z = (X − μ) / σ = (530 − 500) / 30 = <strong>1</strong><br><br>
+      P(X ≥ 530) = P(Z ≥ 1) = 1 − P(Z ≤ 1) = 1 − 0.8413 = <strong>0.1587</strong>
+    </div>
+  </div>
+</div>
+
+<div class="quiz-card" id="q35">
+  <div class="quiz-card-header"><div class="quiz-num q-subj">5</div><span class="quiz-type subj">주관식</span></div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">동전을 5번 던져서 앞면이 정확히 2번 나올 확률을 이항분포 공식으로 구하시오.</div>
+    <textarea class="quiz-textarea" id="q35-input" placeholder="P(X=2) = ..."></textarea>
+    <br><button class="quiz-submit" onclick="submitSA(35)">답 제출하기</button>
+    <div class="quiz-result" id="q35-result"></div>
+    <div class="quiz-explanation" id="q35-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      X ~ B(5, 0.5), P(X=2) = ₅C₂ × 0.5² × 0.5³<br>
+      = 10 × 0.25 × 0.125 = 10 × 0.03125 = <strong>0.3125</strong>
+    </div>
+  </div>
+</div>
+</div><!-- /view-quiz-6 -->
+
+<!-- ═══════════ 7강 연습문제 ═══════════ -->
+<div class="view-quiz-7">
+<div class="quiz-hero">
+  <h3>7강 - 확률분포 2</h3>
+  <p>객관식 3문항 + 주관식 2문항</p>
+</div>
+
+<div class="quiz-card" id="q36">
+  <div class="quiz-card-header"><div class="quiz-num q-obj">1</div><span class="quiz-type obj">객관식</span></div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">모집단의 평균이 μ, 분산이 σ²일 때, 크기 n인 표본평균 X̄의 분산은?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">σ²</li>
+      <li data-label="B" onclick="selectOption(this)">σ²/n²</li>
+      <li data-label="C" onclick="selectOption(this)">σ²/n</li>
+      <li data-label="D" onclick="selectOption(this)">nσ²</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(36)">답 제출하기</button>
+    <div class="quiz-result" id="q36-result"></div>
+    <div class="quiz-explanation" id="q36-explain">
+      <div class="quiz-explain-label">해설</div>
+      Var(X̄) = <strong>σ²/n</strong><br><br>
+      표본 크기 n이 커질수록 표본평균의 분산이 줄어듭니다. 이는 표본이 클수록 평균이 더 안정적이라는 뜻입니다.
+    </div>
+  </div>
+</div>
+
+<div class="quiz-card" id="q37">
+  <div class="quiz-card-header"><div class="quiz-num q-obj">2</div><span class="quiz-type obj">객관식</span></div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">중심극한정리(CLT)에 대한 설명으로 <strong>옳은</strong> 것은?</div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">모집단이 정규분포여야만 적용된다</li>
+      <li data-label="B" onclick="selectOption(this)">표본 크기와 관계없이 항상 성립한다</li>
+      <li data-label="C" onclick="selectOption(this)">개별 관측값이 정규분포를 따르게 된다</li>
+      <li data-label="D" onclick="selectOption(this)">모집단 분포에 관계없이 n이 충분히 크면 표본평균이 근사적으로 정규분포를 따른다</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(37)">답 제출하기</button>
+    <div class="quiz-result" id="q37-result"></div>
+    <div class="quiz-explanation" id="q37-explain">
+      <div class="quiz-explain-label">해설</div>
+      중심극한정리: <strong>모집단의 분포가 무엇이든</strong>, n이 충분히 크면(보통 n≥30) 표본평균 X̄는 근사적으로 정규분포 N(μ, σ²/n)을 따릅니다. 통계학에서 가장 중요한 정리입니다.
+    </div>
+  </div>
+</div>
+
+<div class="quiz-card" id="q38">
+  <div class="quiz-card-header"><div class="quiz-num q-obj">3</div><span class="quiz-type obj">객관식</span></div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">모집단의 σ를 <strong>모를 때</strong> 표본평균의 분포로 사용하는 것은?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">표준정규분포 N(0,1)</li>
+      <li data-label="B" onclick="selectOption(this)">t-분포 t(n-1)</li>
+      <li data-label="C" onclick="selectOption(this)">카이제곱분포 χ²(n-1)</li>
+      <li data-label="D" onclick="selectOption(this)">이항분포 B(n,p)</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(38)">답 제출하기</button>
+    <div class="quiz-result" id="q38-result"></div>
+    <div class="quiz-explanation" id="q38-explain">
+      <div class="quiz-explain-label">해설</div>
+      σ를 알면 → Z = (X̄−μ)/(σ/√n) ~ <strong>N(0,1)</strong><br>
+      σ를 모르면 → t = (X̄−μ)/(S/√n) ~ <strong>t(n-1)</strong><br><br>
+      t-분포는 정규분포보다 꼬리가 두껍고, n이 커지면 정규분포에 가까워집니다.
+    </div>
+  </div>
+</div>
+
+<div class="quiz-card" id="q39">
+  <div class="quiz-card-header"><div class="quiz-num q-subj">4</div><span class="quiz-type subj">주관식</span></div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">모평균 μ=50, 모표준편차 σ=10인 모집단에서 n=25인 표본을 뽑았다. 표본평균 X̄의 기댓값과 표준편차를 구하시오.</div>
+    <textarea class="quiz-textarea" id="q39-input" placeholder="E(X̄) = ..., SD(X̄) = ..."></textarea>
+    <br><button class="quiz-submit" onclick="submitSA(39)">답 제출하기</button>
+    <div class="quiz-result" id="q39-result"></div>
+    <div class="quiz-explanation" id="q39-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      E(X̄) = μ = <strong>50</strong><br>
+      SD(X̄) = σ/√n = 10/√25 = 10/5 = <strong>2</strong><br><br>
+      표본평균의 표준편차(표준오차)는 모표준편차를 √n으로 나눈 값입니다.
+    </div>
+  </div>
+</div>
+
+<div class="quiz-card" id="q40">
+  <div class="quiz-card-header"><div class="quiz-num q-subj">5</div><span class="quiz-type subj">주관식</span></div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 상황에서 어떤 분포를 사용해야 하는지 쓰시오.<br><br>
+      (1) σ를 알고, 정규모집단에서 표본평균 검정<br>
+      (2) σ를 모르고, 정규모집단에서 표본평균 검정<br>
+      (3) 모분산 추정
+    </div>
+    <textarea class="quiz-textarea" id="q40-input" placeholder="(1) ..., (2) ..., (3) ..."></textarea>
+    <br><button class="quiz-submit" onclick="submitSA(40)">답 제출하기</button>
+    <div class="quiz-result" id="q40-result"></div>
+    <div class="quiz-explanation" id="q40-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      (1) <strong>표준정규분포 N(0,1)</strong> — Z = (X̄−μ)/(σ/√n)<br>
+      (2) <strong>t-분포 t(n-1)</strong> — t = (X̄−μ)/(S/√n)<br>
+      (3) <strong>카이제곱분포 χ²(n-1)</strong> — (n-1)S²/σ² ~ χ²(n-1)
+    </div>
+  </div>
+</div>
+</div><!-- /view-quiz-7 -->
+
 <!-- ── Calculator View ── -->
 <div class="view-calc">
 
@@ -5872,11 +6278,15 @@ const viewStudy = document.querySelector('.view-study');
 const viewQuiz1 = document.querySelector('.view-quiz-1');
 const viewQuiz2 = document.querySelector('.view-quiz-2');
 const viewQuiz3 = document.querySelector('.view-quiz-3');
+const viewQuiz4 = document.querySelector('.view-quiz-4');
+const viewQuiz5 = document.querySelector('.view-quiz-5');
+const viewQuiz6 = document.querySelector('.view-quiz-6');
+const viewQuiz7 = document.querySelector('.view-quiz-7');
 const viewCalc = document.querySelector('.view-calc');
 const viewZtable = document.querySelector('.view-ztable');
 const viewTtable = document.querySelector('.view-ttable');
-const quizViews = { '1': viewQuiz1, '2': viewQuiz2, '3': viewQuiz3 };
-const allViews = [viewStudy, viewQuiz1, viewQuiz2, viewQuiz3, viewCalc, viewZtable, viewTtable];
+const quizViews = { '1': viewQuiz1, '2': viewQuiz2, '3': viewQuiz3, '4': viewQuiz4, '5': viewQuiz5, '6': viewQuiz6, '7': viewQuiz7 };
+const allViews = [viewStudy, viewQuiz1, viewQuiz2, viewQuiz3, viewQuiz4, viewQuiz5, viewQuiz6, viewQuiz7, viewCalc, viewZtable, viewTtable];
 
 function hideAllViews() {
   allViews.forEach(v => v.classList.remove('active'));
