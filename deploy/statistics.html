@@ -4787,7 +4787,7 @@
 
 <div class="quiz-hero">
   <h3>1강 - 데이터와 통계학</h3>
-  <p>객관식 3문항 + 주관식 2문항 | 문제를 풀고 실력을 확인해 보세요</p>
+  <p>객관식 6문항 + 주관식 4문항 | 문제를 풀고 실력을 확인해 보세요</p>
 </div>
 
 
@@ -4904,6 +4904,134 @@
       <strong style="color:#22c55e;">정답: ㄱ, ㄷ</strong><br><br>
       <strong>기술통계</strong>는 주어진 데이터를 정리하고 요약하는 것입니다. 평균/표준편차 계산(ㄱ)과 그래프 작성(ㄷ)이 여기에 해당합니다.<br><br>
       반면, 표본으로 모집단을 추정하는 것(ㄴ)과 신뢰구간(ㄹ)은 <strong>추론통계(inferential statistics)</strong>에 해당합니다. 추론통계는 표본에서 모집단으로 일반화하는 과정입니다.
+    </div>
+  </div>
+</div>
+
+<!-- Q6: 객관식 -->
+<div class="quiz-card" id="q6">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">6</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">통계량(statistic)에 대한 설명으로 <strong>옳지 않은</strong> 것은?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">표본 데이터로부터 계산할 수 있다</li>
+      <li data-label="B" onclick="selectOption(this)">어떤 표본을 뽑느냐에 따라 값이 달라진다</li>
+      <li data-label="C" onclick="selectOption(this)">모집단의 고정된 특성값이다</li>
+      <li data-label="D" onclick="selectOption(this)">모수를 추정하기 위해 사용한다</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(6)">답 제출하기</button>
+    <div class="quiz-result" id="q6-result"></div>
+    <div class="quiz-explanation" id="q6-explain">
+      <div class="quiz-explain-label">해설</div>
+      "모집단의 고정된 특성값"은 <strong>모수(parameter)</strong>에 대한 설명입니다.<br><br>
+      <strong>통계량</strong>은 표본에서 계산한 값으로, 표본이 바뀌면 값도 바뀝니다. 모수를 추정하는 데 사용되지만, 그 자체가 모집단의 고정된 값은 아닙니다.
+    </div>
+  </div>
+</div>
+
+<!-- Q7: 객관식 -->
+<div class="quiz-card" id="q7">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">7</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 중 <strong>무한 모집단</strong>에 해당하는 것은?</div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">한 반 학생 35명의 중간고사 점수</li>
+      <li data-label="B" onclick="selectOption(this)">2025년 한국에 등록된 자동차 전체</li>
+      <li data-label="C" onclick="selectOption(this)">어떤 회사의 전체 직원 500명</li>
+      <li data-label="D" onclick="selectOption(this)">공장에서 계속 생산되는 제품의 수명</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(7)">답 제출하기</button>
+    <div class="quiz-result" id="q7-result"></div>
+    <div class="quiz-explanation" id="q7-explain">
+      <div class="quiz-explain-label">해설</div>
+      A, B, C는 모두 개체 수가 정해져 있는 <strong>유한 모집단</strong>입니다.<br><br>
+      공장에서 계속 생산되는 제품은 이론적으로 끝없이 만들어지므로 <strong>무한 모집단</strong>에 해당합니다. 동전 던지기의 모든 결과도 같은 원리입니다.
+    </div>
+  </div>
+</div>
+
+<!-- Q8: 주관식 -->
+<div class="quiz-card" id="q8">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">8</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      아래 상황에서 <strong>모집단</strong>과 <strong>표본</strong>을 각각 구분하시오.<br><br>
+      "한 대학교의 재학생 15,000명 중 400명을 무작위로 뽑아 통학 시간을 조사했다."
+    </div>
+    <textarea class="quiz-textarea" id="q8-input" placeholder="모집단: ..., 표본: ..."></textarea>
+    <br>
+    <button class="quiz-submit" onclick="submitSA(8)">답 제출하기</button>
+    <div class="quiz-result" id="q8-result"></div>
+    <div class="quiz-explanation" id="q8-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>모집단</strong>: 재학생 15,000명 전체<br>
+      <strong>표본</strong>: 무작위로 뽑힌 400명<br><br>
+      모집단은 "알고 싶은 전체 집단", 표본은 "실제로 조사한 일부"입니다. 여기서 관심 있는 변수는 통학 시간이며, 400명의 통학 시간(통계량)으로 15,000명 전체의 평균 통학 시간(모수)을 추정합니다.
+    </div>
+  </div>
+</div>
+
+<!-- Q9: 객관식 -->
+<div class="quiz-card" id="q9">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">9</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      다음 표에서 <strong>변수</strong>의 개수는?<br><br>
+      <table style="border-collapse: collapse; margin: 8px 0; font-size: 14px;">
+        <tr style="border-bottom: 2px solid #555;">
+          <th style="padding: 6px 14px; color: #c4b5fd;">학생</th>
+          <th style="padding: 6px 14px; color: #c4b5fd;">나이</th>
+          <th style="padding: 6px 14px; color: #c4b5fd;">전공</th>
+          <th style="padding: 6px 14px; color: #c4b5fd;">GPA</th>
+        </tr>
+        <tr><td style="padding: 6px 14px;">A</td><td style="padding: 6px 14px;">21</td><td style="padding: 6px 14px;">통계</td><td style="padding: 6px 14px;">3.8</td></tr>
+        <tr><td style="padding: 6px 14px;">B</td><td style="padding: 6px 14px;">23</td><td style="padding: 6px 14px;">경영</td><td style="padding: 6px 14px;">3.2</td></tr>
+      </table>
+    </div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">2개</li>
+      <li data-label="B" onclick="selectOption(this)">3개</li>
+      <li data-label="C" onclick="selectOption(this)">4개</li>
+      <li data-label="D" onclick="selectOption(this)">8개</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(9)">답 제출하기</button>
+    <div class="quiz-result" id="q9-result"></div>
+    <div class="quiz-explanation" id="q9-explain">
+      <div class="quiz-explain-label">해설</div>
+      <strong style="color:#22c55e;">정답: 3개 (나이, 전공, GPA)</strong><br><br>
+      변수는 각 단위에 대해 측정하는 <strong>특성(열)</strong>입니다. "학생" 열은 단위(관찰 대상)를 식별하는 이름이지 측정한 특성이 아니므로 변수에 포함하지 않습니다. 단위는 A, B 2명이고, 관찰값은 총 6개(2명 x 3변수)입니다.
+    </div>
+  </div>
+</div>
+
+<!-- Q10: 주관식 -->
+<div class="quiz-card" id="q10">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">10</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">유한 모집단에서는 전수조사가 가능할 수도 있는데, 그럼에도 표본조사를 하는 이유를 한 가지 설명하시오.</div>
+    <textarea class="quiz-textarea" id="q10-input" placeholder="답을 입력하세요..."></textarea>
+    <br>
+    <button class="quiz-submit" onclick="submitSA(10)">답 제출하기</button>
+    <div class="quiz-result" id="q10-result"></div>
+    <div class="quiz-explanation" id="q10-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      전수조사는 비용과 시간이 많이 들기 때문에, 유한 모집단이라도 규모가 크면 표본조사가 더 효율적입니다.<br><br>
+      예를 들어 전국 5,000만 명의 건강 상태를 전수조사하면 비용이 막대하고 시간이 오래 걸립니다. 또한 파괴검사(예: 전구 수명 테스트)처럼 조사 자체가 대상을 소모하는 경우에는 전수조사가 불가능합니다.
     </div>
   </div>
 </div>
