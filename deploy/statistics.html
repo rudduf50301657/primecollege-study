@@ -5199,22 +5199,36 @@
 </div>
 
 <div class="guide-card">
-  <h4>예제 2: 조합 ₁₀C₃ 구하기</h4>
-  <p class="goal">10개 중 3개를 뽑는 경우의 수 = 10! ÷ (3! × 7!)</p>
-  <p style="color:#888; font-size:13px; margin-bottom:12px;">윈도우 계산기에는 nCr 버튼이 없으므로, <strong>n!을 활용</strong>해서 구합니다.<br>
-  팁: 10×9×8 ÷ 3! 로 계산하면 더 빠릅니다!</p>
+  <h4>예제 2: 조합 ₁₀C₃ — 공식대로 풀기</h4>
+  <p class="goal">₁₀C₃ = 10! ÷ (3! × 7!)</p>
+  <p style="color:#888; font-size:13px; margin-bottom:12px;">n! 버튼으로 수식을 조립하고, = 으로 한번에 계산합니다.</p>
   <ol class="step-list">
-    <li><span class="key-badge">1</span><span class="key-badge">0</span> <span class="key-badge op-key">×</span> <span class="key-badge">9</span> <span class="key-badge op-key">×</span> <span class="key-badge">8</span> <span class="key-badge op-key">=</span> → <strong>720</strong></li>
-    <li><span class="key-badge op-key">÷</span> <span class="key-badge">(</span> <span class="key-badge">3</span> <span class="key-badge fn-key">n!</span> <span class="key-badge">)</span> <span class="key-badge op-key">=</span></li>
+    <li><span class="key-badge">1</span><span class="key-badge">0</span> <span class="key-badge fn-key">n!</span> → 화면에 <strong>fact(10)</strong></li>
+    <li><span class="key-badge op-key">÷</span> <span class="key-badge">(</span></li>
+    <li><span class="key-badge">3</span> <span class="key-badge fn-key">n!</span> → <strong>fact(3)</strong></li>
+    <li><span class="key-badge op-key">×</span> <span class="key-badge">7</span> <span class="key-badge fn-key">n!</span> → <strong>fact(7)</strong></li>
+    <li><span class="key-badge">)</span> <span class="key-badge op-key">=</span></li>
   </ol>
   <div class="guide-result">결과: 120</div>
-  <button class="try-btn" onclick="runDemo(['1','0','×','9','×','8','=','÷','(','3','fact',')','='])">따라해 보기</button>
+  <button class="try-btn" onclick="runDemo(['1','0','fact','÷','(','3','fact','×','7','fact',')','='])">따라해 보기</button>
 </div>
 
 <div class="guide-card">
-  <h4>예제 3: 순열 ₅P₂ 구하기</h4>
-  <p class="goal">5개 중 2개를 순서 있게 뽑기 = 5 × 4</p>
-  <p style="color:#888; font-size:13px; margin-bottom:12px;">순열도 직접 곱해서 계산합니다. ₅P₂ = 5! ÷ 3! = 5 × 4</p>
+  <h4>예제 3: 조합 ₁₀C₃ — 빠른 방법</h4>
+  <p class="goal">₁₀C₃ = (10×9×8) ÷ 3!</p>
+  <p style="color:#888; font-size:13px; margin-bottom:12px;">분자를 직접 곱하면 더 빠릅니다. 3개를 뽑으니 위에서 3개만 곱하고 3!로 나누기.</p>
+  <ol class="step-list">
+    <li><span class="key-badge">1</span><span class="key-badge">0</span> <span class="key-badge op-key">×</span> <span class="key-badge">9</span> <span class="key-badge op-key">×</span> <span class="key-badge">8</span></li>
+    <li><span class="key-badge op-key">÷</span> <span class="key-badge">(</span> <span class="key-badge">3</span> <span class="key-badge fn-key">n!</span> <span class="key-badge">)</span> <span class="key-badge op-key">=</span></li>
+  </ol>
+  <div class="guide-result">결과: 120</div>
+  <button class="try-btn" onclick="runDemo(['1','0','×','9','×','8','÷','(','3','fact',')','='])">따라해 보기</button>
+</div>
+
+<div class="guide-card">
+  <h4>예제 4: 순열 ₅P₂ 구하기</h4>
+  <p class="goal">₅P₂ = 5! ÷ 3! = 5 × 4</p>
+  <p style="color:#888; font-size:13px; margin-bottom:12px;">순열은 위에서부터 r개만 곱하면 됩니다.</p>
   <ol class="step-list">
     <li><span class="key-badge">5</span> <span class="key-badge op-key">×</span> <span class="key-badge">4</span> <span class="key-badge op-key">=</span></li>
   </ol>
@@ -5223,7 +5237,7 @@
 </div>
 
 <div class="guide-card">
-  <h4>예제 4: 제곱근 √144 구하기</h4>
+  <h4>예제 5: 제곱근 √144 구하기</h4>
   <p class="goal">144의 양의 제곱근</p>
   <ol class="step-list">
     <li><span class="key-badge">1</span> <span class="key-badge">4</span> <span class="key-badge">4</span> 입력</li>
@@ -5234,7 +5248,7 @@
 </div>
 
 <div class="guide-card">
-  <h4>예제 5: 거듭제곱 2⁸ 구하기</h4>
+  <h4>예제 6: 거듭제곱 2⁸ 구하기</h4>
   <p class="goal">2의 8승</p>
   <ol class="step-list">
     <li><span class="key-badge">2</span> 입력</li>
@@ -5247,7 +5261,7 @@
 </div>
 
 <div class="guide-card">
-  <h4>예제 6: 분산 계산</h4>
+  <h4>예제 7: 분산 계산</h4>
   <p class="goal">데이터 {2, 4, 6}의 표본분산 s² 구하기 (평균=4)</p>
   <p style="color:#888; font-size:13px; margin-bottom:12px;">s² = Σ(xᵢ−x̄)² ÷ (n−1)</p>
   <ol class="step-list">
@@ -5501,18 +5515,11 @@ function factorial(n) {
   return r;
 }
 
-function fmt(n) {
-  return Number.isInteger(n) ? '' + n : '' + +n.toFixed(10);
-}
-
-// Extract trailing number from expression, apply fn, put it back
-function applyUnary(fnCalc) {
+// Wrap trailing number in function notation (like Windows calc)
+function wrapLastNum(fnName) {
   const m = calcExpr.match(/(.*?)(\d+\.?\d*)$/);
   if (!m) return;
-  const prefix = m[1];
-  const val = parseFloat(m[2]);
-  const r = fnCalc(val);
-  calcExpr = prefix + fmt(r);
+  calcExpr = m[1] + fnName + '(' + m[2] + ')';
   calcDisplay.textContent = calcExpr;
   calcUpdate();
 }
@@ -5524,22 +5531,44 @@ function calcFn(fn) {
     calcUpdate();
     return;
   }
-  const ops = { sqrt: Math.sqrt, sq: v => v*v, fact: v => factorial(Math.round(v)),
-    inv: v => 1/v, abs: Math.abs, sin: Math.sin, cos: Math.cos,
-    ln: Math.log, log: Math.log10, exp: Math.exp, '10pow': v => Math.pow(10,v) };
-  if (ops[fn]) applyUnary(ops[fn]);
+  const names = { sqrt: '√', sq: 'sqr', fact: 'fact', inv: '1/',
+    abs: 'abs', sin: 'sin', cos: 'cos', ln: 'ln', log: 'log',
+    exp: 'exp', '10pow': '10^' };
+  if (names[fn]) wrapLastNum(names[fn]);
+}
+
+function resolveExpr(expr) {
+  // Resolve innermost function calls first (handles nesting)
+  let prev = '';
+  while (prev !== expr) {
+    prev = expr;
+    expr = expr.replace(/fact\(([^()]+)\)/g, (_, v) => factorial(Math.round(Function('"use strict"; return (' + v + ')')())));
+    expr = expr.replace(/sqr\(([^()]+)\)/g, (_, v) => { const n = Function('"use strict"; return (' + v + ')')(); return n*n; });
+    expr = expr.replace(/√\(([^()]+)\)/g, (_, v) => Math.sqrt(Function('"use strict"; return (' + v + ')')()));
+    expr = expr.replace(/abs\(([^()]+)\)/g, (_, v) => Math.abs(Function('"use strict"; return (' + v + ')')()));
+    expr = expr.replace(/sin\(([^()]+)\)/g, (_, v) => Math.sin(Function('"use strict"; return (' + v + ')')()));
+    expr = expr.replace(/cos\(([^()]+)\)/g, (_, v) => Math.cos(Function('"use strict"; return (' + v + ')')()));
+    expr = expr.replace(/ln\(([^()]+)\)/g, (_, v) => Math.log(Function('"use strict"; return (' + v + ')')()));
+    expr = expr.replace(/log\(([^()]+)\)/g, (_, v) => Math.log10(Function('"use strict"; return (' + v + ')')()));
+    expr = expr.replace(/exp\(([^()]+)\)/g, (_, v) => Math.exp(Function('"use strict"; return (' + v + ')')()));
+    expr = expr.replace(/10\^\(([^()]+)\)/g, (_, v) => Math.pow(10, Function('"use strict"; return (' + v + ')')()));
+    expr = expr.replace(/1\/\(([^()]+)\)/g, (_, v) => 1 / Function('"use strict"; return (' + v + ')')());
+  }
+  return expr;
 }
 
 function calcEval() {
   let expr = calcExpr;
   try {
-    // Handle ^
-    expr = expr.replace(/(\d+\.?\d*)\^(\d+\.?\d*)/g, (_, b, e) => Math.pow(+b, +e));
     // Replace display chars
-    expr = expr.replace(/×/g, '*').replace(/÷/g, '/').replace(/−/g, '-').replace(/%/g, '%');
+    expr = expr.replace(/×/g, '*').replace(/÷/g, '/').replace(/−/g, '-');
+    // Resolve function calls
+    expr = resolveExpr(expr);
+    // Handle ^
+    expr = expr.replace(/([\d.]+)\^([\d.]+)/g, (_, b, e) => Math.pow(+b, +e));
     const result = Function('"use strict"; return (' + expr + ')')();
     const display = Number.isInteger(result) ? '' + result : '' + +result.toFixed(10);
-    calcExprDisplay.textContent = calcExpr;
+    calcExprDisplay.textContent = calcExpr + ' =';
     calcExpr = display;
     calcDisplay.textContent = display;
   } catch(e) {
