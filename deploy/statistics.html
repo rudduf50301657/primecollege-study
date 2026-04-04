@@ -5141,43 +5141,46 @@
 
 <div class="calc-wrap">
 
-<!-- 계산기 본체 -->
+<!-- 계산기 본체 (윈도우 공학용 계산기 레이아웃) -->
 <div class="calc-container">
   <div class="calc-display">
     <div class="calc-expr" id="calcExpr"></div>
     <div class="calc-result" id="calcResult">0</div>
   </div>
   <div class="calc-grid">
-    <button class="calc-btn fn" onclick="calcFn('sin')">sin</button>
-    <button class="calc-btn fn" onclick="calcFn('cos')">cos</button>
-    <button class="calc-btn fn" onclick="calcFn('ln')">ln</button>
-    <button class="calc-btn fn" onclick="calcFn('nPr')">nPr</button>
-    <button class="calc-btn fn" onclick="calcFn('nCr')">nCr</button>
-    <button class="calc-btn fn" onclick="calcFn('sqrt')">√</button>
-    <button class="calc-btn fn" onclick="calcFn('pow')">x<sup>y</sup></button>
     <button class="calc-btn fn" onclick="calcFn('sq')">x²</button>
+    <button class="calc-btn fn" onclick="calcFn('inv')">⅟x</button>
+    <button class="calc-btn fn" onclick="calcFn('abs')">|x|</button>
+    <button class="calc-btn fn" onclick="calcFn('exp')">exp</button>
+    <button class="calc-btn fn" onclick="calcInput('%')">mod</button>
+    <button class="calc-btn fn" onclick="calcFn('sqrt')">²√x</button>
+    <button class="calc-btn op" onclick="calcInput('(')">(</button>
+    <button class="calc-btn op" onclick="calcInput(')')">)</button>
     <button class="calc-btn fn" onclick="calcFn('fact')">n!</button>
-    <button class="calc-btn fn" onclick="calcFn('inv')">1/x</button>
+    <button class="calc-btn op" onclick="calcInput('÷')">÷</button>
+    <button class="calc-btn fn" onclick="calcFn('pow')">xʸ</button>
     <button class="calc-btn" onclick="calcInput('7')">7</button>
     <button class="calc-btn" onclick="calcInput('8')">8</button>
     <button class="calc-btn" onclick="calcInput('9')">9</button>
-    <button class="calc-btn op" onclick="calcInput('(')">(</button>
-    <button class="calc-btn op" onclick="calcInput(')')">)</button>
+    <button class="calc-btn op" onclick="calcInput('×')">×</button>
+    <button class="calc-btn fn" onclick="calcFn('10pow')">10ˣ</button>
     <button class="calc-btn" onclick="calcInput('4')">4</button>
     <button class="calc-btn" onclick="calcInput('5')">5</button>
     <button class="calc-btn" onclick="calcInput('6')">6</button>
-    <button class="calc-btn op" onclick="calcInput('×')">×</button>
-    <button class="calc-btn op" onclick="calcInput('÷')">÷</button>
+    <button class="calc-btn op" onclick="calcInput('-')">−</button>
+    <button class="calc-btn fn" onclick="calcFn('log')">log</button>
     <button class="calc-btn" onclick="calcInput('1')">1</button>
     <button class="calc-btn" onclick="calcInput('2')">2</button>
     <button class="calc-btn" onclick="calcInput('3')">3</button>
     <button class="calc-btn op" onclick="calcInput('+')">+</button>
-    <button class="calc-btn op" onclick="calcInput('-')">−</button>
+    <button class="calc-btn fn" onclick="calcFn('ln')">ln</button>
+    <button class="calc-btn ac" onclick="calcClear()">C</button>
     <button class="calc-btn" onclick="calcInput('0')">0</button>
     <button class="calc-btn" onclick="calcInput('.')">.</button>
-    <button class="calc-btn ac" onclick="calcClear()">AC</button>
-    <button class="calc-btn ac" onclick="calcDel()">⌫</button>
     <button class="calc-btn eq" onclick="calcEval()">=</button>
+  </div>
+  <div style="text-align:center; margin-top:10px;">
+    <button class="calc-btn ac" onclick="calcDel()" style="width:100%; border-radius:8px;">⌫ 지우기</button>
   </div>
 </div>
 
@@ -5185,34 +5188,8 @@
 <div class="calc-guide">
 
 <div class="guide-card">
-  <h4>예제 1: 조합 ₁₀C₃ 구하기</h4>
-  <p class="goal">10개 중 3개를 순서 없이 뽑는 경우의 수</p>
-  <ol class="step-list">
-    <li><span class="key-badge">1</span> <span class="key-badge">0</span> 입력</li>
-    <li><span class="key-badge fn-key">nCr</span> 누르기</li>
-    <li><span class="key-badge">3</span> 입력</li>
-    <li><span class="key-badge op-key">=</span> 누르기</li>
-  </ol>
-  <div class="guide-result">결과: 120</div>
-  <button class="try-btn" onclick="runDemo(['1','0','nCr','3','='])">따라해 보기</button>
-</div>
-
-<div class="guide-card">
-  <h4>예제 2: 순열 ₅P₂ 구하기</h4>
-  <p class="goal">5개 중 2개를 순서 있게 뽑는 경우의 수</p>
-  <ol class="step-list">
-    <li><span class="key-badge">5</span> 입력</li>
-    <li><span class="key-badge fn-key">nPr</span> 누르기</li>
-    <li><span class="key-badge">2</span> 입력</li>
-    <li><span class="key-badge op-key">=</span> 누르기</li>
-  </ol>
-  <div class="guide-result">결과: 20</div>
-  <button class="try-btn" onclick="runDemo(['5','nPr','2','='])">따라해 보기</button>
-</div>
-
-<div class="guide-card">
-  <h4>예제 3: 팩토리얼 5! 구하기</h4>
-  <p class="goal">5 × 4 × 3 × 2 × 1</p>
+  <h4>예제 1: 팩토리얼 5! 구하기</h4>
+  <p class="goal">5 × 4 × 3 × 2 × 1 = ?</p>
   <ol class="step-list">
     <li><span class="key-badge">5</span> 입력</li>
     <li><span class="key-badge fn-key">n!</span> 누르기</li>
@@ -5222,11 +5199,35 @@
 </div>
 
 <div class="guide-card">
+  <h4>예제 2: 조합 ₁₀C₃ 구하기</h4>
+  <p class="goal">10개 중 3개를 뽑는 경우의 수 = 10! ÷ (3! × 7!)</p>
+  <p style="color:#888; font-size:13px; margin-bottom:12px;">윈도우 계산기에는 nCr 버튼이 없으므로, <strong>n!을 활용</strong>해서 구합니다.<br>
+  팁: 10×9×8 ÷ 3! 로 계산하면 더 빠릅니다!</p>
+  <ol class="step-list">
+    <li><span class="key-badge">1</span><span class="key-badge">0</span> <span class="key-badge op-key">×</span> <span class="key-badge">9</span> <span class="key-badge op-key">×</span> <span class="key-badge">8</span> <span class="key-badge op-key">=</span> → <strong>720</strong></li>
+    <li><span class="key-badge op-key">÷</span> <span class="key-badge">(</span> <span class="key-badge">3</span> <span class="key-badge fn-key">n!</span> <span class="key-badge">)</span> <span class="key-badge op-key">=</span></li>
+  </ol>
+  <div class="guide-result">결과: 120</div>
+  <button class="try-btn" onclick="runDemo(['1','0','×','9','×','8','=','÷','(','3','fact',')','='])">따라해 보기</button>
+</div>
+
+<div class="guide-card">
+  <h4>예제 3: 순열 ₅P₂ 구하기</h4>
+  <p class="goal">5개 중 2개를 순서 있게 뽑기 = 5 × 4</p>
+  <p style="color:#888; font-size:13px; margin-bottom:12px;">순열도 직접 곱해서 계산합니다. ₅P₂ = 5! ÷ 3! = 5 × 4</p>
+  <ol class="step-list">
+    <li><span class="key-badge">5</span> <span class="key-badge op-key">×</span> <span class="key-badge">4</span> <span class="key-badge op-key">=</span></li>
+  </ol>
+  <div class="guide-result">결과: 20</div>
+  <button class="try-btn" onclick="runDemo(['5','×','4','='])">따라해 보기</button>
+</div>
+
+<div class="guide-card">
   <h4>예제 4: 제곱근 √144 구하기</h4>
   <p class="goal">144의 양의 제곱근</p>
   <ol class="step-list">
     <li><span class="key-badge">1</span> <span class="key-badge">4</span> <span class="key-badge">4</span> 입력</li>
-    <li><span class="key-badge fn-key">√</span> 누르기</li>
+    <li><span class="key-badge fn-key">²√x</span> 누르기</li>
   </ol>
   <div class="guide-result">결과: 12</div>
   <button class="try-btn" onclick="runDemo(['1','4','4','sqrt'])">따라해 보기</button>
@@ -5237,7 +5238,7 @@
   <p class="goal">2의 8승</p>
   <ol class="step-list">
     <li><span class="key-badge">2</span> 입력</li>
-    <li><span class="key-badge fn-key">x<sup>y</sup></span> 누르기</li>
+    <li><span class="key-badge fn-key">xʸ</span> 누르기</li>
     <li><span class="key-badge">8</span> 입력</li>
     <li><span class="key-badge op-key">=</span> 누르기</li>
   </ol>
@@ -5247,11 +5248,11 @@
 
 <div class="guide-card">
   <h4>예제 6: 분산 계산</h4>
-  <p class="goal">데이터 {2, 4, 6}의 표본분산 구하기 (평균=4)</p>
+  <p class="goal">데이터 {2, 4, 6}의 표본분산 s² 구하기 (평균=4)</p>
+  <p style="color:#888; font-size:13px; margin-bottom:12px;">s² = Σ(xᵢ−x̄)² ÷ (n−1)</p>
   <ol class="step-list">
-    <li>각 편차 제곱의 합: <span class="key-badge">(</span><span class="key-badge">2</span><span class="key-badge op-key">−</span><span class="key-badge">4</span><span class="key-badge">)</span><span class="key-badge fn-key">x²</span><span class="key-badge op-key">+</span><span class="key-badge">(</span><span class="key-badge">4</span><span class="key-badge op-key">−</span><span class="key-badge">4</span><span class="key-badge">)</span><span class="key-badge fn-key">x²</span><span class="key-badge op-key">+</span><span class="key-badge">(</span><span class="key-badge">6</span><span class="key-badge op-key">−</span><span class="key-badge">4</span><span class="key-badge">)</span><span class="key-badge fn-key">x²</span></li>
-    <li><span class="key-badge op-key">=</span> 누르면 <strong>8</strong></li>
-    <li><span class="key-badge op-key">÷</span> <span class="key-badge">(</span><span class="key-badge">3</span><span class="key-badge op-key">−</span><span class="key-badge">1</span><span class="key-badge">)</span> <span class="key-badge op-key">=</span></li>
+    <li>편차 제곱 합: <span class="key-badge">(</span><span class="key-badge">2</span><span class="key-badge op-key">−</span><span class="key-badge">4</span><span class="key-badge">)</span><span class="key-badge fn-key">x²</span><span class="key-badge op-key">+</span><span class="key-badge">(</span><span class="key-badge">4</span><span class="key-badge op-key">−</span><span class="key-badge">4</span><span class="key-badge">)</span><span class="key-badge fn-key">x²</span><span class="key-badge op-key">+</span><span class="key-badge">(</span><span class="key-badge">6</span><span class="key-badge op-key">−</span><span class="key-badge">4</span><span class="key-badge">)</span><span class="key-badge fn-key">x²</span><span class="key-badge op-key">=</span> → <strong>8</strong></li>
+    <li>(n−1)로 나누기: <span class="key-badge op-key">÷</span> <span class="key-badge">(</span><span class="key-badge">3</span><span class="key-badge op-key">−</span><span class="key-badge">1</span><span class="key-badge">)</span> <span class="key-badge op-key">=</span></li>
   </ol>
   <div class="guide-result">결과: s² = 4</div>
   <button class="try-btn" onclick="runDemo(['(','2','-','4',')','sq','+','(','4','-','4',')','sq','+','(','6','-','4',')','sq','=','÷','(','3','-','1',')','='])">따라해 보기</button>
@@ -5500,14 +5501,6 @@ function factorial(n) {
   return r;
 }
 
-function perm(n, r) {
-  return factorial(n) / factorial(n - r);
-}
-
-function comb(n, r) {
-  return factorial(n) / (factorial(r) * factorial(n - r));
-}
-
 function calcFn(fn) {
   const expr = calcExpr;
   let val;
@@ -5550,14 +5543,26 @@ function calcFn(fn) {
     calcExpr = '' + +r.toFixed(10);
     calcDisplay.textContent = calcExpr;
     calcExprDisplay.textContent = 'ln(' + expr + ')';
-  } else if (fn === 'nCr') {
-    calcExpr += ' nCr ';
+  } else if (fn === 'abs') {
+    const r = Math.abs(val);
+    calcExpr = '' + (Number.isInteger(r) ? r : +r.toFixed(10));
     calcDisplay.textContent = calcExpr;
-    calcUpdate();
-  } else if (fn === 'nPr') {
-    calcExpr += ' nPr ';
+    calcExprDisplay.textContent = '|' + expr + '|';
+  } else if (fn === 'exp') {
+    const r = Math.exp(val);
+    calcExpr = '' + +r.toFixed(10);
     calcDisplay.textContent = calcExpr;
-    calcUpdate();
+    calcExprDisplay.textContent = 'e^(' + expr + ')';
+  } else if (fn === '10pow') {
+    const r = Math.pow(10, val);
+    calcExpr = '' + (Number.isInteger(r) ? r : +r.toFixed(10));
+    calcDisplay.textContent = calcExpr;
+    calcExprDisplay.textContent = '10^(' + expr + ')';
+  } else if (fn === 'log') {
+    const r = Math.log10(val);
+    calcExpr = '' + +r.toFixed(10);
+    calcDisplay.textContent = calcExpr;
+    calcExprDisplay.textContent = 'log(' + expr + ')';
   } else if (fn === 'pow') {
     calcExpr += '^';
     calcDisplay.textContent = calcExpr;
@@ -5568,10 +5573,6 @@ function calcFn(fn) {
 function calcEval() {
   let expr = calcExpr;
   try {
-    // Handle nCr
-    expr = expr.replace(/(\d+)\s*nCr\s*(\d+)/g, (_, n, r) => comb(+n, +r));
-    // Handle nPr
-    expr = expr.replace(/(\d+)\s*nPr\s*(\d+)/g, (_, n, r) => perm(+n, +r));
     // Handle ^
     expr = expr.replace(/(\d+\.?\d*)\^(\d+\.?\d*)/g, (_, b, e) => Math.pow(+b, +e));
     // Replace display chars
@@ -5600,12 +5601,10 @@ function runDemo(steps) {
       const txt = b.textContent.trim();
       const match = (
         (step === txt) ||
-        (step === 'nCr' && txt === 'nCr') ||
-        (step === 'nPr' && txt === 'nPr') ||
-        (step === 'sqrt' && txt === '√') ||
+        (step === 'sqrt' && txt === '²√x') ||
         (step === 'sq' && txt === 'x²') ||
         (step === 'fact' && txt === 'n!') ||
-        (step === 'pow' && txt === 'xy') ||
+        (step === 'pow' && txt === 'xʸ') ||
         (step === '=' && txt === '=') ||
         (step === '-' && txt === '−')
       );
