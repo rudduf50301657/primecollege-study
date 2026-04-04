@@ -5012,7 +5012,7 @@
 
 <div class="quiz-hero">
   <h3>1강 - 데이터와 통계학</h3>
-  <p>객관식 6문항 + 주관식 4문항 | 문제를 풀고 실력을 확인해 보세요</p>
+  <p>객관식 10문항 | 문제를 풀고 실력을 확인해 보세요</p>
 </div>
 
 
@@ -5064,14 +5064,18 @@
 
 <div class="quiz-card" id="q3">
   <div class="quiz-card-header">
-    <div class="quiz-num q-subj">3</div>
-    <span class="quiz-type subj">주관식</span>
+    <div class="quiz-num q-obj">3</div>
+    <span class="quiz-type obj">객관식</span>
   </div>
   <div class="quiz-card-body">
-    <div class="quiz-question">데이터의 세 가지 기본 요소를 각각 한 단어로 쓰시오. (쉼표로 구분)</div>
-    <textarea class="quiz-textarea" id="q3-input" placeholder="예: OO, OO, OOO"></textarea>
-    <br>
-    <button class="quiz-submit" onclick="submitSA(3)">답 제출하기</button>
+    <div class="quiz-question">데이터의 세 가지 기본 요소로 올바르게 짝지어진 것은?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">모집단, 표본, 통계량</li>
+      <li data-label="B" onclick="selectOption(this)">평균, 분산, 표준편차</li>
+      <li data-label="C" onclick="selectOption(this)">단위, 변수, 관찰값</li>
+      <li data-label="D" onclick="selectOption(this)">행, 열, 셀</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(3)">답 제출하기</button>
     <div class="quiz-result" id="q3-result"></div>
     <div class="quiz-explanation" id="q3-explain">
       <div class="quiz-explain-label">해설</div>
@@ -5086,19 +5090,23 @@
 
 <div class="quiz-card" id="q4">
   <div class="quiz-card-header">
-    <div class="quiz-num q-subj">4</div>
-    <span class="quiz-type subj">주관식</span>
+    <div class="quiz-num q-obj">4</div>
+    <span class="quiz-type obj">객관식</span>
   </div>
   <div class="quiz-card-body">
-    <div class="quiz-question"><strong>단순랜덤표집(Simple Random Sampling)</strong>이 왜 중요한지, 그리고 이를 사용하지 않을 때 발생할 수 있는 문제를 한 문장으로 설명하시오.</div>
-    <textarea class="quiz-textarea" id="q4-input" placeholder="답을 입력하세요..."></textarea>
-    <br>
-    <button class="quiz-submit" onclick="submitSA(4)">답 제출하기</button>
+    <div class="quiz-question">단순랜덤표집(Simple Random Sampling)을 사용하지 않을 때 발생할 수 있는 문제는?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">표본의 크기가 너무 커진다</li>
+      <li data-label="B" onclick="selectOption(this)">선택 편향(selection bias)이 발생한다</li>
+      <li data-label="C" onclick="selectOption(this)">모수와 통계량이 같아진다</li>
+      <li data-label="D" onclick="selectOption(this)">표준편차가 0이 된다</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(4)">답 제출하기</button>
     <div class="quiz-result" id="q4-result"></div>
     <div class="quiz-explanation" id="q4-explain">
-      <div class="quiz-explain-label">모범답안</div>
-      단순랜덤표집은 모집단의 모든 부분집합이 동일한 확률로 선택될 수 있도록 보장하여, 표본이 모집단을 편향 없이 대표하게 합니다. 이를 사용하지 않으면 특정 집단이 과대/과소 대표되어 <strong>편향된 결론</strong>을 내릴 수 있습니다.<br><br>
-      예를 들어 서울 강남 한 지역에서만 주거비를 조사하면, 전국 평균보다 높은 결과가 나올 수밖에 없습니다. 단순랜덤표집은 이런 <strong>선택 편향(selection bias)</strong>을 방지합니다.
+      <div class="quiz-explain-label">해설</div>
+      <strong style="color:#22c55e;">정답: 선택 편향(selection bias)이 발생한다</strong><br><br>
+      단순랜덤표집은 모집단의 모든 부분집합이 동일한 확률로 선택될 수 있도록 보장합니다. 이를 사용하지 않으면 특정 집단이 과대/과소 대표되어 <strong>편향된 결론</strong>을 내릴 수 있습니다.
     </div>
   </div>
 </div>
@@ -5181,26 +5189,28 @@
   </div>
 </div>
 
-<!-- Q8: 주관식 -->
+<!-- Q8: 객관식 -->
 <div class="quiz-card" id="q8">
   <div class="quiz-card-header">
-    <div class="quiz-num q-subj">8</div>
-    <span class="quiz-type subj">주관식</span>
+    <div class="quiz-num q-obj">8</div>
+    <span class="quiz-type obj">객관식</span>
   </div>
   <div class="quiz-card-body">
     <div class="quiz-question">
-      아래 상황에서 <strong>모집단</strong>과 <strong>표본</strong>을 각각 구분하시오.<br><br>
-      "한 대학교의 재학생 15,000명 중 400명을 무작위로 뽑아 통학 시간을 조사했다."
+      "한 대학교의 재학생 15,000명 중 400명을 무작위로 뽑아 통학 시간을 조사했다." 이 상황에서 <strong>모집단</strong>은?
     </div>
-    <textarea class="quiz-textarea" id="q8-input" placeholder="모집단: ..., 표본: ..."></textarea>
-    <br>
-    <button class="quiz-submit" onclick="submitSA(8)">답 제출하기</button>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">재학생 15,000명 전체</li>
+      <li data-label="B" onclick="selectOption(this)">무작위로 뽑힌 400명</li>
+      <li data-label="C" onclick="selectOption(this)">400명의 평균 통학 시간</li>
+      <li data-label="D" onclick="selectOption(this)">통학 시간이라는 변수</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(8)">답 제출하기</button>
     <div class="quiz-result" id="q8-result"></div>
     <div class="quiz-explanation" id="q8-explain">
-      <div class="quiz-explain-label">모범답안</div>
-      <strong>모집단</strong>: 재학생 15,000명 전체<br>
-      <strong>표본</strong>: 무작위로 뽑힌 400명<br><br>
-      모집단은 "알고 싶은 전체 집단", 표본은 "실제로 조사한 일부"입니다. 여기서 관심 있는 변수는 통학 시간이며, 400명의 통학 시간(통계량)으로 15,000명 전체의 평균 통학 시간(모수)을 추정합니다.
+      <div class="quiz-explain-label">해설</div>
+      <strong style="color:#22c55e;">정답: 재학생 15,000명 전체</strong><br><br>
+      모집단은 "알고 싶은 전체 집단"이므로 재학생 15,000명 전체입니다. 400명은 표본이고, 400명의 평균 통학 시간은 통계량입니다.
     </div>
   </div>
 </div>
@@ -5241,22 +5251,26 @@
   </div>
 </div>
 
-<!-- Q10: 주관식 -->
+<!-- Q10: 객관식 -->
 <div class="quiz-card" id="q10">
   <div class="quiz-card-header">
-    <div class="quiz-num q-subj">10</div>
-    <span class="quiz-type subj">주관식</span>
+    <div class="quiz-num q-obj">10</div>
+    <span class="quiz-type obj">객관식</span>
   </div>
   <div class="quiz-card-body">
-    <div class="quiz-question">유한 모집단에서는 전수조사가 가능할 수도 있는데, 그럼에도 표본조사를 하는 이유를 한 가지 설명하시오.</div>
-    <textarea class="quiz-textarea" id="q10-input" placeholder="답을 입력하세요..."></textarea>
-    <br>
-    <button class="quiz-submit" onclick="submitSA(10)">답 제출하기</button>
+    <div class="quiz-question">유한 모집단에서도 전수조사 대신 표본조사를 하는 이유로 <strong>가장 적절한</strong> 것은?</div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">전수조사는 법적으로 금지되어 있다</li>
+      <li data-label="B" onclick="selectOption(this)">표본조사가 항상 더 정확하다</li>
+      <li data-label="C" onclick="selectOption(this)">모집단이 유한하면 표본을 뽑을 수 없다</li>
+      <li data-label="D" onclick="selectOption(this)">비용·시간이 많이 들거나 파괴검사처럼 전수조사가 불가능한 경우가 있다</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(10)">답 제출하기</button>
     <div class="quiz-result" id="q10-result"></div>
     <div class="quiz-explanation" id="q10-explain">
-      <div class="quiz-explain-label">모범답안</div>
-      전수조사는 비용과 시간이 많이 들기 때문에, 유한 모집단이라도 규모가 크면 표본조사가 더 효율적입니다.<br><br>
-      예를 들어 전국 5,000만 명의 건강 상태를 전수조사하면 비용이 막대하고 시간이 오래 걸립니다. 또한 파괴검사(예: 전구 수명 테스트)처럼 조사 자체가 대상을 소모하는 경우에는 전수조사가 불가능합니다.
+      <div class="quiz-explain-label">해설</div>
+      <strong style="color:#22c55e;">정답: 비용·시간이 많이 들거나 파괴검사처럼 전수조사가 불가능한 경우가 있다</strong><br><br>
+      전수조사는 비용과 시간이 많이 들기 때문에, 유한 모집단이라도 규모가 크면 표본조사가 더 효율적입니다. 또한 파괴검사(예: 전구 수명 테스트)처럼 조사 자체가 대상을 소모하는 경우에는 전수조사가 불가능합니다.
     </div>
   </div>
 </div>
@@ -5267,7 +5281,7 @@
 <div class="view-quiz-2">
 <div class="quiz-hero">
   <h3>2강 - 데이터 요약 I</h3>
-  <p>객관식 3문항 + 주관식 2문항</p>
+  <p>객관식 5문항</p>
 </div>
 
 <!-- Q11 -->
@@ -5345,18 +5359,23 @@
 <!-- Q14 -->
 <div class="quiz-card" id="q14">
   <div class="quiz-card-header">
-    <div class="quiz-num q-subj">4</div>
-    <span class="quiz-type subj">주관식</span>
+    <div class="quiz-num q-obj">4</div>
+    <span class="quiz-type obj">객관식</span>
   </div>
   <div class="quiz-card-body">
-    <div class="quiz-question">표본분산을 구할 때 (n)이 아닌 <strong>(n-1)</strong>로 나누는 이유를 간단히 설명하시오.</div>
-    <textarea class="quiz-textarea" id="q14-input" placeholder="답을 입력하세요..."></textarea>
-    <br>
-    <button class="quiz-submit" onclick="submitSA(14)">답 제출하기</button>
+    <div class="quiz-question">표본분산을 구할 때 n이 아닌 <strong>(n-1)</strong>로 나누는 이유는?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">계산을 더 간편하게 하기 위해</li>
+      <li data-label="B" onclick="selectOption(this)">표본이 모집단보다 항상 크기 때문</li>
+      <li data-label="C" onclick="selectOption(this)">불편추정(unbiased estimation)을 위해 — n으로 나누면 분산이 과소추정됨</li>
+      <li data-label="D" onclick="selectOption(this)">자유도를 n+1로 맞추기 위해</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(14)">답 제출하기</button>
     <div class="quiz-result" id="q14-result"></div>
     <div class="quiz-explanation" id="q14-explain">
-      <div class="quiz-explain-label">모범답안</div>
-      표본분산에서 (n-1)로 나누는 이유는 <strong>불편추정(unbiased estimation)</strong>을 위해서입니다. 표본은 모집단보다 작기 때문에 n으로 나누면 분산이 실제보다 작게 나옵니다. (n-1)로 나누면 모집단 분산에 더 가까운 추정값을 얻을 수 있습니다.
+      <div class="quiz-explain-label">해설</div>
+      <strong style="color:#22c55e;">정답: 불편추정(unbiased estimation)을 위해</strong><br><br>
+      표본은 모집단보다 작기 때문에 n으로 나누면 분산이 실제보다 작게 나옵니다. (n-1)로 나누면 모집단 분산에 더 가까운 불편추정값을 얻을 수 있습니다.
     </div>
   </div>
 </div>
@@ -5364,20 +5383,24 @@
 <!-- Q15 -->
 <div class="quiz-card" id="q15">
   <div class="quiz-card-header">
-    <div class="quiz-num q-subj">5</div>
-    <span class="quiz-type subj">주관식</span>
+    <div class="quiz-num q-obj">5</div>
+    <span class="quiz-type obj">객관식</span>
   </div>
   <div class="quiz-card-body">
-    <div class="quiz-question">21세 남자의 몸무게 (평균 72kg, 표준편차 11kg)와 9세 남아의 몸무게 (평균 32kg, 표준편차 7kg)를 비교하려 한다. <strong>변이계수(CV)</strong>를 각각 구하고, 어느 그룹의 변동이 더 큰지 답하시오.</div>
-    <textarea class="quiz-textarea" id="q15-input" placeholder="21세 CV = ..., 9세 CV = ..., 더 큰 쪽은 ..."></textarea>
-    <br>
-    <button class="quiz-submit" onclick="submitSA(15)">답 제출하기</button>
+    <div class="quiz-question">21세 남자의 몸무게 (평균 72kg, 표준편차 11kg)와 9세 남아의 몸무게 (평균 32kg, 표준편차 7kg)를 변이계수(CV)로 비교할 때 올바른 것은?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">21세 CV가 더 크므로 21세 그룹의 변동이 더 크다</li>
+      <li data-label="B" onclick="selectOption(this)">9세 CV(0.219)가 21세 CV(0.153)보다 크므로 9세 그룹의 변동이 더 크다</li>
+      <li data-label="C" onclick="selectOption(this)">표준편차가 11 > 7이므로 21세 그룹의 변동이 더 크다</li>
+      <li data-label="D" onclick="selectOption(this)">변이계수로는 두 그룹을 비교할 수 없다</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(15)">답 제출하기</button>
     <div class="quiz-result" id="q15-result"></div>
     <div class="quiz-explanation" id="q15-explain">
-      <div class="quiz-explain-label">모범답안</div>
-      21세 CV = 11 ÷ 72 = <strong>0.153</strong><br>
-      9세 CV = 7 ÷ 32 = <strong>0.219</strong><br><br>
-      <strong>9세 그룹</strong>의 변동이 더 큽니다. 표준편차만 보면 11 > 7로 21세가 크지만, 평균 자체가 다르므로 변이계수(상대적 퍼짐)로 비교해야 합니다.
+      <div class="quiz-explain-label">해설</div>
+      <strong style="color:#22c55e;">정답: 9세 그룹의 변동이 더 크다</strong><br><br>
+      21세 CV = 11 / 72 = <strong>0.153</strong>, 9세 CV = 7 / 32 = <strong>0.219</strong><br>
+      표준편차만 보면 11 > 7로 21세가 크지만, 평균 자체가 다르므로 변이계수(상대적 퍼짐)로 비교해야 합니다.
     </div>
   </div>
 </div>
@@ -5388,7 +5411,7 @@
 <div class="view-quiz-3">
 <div class="quiz-hero">
   <h3>3강 - 데이터 수치요약</h3>
-  <p>객관식 3문항 + 주관식 2문항</p>
+  <p>객관식 5문항</p>
 </div>
 
 <!-- Q16 -->
@@ -5472,19 +5495,22 @@
 <!-- Q19 -->
 <div class="quiz-card" id="q19">
   <div class="quiz-card-header">
-    <div class="quiz-num q-subj">4</div>
-    <span class="quiz-type subj">주관식</span>
+    <div class="quiz-num q-obj">4</div>
+    <span class="quiz-type obj">객관식</span>
   </div>
   <div class="quiz-card-body">
-    <div class="quiz-question">데이터에 특이점이 있을 때, 중심위치와 산포를 측정하기 위해 각각 어떤 통계량을 사용하는 것이 적절한지 쓰시오.</div>
-    <textarea class="quiz-textarea" id="q19-input" placeholder="중심위치: ..., 산포: ..."></textarea>
-    <br>
-    <button class="quiz-submit" onclick="submitSA(19)">답 제출하기</button>
+    <div class="quiz-question">데이터에 <strong>특이점(outlier)</strong>이 있을 때, 중심위치와 산포를 측정하기 위해 적절한 통계량 조합은?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">평균 + 표준편차</li>
+      <li data-label="B" onclick="selectOption(this)">중앙값 + IQR</li>
+      <li data-label="C" onclick="selectOption(this)">최빈값 + 범위</li>
+      <li data-label="D" onclick="selectOption(this)">평균 + IQR</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(19)">답 제출하기</button>
     <div class="quiz-result" id="q19-result"></div>
     <div class="quiz-explanation" id="q19-explain">
-      <div class="quiz-explain-label">모범답안</div>
-      중심위치: <strong>중앙값</strong><br>
-      산포: <strong>IQR (사분위수 범위)</strong><br><br>
+      <div class="quiz-explain-label">해설</div>
+      <strong style="color:#22c55e;">정답: 중앙값 + IQR</strong><br><br>
       평균과 표준편차는 특이점에 민감하지만, 중앙값과 IQR은 특이점의 영향을 거의 받지 않습니다. 반대로 대칭 분포이고 특이점이 없으면 평균 + 표준편차를 사용합니다.
     </div>
   </div>
@@ -5493,24 +5519,28 @@
 <!-- Q20 -->
 <div class="quiz-card" id="q20">
   <div class="quiz-card-header">
-    <div class="quiz-num q-subj">5</div>
-    <span class="quiz-type subj">주관식</span>
+    <div class="quiz-num q-obj">5</div>
+    <span class="quiz-type obj">객관식</span>
   </div>
   <div class="quiz-card-body">
-    <div class="quiz-question">데이터 {8, 23, 25, 28, 32, 35, 37, 41, 42, 52}의 <strong>다섯수치요약</strong>(최솟값, Q1, 중앙값, Q3, 최댓값)을 구하시오.</div>
-    <textarea class="quiz-textarea" id="q20-input" placeholder="최솟값=..., Q1=..., 중앙값=..., Q3=..., 최댓값=..."></textarea>
-    <br>
-    <button class="quiz-submit" onclick="submitSA(20)">답 제출하기</button>
+    <div class="quiz-question">데이터 {8, 23, 25, 28, 32, 35, 37, 41, 42, 52}의 <strong>다섯수치요약</strong>으로 올바른 것은?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">8, 23, 32, 42, 52</li>
+      <li data-label="B" onclick="selectOption(this)">8, 25, 32, 41, 52</li>
+      <li data-label="C" onclick="selectOption(this)">8, 25, 33.5, 41, 52</li>
+      <li data-label="D" onclick="selectOption(this)">8, 28, 33.5, 37, 52</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(20)">답 제출하기</button>
     <div class="quiz-result" id="q20-result"></div>
     <div class="quiz-explanation" id="q20-explain">
-      <div class="quiz-explain-label">모범답안</div>
-      데이터 10개 (이미 정렬됨)<br><br>
+      <div class="quiz-explain-label">해설</div>
+      <strong style="color:#22c55e;">정답: 8, 25, 33.5, 41, 52</strong><br><br>
+      데이터 10개 (이미 정렬됨)<br>
       - 최솟값 = <strong>8</strong><br>
       - Q1 = 하위 5개 {8,23,25,28,32}의 중앙값 = <strong>25</strong><br>
-      - 중앙값 = (32+35)÷2 = <strong>33.5</strong><br>
+      - 중앙값 = (32+35)/2 = <strong>33.5</strong><br>
       - Q3 = 상위 5개 {35,37,41,42,52}의 중앙값 = <strong>41</strong><br>
-      - 최댓값 = <strong>52</strong><br>
-      - IQR = 41 − 25 = 16
+      - 최댓값 = <strong>52</strong>, IQR = 41 - 25 = 16
     </div>
   </div>
 </div>
@@ -5520,7 +5550,7 @@
 <div class="view-quiz-4">
 <div class="quiz-hero">
   <h3>4강 - 확률</h3>
-  <p>객관식 3문항 + 주관식 2문항</p>
+  <p>객관식 5문항</p>
 </div>
 
 <div class="quiz-card" id="q21">
@@ -5583,31 +5613,42 @@
 </div>
 
 <div class="quiz-card" id="q24">
-  <div class="quiz-card-header"><div class="quiz-num q-subj">4</div><span class="quiz-type subj">주관식</span></div>
+  <div class="quiz-card-header"><div class="quiz-num q-obj">4</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">P(A) = 0.3, P(B|A) = 0.5일 때, P(A∩B)를 구하시오.</div>
-    <textarea class="quiz-textarea" id="q24-input" placeholder="P(A∩B) = ..."></textarea>
-    <br><button class="quiz-submit" onclick="submitSA(24)">답 제출하기</button>
+    <div class="quiz-question">P(A) = 0.3, P(B|A) = 0.5일 때, P(A∩B)는?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">0.80</li>
+      <li data-label="B" onclick="selectOption(this)">0.15</li>
+      <li data-label="C" onclick="selectOption(this)">0.50</li>
+      <li data-label="D" onclick="selectOption(this)">0.30</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(24)">답 제출하기</button>
     <div class="quiz-result" id="q24-result"></div>
     <div class="quiz-explanation" id="q24-explain">
-      <div class="quiz-explain-label">모범답안</div>
+      <div class="quiz-explain-label">해설</div>
+      <strong style="color:#22c55e;">정답: 0.15</strong><br><br>
       곱셈법칙: P(A∩B) = P(A) × P(B|A) = 0.3 × 0.5 = <strong>0.15</strong>
     </div>
   </div>
 </div>
 
 <div class="quiz-card" id="q25">
-  <div class="quiz-card-header"><div class="quiz-num q-subj">5</div><span class="quiz-type subj">주관식</span></div>
+  <div class="quiz-card-header"><div class="quiz-num q-obj">5</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">두 사건 A, B가 <strong>독립</strong>이라 함은 무엇을 의미하는지 설명하고, 독립일 때 P(A∩B)를 어떻게 구하는지 쓰시오.</div>
-    <textarea class="quiz-textarea" id="q25-input" placeholder="답을 입력하세요..."></textarea>
-    <br><button class="quiz-submit" onclick="submitSA(25)">답 제출하기</button>
+    <div class="quiz-question">두 사건 A, B가 <strong>독립</strong>일 때 성립하는 식은?</div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">P(A∩B) = P(A) × P(B)</li>
+      <li data-label="B" onclick="selectOption(this)">P(A∩B) = P(A) + P(B)</li>
+      <li data-label="C" onclick="selectOption(this)">P(A|B) = P(B)</li>
+      <li data-label="D" onclick="selectOption(this)">P(A∪B) = P(A) × P(B)</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(25)">답 제출하기</button>
     <div class="quiz-result" id="q25-result"></div>
     <div class="quiz-explanation" id="q25-explain">
-      <div class="quiz-explain-label">모범답안</div>
+      <div class="quiz-explain-label">해설</div>
+      <strong style="color:#22c55e;">정답: P(A∩B) = P(A) × P(B)</strong><br><br>
       두 사건이 독립이면 한 사건의 발생이 다른 사건의 확률에 <strong>영향을 주지 않습니다</strong>.<br>
-      즉, P(A|B) = P(A)이고, 이때 <strong>P(A∩B) = P(A) × P(B)</strong>로 구합니다.<br>
-      예: 동전 1번째와 2번째 던지기는 서로 독립입니다.
+      즉, P(A|B) = P(A)이고, 이때 P(A∩B) = P(A) × P(B)로 구합니다.
     </div>
   </div>
 </div>
@@ -5617,7 +5658,7 @@
 <div class="view-quiz-5">
 <div class="quiz-hero">
   <h3>5강 - 확률변수</h3>
-  <p>객관식 3문항 + 주관식 2문항</p>
+  <p>객관식 5문항</p>
 </div>
 
 <div class="quiz-card" id="q26">
@@ -5686,14 +5727,20 @@
 </div>
 
 <div class="quiz-card" id="q29">
-  <div class="quiz-card-header"><div class="quiz-num q-subj">4</div><span class="quiz-type subj">주관식</span></div>
+  <div class="quiz-card-header"><div class="quiz-num q-obj">4</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">E(X) = 3일 때, E(2X+5)를 구하시오.</div>
-    <textarea class="quiz-textarea" id="q29-input" placeholder="E(2X+5) = ..."></textarea>
-    <br><button class="quiz-submit" onclick="submitSA(29)">답 제출하기</button>
+    <div class="quiz-question">E(X) = 3일 때, E(2X+5)의 값은?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">6</li>
+      <li data-label="B" onclick="selectOption(this)">8</li>
+      <li data-label="C" onclick="selectOption(this)">11</li>
+      <li data-label="D" onclick="selectOption(this)">16</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(29)">답 제출하기</button>
     <div class="quiz-result" id="q29-result"></div>
     <div class="quiz-explanation" id="q29-explain">
-      <div class="quiz-explain-label">모범답안</div>
+      <div class="quiz-explain-label">해설</div>
+      <strong style="color:#22c55e;">정답: 11</strong><br><br>
       E(aX+b) = aE(X) + b<br>
       E(2X+5) = 2×3 + 5 = <strong>11</strong>
     </div>
@@ -5701,14 +5748,20 @@
 </div>
 
 <div class="quiz-card" id="q30">
-  <div class="quiz-card-header"><div class="quiz-num q-subj">5</div><span class="quiz-type subj">주관식</span></div>
+  <div class="quiz-card-header"><div class="quiz-num q-obj">5</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">분산의 간편 공식 Var(X) = E(X²) − [E(X)]² 를 이용하여, 위 Q1의 확률분포에서 Var(X)를 구하시오. (E(X)=0.9)</div>
-    <textarea class="quiz-textarea" id="q30-input" placeholder="E(X²) = ..., Var(X) = ..."></textarea>
-    <br><button class="quiz-submit" onclick="submitSA(30)">답 제출하기</button>
+    <div class="quiz-question">위 Q1의 확률분포(E(X)=0.9)에서 Var(X) = E(X²) − [E(X)]²를 이용하여 구한 Var(X)는?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">0.81</li>
+      <li data-label="B" onclick="selectOption(this)">0.49</li>
+      <li data-label="C" onclick="selectOption(this)">1.30</li>
+      <li data-label="D" onclick="selectOption(this)">0.90</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(30)">답 제출하기</button>
     <div class="quiz-result" id="q30-result"></div>
     <div class="quiz-explanation" id="q30-explain">
-      <div class="quiz-explain-label">모범답안</div>
+      <div class="quiz-explain-label">해설</div>
+      <strong style="color:#22c55e;">정답: 0.49</strong><br><br>
       E(X²) = 0²×0.3 + 1²×0.5 + 2²×0.2 = 0 + 0.5 + 0.8 = <strong>1.3</strong><br>
       Var(X) = E(X²) − [E(X)]² = 1.3 − 0.81 = <strong>0.49</strong>
     </div>
@@ -5720,7 +5773,7 @@
 <div class="view-quiz-6">
 <div class="quiz-hero">
   <h3>6강 - 확률분포 1</h3>
-  <p>객관식 3문항 + 주관식 2문항</p>
+  <p>객관식 5문항</p>
 </div>
 
 <div class="quiz-card" id="q31">
@@ -5784,31 +5837,42 @@
 </div>
 
 <div class="quiz-card" id="q34">
-  <div class="quiz-card-header"><div class="quiz-num q-subj">4</div><span class="quiz-type subj">주관식</span></div>
+  <div class="quiz-card-header"><div class="quiz-num q-obj">4</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">X ~ N(500, 30²)일 때, P(X ≥ 530)을 구하기 위한 Z값을 계산하시오.</div>
-    <textarea class="quiz-textarea" id="q34-input" placeholder="Z = ..."></textarea>
-    <br><button class="quiz-submit" onclick="submitSA(34)">답 제출하기</button>
+    <div class="quiz-question">X ~ N(500, 30²)일 때, P(X ≥ 530)을 구하기 위한 Z값은?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">0.5</li>
+      <li data-label="B" onclick="selectOption(this)">1</li>
+      <li data-label="C" onclick="selectOption(this)">1.5</li>
+      <li data-label="D" onclick="selectOption(this)">30</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(34)">답 제출하기</button>
     <div class="quiz-result" id="q34-result"></div>
     <div class="quiz-explanation" id="q34-explain">
-      <div class="quiz-explain-label">모범답안</div>
-      Z = (X − μ) / σ = (530 − 500) / 30 = <strong>1</strong><br><br>
-      P(X ≥ 530) = P(Z ≥ 1) = 1 − P(Z ≤ 1) = 1 − 0.8413 = <strong>0.1587</strong>
+      <div class="quiz-explain-label">해설</div>
+      <strong style="color:#22c55e;">정답: 1</strong><br><br>
+      Z = (X − μ) / σ = (530 − 500) / 30 = <strong>1</strong><br>
+      P(X ≥ 530) = P(Z ≥ 1) = 1 − 0.8413 = <strong>0.1587</strong>
     </div>
   </div>
 </div>
 
 <div class="quiz-card" id="q35">
-  <div class="quiz-card-header"><div class="quiz-num q-subj">5</div><span class="quiz-type subj">주관식</span></div>
+  <div class="quiz-card-header"><div class="quiz-num q-obj">5</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">동전을 5번 던져서 앞면이 정확히 2번 나올 확률을 이항분포 공식으로 구하시오.</div>
-    <textarea class="quiz-textarea" id="q35-input" placeholder="P(X=2) = ..."></textarea>
-    <br><button class="quiz-submit" onclick="submitSA(35)">답 제출하기</button>
+    <div class="quiz-question">동전을 5번 던져서 앞면이 정확히 2번 나올 확률은? (X ~ B(5, 0.5))</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">0.2000</li>
+      <li data-label="B" onclick="selectOption(this)">0.2500</li>
+      <li data-label="C" onclick="selectOption(this)">0.3125</li>
+      <li data-label="D" onclick="selectOption(this)">0.5000</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(35)">답 제출하기</button>
     <div class="quiz-result" id="q35-result"></div>
     <div class="quiz-explanation" id="q35-explain">
-      <div class="quiz-explain-label">모범답안</div>
-      X ~ B(5, 0.5), P(X=2) = ₅C₂ × 0.5² × 0.5³<br>
-      = 10 × 0.25 × 0.125 = 10 × 0.03125 = <strong>0.3125</strong>
+      <div class="quiz-explain-label">해설</div>
+      <strong style="color:#22c55e;">정답: 0.3125</strong><br><br>
+      P(X=2) = ₅C₂ × 0.5² × 0.5³ = 10 × 0.25 × 0.125 = <strong>0.3125</strong>
     </div>
   </div>
 </div>
@@ -5818,7 +5882,7 @@
 <div class="view-quiz-7">
 <div class="quiz-hero">
   <h3>7강 - 확률분포 2</h3>
-  <p>객관식 3문항 + 주관식 2문항</p>
+  <p>객관식 5문항</p>
 </div>
 
 <div class="quiz-card" id="q36">
@@ -5882,37 +5946,45 @@
 </div>
 
 <div class="quiz-card" id="q39">
-  <div class="quiz-card-header"><div class="quiz-num q-subj">4</div><span class="quiz-type subj">주관식</span></div>
+  <div class="quiz-card-header"><div class="quiz-num q-obj">4</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">모평균 μ=50, 모표준편차 σ=10인 모집단에서 n=25인 표본을 뽑았다. 표본평균 X̄의 기댓값과 표준편차를 구하시오.</div>
-    <textarea class="quiz-textarea" id="q39-input" placeholder="E(X̄) = ..., SD(X̄) = ..."></textarea>
-    <br><button class="quiz-submit" onclick="submitSA(39)">답 제출하기</button>
+    <div class="quiz-question">모평균 μ=50, 모표준편차 σ=10인 모집단에서 n=25인 표본을 뽑았다. 표본평균 X̄의 표준오차(SD)는?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">10</li>
+      <li data-label="B" onclick="selectOption(this)">5</li>
+      <li data-label="C" onclick="selectOption(this)">2</li>
+      <li data-label="D" onclick="selectOption(this)">0.4</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(39)">답 제출하기</button>
     <div class="quiz-result" id="q39-result"></div>
     <div class="quiz-explanation" id="q39-explain">
-      <div class="quiz-explain-label">모범답안</div>
+      <div class="quiz-explain-label">해설</div>
+      <strong style="color:#22c55e;">정답: 2</strong><br><br>
       E(X̄) = μ = <strong>50</strong><br>
-      SD(X̄) = σ/√n = 10/√25 = 10/5 = <strong>2</strong><br><br>
+      SD(X̄) = σ/√n = 10/√25 = 10/5 = <strong>2</strong><br>
       표본평균의 표준편차(표준오차)는 모표준편차를 √n으로 나눈 값입니다.
     </div>
   </div>
 </div>
 
 <div class="quiz-card" id="q40">
-  <div class="quiz-card-header"><div class="quiz-num q-subj">5</div><span class="quiz-type subj">주관식</span></div>
+  <div class="quiz-card-header"><div class="quiz-num q-obj">5</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">다음 상황에서 어떤 분포를 사용해야 하는지 쓰시오.<br><br>
-      (1) σ를 알고, 정규모집단에서 표본평균 검정<br>
-      (2) σ를 모르고, 정규모집단에서 표본평균 검정<br>
-      (3) 모분산 추정
-    </div>
-    <textarea class="quiz-textarea" id="q40-input" placeholder="(1) ..., (2) ..., (3) ..."></textarea>
-    <br><button class="quiz-submit" onclick="submitSA(40)">답 제출하기</button>
+    <div class="quiz-question">모표준편차 σ를 <strong>모르는</strong> 상태에서 정규모집단의 표본평균을 검정할 때 사용하는 분포는?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">표준정규분포 N(0,1)</li>
+      <li data-label="B" onclick="selectOption(this)">t-분포 t(n-1)</li>
+      <li data-label="C" onclick="selectOption(this)">카이제곱분포 χ²(n-1)</li>
+      <li data-label="D" onclick="selectOption(this)">이항분포 B(n,p)</li>
+    </ul>
+    <button class="quiz-submit" onclick="submitMC(40)">답 제출하기</button>
     <div class="quiz-result" id="q40-result"></div>
     <div class="quiz-explanation" id="q40-explain">
-      <div class="quiz-explain-label">모범답안</div>
-      (1) <strong>표준정규분포 N(0,1)</strong> — Z = (X̄−μ)/(σ/√n)<br>
-      (2) <strong>t-분포 t(n-1)</strong> — t = (X̄−μ)/(S/√n)<br>
-      (3) <strong>카이제곱분포 χ²(n-1)</strong> — (n-1)S²/σ² ~ χ²(n-1)
+      <div class="quiz-explain-label">해설</div>
+      <strong style="color:#22c55e;">정답: t-분포 t(n-1)</strong><br><br>
+      σ를 알면 → Z = (X̄−μ)/(σ/√n) ~ <strong>N(0,1)</strong><br>
+      σ를 모르면 → t = (X̄−μ)/(S/√n) ~ <strong>t(n-1)</strong><br>
+      모분산 추정 → <strong>카이제곱분포 χ²(n-1)</strong>
     </div>
   </div>
 </div>
