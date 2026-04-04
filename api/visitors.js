@@ -1,13 +1,13 @@
-import { Redis } from '@upstash/redis'
+import Redis from 'ioredis'
 
 let redis
 
 function getRedis() {
   if (!redis) {
-    const parsed = new URL(process.env.REDIS_URL)
-    redis = new Redis({
-      url: `https://${parsed.hostname}`,
-      token: parsed.password,
+    redis = new Redis(process.env.REDIS_URL, {
+      maxRetriesPerRequest: 1,
+      connectTimeout: 5000,
+      lazyConnect: true,
     })
   }
   return redis
@@ -23,6 +23,7 @@ export default async function handler(req, res) {
 
   try {
     const db = getRedis()
+    await db.connect().catch(() => {})
 
     // 한국 시간 기준 오늘 날짜
     const now = new Date(Date.now() + 9 * 60 * 60 * 1000)
