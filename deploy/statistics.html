@@ -5163,12 +5163,12 @@
     <button class="calc-btn op" onclick="calcInput(')')">)</button>
     <button class="calc-btn fn" onclick="calcFn('fact')">n!</button>
     <button class="calc-btn op" onclick="calcInput('÷')">÷</button>
-    <button class="calc-btn fn" onclick="calcFn('pow')">xʸ</button>
+    <button class="calc-btn fn" onclick="calcFn('pow')">x<sup>y</sup></button>
     <button class="calc-btn" onclick="calcInput('7')">7</button>
     <button class="calc-btn" onclick="calcInput('8')">8</button>
     <button class="calc-btn" onclick="calcInput('9')">9</button>
     <button class="calc-btn op" onclick="calcInput('×')">×</button>
-    <button class="calc-btn fn" onclick="calcFn('10pow')">10ˣ</button>
+    <button class="calc-btn fn" onclick="calcFn('10pow')">10<sup>x</sup></button>
     <button class="calc-btn" onclick="calcInput('4')">4</button>
     <button class="calc-btn" onclick="calcInput('5')">5</button>
     <button class="calc-btn" onclick="calcInput('6')">6</button>
@@ -5257,7 +5257,7 @@
   <p class="goal">2의 8승</p>
   <ol class="step-list">
     <li><span class="key-badge">2</span> 입력</li>
-    <li><span class="key-badge fn-key">xʸ</span> 누르기</li>
+    <li><span class="key-badge fn-key">x<sup>y</sup></span> 누르기</li>
     <li><span class="key-badge">8</span> 입력</li>
     <li><span class="key-badge op-key">=</span> 누르기</li>
   </ol>
@@ -5328,7 +5328,7 @@
   <p class="goal">10⁴ = ?</p>
   <ol class="step-list">
     <li><span class="key-badge">4</span> 입력</li>
-    <li><span class="key-badge fn-key">10ˣ</span> 누르기</li>
+    <li><span class="key-badge fn-key">10<sup>x</sup></span> 누르기</li>
   </ol>
   <div class="guide-result">결과: 10000</div>
   <button class="try-btn" onclick="runDemo(['4','10pow'])">따라해 보기</button>
@@ -5340,8 +5340,8 @@
   <p style="color:#888; font-size:13px; margin-bottom:12px;">이항분포 공식을 단계별로 계산합니다.</p>
   <ol class="step-list">
     <li>₅C₂: <span class="key-badge">5</span> <span class="key-badge op-key">×</span> <span class="key-badge">4</span> <span class="key-badge op-key">÷</span> <span class="key-badge">(</span><span class="key-badge">2</span> <span class="key-badge fn-key">n!</span><span class="key-badge">)</span> → <strong>10</strong></li>
-    <li><span class="key-badge op-key">×</span> <span class="key-badge">0</span><span class="key-badge">.</span><span class="key-badge">3</span> <span class="key-badge fn-key">xʸ</span> <span class="key-badge">2</span></li>
-    <li><span class="key-badge op-key">×</span> <span class="key-badge">0</span><span class="key-badge">.</span><span class="key-badge">7</span> <span class="key-badge fn-key">xʸ</span> <span class="key-badge">3</span></li>
+    <li><span class="key-badge op-key">×</span> <span class="key-badge">0</span><span class="key-badge">.</span><span class="key-badge">3</span> <span class="key-badge fn-key">x<sup>y</sup></span> <span class="key-badge">2</span></li>
+    <li><span class="key-badge op-key">×</span> <span class="key-badge">0</span><span class="key-badge">.</span><span class="key-badge">7</span> <span class="key-badge fn-key">x<sup>y</sup></span> <span class="key-badge">3</span></li>
     <li><span class="key-badge op-key">=</span></li>
   </ol>
   <div class="guide-result">결과: 0.3087</div>
@@ -5696,7 +5696,11 @@ function runDemo(steps) {
         (step === 'sqrt' && txt === '²√x') ||
         (step === 'sq' && txt === 'x²') ||
         (step === 'fact' && txt === 'n!') ||
-        (step === 'pow' && txt === 'xʸ') ||
+        (step === 'pow' && txt === 'xy') ||
+        (step === '10pow' && txt === '10x') ||
+        (step === 'inv' && txt === '⅟x') ||
+        (step === 'log' && txt === 'log') ||
+        (step === 'ln' && txt === 'ln') ||
         (step === '=' && txt === '=') ||
         (step === '-' && txt === '−')
       );
