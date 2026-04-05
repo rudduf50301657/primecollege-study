@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #0f0f1a;
+    color: #e0e0e0;
+    min-height: 100vh;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+  .sub { color: #555; font-size: 13px; margin-bottom: 40px; }
+  .cards { display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 600px; }
+  .card {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    border-radius: 16px;
+    padding: 24px;
+  }
+  .card h2 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h2 .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot-all { background: #8b5cf6; }
+  .dot-home { background: #06b6d4; }
+  .dot-stat { background: #22c55e; }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .stat-box {
+    background: #12121f;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .stat-box .label {
+    font-size: 11px;
+    color: #666;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+  }
+  .stat-box .value {
+    font-size: 28px;
+    font-weight: 900;
+    color: #fff;
+  }
+  .stat-box .unit {
+    font-size: 13px;
+    color: #888;
+    font-weight: 400;
+  }
+  .loading { color: #555; font-size: 14px; text-align: center; padding: 40px; }
+  .refresh-btn {
+    margin-top: 24px;
+    padding: 10px 24px;
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    border-radius: 10px;
+    color: #888;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    transition: all 0.2s;
+  }
+  .refresh-btn:hover { border-color: #8b5cf6; color: #c4b5fd; }
+  .updated { color: #444; font-size: 11px; margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<h1>Dashboard</h1>
+<p class="sub" id="date"></p>
+
+<div class="cards" id="cards">
+  <p class="loading">Loading...</p>
+</div>
+
+<button class="refresh-btn" onclick="loadStats()">Refresh</button>
+<p class="updated" id="updated"></p>
+
+<script>
+function renderCard(title, dotClass, data) {
+  return `
+    <div class="card">
+      <h2><span class="dot ${dotClass}"></span>${title}</h2>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="label">TODAY VISITORS</div>
+          <div class="value">${data.visitors}<span class="unit"> 명</span></div>
+        </div>
+        <div class="stat-box">
+          <div class="label">TODAY VIEWS</div>
+          <div class="value">${data.views}<span class="unit"> 회</span></div>
+        </div>
+        <div class="stat-box">
+          <div class="label">TOTAL VISITORS</div>
+          <div class="value">${data.totalVisitors}<span class="unit"> 명</span></div>
+        </div>
+        <div class="stat-box">
+          <div class="label">TOTAL VIEWS</div>
+          <div class="value">${data.totalViews}<span class="unit"> 회</span></div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function loadStats() {
+  fetch('/api/stats')
+    .then(r => r.json())
+    .then(d => {
+      document.getElementById('date').textContent = d.today;
+      let html = renderCard('All', 'dot-all', d);
+      if (d.pages.home) html += renderCard('Home', 'dot-home', d.pages.home);
+      if (d.pages.statistics) html += renderCard('Statistics', 'dot-stat', d.pages.statistics);
+      document.getElementById('cards').innerHTML = html;
+      const now = new Date().toLocaleTimeString('ko-KR');
+      document.getElementById('updated').textContent = 'Updated ' + now;
+    })
+    .catch(() => {
+      document.getElementById('cards').innerHTML = '<p class="loading">Failed to load</p>';
+    });
+}
+
+loadStats();
+</script>
+
+</body>
+</html>
