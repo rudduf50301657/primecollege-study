@@ -5764,19 +5764,19 @@
     <ul class="quiz-options" data-answer="3">
       <li data-label="A" onclick="selectOption(this)">계산을 더 간편하게 하기 위해</li>
       <li data-label="B" onclick="selectOption(this)">표본이 모집단보다 항상 크기 때문</li>
-      <li data-label="C" onclick="selectOption(this)">불편추정(unbiased estimation)을 위해 — n으로 나누면 분산이 과소추정됨</li>
+      <li data-label="C" onclick="selectOption(this)">표본이 모집단보다 작아서 보정이 필요하기 때문 — n으로 나누면 분산이 과소추정됨</li>
       <li data-label="D" onclick="selectOption(this)">자유도를 n+1로 맞추기 위해</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(14)">힌트 보기</button>
-    <div class="quiz-hint" id="q14-hint">표본분산에서 나누는 수에 주목하세요. n-1로 나누는 것은 불편추정과 관련됩니다.</div>
+    <div class="quiz-hint" id="q14-hint">표본분산에서 나누는 수에 주목하세요. 표본은 모집단의 일부이므로 보정이 필요합니다.</div>
     <button class="quiz-submit" onclick="submitMC(14)">답 제출하기</button>
     <div class="quiz-result" id="q14-result"></div>
     <div class="quiz-explanation" id="q14-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 불편추정과 자유도</strong><br><br>
+      <strong>핵심 개념: 표본분산의 보정과 자유도</strong><br><br>
       <strong>표본분산</strong>을 n이 아닌 <strong>(n-1)</strong>로 나누는 이유:<br><br>
       ① 표본은 모집단의 일부이므로, n으로 나누면 분산이 <strong>과소추정</strong>됨<br>
-      ② (n-1)로 나누면 모분산에 더 가까운 <strong>불편추정값(unbiased estimate)</strong>을 얻음<br>
+      ② 표본이 모집단보다 작아서 보정이 필요하며, (n-1)로 나누면 모분산에 더 가까운 값을 얻음<br>
       ③ (n-1)은 <strong>자유도(degrees of freedom)</strong>라고 하며, 표본평균을 하나 고정하면 나머지 n-1개만 자유롭게 변할 수 있기 때문<br><br>
       💡 <strong>주의:</strong> 모분산(σ²)은 N으로 나누고, 표본분산(s²)은 (n-1)로 나눕니다.
     </div>
@@ -7092,25 +7092,23 @@
 <div class="quiz-card" id="q102">
   <div class="quiz-card-header"><div class="quiz-num q-obj">12</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">어떤 질병의 유병률이 1%이다. 검사의 민감도(양성일 때 양성 판정)는 99%, 특이도(음성일 때 음성 판정)는 95%일 때, 양성 판정을 받은 사람이 실제로 질병이 있을 확률(양성예측도)은 약?</div>
-    <ul class="quiz-options" data-answer="3">
-      <li data-label="A" onclick="selectOption(this)">약 99%</li>
-      <li data-label="B" onclick="selectOption(this)">약 50%</li>
-      <li data-label="C" onclick="selectOption(this)">약 17%</li>
-      <li data-label="D" onclick="selectOption(this)">약 1%</li>
+    <div class="quiz-question">P(A|B) = 0.6, P(B) = 0.5일 때, P(A∩B)는?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">0.1</li>
+      <li data-label="B" onclick="selectOption(this)">0.3</li>
+      <li data-label="C" onclick="selectOption(this)">0.5</li>
+      <li data-label="D" onclick="selectOption(this)">1.1</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(102)">힌트 보기</button>
-    <div class="quiz-hint" id="q102-hint">베이즈 정리를 사용합니다. 먼저 P(양성) = P(양성|질병)P(질병) + P(양성|정상)P(정상)을 구하세요.</div>
+    <div class="quiz-hint" id="q102-hint">곱셈법칙: P(A∩B) = P(A|B) × P(B)를 적용하세요.</div>
     <button class="quiz-submit" onclick="submitMC(102)">답 제출하기</button>
     <div class="quiz-result" id="q102-result"></div>
     <div class="quiz-explanation" id="q102-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 베이즈 정리와 양성예측도</strong><br><br>
-      <strong>베이즈 정리:</strong> P(질병|양성) = P(양성|질병)×P(질병) / P(양성)<br><br>
-      P(양성) = P(양성|질병)×P(질병) + P(양성|정상)×P(정상)<br>
-      = 0.99×0.01 + 0.05×0.99 = 0.0099 + 0.0495 = 0.0594<br><br>
-      P(질병|양성) = 0.0099/0.0594 ≈ <strong>0.167 (약 17%)</strong><br><br>
-      💡 <strong>핵심 교훈:</strong> 유병률이 낮으면 양성 판정을 받아도 실제 질병일 확률이 생각보다 낮습니다.
+      <strong>핵심 개념: 조건부확률과 곱셈법칙</strong><br><br>
+      <strong>곱셈법칙:</strong> P(A∩B) = P(A|B) × P(B)<br><br>
+      P(A∩B) = 0.6 × 0.5 = <strong>0.3</strong><br><br>
+      💡 <strong>핵심:</strong> 조건부확률의 정의 P(A|B) = P(A∩B)/P(B)를 변형하면 곱셈법칙 P(A∩B) = P(A|B) × P(B)가 됩니다.
     </div>
   </div>
 </div>
@@ -7168,25 +7166,25 @@
 <div class="quiz-card" id="q105">
   <div class="quiz-card-header"><div class="quiz-num q-obj">15</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">공장 A에서 전체 제품의 60%를, 공장 B에서 40%를 생산한다. 불량률은 A가 2%, B가 5%일 때, 임의의 제품이 불량일 확률은?</div>
-    <ul class="quiz-options" data-answer="2">
-      <li data-label="A" onclick="selectOption(this)">0.035</li>
-      <li data-label="B" onclick="selectOption(this)">0.032</li>
-      <li data-label="C" onclick="selectOption(this)">0.07</li>
-      <li data-label="D" onclick="selectOption(this)">0.02</li>
+    <div class="quiz-question">주머니에 빨간 공 3개, 파란 공 7개가 있다. 2개를 비복원추출할 때, 첫째가 빨강이고 둘째도 빨강일 확률은?</div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">1/15</li>
+      <li data-label="B" onclick="selectOption(this)">2/15</li>
+      <li data-label="C" onclick="selectOption(this)">3/10</li>
+      <li data-label="D" onclick="selectOption(this)">9/100</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(105)">힌트 보기</button>
-    <div class="quiz-hint" id="q105-hint">전확률법칙: P(불량) = P(불량|A)×P(A) + P(불량|B)×P(B)를 적용하세요.</div>
+    <div class="quiz-hint" id="q105-hint">곱셈법칙을 사용하세요. 비복원추출이므로 두 번째 추출 시 전체 개수와 빨간 공 개수가 변합니다.</div>
     <button class="quiz-submit" onclick="submitMC(105)">답 제출하기</button>
     <div class="quiz-result" id="q105-result"></div>
     <div class="quiz-explanation" id="q105-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 전확률법칙(Law of Total Probability)</strong><br><br>
-      P(불량) = P(불량|A)×P(A) + P(불량|B)×P(B)<br>
-      = 0.02×0.6 + 0.05×0.4<br>
-      = 0.012 + 0.020 = <strong>0.032</strong><br><br>
-      전체 불량률은 각 공장의 불량률을 <strong>생산 비율로 가중평균</strong>한 것입니다.<br><br>
-      💡 <strong>Tip:</strong> 전확률법칙은 베이즈 정리의 분모를 구하는 데도 사용됩니다.
+      <strong>핵심 개념: 곱셈법칙과 비복원추출</strong><br><br>
+      곱셈법칙: P(R₁∩R₂) = P(R₁) × P(R₂|R₁)<br><br>
+      P(R₁) = 3/10 (빨간 공 3개 / 전체 10개)<br>
+      P(R₂|R₁) = 2/9 (빨간 공 2개 남음 / 전체 9개 남음)<br><br>
+      P(R₁∩R₂) = 3/10 × 2/9 = 6/90 = <strong>1/15</strong><br><br>
+      💡 <strong>주의:</strong> 9/100은 복원추출일 때의 값 (3/10)²입니다. 비복원추출에서는 조건부확률이 변합니다.
     </div>
   </div>
 </div>
@@ -7741,24 +7739,23 @@
 <div class="quiz-card" id="q116">
   <div class="quiz-card-header"><div class="quiz-num q-obj">16</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">두 확률변수 X, Y가 <strong>독립</strong>일 때, Cov(X, Y)의 값은?</div>
+    <div class="quiz-question">Var(X) = 9일 때, 표준편차 SD(X)는?</div>
     <ul class="quiz-options" data-answer="1">
-      <li data-label="A" onclick="selectOption(this)">0</li>
-      <li data-label="B" onclick="selectOption(this)">1</li>
-      <li data-label="C" onclick="selectOption(this)">−1</li>
-      <li data-label="D" onclick="selectOption(this)">알 수 없다</li>
+      <li data-label="A" onclick="selectOption(this)">3</li>
+      <li data-label="B" onclick="selectOption(this)">9</li>
+      <li data-label="C" onclick="selectOption(this)">81</li>
+      <li data-label="D" onclick="selectOption(this)">4.5</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(116)">힌트 보기</button>
-    <div class="quiz-hint" id="q116-hint">독립인 두 확률변수의 공분산은 항상 0입니다. 하지만 역은 성립하지 않습니다.</div>
+    <div class="quiz-hint" id="q116-hint">표준편차는 분산의 제곱근입니다. SD(X) = √Var(X)를 적용하세요.</div>
     <button class="quiz-submit" onclick="submitMC(116)">답 제출하기</button>
     <div class="quiz-result" id="q116-result"></div>
     <div class="quiz-explanation" id="q116-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 독립과 공분산의 관계</strong><br><br>
-      Cov(X,Y) = E(XY) − E(X)E(Y)<br><br>
-      X, Y가 <strong>독립</strong>이면 E(XY) = E(X)E(Y)이므로:<br>
-      Cov(X,Y) = <strong>0</strong><br><br>
-      💡 <strong>중요한 주의점:</strong> "독립 → Cov=0"은 성립하지만, "Cov=0 → 독립"은 <strong>성립하지 않습니다</strong>(역이 안 됨). 비선형 관계가 있을 수 있습니다.
+      <strong>핵심 개념: 분산과 표준편차의 관계</strong><br><br>
+      <strong>표준편차</strong>는 분산의 양의 제곱근입니다.<br><br>
+      SD(X) = √Var(X) = √9 = <strong>3</strong><br><br>
+      💡 <strong>핵심:</strong> 분산은 편차 제곱의 평균이므로 단위가 원래 데이터의 제곱입니다. 표준편차는 제곱근을 취해 원래 데이터와 같은 단위로 만든 것입니다.
     </div>
   </div>
 </div>
@@ -7855,8 +7852,8 @@
     <div class="quiz-explanation" id="q120-explain">
       <div class="quiz-explain-label">해설</div>
       <strong>핵심 개념: Var(X+Y)의 조건</strong><br><br>
-      <strong>Var(X+Y) = Var(X) + Var(Y)</strong>는 X와 Y가 <strong>독립일 때만</strong> 성립합니다.<br><br>
-      일반 공식: Var(X+Y) = Var(X) + Var(Y) + <strong>2Cov(X,Y)</strong><br><br>
+      <strong>Var(X+Y) = Var(X) + Var(Y)</strong>는 X와 Y가 <strong>독립일 때만</strong> 성립합니다.<br>
+      독립이 아닌 경우에는 이 공식이 성립하지 않으므로 "항상 성립"은 틀린 설명입니다.<br><br>
       올바른 성질들:<br>
       ✓ Var(X) ≥ 0 (항상 0 이상)<br>
       ✓ Var(c) = 0 (상수의 분산)<br>
@@ -8630,8 +8627,8 @@
     <div class="quiz-question"><strong>F-분포</strong>가 주로 사용되는 상황은?</div>
     <ul class="quiz-options" data-answer="2">
       <li data-label="A" onclick="selectOption(this)">모평균의 구간 추정</li>
-      <li data-label="B" onclick="selectOption(this)">두 모집단의 분산 비교(분산분석, ANOVA)</li>
-      <li data-label="C" onclick="selectOption(this)">모비율의 추정</li>
+      <li data-label="B" onclick="selectOption(this)">두 모집단의 분산 비교</li>
+      <li data-label="C" onclick="selectOption(this)">모평균의 추정</li>
       <li data-label="D" onclick="selectOption(this)">단일 표본의 중앙값 추론</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(69)">힌트 보기</button>
@@ -8642,10 +8639,8 @@
       <div class="quiz-explain-label">해설</div>
       <strong>핵심 개념: F-분포의 용도</strong><br><br>
       <strong>F-분포</strong>는 두 카이제곱분포의 비로 정의됩니다.<br><br>
-      주요 용도:<br>
-      ① 두 모집단의 <strong>분산 비교</strong>: F = S₁²/S₂²<br>
-      ② <strong>분산분석(ANOVA)</strong>: 여러 그룹의 평균 비교<br>
-      ③ <strong>회귀분석</strong>의 유의성 판단<br><br>
+      주요 용도: 두 모집단의 <strong>분산 비교</strong>에 사용됩니다.<br>
+      F = S₁²/S₂² (두 표본분산의 비)<br><br>
       💡 <strong>특징:</strong> F-분포는 항상 0 이상이고, 오른쪽으로 치우친 비대칭 분포입니다.
     </div>
   </div>
