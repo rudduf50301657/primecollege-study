@@ -236,6 +236,9 @@ function renderBanner(data) {
         <button class="banner-send" onclick="sendBanner()">전송</button>
         <button class="banner-clear" onclick="clearBanner()">해제</button>
       </div>
+      <label style="display:flex; align-items:center; gap:6px; margin-bottom:14px; font-size:12px; color:#888; cursor:pointer;">
+        <input type="checkbox" id="showRefresh" style="accent-color:#8b5cf6;"> 새로고침 버튼 포함
+      </label>
       ${currentHtml}
       <div class="history-title">HISTORY</div>
       ${historyHtml}
@@ -269,10 +272,11 @@ function loadAll() {
 function sendBanner() {
   const msg = document.getElementById('bannerMsg').value.trim();
   if (!msg) return;
+  const showRefresh = document.getElementById('showRefresh').checked;
   fetch('/api/banner', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ message: msg }),
+    body: JSON.stringify({ message: msg, showRefresh }),
   }).then(() => loadAll());
 }
 

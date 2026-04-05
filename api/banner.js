@@ -36,14 +36,14 @@ export default async function handler(req, res) {
 
     // POST: 배너 설정
     if (req.method === 'POST') {
-      const { message } = req.body || {}
+      const { message, showRefresh } = req.body || {}
       if (!message) return res.status(400).json({ error: 'message required' })
 
       const now = new Date(Date.now() + 9 * 60 * 60 * 1000)
       const timestamp = now.toISOString().slice(0, 19).replace('T', ' ')
 
       // 현재 배너 설정
-      await db.hset('banner:current', 'message', message, 'timestamp', timestamp)
+      await db.hset('banner:current', 'message', message, 'timestamp', timestamp, 'showRefresh', showRefresh ? '1' : '0')
 
       // 이력에 추가 (최대 20개 유지)
       await db.lpush('banner:history', JSON.stringify({ message, timestamp }))

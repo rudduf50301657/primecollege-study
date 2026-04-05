@@ -1348,7 +1348,7 @@
 
 <div class="update-banner" id="updateBanner">
   <span id="bannerText"></span>
-  <button class="refresh-link" onclick="location.reload()">새로고침</button>
+  <button class="refresh-link" id="bannerRefreshBtn" onclick="location.reload()" style="display:none">새로고침</button>
   <button class="close-banner" onclick="document.getElementById('updateBanner').style.display='none'">&times;</button>
 </div>
 
@@ -5785,7 +5785,7 @@
       <li data-label="A" onclick="selectOption(this)">평균이 데이터의 중심을 잘 나타내고 있다</li>
       <li data-label="B" onclick="selectOption(this)">분산을 (n)으로 나누어야 한다</li>
       <li data-label="C" onclick="selectOption(this)">데이터를 더 많이 모으면 해결된다</li>
-      <li data-label="D" onclick="selectOption(this)">특이점(100) 때문에 평균이 왜곡되었으므로 중앙값이 더 적절하다</li>
+      <li data-label="D" onclick="selectOption(this)">특이점(100) 때문에 평균이 왜곡되었으므로 다른 대표값을 사용하는 것이 적절하다</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(13)">힌트 보기</button>
     <div class="quiz-hint" id="q13-hint">특이점이 있으면 평균이 왜곡됩니다. 이런 경우 어떤 대표값이 더 적절할까요?</div>
@@ -6007,26 +6007,23 @@
 <div class="quiz-card" id="q81">
   <div class="quiz-card-header"><div class="quiz-num q-obj">11</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">어떤 히스토그램에서 오른쪽으로 긴 꼬리가 관찰되었다. 이 분포에서 평균, 중앙값, 최빈값의 대소 관계로 올바른 것은?</div>
-    <ul class="quiz-options" data-answer="3">
-      <li data-label="A" onclick="selectOption(this)">평균 < 중앙값 < 최빈값</li>
-      <li data-label="B" onclick="selectOption(this)">평균 = 중앙값 = 최빈값</li>
-      <li data-label="C" onclick="selectOption(this)">최빈값 < 중앙값 < 평균</li>
-      <li data-label="D" onclick="selectOption(this)">중앙값 < 최빈값 < 평균</li>
+    <div class="quiz-question">다음 중 평균이 특이점에 민감한 이유로 가장 적절한 것은?</div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">평균은 모든 관찰값을 사용하여 계산하기 때문</li>
+      <li data-label="B" onclick="selectOption(this)">평균은 가운데 값만 사용하기 때문</li>
+      <li data-label="C" onclick="selectOption(this)">평균은 가장 많이 나온 값이기 때문</li>
+      <li data-label="D" onclick="selectOption(this)">평균은 최댓값과 최솟값만 사용하기 때문</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(81)">힌트 보기</button>
-    <div class="quiz-hint" id="q81-hint">오른쪽 꼬리 분포에서는 큰 극단값이 평균을 오른쪽으로 끌어당깁니다.</div>
+    <div class="quiz-hint" id="q81-hint">평균의 계산 공식을 떠올려 보세요. 어떤 값들이 계산에 포함되나요?</div>
     <button class="quiz-submit" onclick="submitMC(81)">답 제출하기</button>
     <div class="quiz-result" id="q81-result"></div>
     <div class="quiz-explanation" id="q81-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 비대칭 분포에서의 평균·중앙값·최빈값 관계</strong><br><br>
-      <strong>오른쪽 꼬리 분포(양의 왜도)</strong>에서는:<br>
-      - 극단적으로 큰 값들이 <strong>평균</strong>을 오른쪽으로 끌어당김<br>
-      - <strong>최빈값 < 중앙값 < 평균</strong> 순서가 됨<br><br>
-      반대로 <strong>왼쪽 꼬리 분포</strong>에서는: 평균 < 중앙값 < 최빈값<br>
-      <strong>대칭 분포</strong>에서는: 평균 ≈ 중앙값 ≈ 최빈값<br><br>
-      💡 <strong>기억법:</strong> 평균은 항상 <strong>긴 꼬리 방향</strong>으로 끌려갑니다.
+      <strong>핵심 개념: 평균의 특이점 민감성</strong><br><br>
+      평균 = (모든 관찰값의 합) / n<br><br>
+      평균은 <strong>모든 관찰값</strong>을 사용하여 계산하므로, 극단적으로 크거나 작은 값(특이점)이 있으면 평균이 크게 영향을 받습니다.<br><br>
+      B는 중앙값, C는 최빈값에 대한 설명이고, D는 범위(range)에 대한 설명입니다.
     </div>
   </div>
 </div>
@@ -6198,25 +6195,24 @@
 <div class="quiz-card" id="q88">
   <div class="quiz-card-header"><div class="quiz-num q-obj">18</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">히스토그램의 왼쪽에 긴 꼬리가 있는 분포를 무엇이라 하며, 이 분포의 왜도(skewness)는?</div>
+    <div class="quiz-question">히스토그램에서 데이터가 왼쪽에 몰려 있고 오른쪽으로 긴 꼬리가 있다면, 이 분포의 모양은?</div>
     <ul class="quiz-options" data-answer="2">
-      <li data-label="A" onclick="selectOption(this)">오른쪽 꼬리 분포, 왜도 > 0</li>
-      <li data-label="B" onclick="selectOption(this)">왼쪽 꼬리 분포, 왜도 < 0</li>
-      <li data-label="C" onclick="selectOption(this)">왼쪽 꼬리 분포, 왜도 > 0</li>
-      <li data-label="D" onclick="selectOption(this)">대칭 분포, 왜도 = 0</li>
+      <li data-label="A" onclick="selectOption(this)">왼쪽 꼬리(left-skewed)</li>
+      <li data-label="B" onclick="selectOption(this)">오른쪽 꼬리(right-skewed)</li>
+      <li data-label="C" onclick="selectOption(this)">종모양(bell-shaped)</li>
+      <li data-label="D" onclick="selectOption(this)">균등분포(uniform)</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(88)">힌트 보기</button>
-    <div class="quiz-hint" id="q88-hint">분포의 이름과 왜도의 부호는 '긴 꼬리의 방향'과 같습니다.</div>
+    <div class="quiz-hint" id="q88-hint">분포의 이름은 '긴 꼬리의 방향'으로 정해집니다.</div>
     <button class="quiz-submit" onclick="submitMC(88)">답 제출하기</button>
     <div class="quiz-result" id="q88-result"></div>
     <div class="quiz-explanation" id="q88-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 왜도(skewness)와 분포 이름</strong><br><br>
-      <strong>왜도의 부호</strong> = <strong>긴 꼬리의 방향</strong><br><br>
-      - 왼쪽 긴 꼬리 → <strong>왼쪽 꼬리 분포(left-skewed)</strong> → 왜도 < 0 (음의 왜도)<br>
-      - 오른쪽 긴 꼬리 → 오른쪽 꼬리 분포(right-skewed) → 왜도 > 0 (양의 왜도)<br>
-      - 대칭 → 왜도 = 0<br><br>
-      💡 <strong>예시:</strong> 왼쪽 꼬리 분포의 대표적 예 = 쉬운 시험의 점수 분포 (대부분 높은 점수, 일부만 낮은 점수)
+      <strong>핵심 개념: 분포의 모양과 꼬리 방향</strong><br><br>
+      꼬리가 긴 방향이 분포의 이름이 됩니다.<br><br>
+      오른쪽으로 꼬리가 길면 → <strong>오른쪽 꼬리 분포(right-skewed)</strong><br>
+      왼쪽으로 꼬리가 길면 → 왼쪽 꼬리 분포(left-skewed)<br>
+      좌우 대칭이면 → 종모양(bell-shaped) 분포
     </div>
   </div>
 </div>
@@ -6612,27 +6608,23 @@
 <div class="quiz-card" id="q92">
   <div class="quiz-card-header"><div class="quiz-num q-obj">12</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">다섯수치요약이 Q1=20, Q3=40일 때, <strong>1.5×IQR 규칙</strong>으로 특이점을 판별하면 다음 중 특이점은?</div>
-    <ul class="quiz-options" data-answer="4">
-      <li data-label="A" onclick="selectOption(this)">15</li>
-      <li data-label="B" onclick="selectOption(this)">45</li>
-      <li data-label="C" onclick="selectOption(this)">60</li>
-      <li data-label="D" onclick="selectOption(this)">75</li>
+    <div class="quiz-question">다섯수치요약이 최솟값=5, Q1=15, 중앙값=25, Q3=35, 최댓값=45일 때, 범위와 IQR은 각각?</div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">범위=40, IQR=20</li>
+      <li data-label="B" onclick="selectOption(this)">범위=20, IQR=40</li>
+      <li data-label="C" onclick="selectOption(this)">범위=40, IQR=10</li>
+      <li data-label="D" onclick="selectOption(this)">범위=45, IQR=35</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(92)">힌트 보기</button>
-    <div class="quiz-hint" id="q92-hint">1.5×IQR 규칙: 하한 = Q1 − 1.5×IQR, 상한 = Q3 + 1.5×IQR 바깥이면 특이점입니다.</div>
+    <div class="quiz-hint" id="q92-hint">범위 = 최댓값 − 최솟값, IQR = Q3 − Q1입니다.</div>
     <button class="quiz-submit" onclick="submitMC(92)">답 제출하기</button>
     <div class="quiz-result" id="q92-result"></div>
     <div class="quiz-explanation" id="q92-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 1.5×IQR 규칙으로 특이점 판별</strong><br><br>
-      IQR = Q3 − Q1 = 40 − 20 = <strong>20</strong><br>
-      1.5 × IQR = <strong>30</strong><br><br>
-      하한 울타리: Q1 − 30 = 20 − 30 = <strong>−10</strong><br>
-      상한 울타리: Q3 + 30 = 40 + 30 = <strong>70</strong><br><br>
-      −10 미만이거나 70 초과인 값이 특이점:<br>
-      - 15 (범위 안) ✗ | 45 (범위 안) ✗ | 60 (범위 안) ✗<br>
-      - <strong>75 > 70 → 특이점</strong> ✓
+      <strong>핵심 개념: 범위와 사분위수범위(IQR)</strong><br><br>
+      범위(Range) = 최댓값 − 최솟값 = 45 − 5 = <strong>40</strong><br>
+      IQR = Q3 − Q1 = 35 − 15 = <strong>20</strong><br><br>
+      범위는 전체 데이터의 퍼짐을, IQR은 가운데 50% 데이터의 퍼짐을 나타냅니다.
     </div>
   </div>
 </div>
@@ -7740,23 +7732,23 @@
 <div class="quiz-card" id="q114">
   <div class="quiz-card-header"><div class="quiz-num q-obj">14</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">X ~ N(60, 100)이고 Z = 1.5일 때, 원래 X값은? (σ² = 100이므로 σ = 10)</div>
-    <ul class="quiz-options" data-answer="2">
-      <li data-label="A" onclick="selectOption(this)">70</li>
-      <li data-label="B" onclick="selectOption(this)">75</li>
-      <li data-label="C" onclick="selectOption(this)">80</li>
-      <li data-label="D" onclick="selectOption(this)">90</li>
+    <div class="quiz-question">확률변수 X의 평균이 60, 표준편차가 10일 때, X=80의 표준화 값 Z는?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">0.5</li>
+      <li data-label="B" onclick="selectOption(this)">1.0</li>
+      <li data-label="C" onclick="selectOption(this)">2.0</li>
+      <li data-label="D" onclick="selectOption(this)">8.0</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(114)">힌트 보기</button>
-    <div class="quiz-hint" id="q114-hint">Z = (X − μ)/σ를 X에 대해 풀면 X = μ + Z × σ가 됩니다.</div>
+    <div class="quiz-hint" id="q114-hint">표준화 공식 Z = (X − μ) / σ를 적용하세요.</div>
     <button class="quiz-submit" onclick="submitMC(114)">답 제출하기</button>
     <div class="quiz-result" id="q114-result"></div>
     <div class="quiz-explanation" id="q114-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 표준화의 역변환</strong><br><br>
-      Z = (X − μ)/σ를 X에 대해 풀면:<br>
-      <strong>X = μ + Z × σ</strong> = 60 + 1.5 × 10 = 60 + 15 = <strong>75</strong><br><br>
-      💡 <strong>해석:</strong> Z = 1.5이므로 평균(60)에서 표준편차(10) 1.5개만큼 위에 있는 값입니다.
+      <strong>핵심 개념: 표준화(Z값) 계산</strong><br><br>
+      Z = (X − μ) / σ = (80 − 60) / 10 = <strong>2.0</strong><br><br>
+      표준화란 평균에서 몇 표준편차만큼 떨어져 있는지를 나타냅니다.<br>
+      Z = 2.0이므로 평균(60)에서 표준편차(10) 2개만큼 위에 있는 값입니다.
     </div>
   </div>
 </div>
@@ -7888,26 +7880,24 @@
 <div class="quiz-card" id="q120">
   <div class="quiz-card-header"><div class="quiz-num q-obj">20</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">Var(X)에 대한 성질로 <strong>틀린</strong> 것은?</div>
-    <ul class="quiz-options" data-answer="4">
-      <li data-label="A" onclick="selectOption(this)">Var(X) ≥ 0 (항상 0 이상)</li>
-      <li data-label="B" onclick="selectOption(this)">Var(c) = 0 (c는 상수)</li>
-      <li data-label="C" onclick="selectOption(this)">Var(X) = E(X²) − [E(X)]²</li>
-      <li data-label="D" onclick="selectOption(this)">Var(X+Y) = Var(X) + Var(Y) (항상 성립)</li>
+    <div class="quiz-question">Var(X)=16일 때 SD(2X+3)은?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">7</li>
+      <li data-label="B" onclick="selectOption(this)">8</li>
+      <li data-label="C" onclick="selectOption(this)">11</li>
+      <li data-label="D" onclick="selectOption(this)">35</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(120)">힌트 보기</button>
-    <div class="quiz-hint" id="q120-hint">Var(X+Y) = Var(X) + Var(Y)는 X와 Y가 독립일 때만 성립합니다.</div>
+    <div class="quiz-hint" id="q120-hint">Var(aX+b) = a²Var(X)임을 이용하세요. 상수 b는 분산에 영향을 주지 않습니다.</div>
     <button class="quiz-submit" onclick="submitMC(120)">답 제출하기</button>
     <div class="quiz-result" id="q120-result"></div>
     <div class="quiz-explanation" id="q120-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: Var(X+Y)의 조건</strong><br><br>
-      <strong>Var(X+Y) = Var(X) + Var(Y)</strong>는 X와 Y가 <strong>독립일 때만</strong> 성립합니다.<br>
-      독립이 아닌 경우에는 이 공식이 성립하지 않으므로 "항상 성립"은 틀린 설명입니다.<br><br>
-      올바른 성질들:<br>
-      ✓ Var(X) ≥ 0 (항상 0 이상)<br>
-      ✓ Var(c) = 0 (상수의 분산)<br>
-      ✓ Var(X) = E(X²) − [E(X)]² (간편식)
+      <strong>핵심 개념: 분산과 표준편차의 선형변환</strong><br><br>
+      Var(2X+3) = 2² × Var(X) = 4 × 16 = <strong>64</strong><br>
+      SD(2X+3) = √64 = <strong>8</strong><br><br>
+      상수를 더하는 것(+3)은 분산에 영향을 주지 않고,<br>
+      상수를 곱하는 것(×2)은 분산에 제곱으로 영향을 줍니다.
     </div>
   </div>
 </div>
@@ -7976,26 +7966,25 @@
 <div class="quiz-card" id="q33">
   <div class="quiz-card-header"><div class="quiz-num q-obj">3</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">정규분포 N(100, 15²)에서 ±1σ 범위(85~115)에 포함되는 데이터의 비율은 약?</div>
+    <div class="quiz-question">정규분포 N(μ,σ²)에서 P(μ-1.96σ ≤ X ≤ μ+1.96σ)의 값은 약?</div>
     <ul class="quiz-options" data-answer="2">
-      <li data-label="A" onclick="selectOption(this)">50%</li>
-      <li data-label="B" onclick="selectOption(this)">68%</li>
-      <li data-label="C" onclick="selectOption(this)">95%</li>
+      <li data-label="A" onclick="selectOption(this)">90%</li>
+      <li data-label="B" onclick="selectOption(this)">95%</li>
+      <li data-label="C" onclick="selectOption(this)">99%</li>
       <li data-label="D" onclick="selectOption(this)">99.7%</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(33)">힌트 보기</button>
-    <div class="quiz-hint" id="q33-hint">정규분포의 68-95-99.7 법칙을 떠올려 보세요. ±1σ는 몇 %인가요?</div>
+    <div class="quiz-hint" id="q33-hint">표준정규분포표에서 Z=1.96일 때의 양쪽 면적을 떠올려 보세요.</div>
     <button class="quiz-submit" onclick="submitMC(33)">답 제출하기</button>
     <div class="quiz-result" id="q33-result"></div>
     <div class="quiz-explanation" id="q33-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 68-95-99.7 법칙</strong><br><br>
-      정규분포 N(μ, σ²)에서:<br>
-      - ±1σ 범위 → 약 <strong>68%</strong><br>
-      - ±2σ 범위 → 약 <strong>95%</strong><br>
-      - ±3σ 범위 → 약 <strong>99.7%</strong><br><br>
-      N(100, 15²): μ=100, σ=15<br>
-      85~115 = 100 ± 15 = μ ± 1σ → 약 <strong>68%</strong>
+      <strong>핵심 개념: 표준정규분포의 주요 Z값</strong><br><br>
+      표준정규분포표에서 Z=1.96일 때 양쪽 면적이 약 <strong>95%</strong>입니다.<br><br>
+      주요 Z값과 신뢰수준:<br>
+      - Z = 1.645 → 약 90%<br>
+      - Z = 1.96 → 약 <strong>95%</strong><br>
+      - Z = 2.575 → 약 99%
     </div>
   </div>
 </div>
@@ -8160,25 +8149,23 @@
 <div class="quiz-card" id="q65">
   <div class="quiz-card-header"><div class="quiz-num q-obj">10</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">이항분포를 <strong>포아송분포로 근사</strong>할 수 있는 조건은?</div>
-    <ul class="quiz-options" data-answer="3">
-      <li data-label="A" onclick="selectOption(this)">n이 작고 p가 클 때</li>
-      <li data-label="B" onclick="selectOption(this)">n과 p가 모두 클 때</li>
-      <li data-label="C" onclick="selectOption(this)">n이 크고 p가 매우 작을 때 (np = m이 적당한 크기)</li>
-      <li data-label="D" onclick="selectOption(this)">n이 작고 p = 0.5일 때</li>
+    <div class="quiz-question">초기하분포와 이항분포의 차이로 가장 적절한 것은?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">이항분포는 비복원추출, 초기하분포는 복원추출</li>
+      <li data-label="B" onclick="selectOption(this)">이항분포는 복원추출(독립), 초기하분포는 비복원추출</li>
+      <li data-label="C" onclick="selectOption(this)">둘 다 연속형 분포이다</li>
+      <li data-label="D" onclick="selectOption(this)">초기하분포는 시행 횟수가 무한이다</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(65)">힌트 보기</button>
-    <div class="quiz-hint" id="q65-hint">이항분포의 포아송 근사 조건: n이 크고 p가 매우 작을 때(np가 적당한 크기).</div>
+    <div class="quiz-hint" id="q65-hint">이항분포는 각 시행이 독립(복원추출)이고, 초기하분포는 비복원추출입니다.</div>
     <button class="quiz-submit" onclick="submitMC(65)">답 제출하기</button>
     <div class="quiz-result" id="q65-result"></div>
     <div class="quiz-explanation" id="q65-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 이항분포의 포아송 근사</strong><br><br>
-      조건: <strong>n이 크고 p가 매우 작을 때</strong> (보통 n ≥ 20, p ≤ 0.05)<br>
-      B(n, p) ≈ Poi(m), 여기서 m = np<br><br>
-      예: 불량품률(p=0.01)인 공장에서 100개를 검사할 때<br>
-      → B(100, 0.01) ≈ Poi(1)<br><br>
-      💡 <strong>Tip:</strong> "드문 사건"을 모델링할 때 포아송 근사가 유용합니다.
+      <strong>핵심 개념: 이항분포 vs 초기하분포</strong><br><br>
+      <strong>이항분포</strong>: 복원추출(독립 시행) → 각 시행의 성공 확률 p가 일정<br>
+      <strong>초기하분포</strong>: 비복원추출 → 시행마다 성공 확률이 변함<br><br>
+      둘 다 이산형 분포이며, 모집단이 충분히 크면 초기하분포는 이항분포로 근사할 수 있습니다.
     </div>
   </div>
 </div>
@@ -8238,25 +8225,23 @@
 <div class="quiz-card" id="q123">
   <div class="quiz-card-header"><div class="quiz-num q-obj">13</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">X ~ N(200, 25²)일 때, P(150 ≤ X ≤ 250)은 약?</div>
-    <ul class="quiz-options" data-answer="1">
-      <li data-label="A" onclick="selectOption(this)">약 95%</li>
-      <li data-label="B" onclick="selectOption(this)">약 68%</li>
-      <li data-label="C" onclick="selectOption(this)">약 99.7%</li>
-      <li data-label="D" onclick="selectOption(this)">약 50%</li>
+    <div class="quiz-question">X~N(100,25)일 때 P(X>105)를 구하기 위한 Z값은?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">0.5</li>
+      <li data-label="B" onclick="selectOption(this)">1.0</li>
+      <li data-label="C" onclick="selectOption(this)">2.0</li>
+      <li data-label="D" onclick="selectOption(this)">5.0</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(123)">힌트 보기</button>
-    <div class="quiz-hint" id="q123-hint">주어진 범위가 μ ± 몇 σ인지 계산해 보세요. 68-95-99.7 법칙을 적용합니다.</div>
+    <div class="quiz-hint" id="q123-hint">N(100,25)에서 σ²=25이므로 σ=5입니다. Z=(X-μ)/σ를 계산하세요.</div>
     <button class="quiz-submit" onclick="submitMC(123)">답 제출하기</button>
     <div class="quiz-result" id="q123-result"></div>
     <div class="quiz-explanation" id="q123-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 68-95-99.7 법칙 적용</strong><br><br>
-      X ~ N(200, 25²) → μ = 200, σ = 25<br><br>
-      150 = 200 − 2×25 = μ − 2σ<br>
-      250 = 200 + 2×25 = μ + 2σ<br><br>
-      P(μ−2σ ≤ X ≤ μ+2σ) ≈ <strong>95%</strong><br><br>
-      💡 <strong>기억법:</strong> ±1σ=68%, ±2σ=95%, ±3σ=99.7%
+      <strong>핵심 개념: 표준화 Z값 계산</strong><br><br>
+      X ~ N(100, 25) → μ = 100, σ² = 25, σ = 5<br><br>
+      Z = (X − μ) / σ = (105 − 100) / 5 = <strong>1</strong><br><br>
+      따라서 P(X > 105) = P(Z > 1)로 변환하여 표준정규분포표에서 확률을 구합니다.
     </div>
   </div>
 </div>
@@ -8346,26 +8331,26 @@
 <div class="quiz-card" id="q127">
   <div class="quiz-card-header"><div class="quiz-num q-obj">17</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">X ~ N(μ, σ²)일 때, P(X ≤ μ − σ)의 값은 약?</div>
+    <div class="quiz-question">표준정규분포에서 P(Z>1.645)는 약?</div>
     <ul class="quiz-options" data-answer="3">
-      <li data-label="A" onclick="selectOption(this)">0.50</li>
-      <li data-label="B" onclick="selectOption(this)">0.32</li>
-      <li data-label="C" onclick="selectOption(this)">0.16</li>
-      <li data-label="D" onclick="selectOption(this)">0.025</li>
+      <li data-label="A" onclick="selectOption(this)">0.01</li>
+      <li data-label="B" onclick="selectOption(this)">0.025</li>
+      <li data-label="C" onclick="selectOption(this)">0.05</li>
+      <li data-label="D" onclick="selectOption(this)">0.10</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(127)">힌트 보기</button>
-    <div class="quiz-hint" id="q127-hint">68-95-99.7 법칙에서 ±1σ 안에 68%가 있으면, 한쪽 꼬리는 얼마인지 계산해 보세요.</div>
+    <div class="quiz-hint" id="q127-hint">Z=1.645는 90% 신뢰구간에서 사용하는 값입니다. 상위 몇 %에 해당할까요?</div>
     <button class="quiz-submit" onclick="submitMC(127)">답 제출하기</button>
     <div class="quiz-result" id="q127-result"></div>
     <div class="quiz-explanation" id="q127-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 정규분포의 꼬리 확률</strong><br><br>
-      68-95-99.7 법칙에서:<br>
-      P(μ−σ ≤ X ≤ μ+σ) ≈ 0.68<br>
-      바깥 양쪽 꼬리의 합 = 1 − 0.68 = 0.32<br>
-      한쪽 꼬리 = 0.32/2 = <strong>0.16</strong><br><br>
-      즉, P(X ≤ μ−σ) ≈ 0.16, P(X ≥ μ+σ) ≈ 0.16<br><br>
-      💡 <strong>기억법:</strong> 대칭이므로 한쪽 꼬리 = (1 − 중앙 확률) / 2
+      <strong>핵심 개념: 표준정규분포의 주요 Z값</strong><br><br>
+      Z = 1.645는 상위 <strong>5%</strong> 지점입니다.<br>
+      즉, P(Z > 1.645) ≈ <strong>0.05</strong><br><br>
+      주요 Z값 정리:<br>
+      - Z = 1.645 → 상위 5% (양측 10%)<br>
+      - Z = 1.96 → 상위 2.5% (양측 5%)<br>
+      - Z = 2.575 → 상위 0.5% (양측 1%)
     </div>
   </div>
 </div>
@@ -8373,25 +8358,24 @@
 <div class="quiz-card" id="q128">
   <div class="quiz-card-header"><div class="quiz-num q-obj">18</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">X ~ N(100, 15²)일 때, 68-95-99.7 법칙을 이용하면 P(70 ≤ X ≤ 130)은 약?</div>
-    <ul class="quiz-options" data-answer="1">
-      <li data-label="A" onclick="selectOption(this)">약 95%</li>
-      <li data-label="B" onclick="selectOption(this)">약 68%</li>
-      <li data-label="C" onclick="selectOption(this)">약 99.7%</li>
-      <li data-label="D" onclick="selectOption(this)">약 50%</li>
+    <div class="quiz-question">X~N(50,16)에서 P(X&lt;46)은? (P(Z&lt;-1)=0.1587)</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">0.0228</li>
+      <li data-label="B" onclick="selectOption(this)">0.1587</li>
+      <li data-label="C" onclick="selectOption(this)">0.3413</li>
+      <li data-label="D" onclick="selectOption(this)">0.5000</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(128)">힌트 보기</button>
-    <div class="quiz-hint" id="q128-hint">70과 130이 μ에서 각각 몇 σ 떨어져 있는지 계산해 보세요.</div>
+    <div class="quiz-hint" id="q128-hint">σ²=16이므로 σ=4입니다. Z=(46-50)/4를 계산해 보세요.</div>
     <button class="quiz-submit" onclick="submitMC(128)">답 제출하기</button>
     <div class="quiz-result" id="q128-result"></div>
     <div class="quiz-explanation" id="q128-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 68-95-99.7 법칙 실전 적용</strong><br><br>
-      X ~ N(100, 15²) → μ = 100, σ = 15<br><br>
-      70 = 100 − 2×15 = μ − 2σ<br>
-      130 = 100 + 2×15 = μ + 2σ<br><br>
-      P(μ−2σ ≤ X ≤ μ+2σ) ≈ <strong>95%</strong><br><br>
-      💡 <strong>Tip:</strong> 먼저 주어진 값이 μ에서 몇 σ 떨어져 있는지 계산하면 법칙을 적용할 수 있습니다.
+      <strong>핵심 개념: 정규분포의 표준화와 확률 계산</strong><br><br>
+      X ~ N(50, 16) → μ = 50, σ² = 16, σ = 4<br><br>
+      Z = (46 − 50) / 4 = <strong>−1</strong><br><br>
+      P(X &lt; 46) = P(Z &lt; −1) = <strong>0.1587</strong><br><br>
+      표준화를 통해 어떤 정규분포든 표준정규분포표를 이용하여 확률을 구할 수 있습니다.
     </div>
   </div>
 </div>
@@ -8399,24 +8383,24 @@
 <div class="quiz-card" id="q129">
   <div class="quiz-card-header"><div class="quiz-num q-obj">19</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">표준정규분포 Z에 대해, P(−1 ≤ Z ≤ 1)과 P(Z > 0)의 값은 각각 약?</div>
+    <div class="quiz-question">표준정규분포에서 P(-1.96≤Z≤1.96)은 약?</div>
     <ul class="quiz-options" data-answer="2">
-      <li data-label="A" onclick="selectOption(this)">0.95, 0.50</li>
-      <li data-label="B" onclick="selectOption(this)">0.68, 0.50</li>
-      <li data-label="C" onclick="selectOption(this)">0.68, 0.68</li>
-      <li data-label="D" onclick="selectOption(this)">0.50, 0.68</li>
+      <li data-label="A" onclick="selectOption(this)">0.90</li>
+      <li data-label="B" onclick="selectOption(this)">0.95</li>
+      <li data-label="C" onclick="selectOption(this)">0.99</li>
+      <li data-label="D" onclick="selectOption(this)">1.00</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(129)">힌트 보기</button>
-    <div class="quiz-hint" id="q129-hint">±1σ 범위와 대칭성을 각각 적용하세요.</div>
+    <div class="quiz-hint" id="q129-hint">Z=1.96은 95% 신뢰구간에서 사용하는 값입니다.</div>
     <button class="quiz-submit" onclick="submitMC(129)">답 제출하기</button>
     <div class="quiz-result" id="q129-result"></div>
     <div class="quiz-explanation" id="q129-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 표준정규분포의 두 가지 성질</strong><br><br>
-      ① P(−1 ≤ Z ≤ 1) ≈ <strong>0.68</strong> → 68-95-99.7 법칙의 ±1σ<br>
-      ② P(Z > 0) = <strong>0.50</strong> → 표준정규분포는 0을 중심으로 대칭<br><br>
-      표준정규분포 N(0,1)에서 평균=0이므로:<br>
-      P(Z ≤ 0) = P(Z ≥ 0) = 0.5
+      <strong>핵심 개념: 표준정규분포의 양측 확률</strong><br><br>
+      P(−1.96 ≤ Z ≤ 1.96) ≈ <strong>0.95</strong><br><br>
+      양쪽 2.5%씩 제외하면 가운데 95%가 됩니다.<br>
+      즉, P(Z > 1.96) ≈ 0.025, P(Z &lt; −1.96) ≈ 0.025<br>
+      1 − 0.025 − 0.025 = <strong>0.95</strong>
     </div>
   </div>
 </div>
@@ -8727,26 +8711,23 @@
 <div class="quiz-card" id="q131">
   <div class="quiz-card-header"><div class="quiz-num q-obj">11</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">모평균 μ=80, 모표준편차 σ=20인 모집단에서 n=100인 표본을 뽑았다. 표본평균 X̄가 78 이상 82 이하일 확률 P(78 ≤ X̄ ≤ 82)는 약?</div>
-    <ul class="quiz-options" data-answer="1">
-      <li data-label="A" onclick="selectOption(this)">약 68%</li>
-      <li data-label="B" onclick="selectOption(this)">약 50%</li>
-      <li data-label="C" onclick="selectOption(this)">약 95%</li>
-      <li data-label="D" onclick="selectOption(this)">약 99.7%</li>
+    <div class="quiz-question">모평균 80, 모표준편차 20인 모집단에서 n=100인 표본을 뽑을 때, 표본평균의 표준편차(σ/√n)는?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">0.2</li>
+      <li data-label="B" onclick="selectOption(this)">2</li>
+      <li data-label="C" onclick="selectOption(this)">20</li>
+      <li data-label="D" onclick="selectOption(this)">200</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(131)">힌트 보기</button>
-    <div class="quiz-hint" id="q131-hint">표본평균의 표준편차 SD(X̄) = σ/√n을 구하고, Z값으로 변환한 뒤 68-95-99.7 법칙을 적용하세요.</div>
+    <div class="quiz-hint" id="q131-hint">표본평균의 표준편차(표준오차) 공식: σ/√n을 적용하세요.</div>
     <button class="quiz-submit" onclick="submitMC(131)">답 제출하기</button>
     <div class="quiz-result" id="q131-result"></div>
     <div class="quiz-explanation" id="q131-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 표본평균의 분포와 확률 계산</strong><br><br>
-      X̄의 분포: N(μ, σ²/n) = N(80, (20/10)²) = N(80, 4)<br>
-      표본평균의 표준편차 SD(X̄) = σ/√n = 20/√100 = <strong>2</strong><br><br>
-      Z₁ = (78−80)/2 = −1<br>
-      Z₂ = (82−80)/2 = 1<br>
-      P(−1 ≤ Z ≤ 1) ≈ <strong>0.68 (약 68%)</strong><br><br>
-      💡 <strong>핵심:</strong> 표본평균의 분포(SE=2)는 원래 모집단(σ=20)보다 훨씬 좁습니다.
+      <strong>핵심 개념: 표본평균의 표준편차(표준오차)</strong><br><br>
+      σ/√n = 20/√100 = 20/10 = <strong>2</strong><br><br>
+      표본평균의 표준편차는 모표준편차를 √n으로 나눈 값입니다.<br>
+      표본 크기가 커질수록 표본평균의 변동성은 작아집니다.
     </div>
   </div>
 </div>
@@ -9779,6 +9760,7 @@ function checkBanner() {
       if (d.banner && d.banner.timestamp !== lastBannerTime) {
         lastBannerTime = d.banner.timestamp;
         document.getElementById('bannerText').textContent = d.banner.message;
+        document.getElementById('bannerRefreshBtn').style.display = d.banner.showRefresh === '1' ? 'inline-block' : 'none';
         bar.style.display = 'flex';
       } else if (!d.banner) {
         bar.style.display = 'none';
