@@ -210,10 +210,11 @@ function renderBanner(data) {
 
   let currentHtml = '';
   if (banner) {
+    const expireInfo = banner.expiresLabel ? ' (해제: ' + banner.expiresLabel + ')' : '';
     currentHtml = `
       <div class="banner-current">
         <span class="msg">${banner.message}</span>
-        <span class="time">${banner.timestamp}</span>
+        <span class="time">${banner.timestamp}${expireInfo}</span>
       </div>`;
   } else {
     currentHtml = '<p class="banner-none">현재 배너 없음</p>';
@@ -236,9 +237,22 @@ function renderBanner(data) {
         <button class="banner-send" onclick="sendBanner()">전송</button>
         <button class="banner-clear" onclick="clearBanner()">해제</button>
       </div>
-      <label style="display:flex; align-items:center; gap:6px; margin-bottom:14px; font-size:12px; color:#888; cursor:pointer;">
-        <input type="checkbox" id="showRefresh" style="accent-color:#8b5cf6;"> 새로고침 버튼 포함
-      </label>
+      <div style="display:flex; gap:12px; align-items:center; margin-bottom:14px; flex-wrap:wrap;">
+        <label style="display:flex; align-items:center; gap:6px; font-size:12px; color:#888; cursor:pointer;">
+          <input type="checkbox" id="showRefresh" style="accent-color:#8b5cf6;"> 새로고침 버튼
+        </label>
+        <select id="expireSelect" style="padding:5px 10px; background:#12121f; border:1px solid #2a2a4a; border-radius:8px; color:#e0e0e0; font-size:12px; font-family:'Noto Sans KR',sans-serif;">
+          <option value="0">자동 해제 안함</option>
+          <option value="30">30분 후</option>
+          <option value="60">1시간 후</option>
+          <option value="180">3시간 후</option>
+          <option value="360">6시간 후</option>
+          <option value="720">12시간 후</option>
+          <option value="1440">24시간 후</option>
+          <option value="custom">시간 지정</option>
+        </select>
+        <input type="datetime-local" id="expireAt" style="display:none; padding:5px 10px; background:#12121f; border:1px solid #2a2a4a; border-radius:8px; color:#e0e0e0; font-size:12px; font-family:'Noto Sans KR',sans-serif;">
+      </div>
       ${currentHtml}
       <div class="history-title">HISTORY</div>
       ${historyHtml}
@@ -273,10 +287,18 @@ function sendBanner() {
   const msg = document.getElementById('bannerMsg').value.trim();
   if (!msg) return;
   const showRefresh = document.getElementById('showRefresh').checked;
+  const sel = document.getElementById('expireSelect').value;
+  const body = { message: msg, showRefresh };
+  if (sel === 'custom') {
+    const at = document.getElementById('expireAt').value;
+    if (at) body.expireAt = at;
+  } else if (sel !== '0') {
+    body.expireMinutes = parseInt(sel);
+  }
   fetch('/api/banner', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ message: msg, showRefresh }),
+    body: JSON.stringify(body),
   }).then(() => loadAll());
 }
 
@@ -285,6 +307,14 @@ function clearBanner() {
 }
 
 loadAll();
+
+// 시간 지정 선택 시 datetime input 표시
+document.addEventListener('change', function(e) {
+  if (e.target.id === 'expireSelect') {
+    const dt = document.getElementById('expireAt');
+    dt.style.display = e.target.value === 'custom' ? 'inline-block' : 'none';
+  }
+});
 </script>
 
 </body>
