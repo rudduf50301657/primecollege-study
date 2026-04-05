@@ -50,6 +50,7 @@
   .dot-all { background: #8b5cf6; }
   .dot-home { background: #06b6d4; }
   .dot-stat { background: #22c55e; }
+  .dot-banner { background: #eab308; }
   .stats-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -92,6 +93,77 @@
   }
   .refresh-btn:hover { border-color: #8b5cf6; color: #c4b5fd; }
   .updated { color: #444; font-size: 11px; margin-top: 12px; }
+
+  /* Banner section */
+  .banner-input-wrap {
+    display: flex; gap: 8px; margin-bottom: 12px;
+  }
+  .banner-input {
+    flex: 1;
+    padding: 10px 14px;
+    background: #12121f;
+    border: 1px solid #2a2a4a;
+    border-radius: 10px;
+    color: #e0e0e0;
+    font-size: 14px;
+    font-family: 'Noto Sans KR', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .banner-input:focus { border-color: #8b5cf6; }
+  .banner-input::placeholder { color: #444; }
+  .banner-send {
+    padding: 10px 18px;
+    background: #8b5cf6;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .banner-send:hover { background: #7c3aed; }
+  .banner-clear {
+    padding: 10px 18px;
+    background: transparent;
+    border: 1px solid #ef4444;
+    border-radius: 10px;
+    color: #ef4444;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .banner-clear:hover { background: rgba(239,68,68,0.1); }
+  .banner-current {
+    background: #12121f;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .banner-current .msg { color: #eab308; font-weight: 500; }
+  .banner-current .time { color: #555; font-size: 11px; }
+  .banner-none { color: #444; font-size: 13px; margin-bottom: 16px; }
+  .history-title { color: #666; font-size: 12px; margin-bottom: 8px; letter-spacing: 0.5px; }
+  .history-item {
+    padding: 8px 12px;
+    border-bottom: 1px solid #1f1f35;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .history-item .msg { color: #aaa; }
+  .history-item .time { color: #444; font-size: 11px; }
+  .history-empty { color: #333; font-size: 12px; padding: 8px 0; }
 </style>
 </head>
 <body>
@@ -103,7 +175,7 @@
   <p class="loading">Loading...</p>
 </div>
 
-<button class="refresh-btn" onclick="loadStats()">Refresh</button>
+<button class="refresh-btn" onclick="loadAll()">Refresh</button>
 <p class="updated" id="updated"></p>
 
 <script>
@@ -132,24 +204,83 @@ function renderCard(title, dotClass, data) {
     </div>`;
 }
 
+function renderBanner(data) {
+  const banner = data.banner;
+  const history = data.history || [];
+
+  let currentHtml = '';
+  if (banner) {
+    currentHtml = `
+      <div class="banner-current">
+        <span class="msg">${banner.message}</span>
+        <span class="time">${banner.timestamp}</span>
+      </div>`;
+  } else {
+    currentHtml = '<p class="banner-none">현재 배너 없음</p>';
+  }
+
+  let historyHtml = '';
+  if (history.length > 0) {
+    historyHtml = history.map(h =>
+      `<div class="history-item"><span class="msg">${h.message}</span><span class="time">${h.timestamp}</span></div>`
+    ).join('');
+  } else {
+    historyHtml = '<p class="history-empty">이력 없음</p>';
+  }
+
+  return `
+    <div class="card">
+      <h2><span class="dot dot-banner"></span>Banner</h2>
+      <div class="banner-input-wrap">
+        <input class="banner-input" id="bannerMsg" placeholder="배너 메시지 입력..." onkeydown="if(event.key==='Enter')sendBanner()">
+        <button class="banner-send" onclick="sendBanner()">전송</button>
+        <button class="banner-clear" onclick="clearBanner()">해제</button>
+      </div>
+      ${currentHtml}
+      <div class="history-title">HISTORY</div>
+      ${historyHtml}
+    </div>`;
+}
+
 function loadStats() {
-  fetch('/api/stats')
-    .then(r => r.json())
-    .then(d => {
-      document.getElementById('date').textContent = d.today;
-      let html = renderCard('All', 'dot-all', d);
-      if (d.pages.home) html += renderCard('Home', 'dot-home', d.pages.home);
-      if (d.pages.statistics) html += renderCard('Statistics', 'dot-stat', d.pages.statistics);
+  return fetch('/api/stats').then(r => r.json());
+}
+
+function loadBanner() {
+  return fetch('/api/banner').then(r => r.json());
+}
+
+function loadAll() {
+  Promise.all([loadStats(), loadBanner()])
+    .then(([stats, banner]) => {
+      let html = renderCard('All', 'dot-all', stats);
+      if (stats.pages.home) html += renderCard('Home', 'dot-home', stats.pages.home);
+      if (stats.pages.statistics) html += renderCard('Statistics', 'dot-stat', stats.pages.statistics);
+      html += renderBanner(banner);
       document.getElementById('cards').innerHTML = html;
-      const now = new Date().toLocaleTimeString('ko-KR');
-      document.getElementById('updated').textContent = 'Updated ' + now;
+      document.getElementById('date').textContent = stats.today;
+      document.getElementById('updated').textContent = 'Updated ' + new Date().toLocaleTimeString('ko-KR');
     })
     .catch(() => {
       document.getElementById('cards').innerHTML = '<p class="loading">Failed to load</p>';
     });
 }
 
-loadStats();
+function sendBanner() {
+  const msg = document.getElementById('bannerMsg').value.trim();
+  if (!msg) return;
+  fetch('/api/banner', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: msg }),
+  }).then(() => loadAll());
+}
+
+function clearBanner() {
+  fetch('/api/banner', { method: 'DELETE' }).then(() => loadAll());
+}
+
+loadAll();
 </script>
 
 </body>
