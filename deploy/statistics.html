@@ -8517,7 +8517,7 @@
 <div class="quiz-card" id="q40">
   <div class="quiz-card-header"><div class="quiz-num q-obj">5</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">모표준편차 σ를 <strong>모르는</strong> 상태에서 정규모집단의 표본평균을 검정할 때 사용하는 분포는?</div>
+    <div class="quiz-question">모표준편차 σ를 <strong>모르는</strong> 상태에서 정규모집단의 표본평균에 대해 추론할 때 사용하는 분포는?</div>
     <ul class="quiz-options" data-answer="2">
       <li data-label="A" onclick="selectOption(this)">표준정규분포 N(0,1)</li>
       <li data-label="B" onclick="selectOption(this)">t-분포 t(n-1)</li>
@@ -8530,12 +8530,13 @@
     <div class="quiz-result" id="q40-result"></div>
     <div class="quiz-explanation" id="q40-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 검정에서 사용하는 분포 선택</strong><br><br>
-      <strong>모평균 검정:</strong><br>
-      - σ를 알 때 → Z = (X̄−μ)/(σ/√n) ~ N(0,1) → <strong>Z-검정</strong><br>
-      - σ를 모를 때 → t = (X̄−μ)/(S/√n) ~ t(n-1) → <strong>t-검정</strong><br><br>
-      <strong>모분산 검정:</strong><br>
-      - χ² = (n-1)S²/σ₀² ~ <strong>카이제곱분포 χ²(n-1)</strong>
+      <strong>핵심 개념: 상황에 따른 분포 선택</strong><br><br>
+      <strong>모평균 추론:</strong><br>
+      - σ를 알 때 → Z = (X̄−μ)/(σ/√n) ~ N(0,1) → <strong>표준정규분포</strong><br>
+      - σ를 모를 때 → t = (X̄−μ)/(S/√n) ~ t(n-1) → <strong>t-분포</strong><br><br>
+      <strong>모분산 추론:</strong><br>
+      - χ² = (n-1)S²/σ₀² ~ <strong>카이제곱분포 χ²(n-1)</strong><br><br>
+      💡 <strong>참고:</strong> "검정"이란 표본으로 모집단에 대한 가설을 검증하는 절차입니다. 여기서는 어떤 분포를 사용하느냐가 핵심입니다.
     </div>
   </div>
 </div>
@@ -8630,8 +8631,8 @@
     <ul class="quiz-options" data-answer="2">
       <li data-label="A" onclick="selectOption(this)">모평균의 구간 추정</li>
       <li data-label="B" onclick="selectOption(this)">두 모집단의 분산 비교(분산분석, ANOVA)</li>
-      <li data-label="C" onclick="selectOption(this)">모비율의 가설검정</li>
-      <li data-label="D" onclick="selectOption(this)">단일 표본의 중앙값 검정</li>
+      <li data-label="C" onclick="selectOption(this)">모비율의 추정</li>
+      <li data-label="D" onclick="selectOption(this)">단일 표본의 중앙값 추론</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(69)">힌트 보기</button>
     <div class="quiz-hint" id="q69-hint">F-분포는 두 분산의 비(ratio)를 비교할 때 사용됩니다.</div>
@@ -8644,7 +8645,7 @@
       주요 용도:<br>
       ① 두 모집단의 <strong>분산 비교</strong>: F = S₁²/S₂²<br>
       ② <strong>분산분석(ANOVA)</strong>: 여러 그룹의 평균 비교<br>
-      ③ <strong>회귀분석</strong>의 유의성 검정<br><br>
+      ③ <strong>회귀분석</strong>의 유의성 판단<br><br>
       💡 <strong>특징:</strong> F-분포는 항상 0 이상이고, 오른쪽으로 치우친 비대칭 분포입니다.
     </div>
   </div>
@@ -8785,7 +8786,7 @@
 <div class="quiz-card" id="q135">
   <div class="quiz-card-header"><div class="quiz-num q-obj">15</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">카이제곱(χ²) 통계량의 자유도가 (n−1)이고, 표본분산 S² = 12, 귀무가설의 모분산 σ₀² = 10, n = 21일 때, χ² 검정통계량은?</div>
+    <div class="quiz-question">표본분산 S² = 12, 모분산 σ₀² = 10, n = 21일 때, χ² 통계량 (n−1)S²/σ₀² 의 값은?</div>
     <ul class="quiz-options" data-answer="1">
       <li data-label="A" onclick="selectOption(this)">24</li>
       <li data-label="B" onclick="selectOption(this)">20</li>
@@ -8793,16 +8794,16 @@
       <li data-label="D" onclick="selectOption(this)">1.2</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(135)">힌트 보기</button>
-    <div class="quiz-hint" id="q135-hint">카이제곱 검정통계량: χ² = (n-1)S²/σ₀²를 계산하세요.</div>
+    <div class="quiz-hint" id="q135-hint">χ² = (n-1)S²/σ₀²에 값을 대입해 보세요.</div>
     <button class="quiz-submit" onclick="submitMC(135)">답 제출하기</button>
     <div class="quiz-result" id="q135-result"></div>
     <div class="quiz-explanation" id="q135-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 카이제곱 검정통계량</strong><br><br>
+      <strong>핵심 개념: 카이제곱 통계량</strong><br><br>
       <strong>공식:</strong> χ² = (n−1)S²/σ₀²<br><br>
       = (21−1)×12/10 = 20×12/10 = 240/10 = <strong>24</strong><br><br>
-      이 값을 자유도 20인 χ²분포에서 비교하여 p-value를 구합니다.<br><br>
-      💡 <strong>용도:</strong> 카이제곱 검정은 모분산이 특정 값과 다른지 검정할 때 사용합니다.
+      이 값을 자유도 20인 χ²분포표에서 확인합니다.<br><br>
+      💡 <strong>용도:</strong> 카이제곱 분포는 모분산에 대한 추론에 사용됩니다.
     </div>
   </div>
 </div>
@@ -8887,12 +8888,12 @@
 <div class="quiz-card" id="q139">
   <div class="quiz-card-header"><div class="quiz-num q-obj">19</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">다음 중 <strong>Z-검정</strong>을 사용하는 경우와 <strong>t-검정</strong>을 사용하는 경우를 올바르게 구분한 것은?</div>
+    <div class="quiz-question">다음 중 <strong>Z-분포(표준정규분포)</strong>를 사용하는 경우와 <strong>t-분포</strong>를 사용하는 경우를 올바르게 구분한 것은?</div>
     <ul class="quiz-options" data-answer="1">
-      <li data-label="A" onclick="selectOption(this)">σ를 알면 Z-검정, σ를 모르고 S로 대체하면 t-검정</li>
-      <li data-label="B" onclick="selectOption(this)">n > 30이면 Z-검정, n ≤ 30이면 t-검정</li>
-      <li data-label="C" onclick="selectOption(this)">모집단이 정규분포이면 Z-검정, 아니면 t-검정</li>
-      <li data-label="D" onclick="selectOption(this)">양측검정이면 Z-검정, 단측검정이면 t-검정</li>
+      <li data-label="A" onclick="selectOption(this)">σ를 알면 Z-분포, σ를 모르고 S로 대체하면 t-분포</li>
+      <li data-label="B" onclick="selectOption(this)">n > 30이면 Z-분포, n ≤ 30이면 t-분포</li>
+      <li data-label="C" onclick="selectOption(this)">모집단이 정규분포이면 Z-분포, 아니면 t-분포</li>
+      <li data-label="D" onclick="selectOption(this)">양측이면 Z-분포, 단측이면 t-분포</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(139)">힌트 보기</button>
     <div class="quiz-hint" id="q139-hint">Z와 t를 구분하는 핵심 기준은 모표준편차 σ를 알고 있는지 여부입니다.</div>
@@ -8900,11 +8901,12 @@
     <div class="quiz-result" id="q139-result"></div>
     <div class="quiz-explanation" id="q139-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: Z-검정 vs t-검정의 구분 기준</strong><br><br>
+      <strong>핵심 개념: Z-분포 vs t-분포 선택 기준</strong><br><br>
       핵심 기준: <strong>모표준편차 σ를 아는지 여부</strong><br><br>
-      - σ를 <strong>알 때</strong>: Z = (X̄−μ)/(σ/√n) ~ N(0,1) → <strong>Z-검정</strong><br>
-      - σ를 <strong>모를 때</strong>: t = (X̄−μ)/(S/√n) ~ t(n−1) → <strong>t-검정</strong><br><br>
-      💡 <strong>주의:</strong> "n > 30이면 Z, 아니면 t"는 관례적 경험칙이지 정확한 기준은 아닙니다. 실무에서는 σ를 모르는 경우가 대부분이므로 t-검정을 더 자주 씁니다.
+      - σ를 <strong>알 때</strong>: Z = (X̄−μ)/(σ/√n) ~ N(0,1) → <strong>표준정규분포(Z) 사용</strong><br>
+      - σ를 <strong>모를 때</strong>: t = (X̄−μ)/(S/√n) ~ t(n−1) → <strong>t-분포 사용</strong><br><br>
+      💡 <strong>참고:</strong> "검정(test)"이란 표본 데이터로 모집단에 대한 가설을 검증하는 절차를 말합니다. Z-분포를 쓰면 Z-검정, t-분포를 쓰면 t-검정이라고 부릅니다.<br>
+      💡 <strong>주의:</strong> "n > 30이면 Z, 아니면 t"는 경험칙이지 정확한 기준이 아닙니다. 핵심은 σ를 아느냐 모르느냐입니다.
     </div>
   </div>
 </div>
