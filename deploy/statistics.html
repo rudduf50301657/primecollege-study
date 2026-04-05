@@ -8489,7 +8489,7 @@
 <div class="quiz-card" id="q39">
   <div class="quiz-card-header"><div class="quiz-num q-obj">4</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">모평균 μ=50, 모표준편차 σ=10인 모집단에서 n=25인 표본을 뽑았다. 표본평균 X̄의 표준오차(SD)는?</div>
+    <div class="quiz-question">모평균 μ=50, 모표준편차 σ=10인 모집단에서 n=25인 표본을 뽑았다. 표본평균 X̄의 표준편차(σ/√n)는?</div>
     <ul class="quiz-options" data-answer="3">
       <li data-label="A" onclick="selectOption(this)">10</li>
       <li data-label="B" onclick="selectOption(this)">5</li>
@@ -8497,16 +8497,16 @@
       <li data-label="D" onclick="selectOption(this)">0.4</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(39)">힌트 보기</button>
-    <div class="quiz-hint" id="q39-hint">표준오차(SE) = σ/√n으로 계산합니다.</div>
+    <div class="quiz-hint" id="q39-hint">표본평균의 표준편차 = σ/√n으로 계산합니다.</div>
     <button class="quiz-submit" onclick="submitMC(39)">답 제출하기</button>
     <div class="quiz-result" id="q39-result"></div>
     <div class="quiz-explanation" id="q39-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 표준오차(Standard Error) 계산</strong><br><br>
+      <strong>핵심 개념: 표본평균의 표준편차 계산</strong><br><br>
       E(X̄) = μ = <strong>50</strong><br>
       <strong>SD(X̄) = σ/√n</strong> = 10/√25 = 10/5 = <strong>2</strong><br><br>
-      표준오차 = 표본평균의 표준편차 = 모표준편차/√n<br><br>
-      💡 <strong>의미:</strong> 표본평균들의 퍼짐 정도를 나타냅니다. n이 클수록 표준오차가 작아집니다.
+      표본평균의 표준편차 = 모표준편차 ÷ √n<br><br>
+      💡 <strong>의미:</strong> 표본평균들의 퍼짐 정도를 나타냅니다. n이 클수록 이 값이 작아져서 표본평균이 모평균에 가까워집니다.
     </div>
   </div>
 </div>
@@ -8685,14 +8685,14 @@
       <li data-label="D" onclick="selectOption(this)">약 99.7%</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(131)">힌트 보기</button>
-    <div class="quiz-hint" id="q131-hint">표준오차 SE = σ/√n을 구하고, Z값으로 변환한 뒤 68-95-99.7 법칙을 적용하세요.</div>
+    <div class="quiz-hint" id="q131-hint">표본평균의 표준편차 SD(X̄) = σ/√n을 구하고, Z값으로 변환한 뒤 68-95-99.7 법칙을 적용하세요.</div>
     <button class="quiz-submit" onclick="submitMC(131)">답 제출하기</button>
     <div class="quiz-result" id="q131-result"></div>
     <div class="quiz-explanation" id="q131-explain">
       <div class="quiz-explain-label">해설</div>
       <strong>핵심 개념: 표본평균의 분포와 확률 계산</strong><br><br>
       X̄의 분포: N(μ, σ²/n) = N(80, (20/10)²) = N(80, 4)<br>
-      표준오차 SE = σ/√n = 20/√100 = <strong>2</strong><br><br>
+      표본평균의 표준편차 SD(X̄) = σ/√n = 20/√100 = <strong>2</strong><br><br>
       Z₁ = (78−80)/2 = −1<br>
       Z₂ = (82−80)/2 = 1<br>
       P(−1 ≤ Z ≤ 1) ≈ <strong>0.68 (약 68%)</strong><br><br>
@@ -8721,7 +8721,7 @@
       σ = √36 = 6, SE = σ/√n = 6/√9 = 6/3 = <strong>2</strong><br>
       Z = (54 − 50)/2 = <strong>2</strong><br>
       P(X̄ > 54) = P(Z > 2) = <strong>0.0228</strong><br><br>
-      💡 <strong>해석:</strong> 표본평균이 모평균에서 2 표준오차 이상 떨어질 확률은 약 2.3%로 매우 낮습니다.
+      💡 <strong>해석:</strong> 표본평균이 모평균에서 표준편차 2배 이상 떨어질 확률은 약 2.3%로 매우 낮습니다.
     </div>
   </div>
 </div>
@@ -8806,7 +8806,7 @@
 <div class="quiz-card" id="q136">
   <div class="quiz-card-header"><div class="quiz-num q-obj">16</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">모표준편차 σ=15인 모집단에서 n=25인 표본과 n=100인 표본을 뽑았을 때, 표준오차(SE)의 비율은?</div>
+    <div class="quiz-question">모표준편차 σ=15인 모집단에서 n=25인 표본과 n=100인 표본을 뽑았을 때, 표본평균의 표준편차(σ/√n) 비율은?</div>
     <ul class="quiz-options" data-answer="2">
       <li data-label="A" onclick="selectOption(this)">SE(n=25) = SE(n=100)</li>
       <li data-label="B" onclick="selectOption(this)">SE(n=25)는 SE(n=100)의 2배</li>
@@ -8819,11 +8819,11 @@
     <div class="quiz-result" id="q136-result"></div>
     <div class="quiz-explanation" id="q136-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 표본 크기에 따른 표준오차 변화</strong><br><br>
+      <strong>핵심 개념: 표본 크기에 따른 표본평균 표준편차 변화</strong><br><br>
       SE(n=25) = 15/√25 = 15/5 = <strong>3</strong><br>
       SE(n=100) = 15/√100 = 15/10 = <strong>1.5</strong><br>
       비율: 3/1.5 = <strong>2배</strong><br><br>
-      💡 <strong>핵심 원리:</strong> SE ∝ 1/√n이므로, 표본 크기를 4배로 늘리면 표준오차는 절반이 됩니다.
+      💡 <strong>핵심 원리:</strong> σ/√n 이므로, 표본 크기를 4배로 늘리면 표본평균의 표준편차는 절반이 됩니다.
     </div>
   </div>
 </div>
