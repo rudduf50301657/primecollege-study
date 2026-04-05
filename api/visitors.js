@@ -36,18 +36,27 @@ export default async function handler(req, res) {
     const viewsKey = `views:${today}`
     const visitorsKey = `visitors:${today}`
 
-    // 조회수 +1 (매 요청마다)
+    // 오늘 조회수 +1
     const views = await db.incr(viewsKey)
 
-    // 고유 방문자 (IP 기반, 중복 무시)
+    // 오늘 고유 방문자
     await db.sadd(visitorsKey, ip)
     const visitors = await db.scard(visitorsKey)
 
-    // 48시간 후 자동 삭제
+    // 누적 조회수 +1
+    const totalViews = await db.incr('views:total')
+
+    // 누적 고유 방문자
+    await db.sadd('visitors:total', ip)
+    const totalVisitors = await db.scard('visitors:total')
+
+    // 오늘 키는 48시간 후 자동 삭제
     await db.expire(viewsKey, 172800)
     await db.expire(visitorsKey, 172800)
 
-    return res.status(200).json({ visitors, views, today })
+    return res.status(200).json({
+      visitors, views, totalVisitors, totalViews, today
+    })
   } catch (err) {
     console.error('Visitor tracking error:', err)
     return res.status(500).json({ error: 'internal error' })
