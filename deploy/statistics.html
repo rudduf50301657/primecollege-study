@@ -5796,9 +5796,9 @@
       <strong>핵심 개념: 평균의 특이점 민감성</strong><br><br>
       데이터 {1, 2, 3, 4, 100}에서:<br>
       - <strong>평균</strong> = (1+2+3+4+100)/5 = <strong>22</strong> → 대부분의 데이터(1~4)와 동떨어짐<br>
-      - <strong>중앙값</strong> = 3 → 데이터의 중심을 더 잘 표현<br><br>
+      - 대부분의 데이터(1~4) 중심에 가까운 값이 더 적절한 대표값이 됨<br><br>
       100이라는 <strong>특이점(outlier)</strong>이 평균을 크게 끌어올렸습니다.<br><br>
-      💡 <strong>원칙:</strong> 특이점이 있거나 분포가 치우쳐 있으면 → 중앙값, 대칭이면 → 평균이 적절합니다.
+      💡 <strong>원칙:</strong> 특이점이 있으면 평균 대신 다른 대표값을 사용하는 것이 적절합니다.
     </div>
   </div>
 </div>
@@ -5871,7 +5871,7 @@
     <div class="quiz-question"><strong>도수분포표</strong>에 대한 설명으로 <strong>옳지 않은</strong> 것은?</div>
     <ul class="quiz-options" data-answer="4">
       <li data-label="A" onclick="selectOption(this)">데이터를 일정한 구간(계급)으로 나누어 빈도를 정리한 표이다</li>
-      <li data-label="B" onclick="selectOption(this)">상대도수는 각 계급의 도수를 전체 도수로 나눈 값이다</li>
+      <li data-label="B" onclick="selectOption(this)">각 계급의 도수를 합하면 전체 데이터 수와 같다</li>
       <li data-label="C" onclick="selectOption(this)">누적도수는 해당 계급까지의 도수를 모두 합한 값이다</li>
       <li data-label="D" onclick="selectOption(this)">계급의 수가 많을수록 항상 더 정확한 분포를 나타낸다</li>
     </ul>
@@ -5884,7 +5884,7 @@
       <strong>핵심 개념: 도수분포표와 계급 수의 선택</strong><br><br>
       도수분포표의 올바른 설명:<br>
       ✓ A: 데이터를 구간(계급)으로 나누어 빈도 정리<br>
-      ✓ B: 상대도수 = 해당 계급 도수 / 전체 도수<br>
+      ✓ B: 각 계급의 도수를 합하면 전체 데이터 수<br>
       ✓ C: 누적도수 = 해당 계급까지의 도수 합<br><br>
       ✗ D: 계급 수가 많을수록 항상 정확하지는 <strong>않습니다</strong>. 너무 많으면 각 계급의 도수가 작아져 패턴 파악이 어렵고, 너무 적으면 정보가 손실됩니다.<br><br>
       💡 <strong>Tip:</strong> 적절한 계급 수를 선택하는 것이 중요합니다.
@@ -5911,8 +5911,8 @@
       <div class="quiz-explain-label">해설</div>
       <strong>핵심 개념: 분포 모양의 4가지 유형</strong><br><br>
       ① <strong>대칭(symmetric)</strong>: 좌우가 거울상<br>
-      ② <strong>오른쪽 꼬리(right-skewed)</strong>: 왼쪽 봉우리 + 오른쪽 긴 꼬리 (양의 왜도)<br>
-      ③ <strong>왼쪽 꼬리(left-skewed)</strong>: 오른쪽 봉우리 + 왼쪽 긴 꼬리 (음의 왜도)<br>
+      ② <strong>오른쪽 꼬리(right-skewed)</strong>: 왼쪽 봉우리 + 오른쪽 긴 꼬리<br>
+      ③ <strong>왼쪽 꼬리(left-skewed)</strong>: 오른쪽 봉우리 + 왼쪽 긴 꼬리<br>
       ④ <strong>균등(uniform)</strong>: 모든 구간이 비슷<br><br>
       💡 <strong>기억법:</strong> 분포 이름은 <strong>긴 꼬리의 방향</strong>으로 정합니다. 예: 소득 분포 = 오른쪽 꼬리.
     </div>
@@ -6139,27 +6139,23 @@
 <div class="quiz-card" id="q86">
   <div class="quiz-card-header"><div class="quiz-num q-obj">16</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">어떤 도수분포표에서 전체 데이터 수가 200개이고, 60~80점 구간의 도수가 50개이다. 이 구간의 <strong>상대도수</strong>는?</div>
+    <div class="quiz-question">도수분포표에서 계급 A의 도수가 30, 계급 B의 도수가 50, 계급 C의 도수가 20일 때, 전체 데이터 수는?</div>
     <ul class="quiz-options" data-answer="3">
-      <li data-label="A" onclick="selectOption(this)">0.50</li>
-      <li data-label="B" onclick="selectOption(this)">0.20</li>
-      <li data-label="C" onclick="selectOption(this)">0.25</li>
-      <li data-label="D" onclick="selectOption(this)">50</li>
+      <li data-label="A" onclick="selectOption(this)">50</li>
+      <li data-label="B" onclick="selectOption(this)">80</li>
+      <li data-label="C" onclick="selectOption(this)">100</li>
+      <li data-label="D" onclick="selectOption(this)">150</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(86)">힌트 보기</button>
-    <div class="quiz-hint" id="q86-hint">상대도수 = 해당 계급의 도수 ÷ 전체 도수입니다.</div>
+    <div class="quiz-hint" id="q86-hint">전체 데이터 수 = 모든 계급의 도수를 합한 값입니다.</div>
     <button class="quiz-submit" onclick="submitMC(86)">답 제출하기</button>
     <div class="quiz-result" id="q86-result"></div>
     <div class="quiz-explanation" id="q86-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 상대도수 계산</strong><br><br>
-      <strong>상대도수</strong> = 해당 계급의 도수 / 전체 도수<br>
-      = 50 / 200 = <strong>0.25</strong> (= 25%)<br><br>
-      성질:<br>
-      - 0과 1 사이의 값<br>
-      - 모든 계급의 상대도수 합 = <strong>1</strong><br>
-      - 백분율로 환산: 0.25 × 100 = 25%<br><br>
-      💡 <strong>주의:</strong> D(50)는 도수(절대도수)이지 상대도수가 아닙니다.
+      <strong>핵심 개념: 도수분포표 읽기</strong><br><br>
+      전체 데이터 수 = 모든 계급의 도수 합<br>
+      = 30 + 50 + 20 = <strong>100</strong><br><br>
+      도수분포표에서 각 계급의 도수는 해당 구간에 속하는 데이터의 개수이며, 모든 도수를 합하면 전체 데이터 수가 됩니다.
     </div>
   </div>
 </div>
@@ -6518,8 +6514,7 @@
       - 상자 왼쪽 끝 = <strong>Q1</strong><br>
       - 상자 안의 선 = <strong>중앙값(Q2)</strong><br>
       - 상자 오른쪽 끝 = <strong>Q3</strong><br>
-      - 수염(whisker) = Q1−1.5×IQR ~ Q3+1.5×IQR 범위<br>
-      - 수염 바깥의 점 = <strong>특이점(outlier)</strong><br><br>
+      - 수염(whisker) = 최솟값 ~ 최댓값 범위<br><br>
       💡 <strong>주의:</strong> 상자 안의 선은 <strong>평균이 아닌 중앙값</strong>입니다.
     </div>
   </div>
@@ -6765,12 +6760,12 @@
 <div class="quiz-card" id="q98">
   <div class="quiz-card-header"><div class="quiz-num q-obj">18</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">다섯수치요약이 최솟값=10, Q1=30, 중앙값=35, Q3=60, 최댓값=90일 때, 이 분포의 왜도(치우침) 방향은?</div>
+    <div class="quiz-question">다섯수치요약이 최솟값=10, Q1=30, 중앙값=35, Q3=60, 최댓값=90일 때, 이 분포의 치우침 방향은?</div>
     <ul class="quiz-options" data-answer="4">
-      <li data-label="A" onclick="selectOption(this)">왼쪽 꼬리 분포(음의 왜도)</li>
+      <li data-label="A" onclick="selectOption(this)">왼쪽 꼬리 분포</li>
       <li data-label="B" onclick="selectOption(this)">대칭 분포</li>
       <li data-label="C" onclick="selectOption(this)">판단할 수 없다</li>
-      <li data-label="D" onclick="selectOption(this)">오른쪽 꼬리 분포(양의 왜도)</li>
+      <li data-label="D" onclick="selectOption(this)">오른쪽 꼬리 분포</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(98)">힌트 보기</button>
     <div class="quiz-hint" id="q98-hint">중앙값에서 Q1까지의 거리와 Q3까지의 거리를 비교하여 치우침 방향을 판단합니다.</div>
@@ -6778,11 +6773,11 @@
     <div class="quiz-result" id="q98-result"></div>
     <div class="quiz-explanation" id="q98-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: 다섯수치요약으로 왜도 판단</strong><br><br>
+      <strong>핵심 개념: 다섯수치요약으로 분포 모양 판단</strong><br><br>
       중앙값 기준 양쪽 간격 비교:<br>
       중앙값 − Q1 = 35 − 30 = <strong>5</strong> (왼쪽 간격)<br>
       Q3 − 중앙값 = 60 − 35 = <strong>25</strong> (오른쪽 간격)<br><br>
-      오른쪽 간격이 왼쪽보다 훨씬 크므로 → <strong>오른쪽 꼬리 분포(양의 왜도)</strong><br><br>
+      오른쪽 간격이 왼쪽보다 훨씬 크므로 → <strong>오른쪽 꼬리 분포</strong><br><br>
       💡 <strong>시각화:</strong> 상자그림에서 중앙값 선이 상자의 왼쪽에 치우쳐 있는 모양이 됩니다.
     </div>
   </div>
@@ -8482,7 +8477,7 @@
     <div class="quiz-explanation" id="q37-explain">
       <div class="quiz-explain-label">해설</div>
       <strong>핵심 개념: 중심극한정리(CLT)</strong><br><br>
-      <strong>모집단의 분포가 무엇이든</strong>, n이 충분히 크면(보통 n≥30):<br>
+      <strong>모집단의 분포가 무엇이든</strong>, n이 충분히 크면:<br>
       X̄ ~ N(μ, σ²/n) (근사적으로 정규분포)<br><br>
       오답 분석:<br>
       - A: 모집단이 정규분포가 아니어도 됨 → ✗<br>
@@ -8576,25 +8571,24 @@
 <div class="quiz-card" id="q66">
   <div class="quiz-card-header"><div class="quiz-num q-obj">6</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">중심극한정리(CLT)를 적용하기 위해 일반적으로 필요한 <strong>최소 표본 크기</strong>는?</div>
+    <div class="quiz-question">중심극한정리(CLT)에 대한 설명으로 올바른 것은?</div>
     <ul class="quiz-options" data-answer="3">
-      <li data-label="A" onclick="selectOption(this)">n ≥ 5</li>
-      <li data-label="B" onclick="selectOption(this)">n ≥ 10</li>
-      <li data-label="C" onclick="selectOption(this)">n ≥ 30</li>
-      <li data-label="D" onclick="selectOption(this)">n ≥ 100</li>
+      <li data-label="A" onclick="selectOption(this)">모집단이 정규분포일 때만 성립한다</li>
+      <li data-label="B" onclick="selectOption(this)">표본 크기와 관계없이 항상 성립한다</li>
+      <li data-label="C" onclick="selectOption(this)">n이 충분히 크면 표본평균의 분포가 정규분포에 가까워진다</li>
+      <li data-label="D" onclick="selectOption(this)">표본평균의 분산은 표본 크기가 커질수록 증가한다</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(66)">힌트 보기</button>
-    <div class="quiz-hint" id="q66-hint">중심극한정리는 통상 n이 얼마 이상일 때 잘 적용되는지 생각해 보세요.</div>
+    <div class="quiz-hint" id="q66-hint">중심극한정리는 n이 충분히 클 때 모집단 분포와 관계없이 표본평균의 분포가 어떻게 되는지를 설명합니다.</div>
     <button class="quiz-submit" onclick="submitMC(66)">답 제출하기</button>
     <div class="quiz-result" id="q66-result"></div>
     <div class="quiz-explanation" id="q66-explain">
       <div class="quiz-explain-label">해설</div>
-      <strong>핵심 개념: CLT의 최소 표본 크기</strong><br><br>
-      중심극한정리는 통상 <strong>n ≥ 30</strong>일 때 잘 적용됩니다.<br><br>
-      예외:<br>
-      - 모집단이 이미 정규분포이면 n이 작아도 성립<br>
-      - 모집단이 매우 비대칭이면 더 큰 n이 필요할 수 있음<br><br>
-      💡 <strong>기억법:</strong> "n ≥ 30"은 CLT의 경험적 기준입니다.
+      <strong>핵심 개념: 중심극한정리(CLT)</strong><br><br>
+      <strong>n이 충분히 크면</strong>, 모집단의 분포 모양과 관계없이 표본평균의 분포는 정규분포에 가까워집니다.<br><br>
+      - A: 모집단이 정규분포가 아니어도 성립 (✗)<br>
+      - B: n이 충분히 커야 함 (✗)<br>
+      - D: 표본평균의 분산은 n이 커질수록 감소 (σ²/n) (✗)
     </div>
   </div>
 </div>
@@ -8804,7 +8798,7 @@
       √n' = 2√n<br>
       <strong>n' = 4n</strong><br><br>
       정밀도를 2배 높이려면 표본 크기를 <strong>4배</strong>로 늘려야 합니다.<br><br>
-      💡 <strong>Tip:</strong> 이것이 대규모 조사에 비용이 많이 드는 이유입니다.
+      💡 <strong>참고:</strong> 이 문제는 구간추정 공식 X̄ ± Z × σ/√n에서 폭 = 2 × Z × σ/√n ∝ 1/√n임을 이용하여 유도할 수 있습니다.
     </div>
   </div>
 </div>
@@ -8862,7 +8856,7 @@
 <div class="quiz-card" id="q137">
   <div class="quiz-card-header"><div class="quiz-num q-obj">17</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">X ~ B(200, 0.3)를 정규분포로 근사할 때, P(X ≥ 70)을 구하기 위한 Z값은 약? (연속성 보정 미적용)</div>
+    <div class="quiz-question">X ~ B(200, 0.3)에 정규근사를 적용하면, P(X ≥ 70)을 구하기 위한 Z값은 약?</div>
     <ul class="quiz-options" data-answer="3">
       <li data-label="A" onclick="selectOption(this)">Z ≈ 0.77</li>
       <li data-label="B" onclick="selectOption(this)">Z ≈ 1.25</li>
