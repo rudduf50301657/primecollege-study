@@ -1,0 +1,32 @@
+:root {
+  --bg-body: #0f0f1a;
+  --bg-surface: #1a1a2e;
+  --bg-surface-alt: #161625;
+  --bg-inset: #12121f;
+  --border-default: #2a2a4a;
+  --border-subtle: #1e1e35;
+  --text-primary: #e0e0e0;
+  --text-secondary: #888;
+  --text-muted: #555;
+  --text-white: #fff;
+  --accent: #8b5cf6;
+  --accent-dark: #6d28d9;
+  --accent-bg: #2d1b69;
+  --accent-text: #c4b5fd;
+  --concept-border: #8b5cf6;
+  --formula-border: #3b82f6;
+  --formula-text: #93c5fd;
+  --example-border: #22c55e;
+  --example-text: #86efac;
+  --tip-border: #eab308;
+  --tip-text: #d4c87a;
+  --error-border: #ef4444;
+  --error-text: #fca5a5;
+  --success-border: #22c55e;
+  --success-text: #86efac;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --font-family: 'Noto Sans KR', sans-serif;
+}

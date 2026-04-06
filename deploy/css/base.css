@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #0f0f1a;
+    color: #e0e0e0;
+    line-height: 1.8;
+    scroll-behavior: smooth;
+  }
+
+  /* ── Custom Scrollbar ── */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #3a3a5c #0f0f1a;
+  }
+  *::-webkit-scrollbar { width: 8px; height: 8px; }
+  *::-webkit-scrollbar-track { background: #0f0f1a; border-radius: 4px; }
+  *::-webkit-scrollbar-thumb { background: #3a3a5c; border-radius: 4px; }
+  *::-webkit-scrollbar-thumb:hover { background: #8b5cf6; }
