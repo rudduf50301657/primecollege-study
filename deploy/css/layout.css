@@ -10,18 +10,18 @@
     text-align: center;
     padding: 60px 0 40px;
     margin-bottom: 40px;
-    border-bottom: 1px solid #2a2a4a;
+    border-bottom: 1px solid var(--border);
   }
   .hero h1 {
     font-size: 42px;
     font-weight: 900;
-    background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+    background: linear-gradient(135deg, var(--concept), var(--formula));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 12px;
   }
   .hero p {
-    color: #888;
+    color: var(--text-secondary);
     font-size: 16px;
   }
 
@@ -36,10 +36,10 @@
     gap: 16px;
     margin-bottom: 32px;
     padding-bottom: 16px;
-    border-bottom: 2px solid #8b5cf6;
+    border-bottom: 2px solid var(--concept);
   }
   .lecture-num {
-    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+    background: linear-gradient(135deg, var(--concept), var(--concept-dark));
     color: white;
     width: 52px; height: 52px;
     border-radius: 14px;
@@ -51,5 +51,5 @@
   .lecture-header h2 {
     font-size: 28px;
     font-weight: 700;
-    color: #fff;
+    color: var(--text-white);
   }

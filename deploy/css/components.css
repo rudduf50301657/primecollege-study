@@ -2,8 +2,8 @@
   .update-banner {
     position: fixed;
     top: 0; left: 260px; right: 0;
-    background: linear-gradient(90deg, #8b5cf6, #6d28d9);
-    color: #fff;
+    background: linear-gradient(90deg, var(--concept), var(--concept-dark));
+    color: var(--text-white);
     padding: 10px 20px;
     font-size: 14px;
     font-weight: 500;
@@ -18,13 +18,13 @@
   @keyframes slideDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
   .update-banner .refresh-link {
     background: rgba(255,255,255,0.2);
-    color: #fff;
+    color: var(--text-white);
     border: none;
     padding: 4px 14px;
     border-radius: 6px;
     font-size: 13px;
     cursor: pointer;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: var(--font);
     font-weight: 700;
     transition: background 0.2s;
   }
@@ -46,9 +46,9 @@
   .fab-wrap { position: fixed; bottom: 28px; right: 28px; z-index: 999; }
   .fab {
     width: 48px; height: 48px;
-    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+    background: linear-gradient(135deg, var(--concept), var(--concept-dark));
     border: none; border-radius: 50%;
-    color: #fff; font-size: 22px; font-weight: 700;
+    color: var(--text-white); font-size: 22px; font-weight: 700;
     cursor: pointer;
     box-shadow: 0 4px 16px rgba(139,92,246,0.4);
     transition: all 0.2s;
@@ -57,7 +57,7 @@
   .fab:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(139,92,246,0.5); }
   .fab-menu {
     position: absolute; bottom: 60px; right: 0;
-    background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 12px;
+    background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-md);
     padding: 8px 0; min-width: 180px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.5);
     display: none; animation: fabIn 0.2s ease;
@@ -66,10 +66,10 @@
   @keyframes fabIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
   .fab-menu a {
     display: block; padding: 12px 20px;
-    color: #c4b5fd; text-decoration: none; font-size: 14px; font-weight: 500;
+    color: var(--concept-text); text-decoration: none; font-size: 14px; font-weight: 500;
     transition: background 0.15s;
   }
-  .fab-menu a:hover { background: rgba(139,92,246,0.1); color: #fff; }
+  .fab-menu a:hover { background: rgba(139,92,246,0.1); color: var(--text-white); }
 
   /* ── Responsive ── */
   @media (max-width: 900px) {

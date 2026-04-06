@@ -1,8 +1,8 @@
   /* ── Tooltip Popup ── */
   .tt {
     position: relative;
-    color: #eab308;
-    border-bottom: 1px dashed #eab308;
+    color: var(--tip);
+    border-bottom: 1px dashed var(--tip);
     cursor: help;
     font-weight: 600;
   }
@@ -14,13 +14,13 @@
     left: 50%;
     transform: translateX(-50%);
     width: 320px;
-    background: #1a1a2e;
-    border: 2px solid #eab308;
-    border-radius: 12px;
+    background: var(--bg-surface);
+    border: 2px solid var(--tip);
+    border-radius: var(--radius-md);
     padding: 14px 16px;
     font-size: 13px;
     font-weight: 400;
-    color: #e0e0e0;
+    color: var(--text-primary);
     line-height: 1.7;
     z-index: 9999;
     box-shadow: 0 8px 30px rgba(0,0,0,0.7);
@@ -34,36 +34,36 @@
     left: 50%;
     transform: translateX(-50%);
     border: 8px solid transparent;
-    border-top-color: #eab308;
+    border-top-color: var(--tip);
   }
   .tt:hover .ttp {
     visibility: visible;
     opacity: 1;
   }
-  .tt .ttp strong { color: #eab308; }
+  .tt .ttp strong { color: var(--tip); }
   .tt .ttp .ttp-formula {
     font-family: Georgia, serif;
     font-size: 15px;
-    color: #93c5fd;
+    color: var(--formula-text);
     margin: 6px 0;
     text-align: center;
   }
 
   /* ── Concept Cards ── */
   .concept-card {
-    background: #1a1a2e;
-    border: 1px solid #2a2a4a;
-    border-radius: 16px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
     padding: 28px;
     margin-bottom: 24px;
     transition: border-color 0.3s;
   }
   .concept-card:hover {
-    border-color: #8b5cf6;
+    border-color: var(--concept);
   }
   .concept-card h3 {
     font-size: 20px;
-    color: #8b5cf6;
+    color: var(--concept);
     margin-bottom: 16px;
     display: flex;
     align-items: center;
@@ -75,9 +75,9 @@
 
   /* ── Visual Diagram Boxes ── */
   .diagram-box {
-    background: #12121f;
-    border: 1px solid #333;
-    border-radius: 12px;
+    background: var(--bg-inset);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
     padding: 24px;
     margin: 16px 0;
     text-align: center;
@@ -94,23 +94,23 @@
   }
   .flow-box {
     padding: 14px 24px;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     font-weight: 500;
     font-size: 15px;
     text-align: center;
     min-width: 120px;
   }
   .flow-arrow {
-    color: #8b5cf6;
+    color: var(--concept);
     font-size: 24px;
     font-weight: 700;
   }
-  .flow-blue { background: #1e3a5f; border: 2px solid #3b82f6; color: #93c5fd; }
-  .flow-purple { background: #2d1b69; border: 2px solid #8b5cf6; color: #c4b5fd; }
-  .flow-green { background: #1a3a2a; border: 2px solid #22c55e; color: #86efac; }
-  .flow-orange { background: #3d2a1a; border: 2px solid #f97316; color: #fdba74; }
-  .flow-red { background: #3d1a1a; border: 2px solid #ef4444; color: #fca5a5; }
-  .flow-cyan { background: #1a3a3d; border: 2px solid #06b6d4; color: #67e8f9; }
+  .flow-blue { background: var(--formula-bg); border: 2px solid var(--formula); color: var(--formula-text); }
+  .flow-purple { background: var(--concept-bg); border: 2px solid var(--concept); color: var(--concept-text); }
+  .flow-green { background: var(--example-bg); border: 2px solid var(--example); color: var(--example-text); }
+  .flow-orange { background: var(--tip-bg); border: 2px solid var(--tip); color: var(--tip-text); }
+  .flow-red { background: var(--error-bg); border: 2px solid var(--error); color: var(--error-text); }
+  .flow-cyan { background: var(--formula-bg); border: 2px solid var(--formula); color: var(--formula-text); }
 
   /* ── Comparison Tables ── */
   .compare-table {
@@ -118,13 +118,13 @@
     border-collapse: separate;
     border-spacing: 0;
     margin: 16px 0;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     overflow: visible;
-    border: 1px solid #2a2a4a;
+    border: 1px solid var(--border);
   }
   .compare-table th {
-    background: #2d1b69;
-    color: #c4b5fd;
+    background: var(--concept-bg);
+    color: var(--concept-text);
     padding: 14px 18px;
     text-align: left;
     font-weight: 600;
@@ -132,18 +132,18 @@
   }
   .compare-table td {
     padding: 14px 18px;
-    border-bottom: 1px solid #2a2a4a;
+    border-bottom: 1px solid var(--border);
     font-size: 14px;
   }
-  .compare-table tr:nth-child(even) td { background: #161625; }
-  .compare-table tr:nth-child(odd) td { background: #1a1a2e; }
+  .compare-table tr:nth-child(even) td { background: var(--bg-surface-alt); }
+  .compare-table tr:nth-child(odd) td { background: var(--bg-surface); }
   .compare-table tr:last-child td { border-bottom: none; }
 
   /* ── Example Boxes ── */
   .example-box {
-    background: linear-gradient(135deg, #1a2a1a, #1a3a2a);
-    border: 1px solid #22c55e;
-    border-radius: 12px;
+    background: linear-gradient(135deg, #1a2a1a, var(--example-bg));
+    border: 1px solid var(--example);
+    border-radius: var(--radius-md);
     padding: 20px 24px;
     margin: 16px 0;
     position: relative;
@@ -152,7 +152,7 @@
     content: '예시';
     position: absolute;
     top: -10px; left: 16px;
-    background: #22c55e;
+    background: var(--example);
     color: #000;
     padding: 2px 12px;
     border-radius: 6px;
@@ -163,9 +163,9 @@
 
   /* ── Warning / Tip Boxes ── */
   .tip-box {
-    background: linear-gradient(135deg, #2a2a1a, #3d3a1a);
-    border: 1px solid #eab308;
-    border-radius: 12px;
+    background: linear-gradient(135deg, var(--tip-bg), #3d3a1a);
+    border: 1px solid var(--tip);
+    border-radius: var(--radius-md);
     padding: 20px 24px;
     margin: 16px 0;
     position: relative;
@@ -174,7 +174,7 @@
     content: '시험 포인트';
     position: absolute;
     top: -10px; left: 16px;
-    background: #eab308;
+    background: var(--tip);
     color: #000;
     padding: 2px 12px;
     border-radius: 6px;
@@ -184,9 +184,9 @@
 
   /* ── Analogy Boxes ── */
   .analogy-box {
-    background: linear-gradient(135deg, #1a1a3d, #2d1b69);
-    border: 1px solid #8b5cf6;
-    border-radius: 12px;
+    background: linear-gradient(135deg, #1a1a3d, var(--concept-bg));
+    border: 1px solid var(--concept);
+    border-radius: var(--radius-md);
     padding: 20px 24px;
     margin: 16px 0;
     position: relative;
@@ -195,8 +195,8 @@
     content: '쉬운 비유';
     position: absolute;
     top: -10px; left: 16px;
-    background: #8b5cf6;
-    color: #fff;
+    background: var(--concept);
+    color: var(--text-white);
     padding: 2px 12px;
     border-radius: 6px;
     font-size: 12px;
@@ -212,17 +212,17 @@
     margin: 20px 0;
   }
   .tree-root {
-    background: #8b5cf6;
+    background: var(--concept);
     color: white;
     padding: 12px 32px;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     font-weight: 700;
     font-size: 16px;
   }
   .tree-connector {
     width: 2px;
     height: 20px;
-    background: #555;
+    background: var(--text-muted);
   }
   .tree-branch {
     display: flex;
@@ -236,7 +236,7 @@
     left: 25%;
     right: 25%;
     height: 2px;
-    background: #555;
+    background: var(--text-muted);
   }
   .tree-sub {
     display: flex;
@@ -260,7 +260,7 @@
   }
   .tree-leaf {
     padding: 8px 14px;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     font-size: 12px;
     text-align: center;
   }
@@ -273,7 +273,7 @@
     height: 180px;
     padding: 0 20px;
     margin: 20px 0;
-    border-bottom: 2px solid #555;
+    border-bottom: 2px solid var(--text-muted);
     position: relative;
   }
   .bar-chart .bar-group {
@@ -303,7 +303,7 @@
   .bar-chart .bar-label {
     margin-top: 8px;
     font-size: 12px;
-    color: #aaa;
+    color: var(--text-secondary);
     text-align: center;
   }
 
@@ -312,24 +312,24 @@
     position: relative;
     height: 80px;
     margin: 20px 0;
-    border-bottom: 2px solid #555;
+    border-bottom: 2px solid var(--text-muted);
   }
   .dot-plot .dot {
     width: 14px; height: 14px;
-    background: #8b5cf6;
+    background: var(--concept);
     border-radius: 50%;
     position: absolute;
     transition: all 0.3s;
   }
   .dot-plot .dot:hover {
     transform: scale(1.5);
-    background: #a78bfa;
+    background: var(--concept-text);
   }
   .dot-plot .axis-label {
     position: absolute;
     bottom: -22px;
     font-size: 11px;
-    color: #888;
+    color: var(--text-secondary);
     transform: translateX(-50%);
   }
 
@@ -346,7 +346,7 @@
     transform: translateX(-50%);
     width: 400px;
     height: 6px;
-    background: #8b5cf6;
+    background: var(--concept);
     border-radius: 3px;
   }
   .seesaw-pivot {
@@ -357,14 +357,14 @@
     width: 0; height: 0;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-bottom: 22px solid #6d28d9;
+    border-bottom: 22px solid var(--concept-dark);
   }
   .seesaw-dot {
     position: absolute;
     bottom: 42px;
     width: 16px; height: 16px;
     border-radius: 50%;
-    background: #22c55e;
+    background: var(--example);
     transform: translateX(-50%);
   }
   .seesaw-mean {
@@ -373,14 +373,14 @@
     left: 50%;
     transform: translateX(-50%);
     width: 4px; height: 20px;
-    background: #ef4444;
+    background: var(--error);
   }
   .seesaw-mean-label {
     position: absolute;
     bottom: 65px;
     left: 50%;
     transform: translateX(-50%);
-    color: #ef4444;
+    color: var(--error);
     font-size: 12px;
     font-weight: 700;
   }
@@ -393,14 +393,14 @@
     margin: 16px 0;
   }
   .dist-card {
-    background: #12121f;
-    border: 1px solid #333;
-    border-radius: 12px;
+    background: var(--bg-inset);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
     padding: 16px;
     text-align: center;
   }
   .dist-card h4 {
-    color: #c4b5fd;
+    color: var(--concept-text);
     margin-bottom: 8px;
     font-size: 14px;
   }
@@ -409,15 +409,15 @@
     height: 80px;
   }
   .dist-card p {
-    color: #888;
+    color: var(--text-secondary);
     font-size: 12px;
     margin-top: 6px;
   }
 
   /* ── Formula Box ── */
   .formula-box {
-    background: #1e1e35;
-    border: 2px solid #3b82f6;
+    background: var(--border-subtle);
+    border: 2px solid var(--formula);
     border-radius: 14px;
     padding: 24px;
     margin: 16px 0;
@@ -425,13 +425,13 @@
   }
   .formula-box .formula {
     font-size: 22px;
-    color: #93c5fd;
+    color: var(--formula-text);
     font-weight: 700;
     margin: 8px 0;
     font-family: 'Georgia', serif;
   }
   .formula-box .formula-desc {
-    color: #888;
+    color: var(--text-secondary);
     font-size: 13px;
   }
 
@@ -446,7 +446,7 @@
     margin-bottom: 12px;
   }
   .calc-step-num {
-    background: #3b82f6;
+    background: var(--formula);
     color: white;
     width: 28px; height: 28px;
     border-radius: 50%;
@@ -461,16 +461,16 @@
   }
   .calc-step-content .math {
     font-family: 'Georgia', serif;
-    color: #93c5fd;
+    color: var(--formula-text);
     font-size: 16px;
     margin: 4px 0;
   }
 
   /* ── Interactive Outlier Demo ── */
   .outlier-demo {
-    background: #12121f;
-    border: 1px solid #333;
-    border-radius: 12px;
+    background: var(--bg-inset);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
     padding: 24px;
     margin: 16px 0;
   }
@@ -482,20 +482,20 @@
     flex-wrap: wrap;
   }
   .outlier-demo label {
-    color: #aaa;
+    color: var(--text-secondary);
     font-size: 14px;
   }
   .outlier-demo input[type="range"] {
     width: 200px;
-    accent-color: #8b5cf6;
+    accent-color: var(--concept);
   }
   .outlier-demo .result {
     font-size: 18px;
-    color: #fff;
+    color: var(--text-white);
     font-weight: 700;
   }
   .outlier-demo .result span {
-    color: #ef4444;
+    color: var(--error);
   }
 
   /* ── CV comparison ── */
@@ -506,35 +506,35 @@
   }
   .cv-card {
     flex: 1;
-    background: #12121f;
-    border-radius: 12px;
+    background: var(--bg-inset);
+    border-radius: var(--radius-md);
     padding: 20px;
     text-align: center;
-    border: 2px solid #333;
+    border: 2px solid var(--border);
     transition: border-color 0.3s;
   }
-  .cv-card:hover { border-color: #8b5cf6; }
-  .cv-card h4 { color: #c4b5fd; margin-bottom: 12px; }
+  .cv-card:hover { border-color: var(--concept); }
+  .cv-card h4 { color: var(--concept-text); margin-bottom: 12px; }
   .cv-card .big-num {
     font-size: 36px;
     font-weight: 900;
     margin: 8px 0;
   }
   .cv-card .detail {
-    color: #888;
+    color: var(--text-secondary);
     font-size: 13px;
   }
 
   /* ── Summary Card ── */
   .summary-card {
     background: linear-gradient(135deg, #1a1a3d, #0f0f2a);
-    border: 2px solid #8b5cf6;
-    border-radius: 16px;
+    border: 2px solid var(--concept);
+    border-radius: var(--radius-lg);
     padding: 28px;
     margin: 32px 0;
   }
   .summary-card h3 {
-    color: #8b5cf6;
+    color: var(--concept);
     font-size: 18px;
     margin-bottom: 16px;
   }
@@ -552,40 +552,40 @@
     content: '✓';
     position: absolute;
     left: 0;
-    color: #22c55e;
+    color: var(--example);
     font-weight: 700;
   }
 
   /* ── Spreadsheet visual ── */
   .spreadsheet {
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     overflow: hidden;
-    border: 1px solid #2a2a4a;
+    border: 1px solid var(--border);
     margin: 16px 0;
   }
   .spreadsheet-header {
     display: grid;
-    background: #2d1b69;
+    background: var(--concept-bg);
   }
   .spreadsheet-row {
     display: grid;
   }
-  .spreadsheet-row:nth-child(even) { background: #161625; }
-  .spreadsheet-row:nth-child(odd) { background: #1a1a2e; }
+  .spreadsheet-row:nth-child(even) { background: var(--bg-surface-alt); }
+  .spreadsheet-row:nth-child(odd) { background: var(--bg-surface); }
   .spreadsheet-cell {
     padding: 10px 14px;
     font-size: 13px;
-    border-right: 1px solid #2a2a4a;
-    border-bottom: 1px solid #2a2a4a;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
   }
   .spreadsheet-cell:last-child { border-right: none; }
   .spreadsheet-cell.header {
-    color: #c4b5fd;
+    color: var(--concept-text);
     font-weight: 600;
     font-size: 12px;
   }
   .spreadsheet-cell.row-head {
-    color: #8b5cf6;
+    color: var(--concept);
     font-weight: 600;
   }
   .spreadsheet-cell.highlight {
@@ -600,10 +600,10 @@
     margin: 6px 0;
   }
   .annotation .arrow {
-    color: #8b5cf6;
+    color: var(--concept);
     font-size: 18px;
   }
   .annotation .text {
-    color: #c4b5fd;
+    color: var(--concept-text);
     font-size: 14px;
   }

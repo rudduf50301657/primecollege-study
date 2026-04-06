@@ -1,32 +1,50 @@
 :root {
+  /* Background */
   --bg-body: #0f0f1a;
   --bg-surface: #1a1a2e;
   --bg-surface-alt: #161625;
   --bg-inset: #12121f;
-  --border-default: #2a2a4a;
+  --border: #2a2a4a;
   --border-subtle: #1e1e35;
+
+  /* Text */
   --text-primary: #e0e0e0;
   --text-secondary: #888;
   --text-muted: #555;
   --text-white: #fff;
-  --accent: #8b5cf6;
-  --accent-dark: #6d28d9;
-  --accent-bg: #2d1b69;
-  --accent-text: #c4b5fd;
-  --concept-border: #8b5cf6;
-  --formula-border: #3b82f6;
+
+  /* Concept - Purple (brand, definitions, core concepts) */
+  --concept: #8b5cf6;
+  --concept-dark: #6d28d9;
+  --concept-bg: #2d1b69;
+  --concept-text: #c4b5fd;
+
+  /* Formula - Blue (formulas, equations, calculations) */
+  --formula: #3b82f6;
+  --formula-bg: #1e3a5f;
   --formula-text: #93c5fd;
-  --example-border: #22c55e;
+
+  /* Example - Green (examples, correct answers, success) */
+  --example: #22c55e;
+  --example-bg: #1a3a2a;
   --example-text: #86efac;
-  --tip-border: #eab308;
+
+  /* Tip - Amber (exam points, tips, warnings) */
+  --tip: #eab308;
+  --tip-bg: #2a2a1a;
   --tip-text: #d4c87a;
-  --error-border: #ef4444;
+
+  /* Error - Red (wrong answers, errors, bad examples) */
+  --error: #ef4444;
+  --error-bg: #3d1a1a;
   --error-text: #fca5a5;
-  --success-border: #22c55e;
-  --success-text: #86efac;
+
+  /* Radius */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 20px;
-  --font-family: 'Noto Sans KR', sans-serif;
+
+  /* Font */
+  --font: 'Noto Sans KR', sans-serif;
 }

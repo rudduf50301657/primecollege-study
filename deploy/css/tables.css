@@ -3,39 +3,39 @@
   .dist-table {
     border-collapse: separate; border-spacing: 0;
     font-size: 12px; width: 100%;
-    border: 1px solid #2a2a4a; border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden;
   }
   .dist-table th {
-    background: #2d1b69; color: #c4b5fd; padding: 8px 6px;
+    background: var(--concept-bg); color: var(--concept-text); padding: 8px 6px;
     font-weight: 600; text-align: center; position: sticky; top: 0;
   }
   .dist-table td {
-    padding: 6px; text-align: center; border-bottom: 1px solid #1e1e35;
-    color: #ccc;
+    padding: 6px; text-align: center; border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-primary);
   }
   .dist-table tr:hover td { background: rgba(139,92,246,0.08); }
   .dist-table .row-header {
-    background: #1e3a5f; color: #93c5fd; font-weight: 700;
+    background: var(--formula-bg); color: var(--formula-text); font-weight: 700;
     position: sticky; left: 0;
   }
   .dist-table td.highlight {
-    background: rgba(34,197,94,0.15); color: #86efac; font-weight: 700;
+    background: rgba(34,197,94,0.15); color: var(--example-text); font-weight: 700;
   }
   .table-lookup {
-    background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 16px;
+    background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
     padding: 20px 24px; margin-bottom: 24px;
     display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
   }
-  .table-lookup label { color: #888; font-size: 14px; }
+  .table-lookup label { color: var(--text-secondary); font-size: 14px; }
   .table-lookup input {
     width: 140px; padding: 8px 12px;
-    background: #12121f; border: 2px solid #2a2a4a; border-radius: 10px;
-    color: #e0e0e0; font-family: 'Noto Sans KR', sans-serif; font-size: 14px;
+    background: var(--bg-inset); border: 2px solid var(--border); border-radius: 10px;
+    color: var(--text-primary); font-family: var(--font); font-size: 14px;
     transition: border-color 0.2s;
   }
-  .table-lookup input:focus { outline: none; border-color: #8b5cf6; }
+  .table-lookup input:focus { outline: none; border-color: var(--concept); }
   .table-lookup .lookup-result {
     padding: 8px 16px; background: rgba(34,197,94,0.1);
     border: 1px solid rgba(34,197,94,0.3); border-radius: 10px;
-    color: #86efac; font-weight: 700; font-size: 15px;
+    color: var(--example-text); font-weight: 700; font-size: 15px;
   }
