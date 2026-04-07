@@ -143,6 +143,14 @@
       <span class="nav-arrow">▶</span> 문제풀기
     </div>
     <div class="nav-links">
+      <a href="#quiz-1" data-quiz="1">1강 연습문제</a>
+      <a href="#quiz-2" data-quiz="2">2강 연습문제</a>
+      <a href="#quiz-3" data-quiz="3">3강 연습문제</a>
+      <a href="#quiz-4" data-quiz="4">4강 연습문제</a>
+      <a href="#quiz-5" data-quiz="5">5강 연습문제</a>
+      <a href="#quiz-6" data-quiz="6">6강 연습문제</a>
+      <a href="#quiz-7" data-quiz="7">7강 연습문제</a>
+      <a href="#quiz-8" data-quiz="8">8강 연습문제</a>
     </div>
   </div>
 
@@ -4229,6 +4237,2298 @@
 
 
 </div><!-- /view-lecture-8 -->
+
+<!-- ═══════════ 1강 연습문제 ═══════════ -->
+<div class="view-quiz-1">
+<div class="quiz-hero">
+  <h3>1강 - 집합과 명제</h3>
+  <p>객관식 10문항 | 하 3 · 중 5 · 상 2</p>
+</div>
+
+<!-- Q1: 하 -->
+<div class="quiz-card" id="q101">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">1</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 중 집합이 <strong>아닌</strong> 것은?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">10보다 작은 자연수의 모임</li>
+      <li data-label="B" onclick="selectOption(this)">짝수인 자연수의 모임</li>
+      <li data-label="C" onclick="selectOption(this)">키가 큰 사람들의 모임</li>
+      <li data-label="D" onclick="selectOption(this)">소수(prime)인 자연수의 모임</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(101)">힌트 보기</button>
+    <div class="quiz-hint" id="q101-hint">집합이 되려면 대상을 <strong>분명하게</strong> 정할 수 있어야 해. 어떤 기준이 사람마다 다르게 해석될 수 있다면?</div>
+    <button class="quiz-submit" onclick="submitMC(101)">답 제출하기</button>
+    <div class="quiz-result" id="q101-result"></div>
+    <div class="quiz-explanation" id="q101-explain">
+      <div class="quiz-explain-label">해설</div>
+      집합은 "어떤 조건에 의해 그 대상을 <strong>분명하게 정할 수 있는 모임</strong>"이야. "키가 큰 사람들의 모임"은 "큰"의 기준이 모호하여 사람마다 다르게 해석되므로 집합이 아니야. 나머지 보기들은 원소를 명확하게 결정할 수 있어.
+    </div>
+  </div>
+</div>
+
+<!-- Q2: 하 -->
+<div class="quiz-card" id="q102">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">2</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">원소가 4개인 집합의 부분집합의 개수는?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">8</li>
+      <li data-label="B" onclick="selectOption(this)">12</li>
+      <li data-label="C" onclick="selectOption(this)">16</li>
+      <li data-label="D" onclick="selectOption(this)">15</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(102)">힌트 보기</button>
+    <div class="quiz-hint" id="q102-hint">각 원소마다 "넣는다 / 안 넣는다" 2가지 선택이 있어. 원소가 n개면 부분집합은 몇 개일까?</div>
+    <button class="quiz-submit" onclick="submitMC(102)">답 제출하기</button>
+    <div class="quiz-result" id="q102-result"></div>
+    <div class="quiz-explanation" id="q102-explain">
+      <div class="quiz-explain-label">해설</div>
+      원소가 n개인 집합의 부분집합 개수는 <strong>2ⁿ</strong>개야. 각 원소마다 "넣는다 / 안 넣는다" 2가지 선택이 있으므로 2×2×…×2 = 2ⁿ이 돼. n = 4이면 2⁴ = <strong>16</strong>개. 참고로 진부분집합은 2ⁿ − 1 = 15개야 (자기 자신 제외).
+    </div>
+  </div>
+</div>
+
+<!-- Q3: 하 -->
+<div class="quiz-card" id="q103">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">3</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">A = {1, 2, 3, 4}, B = {3, 4, 5, 6}일 때, A ∩ B는?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">{1, 2, 3, 4, 5, 6}</li>
+      <li data-label="B" onclick="selectOption(this)">{3, 4}</li>
+      <li data-label="C" onclick="selectOption(this)">{1, 2}</li>
+      <li data-label="D" onclick="selectOption(this)">{5, 6}</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(103)">힌트 보기</button>
+    <div class="quiz-hint" id="q103-hint">교집합(∩)은 A <strong>그리고</strong> B 둘 다에 속하는 원소야.</div>
+    <button class="quiz-submit" onclick="submitMC(103)">답 제출하기</button>
+    <div class="quiz-result" id="q103-result"></div>
+    <div class="quiz-explanation" id="q103-explain">
+      <div class="quiz-explain-label">해설</div>
+      교집합 A ∩ B는 "A <strong>그리고</strong> B 둘 다에 속하는 원소" 전체야. A = {1,2,3,4}와 B = {3,4,5,6}에서 공통 원소는 3과 4이므로 A ∩ B = <strong>{3, 4}</strong>. 참고로 A ∪ B = {1,2,3,4,5,6}, A − B = {1,2}, B − A = {5,6}이야.
+    </div>
+  </div>
+</div>
+
+<!-- Q4: 중 -->
+<div class="quiz-card" id="q104">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">4</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">드모르간 법칙에 의해 (A ∪ B)<sup>c</sup>와 같은 것은?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">A<sup>c</sup> ∪ B<sup>c</sup></li>
+      <li data-label="B" onclick="selectOption(this)">A<sup>c</sup> ∩ B<sup>c</sup></li>
+      <li data-label="C" onclick="selectOption(this)">A ∩ B<sup>c</sup></li>
+      <li data-label="D" onclick="selectOption(this)">(A ∩ B)<sup>c</sup></li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(104)">힌트 보기</button>
+    <div class="quiz-hint" id="q104-hint">드모르간 법칙: 보수(여집합)를 씌우면 ∪ ↔ ∩ 이 뒤집혀!</div>
+    <button class="quiz-submit" onclick="submitMC(104)">답 제출하기</button>
+    <div class="quiz-result" id="q104-result"></div>
+    <div class="quiz-explanation" id="q104-explain">
+      <div class="quiz-explain-label">해설</div>
+      드모르간 법칙: <strong>(A ∪ B)<sup>c</sup> = A<sup>c</sup> ∩ B<sup>c</sup></strong>. "합의 여집합 = 여집합의 교"야. 이걸 말로 풀면 "A도 B도 아닌 것" = "A가 아닌 것" <strong>그리고</strong> "B가 아닌 것"이 돼. 외우는 법: 보수 씌우면 ∪ ↔ ∩ 뒤집힌다!
+    </div>
+  </div>
+</div>
+
+<!-- Q5: 중 -->
+<div class="quiz-card" id="q105">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">5</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">학생 40명 중 수학을 좋아하는 학생이 25명, 영어를 좋아하는 학생이 20명, 둘 다 좋아하는 학생이 10명일 때, 수학도 영어도 좋아하지 않는 학생은 몇 명인가?</div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">5명</li>
+      <li data-label="B" onclick="selectOption(this)">10명</li>
+      <li data-label="C" onclick="selectOption(this)">15명</li>
+      <li data-label="D" onclick="selectOption(this)">35명</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(105)">힌트 보기</button>
+    <div class="quiz-hint" id="q105-hint">n(A ∪ B) = n(A) + n(B) − n(A ∩ B)를 먼저 구한 뒤, 전체에서 빼봐!</div>
+    <button class="quiz-submit" onclick="submitMC(105)">답 제출하기</button>
+    <div class="quiz-result" id="q105-result"></div>
+    <div class="quiz-explanation" id="q105-explain">
+      <div class="quiz-explain-label">해설</div>
+      n(수학 ∪ 영어) = n(수학) + n(영어) − n(수학 ∩ 영어) = 25 + 20 − 10 = <strong>35명</strong>. 수학 또는 영어를 좋아하는 학생이 35명이므로, 둘 다 싫어하는 학생 = 40 − 35 = <strong>5명</strong>. "둘 다 아닌"은 합집합의 여집합이야.
+    </div>
+  </div>
+</div>
+
+<!-- Q6: 중 -->
+<div class="quiz-card" id="q106">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">6</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">명제 p → q가 <strong>거짓</strong>이 되는 경우는?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">p가 거짓이고 q가 참인 경우</li>
+      <li data-label="B" onclick="selectOption(this)">p가 참이고 q가 거짓인 경우</li>
+      <li data-label="C" onclick="selectOption(this)">p가 거짓이고 q가 거짓인 경우</li>
+      <li data-label="D" onclick="selectOption(this)">p가 참이고 q가 참인 경우</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(106)">힌트 보기</button>
+    <div class="quiz-hint" id="q106-hint">조건명제 p → q가 거짓인 경우는 딱 하나뿐이야. 가정(p)이 참인데 결론(q)이…</div>
+    <button class="quiz-submit" onclick="submitMC(106)">답 제출하기</button>
+    <div class="quiz-result" id="q106-result"></div>
+    <div class="quiz-explanation" id="q106-explain">
+      <div class="quiz-explain-label">해설</div>
+      조건명제 p → q가 <strong>거짓인 경우는 딱 하나!</strong> "가정(p)은 참인데 결론(q)이 거짓"일 때만이야. 나머지 세 경우(T→T, F→T, F→F)는 모두 참이야. p가 거짓이면 q와 상관없이 명제가 참(공허하게 참)이 돼.
+    </div>
+  </div>
+</div>
+
+<!-- Q7: 중 -->
+<div class="quiz-card" id="q107">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">7</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">명제 "x = 2이면 x² = 4이다"의 <strong>대우</strong>는?</div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">x² = 4이면 x = 2이다</li>
+      <li data-label="B" onclick="selectOption(this)">x ≠ 2이면 x² ≠ 4이다</li>
+      <li data-label="C" onclick="selectOption(this)">x² ≠ 4이면 x = 2이다</li>
+      <li data-label="D" onclick="selectOption(this)">x² ≠ 4이면 x ≠ 2이다</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(107)">힌트 보기</button>
+    <div class="quiz-hint" id="q107-hint">p → q의 대우는 ¬q → ¬p야. 가정과 결론을 모두 부정한 뒤 순서를 바꿔봐!</div>
+    <button class="quiz-submit" onclick="submitMC(107)">답 제출하기</button>
+    <div class="quiz-result" id="q107-result"></div>
+    <div class="quiz-explanation" id="q107-explain">
+      <div class="quiz-explain-label">해설</div>
+      p: "x = 2", q: "x² = 4"라 하면, 대우는 <strong>¬q → ¬p</strong> = "x² ≠ 4이면 x ≠ 2이다"야. 대우는 원래 명제와 <strong>항상 진리값이 같아</strong>. 역(q→p)과 이(¬p→¬q)는 진리값이 다를 수 있고, 역과 이는 서로 대우 관계이므로 진리값이 서로 같아.
+    </div>
+  </div>
+</div>
+
+<!-- Q8: 중 -->
+<div class="quiz-card" id="q108">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">8</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">p: "x = 1", q: "x² = 1"일 때, 진리집합 P = {1}, Q = {−1, 1}이다. p와 q의 관계로 옳은 것은?</div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">p는 q의 충분조건이지만 필요조건이 아니다</li>
+      <li data-label="B" onclick="selectOption(this)">p는 q의 필요조건이지만 충분조건이 아니다</li>
+      <li data-label="C" onclick="selectOption(this)">p는 q의 필요충분조건이다</li>
+      <li data-label="D" onclick="selectOption(this)">p는 q의 충분조건도 필요조건도 아니다</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(108)">힌트 보기</button>
+    <div class="quiz-hint" id="q108-hint">P ⊆ Q이면 p → q 참(p가 충분조건), Q ⊆ P이면 q → p 참(p가 필요조건). P와 Q를 비교해봐!</div>
+    <button class="quiz-submit" onclick="submitMC(108)">답 제출하기</button>
+    <div class="quiz-result" id="q108-result"></div>
+    <div class="quiz-explanation" id="q108-explain">
+      <div class="quiz-explain-label">해설</div>
+      P = {1} ⊆ Q = {−1, 1}이므로 p → q는 참 → p는 q의 <strong>충분조건</strong>. 하지만 Q ⊄ P이므로 q → p는 거짓 → p는 q의 필요조건은 아니야. 따라서 p는 q의 충분조건이지만 필요조건은 아니야. 진리집합으로 판단: P⊆Q면 충분, Q⊆P면 필요, P=Q면 필요충분!
+    </div>
+  </div>
+</div>
+
+<!-- Q9: 상 -->
+<div class="quiz-card" id="q109">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">9</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">전체집합 U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}에서 A = {2, 4, 6, 8, 10}, B = {1, 2, 3, 4, 5}일 때, (A ∪ B)<sup>c</sup>의 원소의 개수는?</div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">2</li>
+      <li data-label="B" onclick="selectOption(this)">3</li>
+      <li data-label="C" onclick="selectOption(this)">4</li>
+      <li data-label="D" onclick="selectOption(this)">5</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(109)">힌트 보기</button>
+    <div class="quiz-hint" id="q109-hint">A ∪ B를 먼저 구한 뒤, 전체집합 U에서 A ∪ B를 빼면 여집합이 돼. 또는 드모르간 법칙으로 A<sup>c</sup> ∩ B<sup>c</sup>를 구해도 같아!</div>
+    <button class="quiz-submit" onclick="submitMC(109)">답 제출하기</button>
+    <div class="quiz-result" id="q109-result"></div>
+    <div class="quiz-explanation" id="q109-explain">
+      <div class="quiz-explain-label">해설</div>
+      A ∪ B = {1, 2, 3, 4, 5, 6, 8, 10}으로 원소가 8개야. (A ∪ B)<sup>c</sup> = U − (A ∪ B) = {7, 9}. 따라서 원소의 개수는 <strong>2개</strong>야. 드모르간 법칙으로 확인: A<sup>c</sup> = {1,3,5,7,9}, B<sup>c</sup> = {6,7,8,9,10}이므로 A<sup>c</sup> ∩ B<sup>c</sup> = {7, 9} 역시 2개로 동일!
+    </div>
+  </div>
+</div>
+
+<!-- Q10: 상 -->
+<div class="quiz-card" id="q110">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">10</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">집합 A = {a, b, c, d}에서 원소 a, b를 반드시 포함하는 부분집합의 개수는?</div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">4</li>
+      <li data-label="B" onclick="selectOption(this)">6</li>
+      <li data-label="C" onclick="selectOption(this)">8</li>
+      <li data-label="D" onclick="selectOption(this)">16</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(110)">힌트 보기</button>
+    <div class="quiz-hint" id="q110-hint">a, b는 반드시 포함되므로 고정. 나머지 원소들에 대해서만 넣고 안 넣고를 선택하면 돼. 나머지 원소가 몇 개야?</div>
+    <button class="quiz-submit" onclick="submitMC(110)">답 제출하기</button>
+    <div class="quiz-result" id="q110-result"></div>
+    <div class="quiz-explanation" id="q110-explain">
+      <div class="quiz-explain-label">해설</div>
+      원소 k개를 반드시 포함하는 부분집합 개수 = <strong>2<sup>n-k</sup></strong>야. a, b (2개)를 반드시 포함해야 하므로, 나머지 c, d (2개)만 자유롭게 선택. 2<sup>4-2</sup> = 2² = <strong>4개</strong>야. 구체적으로 나열하면: {a,b}, {a,b,c}, {a,b,d}, {a,b,c,d}의 4가지!
+    </div>
+  </div>
+</div>
+
+</div><!-- /view-quiz-1 -->
+
+
+<!-- ═══════════ 2강 연습문제 ═══════════ -->
+<div class="view-quiz-2">
+<div class="quiz-hero">
+  <h3>2강 - 실수와 복소수</h3>
+  <p>객관식 10문항 | 하 3 · 중 5 · 상 2</p>
+</div>
+
+<!-- Q1: 하 -->
+<div class="quiz-card" id="q111">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">1</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">수 체계의 포함 관계로 올바른 것은?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">유리수 ⊂ 정수 ⊂ 자연수 ⊂ 실수</li>
+      <li data-label="B" onclick="selectOption(this)">자연수 ⊂ 정수 ⊂ 유리수 ⊂ 실수</li>
+      <li data-label="C" onclick="selectOption(this)">정수 ⊂ 자연수 ⊂ 유리수 ⊂ 실수</li>
+      <li data-label="D" onclick="selectOption(this)">자연수 ⊂ 유리수 ⊂ 정수 ⊂ 실수</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(111)">힌트 보기</button>
+    <div class="quiz-hint" id="q111-hint">수의 세계는 자연수 → 정수 → 유리수 → 실수 순으로 확장되어 왔어. 자연수는 가장 작은 집합이야.</div>
+    <button class="quiz-submit" onclick="submitMC(111)">답 제출하기</button>
+    <div class="quiz-result" id="q111-result"></div>
+    <div class="quiz-explanation" id="q111-explain">
+      <div class="quiz-explain-label">해설</div>
+      수 체계는 <strong>N ⊂ Z ⊂ Q ⊂ R</strong>이야. 자연수(N) ⊂ 정수(Z) ⊂ 유리수(Q) ⊂ 실수(R). 자연수에서 뺄셈이 닫혀있지 않아 정수가 생기고, 정수에서 나눗셈이 닫혀있지 않아 유리수가 생기고, 이렇게 수 체계가 확장된 거야. 실수 = 유리수 + 무리수!
+    </div>
+  </div>
+</div>
+
+<!-- Q2: 하 -->
+<div class="quiz-card" id="q112">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">2</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">절댓값의 성질 중 옳지 <strong>않은</strong> 것은?</div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">|a| ≥ 0 (등호는 a = 0일 때)</li>
+      <li data-label="B" onclick="selectOption(this)">|ab| = |a| × |b|</li>
+      <li data-label="C" onclick="selectOption(this)">|a + b| ≤ |a| + |b|</li>
+      <li data-label="D" onclick="selectOption(this)">|a + b| = |a| + |b|</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(112)">힌트 보기</button>
+    <div class="quiz-hint" id="q112-hint">삼각부등식을 기억해. 등호(=)가 항상 성립하지는 않아 — 등호가 성립하는 특별한 조건이 있어!</div>
+    <button class="quiz-submit" onclick="submitMC(112)">답 제출하기</button>
+    <div class="quiz-result" id="q112-result"></div>
+    <div class="quiz-explanation" id="q112-explain">
+      <div class="quiz-explain-label">해설</div>
+      삼각부등식은 <strong>|a + b| ≤ |a| + |b|</strong>야. 등호는 a와 b가 같은 부호이거나 하나가 0일 때 성립해. 예: a = 1, b = −2이면 |a + b| = |−1| = 1, |a| + |b| = 3이므로 1 ≤ 3이지 등호가 아니야. D처럼 항상 등호라고 쓰면 틀려!
+    </div>
+  </div>
+</div>
+
+<!-- Q3: 하 -->
+<div class="quiz-card" id="q113">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">3</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">복소수 z = a + bi에서 켤레복소수 z̄의 정의로 올바른 것은?</div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">z̄ = a − bi</li>
+      <li data-label="B" onclick="selectOption(this)">z̄ = −a + bi</li>
+      <li data-label="C" onclick="selectOption(this)">z̄ = −a − bi</li>
+      <li data-label="D" onclick="selectOption(this)">z̄ = a + bi</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(113)">힌트 보기</button>
+    <div class="quiz-hint" id="q113-hint">켤레복소수는 허수부의 부호만 반대로 바꾸는 거야. 실수부는 그대로!</div>
+    <button class="quiz-submit" onclick="submitMC(113)">답 제출하기</button>
+    <div class="quiz-result" id="q113-result"></div>
+    <div class="quiz-explanation" id="q113-explain">
+      <div class="quiz-explain-label">해설</div>
+      z = a + bi의 켤레복소수는 <strong>z̄ = a − bi</strong>야. 허수부(b)의 부호만 반대로 바꾸고 실수부(a)는 그대로야. 켤레복소수 성질: z + z̄ = 2a (실수), z × z̄ = a² + b² (항상 ≥ 0인 실수). 복소수 나눗셈에서 분모를 실수로 만들 때 켤레복소수를 곱해!
+    </div>
+  </div>
+</div>
+
+<!-- Q4: 중 -->
+<div class="quiz-card" id="q114">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">4</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">부등식의 성질 중 옳은 것은?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">a > b이고 c < 0이면 ac > bc</li>
+      <li data-label="B" onclick="selectOption(this)">a > b이면 a² > b²</li>
+      <li data-label="C" onclick="selectOption(this)">a > b, b > c이면 a > c</li>
+      <li data-label="D" onclick="selectOption(this)">a > b이면 1/a > 1/b</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(114)">힌트 보기</button>
+    <div class="quiz-hint" id="q114-hint">음수를 곱하면 부등호 방향이 반전돼! 그리고 부등식의 추이성을 기억해봐.</div>
+    <button class="quiz-submit" onclick="submitMC(114)">답 제출하기</button>
+    <div class="quiz-result" id="q114-result"></div>
+    <div class="quiz-explanation" id="q114-explain">
+      <div class="quiz-explain-label">해설</div>
+      C가 정답: <strong>a > b, b > c이면 a > c</strong> (추이성). A는 틀려: c < 0이면 부등호 방향이 반전되어 ac < bc가 돼. B는 틀려: 예) a = −3, b = 2이면 a² = 9 > b² = 4이지만 a < b야. D는 틀려: a, b의 부호에 따라 달라져. <strong>음수를 곱하면 부등호 방향이 반대</strong>로 바뀐다는 게 시험 단골이야!
+    </div>
+  </div>
+</div>
+
+<!-- Q5: 중 -->
+<div class="quiz-card" id="q115">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">5</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">GCD(72, 90)과 LCM(72, 90)의 값으로 올바른 것은? (72 = 2³ × 3², 90 = 2 × 3² × 5)</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">GCD = 9, LCM = 720</li>
+      <li data-label="B" onclick="selectOption(this)">GCD = 18, LCM = 360</li>
+      <li data-label="C" onclick="selectOption(this)">GCD = 6, LCM = 360</li>
+      <li data-label="D" onclick="selectOption(this)">GCD = 18, LCM = 720</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(115)">힌트 보기</button>
+    <div class="quiz-hint" id="q115-hint">GCD는 공통 소인수의 작은 지수, LCM은 모든 소인수의 큰 지수를 사용해. 그리고 GCD × LCM = a × b로 검산해!</div>
+    <button class="quiz-submit" onclick="submitMC(115)">답 제출하기</button>
+    <div class="quiz-result" id="q115-result"></div>
+    <div class="quiz-explanation" id="q115-explain">
+      <div class="quiz-explain-label">해설</div>
+      72 = 2³ × 3², 90 = 2¹ × 3² × 5¹. GCD = 공통 소인수의 <strong>작은 지수</strong> = 2¹ × 3² = 2 × 9 = <strong>18</strong>. LCM = 모든 소인수의 <strong>큰 지수</strong> = 2³ × 3² × 5¹ = 8 × 9 × 5 = <strong>360</strong>. 검산: GCD × LCM = 18 × 360 = 6480 = 72 × 90 = 6480 ✓
+    </div>
+  </div>
+</div>
+
+<!-- Q6: 중 -->
+<div class="quiz-card" id="q116">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">6</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">(2 + 3i)(4 − i)를 계산한 결과는? (단, i² = −1)</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">8 + 10i</li>
+      <li data-label="B" onclick="selectOption(this)">5 + 14i</li>
+      <li data-label="C" onclick="selectOption(this)">11 + 10i</li>
+      <li data-label="D" onclick="selectOption(this)">11 − 10i</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(116)">힌트 보기</button>
+    <div class="quiz-hint" id="q116-hint">분배법칙으로 전개하고 i² = −1을 대입해. (a+bi)(c+di) = (ac−bd) + (ad+bc)i</div>
+    <button class="quiz-submit" onclick="submitMC(116)">답 제출하기</button>
+    <div class="quiz-result" id="q116-result"></div>
+    <div class="quiz-explanation" id="q116-explain">
+      <div class="quiz-explain-label">해설</div>
+      (2 + 3i)(4 − i) = 8 − 2i + 12i − 3i² = 8 + 10i − 3(−1) = 8 + 10i + 3 = <strong>11 + 10i</strong>. 핵심은 i² = −1 대입! (ac − bd) + (ad + bc)i = (2×4 − 3×(−1)) + (2×(−1) + 3×4)i = (8 + 3) + (−2 + 12)i = 11 + 10i.
+    </div>
+  </div>
+</div>
+
+<!-- Q7: 중 -->
+<div class="quiz-card" id="q117">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">7</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">i²⁰²⁵의 값은? (단, i는 허수단위)</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">1</li>
+      <li data-label="B" onclick="selectOption(this)">i</li>
+      <li data-label="C" onclick="selectOption(this)">−1</li>
+      <li data-label="D" onclick="selectOption(this)">−i</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(117)">힌트 보기</button>
+    <div class="quiz-hint" id="q117-hint">iⁿ의 값은 n을 4로 나눈 나머지로 결정돼. 나머지 0→1, 1→i, 2→−1, 3→−i. 2025 ÷ 4의 나머지는?</div>
+    <button class="quiz-submit" onclick="submitMC(117)">답 제출하기</button>
+    <div class="quiz-result" id="q117-result"></div>
+    <div class="quiz-explanation" id="q117-explain">
+      <div class="quiz-explain-label">해설</div>
+      i의 거듭제곱은 주기 4로 반복: i¹=i, i²=−1, i³=−i, i⁴=1. iⁿ은 n을 4로 나눈 나머지로 결정! 2025 ÷ 4 = 506 나머지 <strong>1</strong>. 나머지 1이므로 i²⁰²⁵ = <strong>i</strong>. 시험 꿀팁: i + i² + i³ + i⁴ = 0이므로 연속 4개씩 묶으면 항상 0!
+    </div>
+  </div>
+</div>
+
+<!-- Q8: 중 -->
+<div class="quiz-card" id="q118">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">8</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">360 = 2³ × 3² × 5일 때, 360의 약수의 개수는?</div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">12개</li>
+      <li data-label="B" onclick="selectOption(this)">18개</li>
+      <li data-label="C" onclick="selectOption(this)">20개</li>
+      <li data-label="D" onclick="selectOption(this)">24개</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(118)">힌트 보기</button>
+    <div class="quiz-hint" id="q118-hint">N = p₁^a₁ × p₂^a₂ × … 일 때 약수의 개수 = (a₁+1)(a₂+1)…. 각 지수에 1씩 더한 뒤 곱해봐!</div>
+    <button class="quiz-submit" onclick="submitMC(118)">답 제출하기</button>
+    <div class="quiz-result" id="q118-result"></div>
+    <div class="quiz-explanation" id="q118-explain">
+      <div class="quiz-explain-label">해설</div>
+      360 = 2³ × 3² × 5¹. 약수의 개수 = (3+1)(2+1)(1+1) = 4 × 3 × 2 = <strong>24개</strong>. 공식: N = p₁^a₁ × p₂^a₂ × … × pₖ^aₖ 일 때 약수의 개수 = (a₁+1)(a₂+1)…(aₖ+1). 각 소인수의 지수에 1을 더한 값들을 모두 곱하면 돼!
+    </div>
+  </div>
+</div>
+
+<!-- Q9: 상 -->
+<div class="quiz-card" id="q119">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">9</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">복소수 (2x + 1) + (y − 3)i = 5 + 2i 를 만족하는 실수 x, y의 합 x + y는?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">5</li>
+      <li data-label="B" onclick="selectOption(this)">6</li>
+      <li data-label="C" onclick="selectOption(this)">7</li>
+      <li data-label="D" onclick="selectOption(this)">8</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(119)">힌트 보기</button>
+    <div class="quiz-hint" id="q119-hint">두 복소수가 같으려면 실수부끼리 같고 허수부끼리 같아야 해: a + bi = c + di ⇔ a = c 이고 b = d.</div>
+    <button class="quiz-submit" onclick="submitMC(119)">답 제출하기</button>
+    <div class="quiz-result" id="q119-result"></div>
+    <div class="quiz-explanation" id="q119-explain">
+      <div class="quiz-explain-label">해설</div>
+      복소수의 상등 조건: 실수부끼리 같고 허수부끼리 같아야 해. 실수부: 2x + 1 = 5 → 2x = 4 → <strong>x = 2</strong>. 허수부: y − 3 = 2 → <strong>y = 5</strong>. 따라서 x + y = 2 + 5 = <strong>7</strong>.
+    </div>
+  </div>
+</div>
+
+<!-- Q10: 상 -->
+<div class="quiz-card" id="q120">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">10</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">정수 집합 Z는 덧셈, 뺄셈, 곱셈에 대해 닫혀있다. 그런데 Z가 나눗셈에 대해 닫혀있지 않음을 보이는 반례로 가장 적절한 것은?</div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">1 ÷ 3 = 1/3 은 정수가 아니다</li>
+      <li data-label="B" onclick="selectOption(this)">3 − 5 = −2 는 정수가 아니다</li>
+      <li data-label="C" onclick="selectOption(this)">2 × 3 = 6 은 정수다</li>
+      <li data-label="D" onclick="selectOption(this)">−2 + 5 = 3 은 정수다</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(120)">힌트 보기</button>
+    <div class="quiz-hint" id="q120-hint">"닫혀있다"는 연산 결과가 항상 같은 집합 안에 있다는 뜻이야. 나눗셈을 했을 때 결과가 정수가 아닌 경우가 있으면 닫혀있지 않아!</div>
+    <button class="quiz-submit" onclick="submitMC(120)">답 제출하기</button>
+    <div class="quiz-result" id="q120-result"></div>
+    <div class="quiz-explanation" id="q120-explain">
+      <div class="quiz-explain-label">해설</div>
+      "닫혀있다"는 연산 결과가 항상 같은 집합 안에 있음을 의미해. 정수 1과 3은 모두 정수지만, <strong>1 ÷ 3 = 1/3</strong>은 정수가 아니야! 이것이 정수가 나눗셈에 대해 닫혀있지 않음을 보이는 반례야. B는 뺄셈에 대해 닫혀있음(결과가 정수)을, C와 D는 곱셈·덧셈에 대해 닫혀있음을 보여줘.
+    </div>
+  </div>
+</div>
+
+</div><!-- /view-quiz-2 -->
+<!-- ═══════════ 3강 연습문제 ═══════════ -->
+<div class="view-quiz-3">
+<div class="quiz-hero">
+  <h3>3강 - 인수분해와 나머지정리</h3>
+  <p>객관식 10문항 | 하 3 · 중 5 · 상 2</p>
+</div>
+
+<!-- Q1: 하 -->
+<div class="quiz-card" id="q121">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">1</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      다항식 3x³ + 2x² - x + 5를 내림차순으로 정렬했을 때 최고차항의 계수는?
+    </div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">5</li>
+      <li data-label="B" onclick="selectOption(this)">3</li>
+      <li data-label="C" onclick="selectOption(this)">2</li>
+      <li data-label="D" onclick="selectOption(this)">-1</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(121)">힌트 보기</button>
+    <div class="quiz-hint" id="q121-hint">내림차순은 차수가 높은 항부터 낮은 순으로 배열하는 방식이야. 최고차항은 x의 지수가 가장 큰 항이고, 그 앞의 수가 최고차항의 계수야.</div>
+    <button class="quiz-submit" onclick="submitMC(121)">답 제출하기</button>
+    <div class="quiz-result" id="q121-result"></div>
+    <div class="quiz-explanation" id="q121-explain">
+      <div class="quiz-explain-label">해설</div>
+      내림차순으로 정렬하면 3x³ + 2x² - x + 5야. 가장 높은 차수는 3차(x³)이고, 그 계수는 <strong>3</strong>이야. 차수(degree)는 3이고, 최고차항의 계수(leading coefficient)는 3이다.
+    </div>
+  </div>
+</div>
+
+<!-- Q2: 하 -->
+<div class="quiz-card" id="q122">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">2</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      지수법칙에 의해 a⁰의 값은? (단, a ≠ 0)
+    </div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">0</li>
+      <li data-label="B" onclick="selectOption(this)">a</li>
+      <li data-label="C" onclick="selectOption(this)">1</li>
+      <li data-label="D" onclick="selectOption(this)">1/a</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(122)">힌트 보기</button>
+    <div class="quiz-hint" id="q122-hint">지수법칙 중 0승 규칙을 떠올려봐. aᵐ ÷ aᵐ = aᵐ⁻ᵐ = a⁰인데, 같은 수를 나누면 반드시 1이 돼!</div>
+    <button class="quiz-submit" onclick="submitMC(122)">답 제출하기</button>
+    <div class="quiz-result" id="q122-result"></div>
+    <div class="quiz-explanation" id="q122-explain">
+      <div class="quiz-explain-label">해설</div>
+      지수법칙에서 <strong>a⁰ = 1</strong> (a ≠ 0). 이를 유도하면: aᵐ ÷ aᵐ = aᵐ⁻ᵐ = a⁰이고, 같은 수끼리 나누면 1이므로 a⁰ = 1이야. 0⁰은 정의되지 않는 점도 기억해!
+    </div>
+  </div>
+</div>
+
+<!-- Q3: 하 -->
+<div class="quiz-card" id="q123">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">3</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      다항식의 나눗셈 A = BQ + R에서 R(나머지)의 차수에 대한 조건으로 옳은 것은?
+    </div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">R의 차수 &lt; B의 차수</li>
+      <li data-label="B" onclick="selectOption(this)">R의 차수 &lt; A의 차수</li>
+      <li data-label="C" onclick="selectOption(this)">R의 차수 = B의 차수</li>
+      <li data-label="D" onclick="selectOption(this)">R의 차수 &gt; B의 차수</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(123)">힌트 보기</button>
+    <div class="quiz-hint" id="q123-hint">유클리드 나눗셈 공식 A = BQ + R을 기억해봐. 나머지는 나누는 수(제식)보다 작아야 나눗셈이 완전히 끝난 거야!</div>
+    <button class="quiz-submit" onclick="submitMC(123)">답 제출하기</button>
+    <div class="quiz-result" id="q123-result"></div>
+    <div class="quiz-explanation" id="q123-explain">
+      <div class="quiz-explain-label">해설</div>
+      다항식의 나눗셈 A = BQ + R에서 나머지 R의 차수는 반드시 <strong>제식 B의 차수보다 작아야</strong> 해. 예를 들어 2차식으로 나누면 나머지는 1차 이하야. 나머지가 제식보다 크거나 같으면 아직 나눗셈이 덜 된 거야.
+    </div>
+  </div>
+</div>
+
+<!-- Q4: 중 -->
+<div class="quiz-card" id="q124">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">4</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      곱셈공식 (a + b)³을 전개하면?
+    </div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">a³ + b³</li>
+      <li data-label="B" onclick="selectOption(this)">a³ + 3a²b + 3ab² + b³</li>
+      <li data-label="C" onclick="selectOption(this)">a³ + 2a²b + 2ab² + b³</li>
+      <li data-label="D" onclick="selectOption(this)">a³ - 3a²b + 3ab² - b³</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(124)">힌트 보기</button>
+    <div class="quiz-hint" id="q124-hint">(a + b)³ = (a + b)(a + b)² 로 전개하거나 이항정리의 계수 1, 3, 3, 1을 떠올려봐. 부호는 모두 양수야.</div>
+    <button class="quiz-submit" onclick="submitMC(124)">답 제출하기</button>
+    <div class="quiz-result" id="q124-result"></div>
+    <div class="quiz-explanation" id="q124-explain">
+      <div class="quiz-explain-label">해설</div>
+      곱셈공식 <strong>(a + b)³ = a³ + 3a²b + 3ab² + b³</strong>. 계수는 파스칼 삼각형의 1, 3, 3, 1이야. 주의: (a - b)³ = a³ - 3a²b + 3ab² - b³으로 부호가 번갈아 바뀌므로 혼동하지 않도록!
+    </div>
+  </div>
+</div>
+
+<!-- Q5: 중 -->
+<div class="quiz-card" id="q125">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">5</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      a + b = 5, ab = 6일 때, a² + b²의 값은?
+    </div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">19</li>
+      <li data-label="B" onclick="selectOption(this)">25</li>
+      <li data-label="C" onclick="selectOption(this)">37</li>
+      <li data-label="D" onclick="selectOption(this)">13</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(125)">힌트 보기</button>
+    <div class="quiz-hint" id="q125-hint">곱셈공식 변형: a² + b² = (a + b)² - 2ab를 사용해봐. a + b와 ab가 주어졌으니 바로 대입할 수 있어!</div>
+    <button class="quiz-submit" onclick="submitMC(125)">답 제출하기</button>
+    <div class="quiz-result" id="q125-result"></div>
+    <div class="quiz-explanation" id="q125-explain">
+      <div class="quiz-explain-label">해설</div>
+      곱셈공식 변형 a² + b² = (a + b)² - 2ab를 사용해:<br>
+      a² + b² = (5)² - 2(6) = 25 - 12 = <strong>13</strong><br>
+      이 변형 공식은 시험에서 정말 자주 나와. a + b와 ab가 주어지면 a² + b², a³ + b³ 등을 곱셈공식 변형으로 구할 수 있어!
+    </div>
+  </div>
+</div>
+
+<!-- Q6: 중 -->
+<div class="quiz-card" id="q126">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">6</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      다항식 x² - 5x + 6을 인수분해하면?
+    </div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">(x - 1)(x - 6)</li>
+      <li data-label="B" onclick="selectOption(this)">(x + 2)(x + 3)</li>
+      <li data-label="C" onclick="selectOption(this)">(x - 2)(x - 3)</li>
+      <li data-label="D" onclick="selectOption(this)">(x - 1)(x + 6)</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(126)">힌트 보기</button>
+    <div class="quiz-hint" id="q126-hint">x² + (a+b)x + ab = (x+a)(x+b) 공식을 사용해. 곱해서 6, 더해서 -5가 되는 두 수를 찾아봐!</div>
+    <button class="quiz-submit" onclick="submitMC(126)">답 제출하기</button>
+    <div class="quiz-result" id="q126-result"></div>
+    <div class="quiz-explanation" id="q126-explain">
+      <div class="quiz-explain-label">해설</div>
+      x² - 5x + 6에서 곱해서 6, 더해서 -5인 두 수: <strong>-2</strong>와 <strong>-3</strong>.<br>
+      (-2) × (-3) = 6 ✓, (-2) + (-3) = -5 ✓<br>
+      따라서 x² - 5x + 6 = <strong>(x - 2)(x - 3)</strong>. 강의에서 직접 나온 예제야!
+    </div>
+  </div>
+</div>
+
+<!-- Q7: 중 -->
+<div class="quiz-card" id="q127">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">7</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      항등식 ax² + bx + c = 2x² - 3x + 5가 모든 x에 대해 성립할 때, a + b + c의 값은?
+    </div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">4</li>
+      <li data-label="B" onclick="selectOption(this)">0</li>
+      <li data-label="C" onclick="selectOption(this)">10</li>
+      <li data-label="D" onclick="selectOption(this)">-1</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(127)">힌트 보기</button>
+    <div class="quiz-hint" id="q127-hint">항등식이므로 계수비교법을 써봐. 양변에서 같은 차수의 계수끼리 같아야 해. x²의 계수, x의 계수, 상수항 각각 비교!</div>
+    <button class="quiz-submit" onclick="submitMC(127)">답 제출하기</button>
+    <div class="quiz-result" id="q127-result"></div>
+    <div class="quiz-explanation" id="q127-explain">
+      <div class="quiz-explain-label">해설</div>
+      계수비교법으로:<br>
+      x²의 계수: a = 2<br>
+      x의 계수: b = -3<br>
+      상수항: c = 5<br>
+      따라서 a + b + c = 2 + (-3) + 5 = <strong>4</strong>
+    </div>
+  </div>
+</div>
+
+<!-- Q8: 중 -->
+<div class="quiz-card" id="q128">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">8</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      f(x) = x³ - 2x² + 3x - 1을 (x - 2)로 나눈 나머지는?
+    </div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">1</li>
+      <li data-label="B" onclick="selectOption(this)">3</li>
+      <li data-label="C" onclick="selectOption(this)">5</li>
+      <li data-label="D" onclick="selectOption(this)">7</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(128)">힌트 보기</button>
+    <div class="quiz-hint" id="q128-hint">나머지정리: f(x)를 (x - a)로 나눈 나머지는 f(a)야. 직접 나눗셈을 안 해도 x = 2를 대입하면 바로 나머지를 구할 수 있어!</div>
+    <button class="quiz-submit" onclick="submitMC(128)">답 제출하기</button>
+    <div class="quiz-result" id="q128-result"></div>
+    <div class="quiz-explanation" id="q128-explain">
+      <div class="quiz-explain-label">해설</div>
+      나머지정리에 의해 f(x)를 (x - 2)로 나눈 나머지 = f(2):<br>
+      f(2) = 2³ - 2(2²) + 3(2) - 1 = 8 - 8 + 6 - 1 = <strong>5</strong><br>
+      강의에서 직접 나온 예제야. 나눗셈을 실제로 계산하지 않아도 대입 하나로 나머지를 구할 수 있는 게 나머지정리의 핵심!
+    </div>
+  </div>
+</div>
+
+<!-- Q9: 상 -->
+<div class="quiz-card" id="q129">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">9</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      f(x) = x³ - 6x² + 11x - 6을 완전히 인수분해한 것은? (단, 인수정리와 조립제법을 활용)
+    </div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">(x - 1)(x - 2)(x + 3)</li>
+      <li data-label="B" onclick="selectOption(this)">(x + 1)(x - 2)(x - 3)</li>
+      <li data-label="C" onclick="selectOption(this)">(x - 1)(x + 2)(x - 3)</li>
+      <li data-label="D" onclick="selectOption(this)">(x - 1)(x - 2)(x - 3)</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(129)">힌트 보기</button>
+    <div class="quiz-hint" id="q129-hint">인수 후보는 상수항 -6의 약수: ±1, ±2, ±3, ±6. f(a) = 0이 되는 값을 찾으면 (x - a)가 인수야. f(1)부터 계산해봐!</div>
+    <button class="quiz-submit" onclick="submitMC(129)">답 제출하기</button>
+    <div class="quiz-result" id="q129-result"></div>
+    <div class="quiz-explanation" id="q129-explain">
+      <div class="quiz-explain-label">해설</div>
+      인수 후보: 상수항 -6의 약수 ±1, ±2, ±3, ±6<br>
+      f(1) = 1 - 6 + 11 - 6 = 0 → (x - 1)이 인수!<br>
+      조립제법으로: x³ - 6x² + 11x - 6 = (x - 1)(x² - 5x + 6)<br>
+      x² - 5x + 6 = (x - 2)(x - 3) (곱해서 6, 더해서 -5)<br>
+      따라서 f(x) = <strong>(x - 1)(x - 2)(x - 3)</strong>. 강의에서 직접 나온 예제야!
+    </div>
+  </div>
+</div>
+
+<!-- Q10: 상 -->
+<div class="quiz-card" id="q130">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">10</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      f(x)를 (x - 1)로 나눈 나머지가 3이고, (x - 2)로 나눈 나머지가 5일 때, f(x)를 (x - 1)(x - 2)로 나눈 나머지를 px + q라 하면 p + q의 값은?
+    </div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">1</li>
+      <li data-label="B" onclick="selectOption(this)">2</li>
+      <li data-label="C" onclick="selectOption(this)">3</li>
+      <li data-label="D" onclick="selectOption(this)">5</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(130)">힌트 보기</button>
+    <div class="quiz-hint" id="q130-hint">이차식으로 나눈 나머지는 일차 이하인 px + q야. 나머지정리에 의해 f(1) = p + q = 3, f(2) = 2p + q = 5. 이 두 식을 연립하면 돼!</div>
+    <button class="quiz-submit" onclick="submitMC(130)">답 제출하기</button>
+    <div class="quiz-result" id="q130-result"></div>
+    <div class="quiz-explanation" id="q130-explain">
+      <div class="quiz-explain-label">해설</div>
+      (x - 1)(x - 2)로 나눈 나머지 = px + q (1차 이하)<br>
+      나머지정리로 연립방정식 세우기:<br>
+      f(1) = p + q = 3 ... ①<br>
+      f(2) = 2p + q = 5 ... ②<br>
+      ② - ①: p = 2<br>
+      ①에 대입: q = 1<br>
+      나머지 = 2x + 1, 따라서 p + q = 2 + 1 = <strong>3</strong>
+    </div>
+  </div>
+</div>
+
+</div><!-- /view-quiz-3 -->
+
+
+<!-- ═══════════ 4강 연습문제 ═══════════ -->
+<div class="view-quiz-4">
+<div class="quiz-hero">
+  <h3>4강 - 수열과 수열의 합</h3>
+  <p>객관식 10문항 | 하 3 · 중 5 · 상 2</p>
+</div>
+
+<!-- Q1: 하 -->
+<div class="quiz-card" id="q131">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">1</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      수열 2, 5, 8, 11, 14, …의 일반항 aₙ은?
+    </div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">aₙ = 2n + 1</li>
+      <li data-label="B" onclick="selectOption(this)">aₙ = 3n - 1</li>
+      <li data-label="C" onclick="selectOption(this)">aₙ = 3n + 1</li>
+      <li data-label="D" onclick="selectOption(this)">aₙ = 2n - 1</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(131)">힌트 보기</button>
+    <div class="quiz-hint" id="q131-hint">3씩 커지는 수열이야. 공차 d = 3이고 첫째항 a = 2야. 등차수열 일반항 aₙ = a + (n-1)d를 적용해봐. n = 1을 대입해서 검증도 해봐!</div>
+    <button class="quiz-submit" onclick="submitMC(131)">답 제출하기</button>
+    <div class="quiz-result" id="q131-result"></div>
+    <div class="quiz-explanation" id="q131-explain">
+      <div class="quiz-explain-label">해설</div>
+      항들이 3씩 증가하므로 공차 d = 3, 첫째항 a = 2인 등차수열이야.<br>
+      aₙ = a + (n-1)d = 2 + (n-1)·3 = 2 + 3n - 3 = <strong>3n - 1</strong><br>
+      검증: a₁ = 3(1)-1 = 2 ✓, a₂ = 3(2)-1 = 5 ✓, a₃ = 3(3)-1 = 8 ✓<br>
+      강의에서 직접 나온 예제야!
+    </div>
+  </div>
+</div>
+
+<!-- Q2: 하 -->
+<div class="quiz-card" id="q132">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">2</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      수열에서 자연수 1부터 100까지의 합 S₁₀₀의 값은? (가우스 공식 활용)
+    </div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">4950</li>
+      <li data-label="B" onclick="selectOption(this)">10100</li>
+      <li data-label="C" onclick="selectOption(this)">5050</li>
+      <li data-label="D" onclick="selectOption(this)">5100</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(132)">힌트 보기</button>
+    <div class="quiz-hint" id="q132-hint">등차수열의 합 공식 Sₙ = n(첫째항 + 끝항)/2를 사용해. a = 1, aₙ = 100, n = 100이야. 가우스가 초등학생 때 발견한 방법이야!</div>
+    <button class="quiz-submit" onclick="submitMC(132)">답 제출하기</button>
+    <div class="quiz-result" id="q132-result"></div>
+    <div class="quiz-explanation" id="q132-explain">
+      <div class="quiz-explain-label">해설</div>
+      1부터 100까지는 첫째항 a = 1, 끝항 a₁₀₀ = 100, 항의 수 n = 100인 등차수열이야.<br>
+      S₁₀₀ = 100 × (1 + 100) / 2 = 100 × 101 / 2 = <strong>5050</strong><br>
+      가우스가 초등학생 때 발견한 아이디어로, 강의에서 직접 나온 예제야!
+    </div>
+  </div>
+</div>
+
+<!-- Q3: 하 -->
+<div class="quiz-card" id="q133">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">3</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      첫째항 2, 공비 3인 등비수열의 제4항 a₄는?
+    </div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">18</li>
+      <li data-label="B" onclick="selectOption(this)">27</li>
+      <li data-label="C" onclick="selectOption(this)">48</li>
+      <li data-label="D" onclick="selectOption(this)">54</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(133)">힌트 보기</button>
+    <div class="quiz-hint" id="q133-hint">등비수열의 일반항 aₙ = ar^(n-1)을 사용해. 첫째항 a = 2, 공비 r = 3, n = 4를 대입해봐!</div>
+    <button class="quiz-submit" onclick="submitMC(133)">답 제출하기</button>
+    <div class="quiz-result" id="q133-result"></div>
+    <div class="quiz-explanation" id="q133-explain">
+      <div class="quiz-explain-label">해설</div>
+      등비수열 일반항 aₙ = ar^(n-1)에서 a = 2, r = 3, n = 4:<br>
+      a₄ = 2 · 3^(4-1) = 2 · 3³ = 2 · 27 = <strong>54</strong><br>
+      강의에서 직접 나온 예제야!
+    </div>
+  </div>
+</div>
+
+<!-- Q4: 중 -->
+<div class="quiz-card" id="q134">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">4</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      세 수 a, b, c가 등차수열을 이룰 때, 등차중항 b와 a, c의 관계로 옳은 것은?
+    </div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">b = (a + c) / 2</li>
+      <li data-label="B" onclick="selectOption(this)">b = √(ac)</li>
+      <li data-label="C" onclick="selectOption(this)">b = 2ac / (a + c)</li>
+      <li data-label="D" onclick="selectOption(this)">b = ac / 2</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(134)">힌트 보기</button>
+    <div class="quiz-hint" id="q134-hint">등차수열 조건은 b - a = c - b야. 이걸 정리하면 b에 대한 식을 구할 수 있어. 등차중항은 산술평균이야!</div>
+    <button class="quiz-submit" onclick="submitMC(134)">답 제출하기</button>
+    <div class="quiz-result" id="q134-result"></div>
+    <div class="quiz-explanation" id="q134-explain">
+      <div class="quiz-explain-label">해설</div>
+      a, b, c가 등차수열을 이루면 공차가 일정하므로 b - a = c - b<br>
+      2b = a + c<br>
+      따라서 <strong>b = (a + c) / 2</strong> (산술평균!)<br>
+      참고: √(ac)는 기하평균(등비중항), 2ac/(a+c)는 조화평균으로 각각 다른 개념이야!
+    </div>
+  </div>
+</div>
+
+<!-- Q5: 중 -->
+<div class="quiz-card" id="q135">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">5</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      수열 5, 2, -1, -4, …의 일반항 aₙ은?
+    </div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">aₙ = 5 - 2n</li>
+      <li data-label="B" onclick="selectOption(this)">aₙ = 8 - 3n</li>
+      <li data-label="C" onclick="selectOption(this)">aₙ = 3n + 2</li>
+      <li data-label="D" onclick="selectOption(this)">aₙ = -3n + 8</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(135)">힌트 보기</button>
+    <div class="quiz-hint" id="q135-hint">공차를 먼저 구해봐. d = 2 - 5 = -3이야. 음수 공차도 가능해! 그리고 aₙ = a + (n-1)d에 첫째항 5와 공차 -3을 대입해봐.</div>
+    <button class="quiz-submit" onclick="submitMC(135)">답 제출하기</button>
+    <div class="quiz-result" id="q135-result"></div>
+    <div class="quiz-explanation" id="q135-explain">
+      <div class="quiz-explain-label">해설</div>
+      공차 d = 2 - 5 = <strong>-3</strong> (감소하는 등차수열)<br>
+      aₙ = a + (n-1)d = 5 + (n-1)·(-3) = 5 - 3n + 3 = <strong>8 - 3n</strong><br>
+      검증: a₁ = 8 - 3 = 5 ✓, a₂ = 8 - 6 = 2 ✓, a₅ = 8 - 15 = -7 ✓<br>
+      참고: 8 - 3n과 -3n + 8은 같은 식이지만, B와 D 중 정확한 전개식인 8 - 3n이 정답이야.
+    </div>
+  </div>
+</div>
+
+<!-- Q6: 중 -->
+<div class="quiz-card" id="q136">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">6</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      첫째항 1, 공비 2인 등비수열의 첫 6항의 합 S₆은?
+    </div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">32</li>
+      <li data-label="B" onclick="selectOption(this)">62</li>
+      <li data-label="C" onclick="selectOption(this)">63</li>
+      <li data-label="D" onclick="selectOption(this)">64</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(136)">힌트 보기</button>
+    <div class="quiz-hint" id="q136-hint">등비수열의 합 Sₙ = a(rⁿ - 1)/(r - 1)을 사용해. a = 1, r = 2, n = 6을 대입해봐. 또는 1 + 2 + 4 + 8 + 16 + 32를 직접 더해도 돼!</div>
+    <button class="quiz-submit" onclick="submitMC(136)">답 제출하기</button>
+    <div class="quiz-result" id="q136-result"></div>
+    <div class="quiz-explanation" id="q136-explain">
+      <div class="quiz-explain-label">해설</div>
+      등비수열 합 공식 Sₙ = a(rⁿ - 1)/(r - 1)에서 a = 1, r = 2, n = 6:<br>
+      S₆ = 1 · (2⁶ - 1) / (2 - 1) = (64 - 1) / 1 = <strong>63</strong><br>
+      확인: 1 + 2 + 4 + 8 + 16 + 32 = 63 ✓<br>
+      강의에서 직접 나온 예제야!
+    </div>
+  </div>
+</div>
+
+<!-- Q7: 중 -->
+<div class="quiz-card" id="q137">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">7</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      Sₙ = n² + 4n일 때 일반항 aₙ은? (n ≥ 2)
+    </div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">aₙ = 2n + 5</li>
+      <li data-label="B" onclick="selectOption(this)">aₙ = n + 4</li>
+      <li data-label="C" onclick="selectOption(this)">aₙ = 2n + 1</li>
+      <li data-label="D" onclick="selectOption(this)">aₙ = 2n + 3</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(137)">힌트 보기</button>
+    <div class="quiz-hint" id="q137-hint">aₙ = Sₙ - Sₙ₋₁ 공식을 사용해. Sₙ = n² + 4n이고 Sₙ₋₁은 n 자리에 (n-1)을 대입하면 돼. 전개 후 정리해봐!</div>
+    <button class="quiz-submit" onclick="submitMC(137)">답 제출하기</button>
+    <div class="quiz-result" id="q137-result"></div>
+    <div class="quiz-explanation" id="q137-explain">
+      <div class="quiz-explain-label">해설</div>
+      aₙ = Sₙ - Sₙ₋₁ (n ≥ 2)<br>
+      = (n² + 4n) - [(n-1)² + 4(n-1)]<br>
+      = n² + 4n - [n² - 2n + 1 + 4n - 4]<br>
+      = n² + 4n - n² + 2n - 1 - 4n + 4<br>
+      = <strong>2n + 3</strong><br>
+      n = 1 확인: a₁ = S₁ = 1 + 4 = 5, 공식에 n=1 대입: 2(1)+3 = 5 ✓<br>
+      따라서 모든 자연수 n에서 aₙ = 2n + 3. 강의에서 직접 나온 예제야!
+    </div>
+  </div>
+</div>
+
+<!-- Q8: 중 -->
+<div class="quiz-card" id="q138">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">8</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      양수 a = 4, b = 9에 대해 산술평균, 기하평균, 조화평균의 대소 관계로 옳은 것은?
+    </div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">기하평균 &gt; 산술평균 &gt; 조화평균</li>
+      <li data-label="B" onclick="selectOption(this)">산술평균 &gt; 기하평균 &gt; 조화평균</li>
+      <li data-label="C" onclick="selectOption(this)">조화평균 &gt; 산술평균 &gt; 기하평균</li>
+      <li data-label="D" onclick="selectOption(this)">산술평균 = 기하평균 = 조화평균</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(138)">힌트 보기</button>
+    <div class="quiz-hint" id="q138-hint">AM-GM-HM 부등식을 기억해봐. 양수에서 산술평균 ≥ 기하평균 ≥ 조화평균이야. a ≠ b이면 등호 없이 부등호가 성립해!</div>
+    <button class="quiz-submit" onclick="submitMC(138)">답 제출하기</button>
+    <div class="quiz-result" id="q138-result"></div>
+    <div class="quiz-explanation" id="q138-explain">
+      <div class="quiz-explain-label">해설</div>
+      강의의 예제 그대로: a = 4, b = 9<br>
+      산술평균 = (4 + 9) / 2 = 6.5<br>
+      기하평균 = √(4 × 9) = √36 = 6<br>
+      조화평균 = 2·4·9 / (4 + 9) = 72/13 ≈ 5.54<br>
+      6.5 &gt; 6 &gt; 5.54이므로 <strong>산술평균 &gt; 기하평균 &gt; 조화평균</strong><br>
+      AM-GM-HM 부등식: (a+b)/2 ≥ √(ab) ≥ 2ab/(a+b), 등호는 a = b일 때만 성립!
+    </div>
+  </div>
+</div>
+
+<!-- Q9: 상 -->
+<div class="quiz-card" id="q139">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">9</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      Sₙ = 3·4ⁿ - 3일 때 일반항 aₙ은?
+    </div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">aₙ = 9·4^(n-1)</li>
+      <li data-label="B" onclick="selectOption(this)">aₙ = 3·4^(n-1)</li>
+      <li data-label="C" onclick="selectOption(this)">aₙ = 12·4^(n-1)</li>
+      <li data-label="D" onclick="selectOption(this)">aₙ = 9·4^n</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(139)">힌트 보기</button>
+    <div class="quiz-hint" id="q139-hint">aₙ = Sₙ - Sₙ₋₁을 사용해. 3·4ⁿ - (3·4^(n-1)) = 3·4^(n-1)(4-1) = ?. 계산 후 n = 1도 꼭 확인해봐!</div>
+    <button class="quiz-submit" onclick="submitMC(139)">답 제출하기</button>
+    <div class="quiz-result" id="q139-result"></div>
+    <div class="quiz-explanation" id="q139-explain">
+      <div class="quiz-explain-label">해설</div>
+      n ≥ 2일 때: aₙ = Sₙ - Sₙ₋₁<br>
+      = (3·4ⁿ - 3) - (3·4^(n-1) - 3)<br>
+      = 3·4ⁿ - 3·4^(n-1)<br>
+      = 3·4^(n-1)·(4 - 1)<br>
+      = <strong>9·4^(n-1)</strong><br>
+      n = 1 확인: a₁ = S₁ = 3·4 - 3 = 9, 공식에 n=1: 9·4⁰ = 9 ✓<br>
+      이 수열은 첫째항 9, 공비 4인 등비수열이야. 강의에서 직접 나온 예제!
+    </div>
+  </div>
+</div>
+
+<!-- Q10: 상 -->
+<div class="quiz-card" id="q140">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">10</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      2, b, 6이 조화수열을 이룰 때 b의 값은? (단, 조화수열이란 역수가 등차수열인 수열이다)
+    </div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">4</li>
+      <li data-label="B" onclick="selectOption(this)">6</li>
+      <li data-label="C" onclick="selectOption(this)">√12</li>
+      <li data-label="D" onclick="selectOption(this)">3</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(140)">힌트 보기</button>
+    <div class="quiz-hint" id="q140-hint">조화수열의 정의: 역수가 등차수열. 그러니까 1/2, 1/b, 1/6이 등차수열이어야 해. 조화중항 조건 2/b = 1/a + 1/c 를 사용해봐!</div>
+    <button class="quiz-submit" onclick="submitMC(140)">답 제출하기</button>
+    <div class="quiz-result" id="q140-result"></div>
+    <div class="quiz-explanation" id="q140-explain">
+      <div class="quiz-explain-label">해설</div>
+      2, b, 6이 조화수열이므로 1/2, 1/b, 1/6이 등차수열<br>
+      조화중항 조건: 2/b = 1/2 + 1/6<br>
+      2/b = 3/6 + 1/6 = 4/6 = 2/3<br>
+      b = 2 ÷ (2/3) = 2 × 3/2 = <strong>3</strong><br>
+      확인: 1/2, 1/3, 1/6 → 공차 = 1/3 - 1/2 = -1/6, 1/6 - 1/3 = -1/6 ✓ (공차 -1/6인 등차수열)<br>
+      강의에서 직접 나온 예제야!
+    </div>
+  </div>
+</div>
+
+</div><!-- /view-quiz-4 -->
+<!-- ═══════════ 5강 연습문제 ═══════════ -->
+<div class="view-quiz-5">
+<div class="quiz-hero">
+  <h3>5강 - 여러 가지 수열의 합</h3>
+  <p>객관식 10문항 | 하 3 · 중 5 · 상 2</p>
+</div>
+
+<!-- Q1: 하 -->
+<div class="quiz-card" id="q141">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">1</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      다음 시그마 표현을 전개한 것으로 옳은 것은?<br>
+      ∑<sub>k=1</sub><sup>4</sup> (2k − 1)
+    </div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">1 + 2 + 3 + 4</li>
+      <li data-label="B" onclick="selectOption(this)">1 + 3 + 5 + 7 + 9</li>
+      <li data-label="C" onclick="selectOption(this)">1 + 3 + 5 + 7</li>
+      <li data-label="D" onclick="selectOption(this)">2 + 4 + 6 + 8</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(141)">힌트 보기</button>
+    <div class="quiz-hint" id="q141-hint">k = 1, 2, 3, 4를 차례로 대입해서 2k−1의 값을 구해봐. k=1이면 2(1)−1=1, k=2이면 2(2)−1=3, ...</div>
+    <button class="quiz-submit" onclick="submitMC(141)">답 제출하기</button>
+    <div class="quiz-result" id="q141-result"></div>
+    <div class="quiz-explanation" id="q141-explain">
+      <div class="quiz-explain-label">해설</div>
+      k=1부터 4까지 2k−1에 대입하면: k=1→1, k=2→3, k=3→5, k=4→7. 따라서 1+3+5+7이야. k=5까지 가면 9가 포함되지만 ∑의 상한이 4이므로 9는 포함하지 않아.
+    </div>
+  </div>
+</div>
+
+<!-- Q2: 하 -->
+<div class="quiz-card" id="q142">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">2</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      Σ의 성질에 대한 설명 중 <strong>옳지 않은</strong> 것은?
+    </div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">∑(aₖ + bₖ) = ∑aₖ + ∑bₖ (분배법칙 성립)</li>
+      <li data-label="B" onclick="selectOption(this)">∑(c · aₖ) = c · ∑aₖ (상수배 가능)</li>
+      <li data-label="C" onclick="selectOption(this)">∑<sub>k=1</sub><sup>n</sup> c = cn (상수를 n번 더한 값)</li>
+      <li data-label="D" onclick="selectOption(this)">∑(aₖ · bₖ) = ∑aₖ · ∑bₖ (곱도 분리 가능)</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(142)">힌트 보기</button>
+    <div class="quiz-hint" id="q142-hint">Σ는 덧셈 기호이기 때문에 덧셈의 성질은 따르지만, 곱에 대해서는 특별한 규칙이 있어. 강의에서 "주의!"로 강조된 내용을 떠올려봐.</div>
+    <button class="quiz-submit" onclick="submitMC(142)">답 제출하기</button>
+    <div class="quiz-result" id="q142-result"></div>
+    <div class="quiz-explanation" id="q142-explain">
+      <div class="quiz-explain-label">해설</div>
+      강의에서 명시적으로 경고했듯이, ∑(aₖ·bₖ) ≠ ∑aₖ·∑bₖ야. 곱은 분리할 수 없어! 상수만 Σ 밖으로 꺼낼 수 있고, 다른 변수가 섞인 곱은 그대로 두어야 해. 이건 시험 함정으로 자주 출제돼.
+    </div>
+  </div>
+</div>
+
+<!-- Q3: 하 -->
+<div class="quiz-card" id="q143">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">3</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      ∑<sub>k=1</sub><sup>5</sup> k² 의 값은?<br>
+      (공식: ∑<sub>k=1</sub><sup>n</sup> k² = n(n+1)(2n+1)/6)
+    </div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">45</li>
+      <li data-label="B" onclick="selectOption(this)">55</li>
+      <li data-label="C" onclick="selectOption(this)">65</li>
+      <li data-label="D" onclick="selectOption(this)">35</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(143)">힌트 보기</button>
+    <div class="quiz-hint" id="q143-hint">n=5를 공식에 대입해봐. 5×6×11÷6 = ?</div>
+    <button class="quiz-submit" onclick="submitMC(143)">답 제출하기</button>
+    <div class="quiz-result" id="q143-result"></div>
+    <div class="quiz-explanation" id="q143-explain">
+      <div class="quiz-explain-label">해설</div>
+      n=5를 공식에 대입하면: 5×(5+1)×(2×5+1)/6 = 5×6×11/6 = 330/6 = 55. 직접 확인하면 1²+2²+3²+4²+5² = 1+4+9+16+25 = 55로 일치해. 강의 예제에서도 ∑<sub>k=1</sub><sup>5</sup> k² = 55로 나왔던 값이야.
+    </div>
+  </div>
+</div>
+
+<!-- Q4: 중 -->
+<div class="quiz-card" id="q144">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">4</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      ∑<sub>k=1</sub><sup>n</sup> aₖ = 15n, ∑<sub>k=1</sub><sup>n</sup> bₖ = 20n 일 때,<br>
+      ∑<sub>k=1</sub><sup>n</sup> (3aₖ − 2bₖ + 5) 의 값은?
+    </div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">5n</li>
+      <li data-label="B" onclick="selectOption(this)">−5n</li>
+      <li data-label="C" onclick="selectOption(this)">10n</li>
+      <li data-label="D" onclick="selectOption(this)">15n</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(144)">힌트 보기</button>
+    <div class="quiz-hint" id="q144-hint">Σ 분리 성질을 써서 3∑aₖ − 2∑bₖ + ∑5 로 나눠. 상수합 ∑5 = 5n을 잊지 마!</div>
+    <button class="quiz-submit" onclick="submitMC(144)">답 제출하기</button>
+    <div class="quiz-result" id="q144-result"></div>
+    <div class="quiz-explanation" id="q144-explain">
+      <div class="quiz-explain-label">해설</div>
+      Σ 성질 ④(종합)를 적용하면:<br>
+      3∑aₖ − 2∑bₖ + ∑5<br>
+      = 3(15n) − 2(20n) + 5n<br>
+      = 45n − 40n + 5n = 10n<br>
+      이것은 강의 예제에 나온 문제와 동일한 유형이야. 상수항 5는 n번 더해지므로 5n이 되는 게 핵심이지.
+    </div>
+  </div>
+</div>
+
+<!-- Q5: 중 -->
+<div class="quiz-card" id="q145">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">5</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      ∑<sub>k=1</sub><sup>10</sup> (k² + 2k + 3) 의 값은?<br>
+      (∑<sub>k=1</sub><sup>10</sup> k² = 385, ∑<sub>k=1</sub><sup>10</sup> k = 55)
+    </div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">510</li>
+      <li data-label="B" onclick="selectOption(this)">525</li>
+      <li data-label="C" onclick="selectOption(this)">540</li>
+      <li data-label="D" onclick="selectOption(this)">495</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(145)">힌트 보기</button>
+    <div class="quiz-hint" id="q145-hint">∑k² + 2∑k + ∑3 으로 분리해. ∑<sub>k=1</sub><sup>10</sup>3 = 3×10 = 30이야.</div>
+    <button class="quiz-submit" onclick="submitMC(145)">답 제출하기</button>
+    <div class="quiz-result" id="q145-result"></div>
+    <div class="quiz-explanation" id="q145-explain">
+      <div class="quiz-explain-label">해설</div>
+      강의 예제에서 직접 다룬 문제야.<br>
+      ∑k² + 2∑k + ∑3<br>
+      = 385 + 2×55 + 3×10<br>
+      = 385 + 110 + 30 = 525<br>
+      각 항을 분리한 뒤 공식값을 대입하는 것이 핵심이야. 상수 3은 10번 더해지므로 30이 돼.
+    </div>
+  </div>
+</div>
+
+<!-- Q6: 중 -->
+<div class="quiz-card" id="q146">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">6</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      Sₙ = n² + 3n 일 때 일반항 aₙ는? (단, n ≥ 2 공식 적용 후 n=1 검증 필요)
+    </div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">aₙ = 2n + 2</li>
+      <li data-label="B" onclick="selectOption(this)">aₙ = 2n − 2</li>
+      <li data-label="C" onclick="selectOption(this)">aₙ = n + 3</li>
+      <li data-label="D" onclick="selectOption(this)">aₙ = 2n + 3</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(146)">힌트 보기</button>
+    <div class="quiz-hint" id="q146-hint">aₙ = Sₙ − Sₙ₋₁ 공식을 써봐. Sₙ₋₁ = (n−1)² + 3(n−1)을 전개해서 Sₙ에서 빼면 돼. n=1 검증도 잊지 마!</div>
+    <button class="quiz-submit" onclick="submitMC(146)">답 제출하기</button>
+    <div class="quiz-result" id="q146-result"></div>
+    <div class="quiz-explanation" id="q146-explain">
+      <div class="quiz-explain-label">해설</div>
+      강의 예제를 그대로 따라가면:<br>
+      aₙ = Sₙ − Sₙ₋₁ = (n²+3n) − {(n−1)²+3(n−1)}<br>
+      = n²+3n − (n²−2n+1+3n−3)<br>
+      = n²+3n − n²−n+2 = 2n+2<br>
+      n=1 검증: a₁ = S₁ = 1+3 = 4 = 2(1)+2 = 4 ✓<br>
+      따라서 aₙ = 2n+2가 모든 자연수 n에 성립해.
+    </div>
+  </div>
+</div>
+
+<!-- Q7: 중 -->
+<div class="quiz-card" id="q147">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">7</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      수열 1, 3, 7, 13, 21, 31, ...의 계차수열 {bₙ}는?
+    </div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">bₙ = n (공차 1인 등차수열)</li>
+      <li data-label="B" onclick="selectOption(this)">bₙ = 2n (공차 2인 등차수열)</li>
+      <li data-label="C" onclick="selectOption(this)">bₙ = 2ⁿ⁻¹ (공비 2인 등비수열)</li>
+      <li data-label="D" onclick="selectOption(this)">bₙ = n² (제곱 수열)</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(147)">힌트 보기</button>
+    <div class="quiz-hint" id="q147-hint">이웃한 항끼리 빼봐. 3−1=?, 7−3=?, 13−7=? 이 값들이 계차수열이야. 패턴이 보여?</div>
+    <button class="quiz-submit" onclick="submitMC(147)">답 제출하기</button>
+    <div class="quiz-result" id="q147-result"></div>
+    <div class="quiz-explanation" id="q147-explain">
+      <div class="quiz-explain-label">해설</div>
+      강의 계차수열 예제 1과 동일한 수열이야.<br>
+      3−1=2, 7−3=4, 13−7=6, 21−13=8, 31−21=10<br>
+      계차수열: 2, 4, 6, 8, 10, ... → 첫항 2, 공차 2인 등차수열 → bₙ = 2n<br>
+      이를 이용하면 aₙ = 1 + ∑<sub>k=1</sub><sup>n−1</sup>2k = n²−n+1이 복원돼.
+    </div>
+  </div>
+</div>
+
+<!-- Q8: 중 -->
+<div class="quiz-card" id="q148">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">8</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      수열 3, 4, 6, 10, 18, 34, ...에서 계차수열을 이용하여 구한 일반항 aₙ은?
+    </div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">aₙ = 2ⁿ + 1</li>
+      <li data-label="B" onclick="selectOption(this)">aₙ = 2ⁿ⁻¹ + 3</li>
+      <li data-label="C" onclick="selectOption(this)">aₙ = 2ⁿ⁻¹ + 2</li>
+      <li data-label="D" onclick="selectOption(this)">aₙ = 2ⁿ − 1</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(148)">힌트 보기</button>
+    <div class="quiz-hint" id="q148-hint">계차를 구하면 1, 2, 4, 8, 16, ...이야. 이건 등비수열! bₙ = 2ⁿ⁻¹. 그다음 aₙ = a₁ + ∑<sub>k=1</sub><sup>n−1</sup>2ᵏ⁻¹ 을 계산해봐.</div>
+    <button class="quiz-submit" onclick="submitMC(148)">답 제출하기</button>
+    <div class="quiz-result" id="q148-result"></div>
+    <div class="quiz-explanation" id="q148-explain">
+      <div class="quiz-explain-label">해설</div>
+      강의 계차수열 예제 2야.<br>
+      계차: 4−3=1, 6−4=2, 10−6=4, 18−10=8 → bₙ = 2ⁿ⁻¹ (등비수열)<br>
+      aₙ = 3 + ∑<sub>k=1</sub><sup>n−1</sup>2ᵏ⁻¹ = 3 + (2ⁿ⁻¹−1)/(2−1) = 3 + 2ⁿ⁻¹−1 = 2ⁿ⁻¹+2<br>
+      n=1 검증: 2⁰+2 = 1+2 = 3 = a₁ ✓
+    </div>
+  </div>
+</div>
+
+<!-- Q9: 상 -->
+<div class="quiz-card" id="q149">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">9</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      S = ∑<sub>k=1</sub><sup>n</sup> k·2ᵏ⁻¹ 를 공비를 곱하고 빼는 방법으로 계산한 결과는?
+    </div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">S = (n+1)·2ⁿ − 1</li>
+      <li data-label="B" onclick="selectOption(this)">S = n·2ⁿ + 1</li>
+      <li data-label="C" onclick="selectOption(this)">S = (n−1)·2ⁿ − 1</li>
+      <li data-label="D" onclick="selectOption(this)">S = (n−1)·2ⁿ + 1</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(149)">힌트 보기</button>
+    <div class="quiz-hint" id="q149-hint">S를 쓰고 공비 2를 곱한 2S를 한 칸 밀어 써. 그다음 S − 2S를 계산하면 등비수열의 합이 남아. 강의 풀이 순서: S 쓰기 → 2S 밀어 쓰기 → 빼기 → 정리.</div>
+    <button class="quiz-submit" onclick="submitMC(149)">답 제출하기</button>
+    <div class="quiz-result" id="q149-result"></div>
+    <div class="quiz-explanation" id="q149-explain">
+      <div class="quiz-explain-label">해설</div>
+      강의 핵심 예제야.<br>
+      S  = 1·1 + 2·2 + 3·4 + ... + n·2ⁿ⁻¹<br>
+      2S =       1·2 + 2·4 + ... + (n−1)·2ⁿ⁻¹ + n·2ⁿ<br>
+      S − 2S = (1 + 2 + 4 + ... + 2ⁿ⁻¹) − n·2ⁿ<br>
+      −S = (2ⁿ−1) − n·2ⁿ<br>
+      S = n·2ⁿ − 2ⁿ + 1 = (n−1)·2ⁿ + 1
+    </div>
+  </div>
+</div>
+
+<!-- Q10: 상 -->
+<div class="quiz-card" id="q150">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">10</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      Sₙ = 2n² − n 일 때, a₁ + a₃ + a₅ 의 값은?<br>
+      (단, aₙ = Sₙ − Sₙ₋₁ (n ≥ 2), a₁ = S₁)
+    </div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">27</li>
+      <li data-label="B" onclick="selectOption(this)">33</li>
+      <li data-label="C" onclick="selectOption(this)">30</li>
+      <li data-label="D" onclick="selectOption(this)">36</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(150)">힌트 보기</button>
+    <div class="quiz-hint" id="q150-hint">먼저 aₙ = Sₙ − Sₙ₋₁로 일반항을 구해봐. a₁은 S₁로 따로 구하고 공식과 일치하는지 확인! 그다음 n=1, 3, 5를 대입해봐.</div>
+    <button class="quiz-submit" onclick="submitMC(150)">답 제출하기</button>
+    <div class="quiz-result" id="q150-result"></div>
+    <div class="quiz-explanation" id="q150-explain">
+      <div class="quiz-explain-label">해설</div>
+      n ≥ 2에서 aₙ = Sₙ − Sₙ₋₁<br>
+      = (2n²−n) − {2(n−1)²−(n−1)}<br>
+      = 2n²−n − (2n²−4n+2−n+1)<br>
+      = 2n²−n − 2n²+5n−3 = 4n−3<br>
+      n=1 검증: a₁ = S₁ = 2(1)−1 = 1 = 4(1)−3 = 1 ✓ 공식 성립.<br>
+      따라서 a₁ = 4(1)−3 = 1, a₃ = 4(3)−3 = 9, a₅ = 4(5)−3 = 17<br>
+      a₁+a₃+a₅ = 1+9+17 = 33
+    </div>
+  </div>
+</div>
+
+</div><!-- /view-quiz-5 -->
+
+
+<!-- ═══════════ 6강 연습문제 ═══════════ -->
+<div class="view-quiz-6">
+<div class="quiz-hero">
+  <h3>6강 - 점화식과 수학적 귀납법</h3>
+  <p>객관식 10문항 | 하 3 · 중 5 · 상 2</p>
+</div>
+
+<!-- Q1: 하 -->
+<div class="quiz-card" id="q151">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">1</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      귀납법과 연역법에 대한 설명으로 <strong>옳은</strong> 것은?
+    </div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">귀납법은 일반적 사실에서 구체적 결론을 도출하는 방법이다</li>
+      <li data-label="B" onclick="selectOption(this)">수학적 귀납법은 실제로 귀납적 추론 방법이다</li>
+      <li data-label="C" onclick="selectOption(this)">귀납법은 구체적 사실들로부터 일반적 결론을 도출하는 방법이다</li>
+      <li data-label="D" onclick="selectOption(this)">연역법은 여러 구체적 사례를 통해 패턴을 발견하는 방법이다</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(151)">힌트 보기</button>
+    <div class="quiz-hint" id="q151-hint">강의 표를 떠올려봐. 귀납법의 방향은 "구체 → 일반", 연역법의 방향은 "일반 → 구체"야. 그리고 수학적 귀납법은 이름과 달리 실제로는 어떤 방법이었지?</div>
+    <button class="quiz-submit" onclick="submitMC(151)">답 제출하기</button>
+    <div class="quiz-result" id="q151-result"></div>
+    <div class="quiz-explanation" id="q151-explain">
+      <div class="quiz-explain-label">해설</div>
+      강의 표에서 정리했듯이:<br>
+      - 귀납법: 구체 → 일반 (여러 사실에서 일반 결론 도출)<br>
+      - 연역법: 일반 → 구체 (일반 가설에서 구체 사실 검증)<br>
+      - 수학적 귀납법은 이름은 귀납법이지만 실제로는 연역적 증명이야!<br>
+      선택지 A는 연역법의 설명, B는 틀린 말 (실제론 연역적), D는 귀납법의 설명이야.
+    </div>
+  </div>
+</div>
+
+<!-- Q2: 하 -->
+<div class="quiz-card" id="q152">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">2</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      a₁ = 2, aₙ₊₁ = aₙ + 2로 정의된 수열의 다섯 번째 항 a₅는?
+    </div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">8</li>
+      <li data-label="B" onclick="selectOption(this)">9</li>
+      <li data-label="C" onclick="selectOption(this)">12</li>
+      <li data-label="D" onclick="selectOption(this)">10</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(152)">힌트 보기</button>
+    <div class="quiz-hint" id="q152-hint">점화식을 한 단계씩 따라가봐. a₂ = a₁+2 = 4, a₃ = a₂+2 = 6, ...</div>
+    <button class="quiz-submit" onclick="submitMC(152)">답 제출하기</button>
+    <div class="quiz-result" id="q152-result"></div>
+    <div class="quiz-explanation" id="q152-explain">
+      <div class="quiz-explain-label">해설</div>
+      강의 예제 1(등차형)과 동일한 구조야.<br>
+      a₁=2, a₂=4, a₃=6, a₄=8, a₅=10<br>
+      이 수열은 첫항 2, 공차 2인 등차수열이고, 일반항은 aₙ = 2n이야. n=5이면 a₅ = 10.
+    </div>
+  </div>
+</div>
+
+<!-- Q3: 하 -->
+<div class="quiz-card" id="q153">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">3</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      등비수열의 세 연속항 a, b, c에 대해 등비중항 조건(b가 a와 c의 등비중항)을 나타내는 식은?
+    </div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">b² = ac</li>
+      <li data-label="B" onclick="selectOption(this)">2b = a + c</li>
+      <li data-label="C" onclick="selectOption(this)">2/b = 1/a + 1/c</li>
+      <li data-label="D" onclick="selectOption(this)">b = (a+c)/2</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(153)">힌트 보기</button>
+    <div class="quiz-hint" id="q153-hint">강의 팁박스를 떠올려봐. 등차: 2b=a+c, 등비: b²=ac, 조화: 2/b=1/a+1/c. 각각의 특징은 합, 곱, 역수야.</div>
+    <button class="quiz-submit" onclick="submitMC(153)">답 제출하기</button>
+    <div class="quiz-result" id="q153-result"></div>
+    <div class="quiz-explanation" id="q153-explain">
+      <div class="quiz-explain-label">해설</div>
+      강의에서 정리한 세 가지 중항 조건:<br>
+      - 등차중항: 2b = a+c (세 수의 합의 절반이 가운데 항)<br>
+      - 등비중항: b² = ac (세 수의 곱의 제곱근이 가운데 항)<br>
+      - 조화중항: 2/b = 1/a + 1/c (역수가 등차수열)<br>
+      선택지 B는 등차중항, C는 조화중항, D는 B와 같은 의미야.
+    </div>
+  </div>
+</div>
+
+<!-- Q4: 중 -->
+<div class="quiz-card" id="q154">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">4</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      a₁ = 3, aₙ₊₁ = aₙ + 2n으로 정의된 수열의 일반항 aₙ은? (n ≥ 2)
+    </div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">aₙ = n² + n + 1</li>
+      <li data-label="B" onclick="selectOption(this)">aₙ = n² − n + 3</li>
+      <li data-label="C" onclick="selectOption(this)">aₙ = n² + 3</li>
+      <li data-label="D" onclick="selectOption(this)">aₙ = 2n + 1</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(154)">힌트 보기</button>
+    <div class="quiz-hint" id="q154-hint">aₙ₊₁ = aₙ + f(n) 꼴이니까 계차 누적합 공식을 써. aₙ = a₁ + ∑<sub>k=1</sub><sup>n−1</sup>2k 를 계산해봐.</div>
+    <button class="quiz-submit" onclick="submitMC(154)">답 제출하기</button>
+    <div class="quiz-result" id="q154-result"></div>
+    <div class="quiz-explanation" id="q154-explain">
+      <div class="quiz-explain-label">해설</div>
+      강의 예제 1(f(n)이 일차)과 동일한 문제야.<br>
+      aₙ = 3 + ∑<sub>k=1</sub><sup>n−1</sup>2k = 3 + 2·(n−1)n/2 = 3 + n(n−1)<br>
+      = n²−n+3<br>
+      n=1 검증: 1−1+3 = 3 = a₁ ✓<br>
+      Σk = k(k+1)/2 공식에서 k 자리에 (n−1)을 넣으면 (n−1)n/2이야.
+    </div>
+  </div>
+</div>
+
+<!-- Q5: 중 -->
+<div class="quiz-card" id="q155">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">5</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      a₁ = 2, aₙ₊₁ = aₙ + 3ⁿ으로 정의된 수열의 일반항 aₙ은? (n ≥ 2)
+    </div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">aₙ = 3ⁿ − 1</li>
+      <li data-label="B" onclick="selectOption(this)">aₙ = (3ⁿ + 3)/2</li>
+      <li data-label="C" onclick="selectOption(this)">aₙ = (3ⁿ + 1)/2</li>
+      <li data-label="D" onclick="selectOption(this)">aₙ = 3ⁿ⁻¹ + 2</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(155)">힌트 보기</button>
+    <div class="quiz-hint" id="q155-hint">f(k)=3ᵏ이 등비수열이야. aₙ = 2 + ∑<sub>k=1</sub><sup>n−1</sup>3ᵏ 를 등비수열 합 공식으로 계산해봐. 첫항 3, 공비 3, 항수 n−1이야.</div>
+    <button class="quiz-submit" onclick="submitMC(155)">답 제출하기</button>
+    <div class="quiz-result" id="q155-result"></div>
+    <div class="quiz-explanation" id="q155-explain">
+      <div class="quiz-explain-label">해설</div>
+      강의 예제 2(f(n)이 거듭제곱)야.<br>
+      aₙ = 2 + ∑<sub>k=1</sub><sup>n−1</sup>3ᵏ = 2 + 3·(3ⁿ⁻¹−1)/(3−1)<br>
+      = 2 + (3ⁿ−3)/2<br>
+      = (4 + 3ⁿ−3)/2 = (3ⁿ+1)/2<br>
+      n=1 검증: (3+1)/2 = 2 = a₁ ✓<br>
+      등비수열 합 공식에서 첫항이 3¹=3, 마지막항 3ⁿ⁻¹, 항수 n−1임에 주의해.
+    </div>
+  </div>
+</div>
+
+<!-- Q6: 중 -->
+<div class="quiz-card" id="q156">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">6</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      a₁ = 3, aₙ₊₁ = (n/(n+1))·aₙ 으로 정의된 수열의 일반항 aₙ은?
+    </div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">aₙ = 3/n</li>
+      <li data-label="B" onclick="selectOption(this)">aₙ = 3n</li>
+      <li data-label="C" onclick="selectOption(this)">aₙ = 3/(n+1)</li>
+      <li data-label="D" onclick="selectOption(this)">aₙ = 1/n</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(156)">힌트 보기</button>
+    <div class="quiz-hint" id="q156-hint">aₙ₊₁ = aₙ·f(n) 꼴이니 비 누적곱 공식을 써. Π(k/(k+1))를 펼쳐 써봐 — 망원급수처럼 중간항이 소거돼!</div>
+    <button class="quiz-submit" onclick="submitMC(156)">답 제출하기</button>
+    <div class="quiz-result" id="q156-result"></div>
+    <div class="quiz-explanation" id="q156-explain">
+      <div class="quiz-explain-label">해설</div>
+      강의 예제 1(분수형 비)과 동일한 문제야.<br>
+      aₙ = 3 · Π<sub>k=1</sub><sup>n−1</sup>k/(k+1)<br>
+      = 3 · (1/2)·(2/3)·(3/4)·...·(n−1)/n<br>
+      분자: 1·2·3·...·(n−1) = (n−1)!<br>
+      분모: 2·3·4·...·n = n!/(1) = n!/1<br>
+      모두 소거하면 = 3·(1/n) = 3/n<br>
+      n=1 검증: 3/1 = 3 = a₁ ✓
+    </div>
+  </div>
+</div>
+
+<!-- Q7: 중 -->
+<div class="quiz-card" id="q157">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">7</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      수학적 귀납법으로 명제를 증명하는 3단계 순서로 올바른 것은?
+    </div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">P(k)→P(k+1) 가정 → P(1) 확인 → 결론</li>
+      <li data-label="B" onclick="selectOption(this)">P(1) 확인 → P(k) 가정 후 P(k+1) 증명 → 결론</li>
+      <li data-label="C" onclick="selectOption(this)">P(n) 가정 → P(1) 확인 → P(2) 확인 → 결론</li>
+      <li data-label="D" onclick="selectOption(this)">P(1), P(2) 확인 → P(k)→P(k+1) 증명 → 결론</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(157)">힌트 보기</button>
+    <div class="quiz-hint" id="q157-hint">강의에서 도미노 비유를 떠올려봐. ① 첫 번째 도미노가 쓰러진다 (기저 단계) → ② k번째가 쓰러지면 k+1번째도 → ③ 결론. 순서가 고정돼 있어!</div>
+    <button class="quiz-submit" onclick="submitMC(157)">답 제출하기</button>
+    <div class="quiz-result" id="q157-result"></div>
+    <div class="quiz-explanation" id="q157-explain">
+      <div class="quiz-explain-label">해설</div>
+      강의에서 정리한 수학적 귀납법 3단계야:<br>
+      ① P(1)이 성립함을 보인다 (기저 단계 — 첫 번째 도미노)<br>
+      ② P(k)가 성립한다고 가정할 때 P(k+1)도 성립함을 보인다 (귀납 단계)<br>
+      ③ 따라서 모든 자연수 n에 대해 P(n)이 성립한다 (결론)<br>
+      선택지 D는 강한 수학적 귀납법에 가까운 서술이야.
+    </div>
+  </div>
+</div>
+
+<!-- Q8: 중 -->
+<div class="quiz-card" id="q158">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">8</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      수학적 귀납법으로 1² + 2² + ... + k² = k(k+1)(2k+1)/6 이 성립한다고 가정할 때,<br>
+      n = k+1 단계에서 좌변에 추가되는 항은?
+    </div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">(k+1)(k+2)</li>
+      <li data-label="B" onclick="selectOption(this)">(k+1)(2k+3)</li>
+      <li data-label="C" onclick="selectOption(this)">(k+1)²</li>
+      <li data-label="D" onclick="selectOption(this)">k(k+1)</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(158)">힌트 보기</button>
+    <div class="quiz-hint" id="q158-hint">∑<sub>k=1</sub><sup>k+1</sup> n² = ∑<sub>k=1</sub><sup>k</sup> n² + (k+1)번째 항이야. k+1번째 항은 (k+1)을 n 자리에 대입한 거야.</div>
+    <button class="quiz-submit" onclick="submitMC(158)">답 제출하기</button>
+    <div class="quiz-result" id="q158-result"></div>
+    <div class="quiz-explanation" id="q158-explain">
+      <div class="quiz-explain-label">해설</div>
+      강의 등식 증명 예제의 귀납 단계야.<br>
+      1² + 2² + ... + k² + (k+1)² 에서 추가된 항은 (k+1)²이야.<br>
+      n = k+1일 때 좌변 = (귀납 가정의 합) + (k+1)²<br>
+      = k(k+1)(2k+1)/6 + (k+1)²<br>
+      이것을 인수분해하면 (k+1)(k+2)(2k+3)/6이 되어 우변과 일치하지.
+    </div>
+  </div>
+</div>
+
+<!-- Q9: 상 -->
+<div class="quiz-card" id="q159">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">9</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      a₁ = 1, aₙ₊₁ = 2ⁿ · aₙ 으로 정의된 수열의 일반항 aₙ은?
+    </div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">aₙ = 2ⁿ</li>
+      <li data-label="B" onclick="selectOption(this)">aₙ = 2ⁿ⁽ⁿ⁺¹⁾/²</li>
+      <li data-label="C" onclick="selectOption(this)">aₙ = 2ⁿ⁻¹</li>
+      <li data-label="D" onclick="selectOption(this)">aₙ = 2ⁿ⁽ⁿ⁻¹⁾/²</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(159)">힌트 보기</button>
+    <div class="quiz-hint" id="q159-hint">비 누적곱 공식을 써. aₙ = 1 · Π<sub>k=1</sub><sup>n−1</sup>2ᵏ = 2^(1+2+...+(n-1)). 지수 부분이 등차수열의 합이야!</div>
+    <button class="quiz-submit" onclick="submitMC(159)">답 제출하기</button>
+    <div class="quiz-result" id="q159-result"></div>
+    <div class="quiz-explanation" id="q159-explain">
+      <div class="quiz-explain-label">해설</div>
+      강의 예제 2(거듭제곱 비)와 동일한 문제야.<br>
+      aₙ = 1 · Π<sub>k=1</sub><sup>n−1</sup>2ᵏ = 2^(1+2+3+...+(n−1))<br>
+      지수 = ∑<sub>k=1</sub><sup>n−1</sup>k = (n−1)n/2 = n(n−1)/2<br>
+      따라서 aₙ = 2^(n(n−1)/2)<br>
+      n=1 검증: 2⁰ = 1 = a₁ ✓<br>
+      선택지 B의 n(n+1)/2 지수는 ∑<sub>k=1</sub><sup>n</sup>k = n(n+1)/2 로 상한이 n일 때야. 이 문제에서는 상한이 n−1임에 주의해.
+    </div>
+  </div>
+</div>
+
+<!-- Q10: 상 -->
+<div class="quiz-card" id="q160">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">10</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">
+      수학적 귀납법으로 부등식 1 + 1/2 + 1/3 + ... + 1/k ≥ 2k/(k+1) 이 성립함을 가정하고 n=k+1 단계를 증명할 때, 다음 중 올바른 흐름은?
+    </div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">좌변 ≥ 2k/(k+1) 이므로, 1/(k+1)을 빼서 우변과 비교한다</li>
+      <li data-label="B" onclick="selectOption(this)">좌변 ≥ 2k/(k+1) + 1/(k+1) = (2k+1)/(k+1) 이고, (2k+1)/(k+1) ≥ 2(k+1)/(k+2) 임을 보인다</li>
+      <li data-label="C" onclick="selectOption(this)">귀납 가정을 쓰지 않고 직접 좌변 전체를 계산한다</li>
+      <li data-label="D" onclick="selectOption(this)">n=k+1의 우변 2(k+1)/(k+2)가 2k/(k+1)보다 작음을 이용한다</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(160)">힌트 보기</button>
+    <div class="quiz-hint" id="q160-hint">부등식 귀납법의 핵심은 "귀납 가정(★)을 어디에 써서 부등호를 연결하는가"야. 강의 풀이를 떠올려봐: 좌변에 귀납 가정을 적용한 뒤 1/(k+1)을 더해서 n=k+1의 우변과 비교해.</div>
+    <button class="quiz-submit" onclick="submitMC(160)">답 제출하기</button>
+    <div class="quiz-result" id="q160-result"></div>
+    <div class="quiz-explanation" id="q160-explain">
+      <div class="quiz-explain-label">해설</div>
+      강의 부등식 증명 예제의 핵심 단계야.<br>
+      n=k+1일 때 좌변 = (1+1/2+...+1/k) + 1/(k+1)<br>
+      귀납 가정(★): 1+...+1/k ≥ 2k/(k+1) 을 대입<br>
+      ≥ 2k/(k+1) + 1/(k+1) = (2k+1)/(k+1)<br>
+      목표 우변: 2(k+1)/(k+2)<br>
+      (2k+1)(k+2) = 2k²+5k+2 vs 2(k+1)² = 2k²+4k+2<br>
+      k≥1이면 2k²+5k+2 ≥ 2k²+4k+2 이므로 (2k+1)/(k+1) ≥ 2(k+1)/(k+2) ✓<br>
+      선택지 C(귀납 가정 미사용)는 귀납법의 핵심을 놓치는 접근이야.
+    </div>
+  </div>
+</div>
+
+</div><!-- /view-quiz-6 -->
+<!-- ═══════════ 7강 연습문제 ═══════════ -->
+<div class="view-quiz-7">
+<div class="quiz-hero">
+  <h3>7강 - 평면좌표</h3>
+  <p>객관식 10문항 | 하 3 · 중 5 · 상 2</p>
+</div>
+
+<!-- Q1: 하 -->
+<div class="quiz-card" id="q161">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">1</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">수직선 위의 두 점 A(−3), B(5) 사이의 거리는?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">2</li>
+      <li data-label="B" onclick="selectOption(this)">6</li>
+      <li data-label="C" onclick="selectOption(this)">8</li>
+      <li data-label="D" onclick="selectOption(this)">15</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(161)">힌트 보기</button>
+    <div class="quiz-hint" id="q161-hint">수직선 위 두 점 A(a), B(b) 사이의 거리는 |a − b| 야. 절댓값 잊지 마!</div>
+    <button class="quiz-submit" onclick="submitMC(161)">답 제출하기</button>
+    <div class="quiz-result" id="q161-result"></div>
+    <div class="quiz-explanation" id="q161-explain">
+      <div class="quiz-explain-label">해설</div>
+      AB = |−3 − 5| = |−8| = 8. 수직선 거리는 두 좌표의 차에 절댓값을 취하면 돼.
+    </div>
+  </div>
+</div>
+
+<!-- Q2: 하 -->
+<div class="quiz-card" id="q162">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">2</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">좌표평면 위의 점 A(3, 2), B(7, 5) 사이의 거리 AB는?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">√7</li>
+      <li data-label="B" onclick="selectOption(this)">√13</li>
+      <li data-label="C" onclick="selectOption(this)">5</li>
+      <li data-label="D" onclick="selectOption(this)">7</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(162)">힌트 보기</button>
+    <div class="quiz-hint" id="q162-hint">거리 공식: AB = √((x_a − x_b)² + (y_a − y_b)²). 피타고라스 정리 적용!</div>
+    <button class="quiz-submit" onclick="submitMC(162)">답 제출하기</button>
+    <div class="quiz-result" id="q162-result"></div>
+    <div class="quiz-explanation" id="q162-explain">
+      <div class="quiz-explain-label">해설</div>
+      AB = √((7−3)² + (5−2)²) = √(16 + 9) = √25 = 5. 강의 예제 그대로야. x 차이 4, y 차이 3 → 3:4:5 직각삼각형!
+    </div>
+  </div>
+</div>
+
+<!-- Q3: 하 -->
+<div class="quiz-card" id="q163">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">3</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">두 점 A(1, 2), B(7, 8)의 중점 M의 좌표는?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">(3, 4)</li>
+      <li data-label="B" onclick="selectOption(this)">(4, 5)</li>
+      <li data-label="C" onclick="selectOption(this)">(5, 6)</li>
+      <li data-label="D" onclick="selectOption(this)">(6, 7)</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(163)">힌트 보기</button>
+    <div class="quiz-hint" id="q163-hint">중점은 두 좌표의 평균! M = ((x_a + x_b)/2, (y_a + y_b)/2)</div>
+    <button class="quiz-submit" onclick="submitMC(163)">답 제출하기</button>
+    <div class="quiz-result" id="q163-result"></div>
+    <div class="quiz-explanation" id="q163-explain">
+      <div class="quiz-explain-label">해설</div>
+      M = ((1+7)/2, (2+8)/2) = (8/2, 10/2) = (4, 5). 중점은 1:1 내분점으로, 두 좌표의 평균이야.
+    </div>
+  </div>
+</div>
+
+<!-- Q4: 중 -->
+<div class="quiz-card" id="q164">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">4</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">두 점 A(1, 2), B(7, 8)을 2:1로 내분하는 점 P의 좌표는?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">(3, 4)</li>
+      <li data-label="B" onclick="selectOption(this)">(4, 5)</li>
+      <li data-label="C" onclick="selectOption(this)">(5, 6)</li>
+      <li data-label="D" onclick="selectOption(this)">(6, 7)</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(164)">힌트 보기</button>
+    <div class="quiz-hint" id="q164-hint">내분 공식: P = ((n·x_a + m·x_b)/(m+n), (n·y_a + m·y_b)/(m+n)). m:n = 2:1이므로 B 쪽 좌표에 m=2, A 쪽 좌표에 n=1이 곱해져!</div>
+    <button class="quiz-submit" onclick="submitMC(164)">답 제출하기</button>
+    <div class="quiz-result" id="q164-result"></div>
+    <div class="quiz-explanation" id="q164-explain">
+      <div class="quiz-explain-label">해설</div>
+      m=2, n=1 대입. x = (1·1 + 2·7)/(2+1) = (1+14)/3 = 15/3 = 5. y = (1·2 + 2·8)/(2+1) = (2+16)/3 = 18/3 = 6. ∴ P = (5, 6). 강의 예제와 같은 문제야!
+    </div>
+  </div>
+</div>
+
+<!-- Q5: 중 -->
+<div class="quiz-card" id="q165">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">5</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">평행사변형 ABCD에서 A(1, 2), B(3, 5), C(7, 4)일 때, 꼭짓점 D의 좌표는?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">(4, 0)</li>
+      <li data-label="B" onclick="selectOption(this)">(5, 1)</li>
+      <li data-label="C" onclick="selectOption(this)">(6, 2)</li>
+      <li data-label="D" onclick="selectOption(this)">(3, 3)</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(165)">힌트 보기</button>
+    <div class="quiz-hint" id="q165-hint">평행사변형에서 두 대각선 AC, BD의 중점이 같아야 해. 먼저 AC의 중점을 구한 뒤, BD의 중점이 같다는 조건으로 D를 구해!</div>
+    <button class="quiz-submit" onclick="submitMC(165)">답 제출하기</button>
+    <div class="quiz-result" id="q165-result"></div>
+    <div class="quiz-explanation" id="q165-explain">
+      <div class="quiz-explain-label">해설</div>
+      AC의 중점 = ((1+7)/2, (2+4)/2) = (4, 3). BD의 중점도 (4, 3)이어야 하므로 ((3+a)/2, (5+b)/2) = (4, 3). 따라서 3+a=8 → a=5, 5+b=6 → b=1. ∴ D = (5, 1). 강의 예제와 동일!
+    </div>
+  </div>
+</div>
+
+<!-- Q6: 중 -->
+<div class="quiz-card" id="q166">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">6</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">삼각형의 세 꼭짓점이 A(2, 0), B(4, 6), C(6, 3)일 때, 무게중심 G의 좌표는?</div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">(4, 3)</li>
+      <li data-label="B" onclick="selectOption(this)">(3, 4)</li>
+      <li data-label="C" onclick="selectOption(this)">(5, 3)</li>
+      <li data-label="D" onclick="selectOption(this)">(4, 4)</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(166)">힌트 보기</button>
+    <div class="quiz-hint" id="q166-hint">무게중심 G = ((x₁+x₂+x₃)/3, (y₁+y₂+y₃)/3). 세 꼭짓점 좌표의 평균이야!</div>
+    <button class="quiz-submit" onclick="submitMC(166)">답 제출하기</button>
+    <div class="quiz-result" id="q166-result"></div>
+    <div class="quiz-explanation" id="q166-explain">
+      <div class="quiz-explain-label">해설</div>
+      G = ((2+4+6)/3, (0+6+3)/3) = (12/3, 9/3) = (4, 3). 무게중심은 세 좌표의 평균이야. 중점(2개 평균)과 혼동하지 말 것!
+    </div>
+  </div>
+</div>
+
+<!-- Q7: 중 -->
+<div class="quiz-card" id="q167">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">7</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">두 점 A(1, 2), B(7, 8)을 3:1로 외분하는 점 Q의 x좌표는?</div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">8</li>
+      <li data-label="B" onclick="selectOption(this)">9</li>
+      <li data-label="C" onclick="selectOption(this)">9.5</li>
+      <li data-label="D" onclick="selectOption(this)">10</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(167)">힌트 보기</button>
+    <div class="quiz-hint" id="q167-hint">외분 공식 x좌표: (−n·x_a + m·x_b)/(m−n). 내분 공식의 n을 −n으로 바꾼 것! m=3, n=1 대입.</div>
+    <button class="quiz-submit" onclick="submitMC(167)">답 제출하기</button>
+    <div class="quiz-result" id="q167-result"></div>
+    <div class="quiz-explanation" id="q167-explain">
+      <div class="quiz-explain-label">해설</div>
+      m=3, n=1. x = (−1·1 + 3·7)/(3−1) = (−1+21)/2 = 20/2 = 10. 외분 공식은 내분 공식에서 n → −n, 분모 m+n → m−n으로 바꾸면 돼.
+    </div>
+  </div>
+</div>
+
+<!-- Q8: 중 -->
+<div class="quiz-card" id="q168">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">8</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">삼각형 ABC에서 AB = 6, AC = 8, BC = 4일 때, BC의 중점 M에 대해 중선 AM의 길이는?</div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">√40</li>
+      <li data-label="B" onclick="selectOption(this)">√44</li>
+      <li data-label="C" onclick="selectOption(this)">√45</li>
+      <li data-label="D" onclick="selectOption(this)">√46</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(168)">힌트 보기</button>
+    <div class="quiz-hint" id="q168-hint">파푸스 중선정리: AB² + AC² = 2(AM² + BM²). M은 BC의 중점이므로 BM = BC/2 = 2.</div>
+    <button class="quiz-submit" onclick="submitMC(168)">답 제출하기</button>
+    <div class="quiz-result" id="q168-result"></div>
+    <div class="quiz-explanation" id="q168-explain">
+      <div class="quiz-explain-label">해설</div>
+      BM = 4/2 = 2. 파푸스 중선정리: 6² + 8² = 2(AM² + 2²) → 36 + 64 = 2·AM² + 8 → 100 = 2·AM² + 8 → AM² = 46 → AM = √46. 강의 예제와 동일한 풀이야!
+    </div>
+  </div>
+</div>
+
+<!-- Q9: 상 -->
+<div class="quiz-card" id="q169">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">9</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">두 점 A(m², m), B(1, −m) 사이의 거리가 2일 때, m의 값은? (단, m은 실수)</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">m = 0</li>
+      <li data-label="B" onclick="selectOption(this)">m = ±1</li>
+      <li data-label="C" onclick="selectOption(this)">m = ±2</li>
+      <li data-label="D" onclick="selectOption(this)">m = 1만</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(169)">힌트 보기</button>
+    <div class="quiz-hint" id="q169-hint">거리 공식을 세운 뒤 양변을 제곱해서 루트를 없애. (m²−1)² + (2m)² = 4 형태로 정리하면 m⁴+2m²−3=0이 돼. 인수분해!</div>
+    <button class="quiz-submit" onclick="submitMC(169)">답 제출하기</button>
+    <div class="quiz-result" id="q169-result"></div>
+    <div class="quiz-explanation" id="q169-explain">
+      <div class="quiz-explain-label">해설</div>
+      √((m²−1)² + (m−(−m))²) = 2. 양변 제곱: (m²−1)² + (2m)² = 4. 전개: m⁴−2m²+1+4m²=4 → m⁴+2m²−3=0. 인수분해: (m²+3)(m²−1)=0. m²=−3 불가, m²=1 → m = ±1. 강의 응용 예제야!
+    </div>
+  </div>
+</div>
+
+<!-- Q10: 상 -->
+<div class="quiz-card" id="q170">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">10</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">삼각형 ABC에서 A(1, 4), B(4, 8), C(9, 10)일 때, ∠A의 이등분선이 BC와 만나는 점 D의 좌표는?</div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">(17/3, 26/3)</li>
+      <li data-label="B" onclick="selectOption(this)">(5, 9)</li>
+      <li data-label="C" onclick="selectOption(this)">(6, 9)</li>
+      <li data-label="D" onclick="selectOption(this)">(16/3, 25/3)</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(170)">힌트 보기</button>
+    <div class="quiz-hint" id="q170-hint">풀이 3단계: ① AB, AC 거리 계산 → ② 각의 이등분선 정리로 BD:DC 비 구하기 (= AB:AC) → ③ D를 내분점 공식으로 계산.</div>
+    <button class="quiz-submit" onclick="submitMC(170)">답 제출하기</button>
+    <div class="quiz-result" id="q170-result"></div>
+    <div class="quiz-explanation" id="q170-explain">
+      <div class="quiz-explain-label">해설</div>
+      ① AB = √((4−1)²+(8−4)²) = √(9+16) = 5. AC = √((9−1)²+(10−4)²) = √(64+36) = 10. ② BD:DC = AB:AC = 5:10 = 1:2. ③ D는 BC를 1:2로 내분: D_x = (2·4+1·9)/(1+2) = 17/3, D_y = (2·8+1·10)/3 = 26/3. ∴ D = (17/3, 26/3). 강의 예제와 동일!
+    </div>
+  </div>
+</div>
+
+</div><!-- /view-quiz-7 -->
+
+
+<!-- ═══════════ 8강 연습문제 ═══════════ -->
+<div class="view-quiz-8">
+<div class="quiz-hero">
+  <h3>8강 - 함수</h3>
+  <p>객관식 10문항 | 하 3 · 중 5 · 상 2</p>
+</div>
+
+<!-- Q1: 하 -->
+<div class="quiz-card" id="q171">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">1</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">함수 f: X → Y 에서 "치역"에 대한 설명으로 옳은 것은?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">치역은 공역 Y와 항상 같다.</li>
+      <li data-label="B" onclick="selectOption(this)">치역은 정의역 X와 항상 같다.</li>
+      <li data-label="C" onclick="selectOption(this)">치역은 공역의 부분집합이다.</li>
+      <li data-label="D" onclick="selectOption(this)">치역은 정의역의 부분집합이다.</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(171)">힌트 보기</button>
+    <div class="quiz-hint" id="q171-hint">치역 = 실제로 대응된 값들의 집합. 공역의 모든 원소가 반드시 대응될 필요는 없어.</div>
+    <button class="quiz-submit" onclick="submitMC(171)">답 제출하기</button>
+    <div class="quiz-result" id="q171-result"></div>
+    <div class="quiz-explanation" id="q171-explain">
+      <div class="quiz-explain-label">해설</div>
+      치역 = f(X) = {f(x) | x ∈ X} ⊆ Y. 치역은 공역의 부분집합이야. 공역의 원소 중 실제로 대응된 것만 치역에 포함되므로 치역 ⊆ 공역. 치역 = 공역이 되는 특수한 경우가 바로 전사함수(위로의 함수)야.
+    </div>
+  </div>
+</div>
+
+<!-- Q2: 하 -->
+<div class="quiz-card" id="q172">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">2</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 중 함수가 아닌 경우에 해당하는 것은?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">정의역의 두 원소가 공역의 같은 원소에 대응된다.</li>
+      <li data-label="B" onclick="selectOption(this)">정의역의 한 원소가 공역의 두 원소에 동시에 대응된다.</li>
+      <li data-label="C" onclick="selectOption(this)">치역이 공역보다 작다.</li>
+      <li data-label="D" onclick="selectOption(this)">공역의 일부 원소가 대응되지 않는다.</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(172)">힌트 보기</button>
+    <div class="quiz-hint" id="q172-hint">함수가 아닌 두 경우: ① 정의역에 대응 없는 원소 존재, ② 정의역의 한 원소가 여러 값에 대응. 자판기 비유 — 버튼 하나에 음료 하나만!</div>
+    <button class="quiz-submit" onclick="submitMC(172)">답 제출하기</button>
+    <div class="quiz-result" id="q172-result"></div>
+    <div class="quiz-explanation" id="q172-explain">
+      <div class="quiz-explain-label">해설</div>
+      함수가 아닌 경우는 두 가지: ① 정의역 원소에 대응되는 값이 없는 경우, ② 정의역의 한 원소가 둘 이상의 값에 대응되는 경우. B가 바로 ②에 해당해. A(여러 원소가 같은 값 대응)는 허용, C·D도 함수로 성립 가능해.
+    </div>
+  </div>
+</div>
+
+<!-- Q3: 하 -->
+<div class="quiz-card" id="q173">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">3</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">X = {1, 2, 3}, Y = {a, b, c, d}일 때, X에서 Y로의 함수의 총 개수는?</div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">12</li>
+      <li data-label="B" onclick="selectOption(this)">24</li>
+      <li data-label="C" onclick="selectOption(this)">27</li>
+      <li data-label="D" onclick="selectOption(this)">64</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(173)">힌트 보기</button>
+    <div class="quiz-hint" id="q173-hint">함수의 개수 공식: n(Y)^n(X) = n^m. 여기서 m=3, n=4.</div>
+    <button class="quiz-submit" onclick="submitMC(173)">답 제출하기</button>
+    <div class="quiz-result" id="q173-result"></div>
+    <div class="quiz-explanation" id="q173-explain">
+      <div class="quiz-explain-label">해설</div>
+      n(X)=3, n(Y)=4이므로 함수의 개수 = 4³ = 64. 정의역의 각 원소(3개)마다 공역의 원소(4개) 중 하나를 선택할 수 있고 중복을 허용하므로 4×4×4 = 64. 강의 예제와 동일!
+    </div>
+  </div>
+</div>
+
+<!-- Q4: 중 -->
+<div class="quiz-card" id="q174">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">4</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">X = {1, 2, 3}, Y = {a, b, c, d}일 때, X에서 Y로의 일대일 함수(단사함수)의 개수는?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">12</li>
+      <li data-label="B" onclick="selectOption(this)">24</li>
+      <li data-label="C" onclick="selectOption(this)">6</li>
+      <li data-label="D" onclick="selectOption(this)">64</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(174)">힌트 보기</button>
+    <div class="quiz-hint" id="q174-hint">일대일 함수의 개수 = ₙPₘ (n ≥ m일 때). n=4, m=3이므로 ₄P₃을 계산해봐!</div>
+    <button class="quiz-submit" onclick="submitMC(174)">답 제출하기</button>
+    <div class="quiz-result" id="q174-result"></div>
+    <div class="quiz-explanation" id="q174-explain">
+      <div class="quiz-explain-label">해설</div>
+      일대일 함수의 개수 = ₄P₃ = 4×3×2 = 24. 서로 다른 값에만 대응해야 하므로 중복 불가 → 순열. 첫 번째 원소는 4가지, 두 번째는 3가지, 세 번째는 2가지 선택 가능. 강의 예제와 동일!
+    </div>
+  </div>
+</div>
+
+<!-- Q5: 중 -->
+<div class="quiz-card" id="q175">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">5</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">f(x) = x − 1, g(x) = x²일 때, (g ∘ f)(3)의 값은?</div>
+    <ul class="quiz-options" data-answer="1">
+      <li data-label="A" onclick="selectOption(this)">4</li>
+      <li data-label="B" onclick="selectOption(this)">8</li>
+      <li data-label="C" onclick="selectOption(this)">9</li>
+      <li data-label="D" onclick="selectOption(this)">6</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(175)">힌트 보기</button>
+    <div class="quiz-hint" id="q175-hint">(g∘f)(x) = g(f(x)). 오른쪽 f부터 먼저 적용! x=3을 f에 넣고, 그 결과를 g에 넣어봐.</div>
+    <button class="quiz-submit" onclick="submitMC(175)">답 제출하기</button>
+    <div class="quiz-result" id="q175-result"></div>
+    <div class="quiz-explanation" id="q175-explain">
+      <div class="quiz-explain-label">해설</div>
+      (g∘f)(3) = g(f(3)) = g(3−1) = g(2) = 2² = 4. 합성함수는 오른쪽 함수(f)를 먼저 계산하고, 그 결과를 왼쪽 함수(g)에 대입해. 강의 예제: (g∘f)(x) = (x−1)²이므로 (g∘f)(3) = (3−1)² = 4.
+    </div>
+  </div>
+</div>
+
+<!-- Q6: 중 -->
+<div class="quiz-card" id="q176">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">6</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">f(x) = x − 1, g(x) = x²일 때, (f ∘ g)(x)와 (g ∘ f)(x)에 대한 설명으로 옳은 것은?</div>
+    <ul class="quiz-options" data-answer="4">
+      <li data-label="A" onclick="selectOption(this)">(f∘g)(x) = (g∘f)(x)이다.</li>
+      <li data-label="B" onclick="selectOption(this)">(f∘g)(x) = x² − 1이고 (g∘f)(x) = x² − 1이다.</li>
+      <li data-label="C" onclick="selectOption(this)">(f∘g)(x) = (x−1)²이고 (g∘f)(x) = x²−1이다.</li>
+      <li data-label="D" onclick="selectOption(this)">(f∘g)(x) = x² − 1이고 (g∘f)(x) = (x−1)²이다.</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(176)">힌트 보기</button>
+    <div class="quiz-hint" id="q176-hint">합성함수는 교환법칙이 성립하지 않아! (f∘g)(x) = f(g(x)), (g∘f)(x) = g(f(x))를 각각 따로 계산해봐.</div>
+    <button class="quiz-submit" onclick="submitMC(176)">답 제출하기</button>
+    <div class="quiz-result" id="q176-result"></div>
+    <div class="quiz-explanation" id="q176-explain">
+      <div class="quiz-explain-label">해설</div>
+      (f∘g)(x) = f(g(x)) = f(x²) = x²−1. (g∘f)(x) = g(f(x)) = g(x−1) = (x−1)². 두 결과가 다르므로 합성함수는 교환법칙이 성립하지 않아! 강의 예제와 동일한 내용이야.
+    </div>
+  </div>
+</div>
+
+<!-- Q7: 중 -->
+<div class="quiz-card" id="q177">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">7</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">f(x) = 2x − 1의 역함수 f⁻¹(x)는?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">f⁻¹(x) = 2x + 1</li>
+      <li data-label="B" onclick="selectOption(this)">f⁻¹(x) = (x + 1) / 2</li>
+      <li data-label="C" onclick="selectOption(this)">f⁻¹(x) = (x − 1) / 2</li>
+      <li data-label="D" onclick="selectOption(this)">f⁻¹(x) = 1 / (2x − 1)</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(177)">힌트 보기</button>
+    <div class="quiz-hint" id="q177-hint">역함수 구하는 순서: ① y = f(x)로 놓기 → ② x에 대해 풀기 → ③ x와 y 교환. 강의 예제 그대로야!</div>
+    <button class="quiz-submit" onclick="submitMC(177)">답 제출하기</button>
+    <div class="quiz-result" id="q177-result"></div>
+    <div class="quiz-explanation" id="q177-explain">
+      <div class="quiz-explain-label">해설</div>
+      ① y = 2x−1. ② x에 대해 풀면: 2x = y+1, x = (y+1)/2. ③ x와 y 교환: y = (x+1)/2. ∴ f⁻¹(x) = (x+1)/2. 강의 예제 그대로야!
+    </div>
+  </div>
+</div>
+
+<!-- Q8: 중 -->
+<div class="quiz-card" id="q178">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">8</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">두 함수 f, g가 f = g (함수의 상등)가 되기 위한 조건으로 옳은 것은?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">모든 x에서 f(x) = g(x)이면 충분하다.</li>
+      <li data-label="B" onclick="selectOption(this)">정의역이 같으면 충분하다.</li>
+      <li data-label="C" onclick="selectOption(this)">정의역이 같고, 모든 x에서 f(x) = g(x)이어야 한다.</li>
+      <li data-label="D" onclick="selectOption(this)">치역이 같으면 충분하다.</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(178)">힌트 보기</button>
+    <div class="quiz-hint" id="q178-hint">함수의 상등: 두 가지 조건이 모두 필요해. 정의역이 다르면 같은 식이라도 다른 함수야!</div>
+    <button class="quiz-submit" onclick="submitMC(178)">답 제출하기</button>
+    <div class="quiz-result" id="q178-result"></div>
+    <div class="quiz-explanation" id="q178-explain">
+      <div class="quiz-explain-label">해설</div>
+      함수의 상등 조건: ① 정의역이 같다 + ② 모든 x에서 f(x) = g(x). 두 조건 모두 필요해. 예를 들어 f(x) = x²을 정의역 {1,2,3}과 {1,2,3,4}에서 정의하면, 값이 같더라도 정의역이 달라서 f ≠ g야.
+    </div>
+  </div>
+</div>
+
+<!-- Q9: 상 -->
+<div class="quiz-card" id="q179">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">9</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">X = {1, 2, 3}, Y = {a, b, c}일 때, X에서 Y로의 일대일 대응의 개수와, X에서 Y로의 전체 함수의 개수의 차는?</div>
+    <ul class="quiz-options" data-answer="3">
+      <li data-label="A" onclick="selectOption(this)">15</li>
+      <li data-label="B" onclick="selectOption(this)">18</li>
+      <li data-label="C" onclick="selectOption(this)">21</li>
+      <li data-label="D" onclick="selectOption(this)">24</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(179)">힌트 보기</button>
+    <div class="quiz-hint" id="q179-hint">n(X) = n(Y) = 3이므로 일대일 대응 존재! 일대일 대응 개수 = m! = 3!. 전체 함수 개수 = n^m = 3³. 차를 구해봐.</div>
+    <button class="quiz-submit" onclick="submitMC(179)">답 제출하기</button>
+    <div class="quiz-result" id="q179-result"></div>
+    <div class="quiz-explanation" id="q179-explain">
+      <div class="quiz-explain-label">해설</div>
+      m = n = 3이므로 일대일 대응 개수 = 3! = 6. 전체 함수 개수 = 3³ = 27. 차 = 27 − 6 = 21. 강의 예제에서 n=m=3일 때 함수 27가지, 일대일 대응 6가지를 배웠지!
+    </div>
+  </div>
+</div>
+
+<!-- Q10: 상 -->
+<div class="quiz-card" id="q180">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-obj">10</div>
+    <span class="quiz-type obj">객관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">f(x) = 2x − 1에 대해 (f⁻¹ ∘ f)(5)의 값과, y = f(x)의 그래프와 y = f⁻¹(x)의 그래프의 관계로 모두 옳은 것은?</div>
+    <ul class="quiz-options" data-answer="2">
+      <li data-label="A" onclick="selectOption(this)">(f⁻¹∘f)(5) = 0, y = f(x)와 y = f⁻¹(x)는 x축에 대해 대칭</li>
+      <li data-label="B" onclick="selectOption(this)">(f⁻¹∘f)(5) = 5, y = f(x)와 y = f⁻¹(x)는 y = x에 대해 대칭</li>
+      <li data-label="C" onclick="selectOption(this)">(f⁻¹∘f)(5) = 5, y = f(x)와 y = f⁻¹(x)는 y축에 대해 대칭</li>
+      <li data-label="D" onclick="selectOption(this)">(f⁻¹∘f)(5) = 9, y = f(x)와 y = f⁻¹(x)는 y = x에 대해 대칭</li>
+    </ul>
+    <button class="quiz-hint-btn" onclick="showHint(180)">힌트 보기</button>
+    <div class="quiz-hint" id="q180-hint">f⁻¹ ∘ f = I (항등함수)야. 그러므로 (f⁻¹∘f)(5) = I(5) = 5. 역함수 그래프는 y = x에 대해 대칭!</div>
+    <button class="quiz-submit" onclick="submitMC(180)">답 제출하기</button>
+    <div class="quiz-result" id="q180-result"></div>
+    <div class="quiz-explanation" id="q180-explain">
+      <div class="quiz-explain-label">해설</div>
+      f⁻¹ ∘ f = I_X (항등함수)이므로 (f⁻¹∘f)(5) = 5. 역함수의 그래프는 원래 함수의 그래프를 y = x에 대해 대칭이동한 것이야. 두 가지 핵심 성질: f⁻¹(f(x)) = x, 그리고 그래프는 y=x 대칭. 강의 핵심 정리 내용이야!
+    </div>
+  </div>
+</div>
+
+</div><!-- /view-quiz-8 -->
 
 
 </div>
