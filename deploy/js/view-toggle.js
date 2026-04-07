@@ -1,13 +1,13 @@
 // ── View Toggle ──
 const viewHero = document.querySelector('.view-hero');
 const lectureViews = {};
-for (let i = 1; i <= 7; i++) {
+for (let i = 1; i <= 8; i++) {
   lectureViews[i] = document.querySelector('.view-lecture-' + i);
 }
 lectureViews['exam'] = document.querySelector('.view-exam');
 
 const quizViews = {};
-for (let i = 1; i <= 7; i++) {
+for (let i = 1; i <= 8; i++) {
   quizViews[i] = document.querySelector('.view-quiz-' + i);
 }
 

@@ -69,6 +69,68 @@
   </div>
 
   <div class="nav-group">
+    <div class="lecture-label" data-lecture="4" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 4강 - 수열과 수열의 합
+    </div>
+    <div class="nav-links">
+      <a href="#m4-seq" data-lecture="4">수열의 정의와 일반항</a>
+      <a href="#m4-ap" data-lecture="4">등차수열의 일반항과 합</a>
+      <a href="#m4-gp" data-lecture="4">등비수열의 일반항과 합</a>
+      <a href="#m4-sum-gen" data-lecture="4">수열의 합과 일반항의 관계</a>
+      <a href="#m4-summary" data-lecture="4">4강 정리</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="5" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 5강 - 여러 가지 수열의 합
+    </div>
+    <div class="nav-links">
+      <a href="#m5-sigma" data-lecture="5">기호 Σ의 정의와 성질</a>
+      <a href="#m5-power-sum" data-lecture="5">자연수 거듭제곱의 합</a>
+      <a href="#m5-diff-seq" data-lecture="5">계차수열</a>
+      <a href="#m5-mixed" data-lecture="5">등차×등비 꼴 수열의 합</a>
+      <a href="#m5-summary" data-lecture="5">5강 정리</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="6" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 6강 - 점화식과 수학적 귀납법
+    </div>
+    <div class="nav-links">
+      <a href="#m6-recursive" data-lecture="6">수열의 귀납적 정의</a>
+      <a href="#m6-recurrence" data-lecture="6">여러 가지 점화식</a>
+      <a href="#m6-induction" data-lecture="6">수학적 귀납법</a>
+      <a href="#m6-summary" data-lecture="6">6강 정리</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="7" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 7강 - 평면좌표
+    </div>
+    <div class="nav-links">
+      <a href="#m7-coord" data-lecture="7">수직선과 평면좌표</a>
+      <a href="#m7-division" data-lecture="7">내분점과 외분점</a>
+      <a href="#m7-triangle" data-lecture="7">삼각형의 성질</a>
+      <a href="#m7-summary" data-lecture="7">7강 정리</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="8" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 8강 - 함수
+    </div>
+    <div class="nav-links">
+      <a href="#m8-func" data-lecture="8">함수의 정의와 특징</a>
+      <a href="#m8-graph" data-lecture="8">함수의 그래프</a>
+      <a href="#m8-composite" data-lecture="8">합성함수와 역함수</a>
+      <a href="#m8-summary" data-lecture="8">8강 정리</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
     <div class="lecture-label" data-lecture="exam" style="color: var(--error);" onclick="this.parentElement.classList.toggle('open')">
       <span class="nav-arrow">▶</span> 시험 대비
     </div>
@@ -1683,6 +1745,2490 @@
 
 
 </div><!-- /view-lecture-3 -->
+
+<div class="view-lecture-4">
+
+<!-- ══════════════════════════════════════ -->
+<!-- 4강. 수열과 수열의 합                    -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m4-seq">
+<div class="lecture-header">
+  <div class="lecture-num">4</div>
+  <h2>수열과 수열의 합</h2>
+</div>
+
+<!-- ── 수열의 정의 ── -->
+<div class="concept-card">
+  <h3><span class="icon">📋</span> 수열의 정의</h3>
+
+  <p><span class="tt">수열<span class="ttp"><strong>수열 (Sequence)</strong><br>자연수 집합 N에서 실수 집합 R로의 함수. a: N → R. 함수값 a(n) = aₙ을 수열의 제n항(일반항)이라 함</span></span>이란 <strong>자연수의 순서에 따라 나열된 수의 열</strong>이야. 수학적으로는 자연수 집합 N에서 실수 집합 R로의 함수로 정의돼.</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">수열의 정의</div>
+    <div class="formula">a : N → R</div>
+    <div class="formula-desc">수열 {aₙ} : a₁, a₂, a₃, …, aₙ, …</div>
+  </div>
+
+  <div class="analogy-box">
+    <p>수열은 그냥 <strong>번호가 붙은 수들의 줄서기</strong>야.</p>
+    <p>1번 자리 = a₁, 2번 자리 = a₂, n번 자리 = aₙ</p>
+    <p>마치 아파트 동처럼 — 101호, 102호, 103호… 순서가 있고, 각 방마다 특정 값이 들어있어!</p>
+  </div>
+</div>
+
+<!-- ── 수열의 일반항 ── -->
+<div class="concept-card">
+  <h3><span class="icon">🔢</span> 수열의 일반항</h3>
+
+  <p>수열의 <span class="tt">일반항<span class="ttp"><strong>일반항 (General Term)</strong><br>제n항 aₙ을 n의 식으로 나타낸 것. 일반항을 알면 수열의 모든 항을 구할 수 있음</span></span> aₙ은 n을 변수로 하는 식으로 표현돼. 일반항을 알면 <strong>모든 항</strong>을 다 구할 수 있어!</p>
+
+  <table class="compare-table">
+    <thead>
+      <tr><th>수열</th><th>항들</th><th>일반항 aₙ</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>자연수</strong></td>
+        <td>1, 2, 3, 4, 5, …</td>
+        <td>aₙ = n</td>
+      </tr>
+      <tr>
+        <td><strong>짝수</strong></td>
+        <td>2, 4, 6, 8, 10, …</td>
+        <td>bₙ = 2n</td>
+      </tr>
+      <tr>
+        <td><strong>홀수</strong></td>
+        <td>1, 3, 5, 7, 9, …</td>
+        <td>cₙ = 2n - 1</td>
+      </tr>
+      <tr>
+        <td><strong>제곱수</strong></td>
+        <td>1, 4, 9, 16, 25, …</td>
+        <td>dₙ = n²</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="example-box">
+    <p><strong>예제:</strong> 수열 2, 5, 8, 11, 14, …의 일반항을 구하시오.</p>
+    <p>항들을 보면 3씩 커지고 있어. n=1일 때 2이므로</p>
+    <p>aₙ = <strong>3n - 1</strong></p>
+    <p>검증: a₁ = 3(1)-1 = 2 ✓, a₂ = 3(2)-1 = 5 ✓, a₃ = 3(3)-1 = 8 ✓</p>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>일반항 찾는 법:</strong> 규칙을 먼저 파악하고, n=1을 대입해서 맞는지 확인해!</p>
+    <p>항이 일정하게 증가 → 등차수열 (aₙ = a + (n-1)d)</p>
+    <p>항이 일정 비율로 증가 → 등비수열 (aₙ = ar^(n-1))</p>
+  </div>
+</div>
+
+<!-- ── 유한수열 vs 무한수열 ── -->
+<div class="concept-card">
+  <h3><span class="icon">♾️</span> 유한수열과 무한수열</h3>
+
+  <div style="display: flex; gap: 20px; margin: 16px 0; flex-wrap: wrap;">
+    <div style="flex:1; min-width: 220px; background: var(--formula-bg); border: 2px solid var(--formula); border-radius: 14px; padding: 20px;">
+      <h4 style="color:var(--formula-text); margin-bottom: 8px;">유한수열 (Finite Sequence)</h4>
+      <p style="font-size:14px;">항의 수가 <strong>유한</strong>한 수열</p>
+      <p style="font-size: 13px; color: var(--text-secondary); margin-top: 8px;">예: aₙ = n, n = 1, 2, …, 10</p>
+      <p style="font-size: 13px; color: var(--text-secondary);">→ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10</p>
+    </div>
+    <div style="flex:1; min-width: 220px; background: var(--concept-bg); border: 2px solid var(--concept); border-radius: 14px; padding: 20px;">
+      <h4 style="color:var(--concept-text); margin-bottom: 8px;">무한수열 (Infinite Sequence)</h4>
+      <p style="font-size:14px;">항의 수가 <strong>무한</strong>한 수열</p>
+      <p style="font-size: 13px; color: var(--text-secondary); margin-top: 8px;">예: {n² - 1} : 0, 3, 8, 15, 24, …</p>
+      <p style="font-size: 13px; color: var(--text-secondary);">예: {-2n+1} : -1, -3, -5, -7, …</p>
+      <p style="font-size: 13px; color: var(--text-secondary);">예: {1/n(n+1)} : 1/2, 1/6, 1/12, …</p>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>표기법 주의:</strong> 무한수열은 {aₙ}처럼 중괄호로 표기하고, 유한수열은 마지막 항까지 명시해야 해!</p>
+  </div>
+</div>
+</div><!-- /m4-seq -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 등차수열                               -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m4-ap">
+<div class="concept-card">
+  <h3><span class="icon">➕</span> 등차수열 (Arithmetic Progression)</h3>
+
+  <p><span class="tt">등차수열<span class="ttp"><strong>등차수열 (AP, Arithmetic Progression)</strong><br>연속된 두 항의 차가 일정한 수열. 그 일정한 차를 공차(common difference) d라 함</span></span>은 <strong>일정한 수(공차 d)를 차례로 더해서</strong> 만든 수열이야.</p>
+
+  <div class="flow-row">
+    <div class="flow-box flow-purple">a</div>
+    <div class="flow-arrow">+d→</div>
+    <div class="flow-box flow-purple">a+d</div>
+    <div class="flow-arrow">+d→</div>
+    <div class="flow-box flow-purple">a+2d</div>
+    <div class="flow-arrow">+d→</div>
+    <div class="flow-box flow-purple">a+3d</div>
+    <div class="flow-arrow">→ …</div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">등차수열의 일반항</div>
+    <div class="formula">aₙ = a + (n-1)d</div>
+    <div class="formula-desc">a = 첫째항, d = 공차(common difference)</div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제 1:</strong> 첫째항 3, 공차 4인 등차수열의 일반항과 제5항</p>
+    <p>aₙ = 3 + (n-1)·4 = 3 + 4n - 4 = <strong>4n - 1</strong></p>
+    <p>a₅ = 4(5) - 1 = <strong>19</strong></p>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제 2:</strong> 수열 5, 2, -1, -4, …의 일반항 구하기</p>
+    <p>공차 d = 2 - 5 = <strong>-3</strong> (음수 공차도 가능!)</p>
+    <p>aₙ = 5 + (n-1)·(-3) = 5 - 3n + 3 = <strong>8 - 3n</strong></p>
+    <p>a₅ = 8 - 3(5) = -7 ✓</p>
+  </div>
+</div>
+
+<!-- ── 등차중항 ── -->
+<div class="concept-card">
+  <h3><span class="icon">⚖️</span> 등차중항과 조화수열</h3>
+
+  <p>세 수 a, b, c가 이 순서로 등차수열을 이룰 때, b를 <span class="tt">등차중항<span class="ttp"><strong>등차중항 (Arithmetic Mean)</strong><br>등차수열에서 가운데 항. b = (a+c)/2 이므로 a, b, c의 산술평균이 b</span></span>이라 해.</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">등차중항 조건</div>
+    <div class="formula">b - a = c - b</div>
+    <div class="formula">∴ b = (a + c) / 2</div>
+    <div class="formula-desc">b는 a와 c의 산술평균(arithmetic mean)!</div>
+  </div>
+
+  <div class="analogy-box">
+    <p>등차중항 = 두 수의 <strong>평균</strong>이야.</p>
+    <p>시험 점수 60점, 80점 사이의 등차중항 = (60+80)/2 = 70점!</p>
+    <p>딱 중간값이 등차중항이야.</p>
+  </div>
+
+  <p style="margin-top: 20px;"><strong>조화수열 (Harmonic Sequence):</strong> 각 항의 <strong>역수</strong>가 등차수열을 이루는 수열</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">조화중항 조건 (b가 a, c의 조화중항)</div>
+    <div class="formula">1/a, 1/b, 1/c 가 등차수열</div>
+    <div class="formula">2/b = 1/a + 1/c</div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제:</strong> 2, b, 6이 조화수열일 때 b의 값</p>
+    <p>2/b = 1/2 + 1/6 = 3/6 + 1/6 = 4/6 = 2/3</p>
+    <p>∴ b = <strong>3</strong></p>
+    <p>확인: 1/2, 1/3, 1/6 → 차이: 1/3-1/2 = -1/6, 1/6-1/3 = -1/6 ✓ (공차 -1/6인 등차수열)</p>
+  </div>
+</div>
+
+<!-- ── 등차수열의 합 ── -->
+<div class="concept-card">
+  <h3><span class="icon">∑</span> 등차수열의 합</h3>
+
+  <p>등차수열의 첫째항부터 제n항까지의 합 Sₙ을 구하는 공식이야. 이건 <strong>가우스(Gauss)가 초등학생 때 발견한</strong> 아이디어야!</p>
+
+  <div class="calc-steps">
+    <div class="calc-step">
+      <div class="calc-step-num">1</div>
+      <div class="calc-step-content">
+        <p>합을 두 가지 방향으로 써:</p>
+        <div class="math">Sₙ = a + (a+d) + (a+2d) + … + (a+(n-1)d)</div>
+        <div class="math">Sₙ = (a+(n-1)d) + … + (a+d) + a  ← 거꾸로!</div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">2</div>
+      <div class="calc-step-content">
+        <p>두 줄을 더하면 각 열마다 <strong>(첫째항 + 끝항)</strong>이 돼:</p>
+        <div class="math">2Sₙ = n × (첫째항 + 끝항) = n × (a + aₙ)</div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">3</div>
+      <div class="calc-step-content">
+        <p>양변을 2로 나누면:</p>
+        <div class="math">Sₙ = n(a + aₙ) / 2</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">등차수열의 합 (두 가지 형태)</div>
+    <div class="formula">Sₙ = n(a + aₙ) / 2 = n(첫째항 + 끝항) / 2</div>
+    <div class="formula">Sₙ = n[2a + (n-1)d] / 2</div>
+    <div class="formula-desc">끝항을 모를 때는 두 번째 공식 사용!</div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제 1:</strong> 1부터 100까지의 합 (가우스 문제)</p>
+    <p>a = 1, aₙ = 100, n = 100</p>
+    <p>S₁₀₀ = 100 × (1 + 100) / 2 = 100 × 101 / 2 = <strong>5050</strong></p>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제 2:</strong> 첫째항 3, 공차 2, 항의 수 10인 등차수열의 합</p>
+    <p>S₁₀ = 10 × [2(3) + (10-1)(2)] / 2 = 10 × [6 + 18] / 2 = 10 × 24 / 2 = <strong>120</strong></p>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>공식 선택 기준:</strong></p>
+    <p>끝항을 알면 → Sₙ = n(a + aₙ)/2 (계산 빠름)</p>
+    <p>끝항 모르면 → Sₙ = n[2a + (n-1)d]/2 (a, d만 있어도 OK)</p>
+    <p>두 공식은 aₙ = a + (n-1)d를 대입하면 같은 식이야!</p>
+  </div>
+</div>
+</div><!-- /m4-ap -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 등비수열                               -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m4-gp">
+<div class="concept-card">
+  <h3><span class="icon">✖️</span> 등비수열 (Geometric Progression)</h3>
+
+  <p><span class="tt">등비수열<span class="ttp"><strong>등비수열 (GP, Geometric Progression)</strong><br>연속된 두 항의 비가 일정한 수열. 그 일정한 비를 공비(common ratio) r이라 함</span></span>은 <strong>일정한 수(공비 r)를 차례로 곱해서</strong> 만든 수열이야.</p>
+
+  <div class="flow-row">
+    <div class="flow-box flow-blue">a</div>
+    <div class="flow-arrow">×r→</div>
+    <div class="flow-box flow-blue">ar</div>
+    <div class="flow-arrow">×r→</div>
+    <div class="flow-box flow-blue">ar²</div>
+    <div class="flow-arrow">×r→</div>
+    <div class="flow-box flow-blue">ar³</div>
+    <div class="flow-arrow">→ …</div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">등비수열의 일반항</div>
+    <div class="formula">aₙ = ar<sup>n-1</sup></div>
+    <div class="formula-desc">a = 첫째항, r = 공비(common ratio)</div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제 1:</strong> 첫째항 2, 공비 3인 등비수열의 일반항과 제4항</p>
+    <p>aₙ = 2 · 3<sup>n-1</sup></p>
+    <p>a₄ = 2 · 3³ = 2 · 27 = <strong>54</strong></p>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제 2:</strong> 수열 32, 16, 8, 4, 2, …의 일반항</p>
+    <p>공비 r = 16/32 = <strong>1/2</strong></p>
+    <p>aₙ = 32 · (1/2)<sup>n-1</sup> = 2<sup>5</sup> · 2<sup>-(n-1)</sup> = <strong>2<sup>6-n</sup></strong></p>
+  </div>
+</div>
+
+<!-- ── 등비중항 ── -->
+<div class="concept-card">
+  <h3><span class="icon">📐</span> 등비중항과 평균의 관계</h3>
+
+  <p>세 수 a, b, c가 이 순서로 등비수열을 이룰 때, b를 <span class="tt">등비중항<span class="ttp"><strong>등비중항 (Geometric Mean)</strong><br>등비수열에서 가운데 항. b = ±√(ac). a, b, c의 기하평균이 |b|</span></span>이라 해.</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">등비중항 조건</div>
+    <div class="formula">b/a = c/b</div>
+    <div class="formula">b² = ac</div>
+    <div class="formula">∴ b = ±√(ac)</div>
+    <div class="formula-desc">부호가 ± 인 이유: a, c의 부호에 따라 b의 부호가 결정됨!</div>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>등차중항 vs 등비중항 비교:</strong></p>
+    <p>등차중항: b = (a+c)/2 → <strong>더하기 평균</strong> (산술평균)</p>
+    <p>등비중항: b = ±√(ac) → <strong>곱하기 평균</strong> (기하평균)</p>
+  </div>
+
+  <p style="margin-top: 20px;"><strong>산술평균 ≥ 기하평균 ≥ 조화평균 (AM-GM-HM 부등식)</strong></p>
+
+  <div class="formula-box">
+    <div class="formula-desc">양수 a, b에 대해</div>
+    <div class="formula">(a+b)/2 ≥ √(ab) ≥ 2ab/(a+b)</div>
+    <div class="formula-desc">산술평균 ≥ 기하평균 ≥ 조화평균, 등호는 a = b일 때 성립</div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제:</strong> a = 4, b = 9일 때</p>
+    <p>산술평균 = (4+9)/2 = <strong>6.5</strong></p>
+    <p>기하평균 = √(4·9) = √36 = <strong>6</strong></p>
+    <p>조화평균 = 2·4·9/(4+9) = 72/13 ≈ <strong>5.54</strong></p>
+    <p>6.5 ≥ 6 ≥ 5.54 ✓</p>
+  </div>
+</div>
+
+<!-- ── 등비수열의 합 ── -->
+<div class="concept-card">
+  <h3><span class="icon">∑</span> 등비수열의 합</h3>
+
+  <p>등비수열의 첫째항부터 제n항까지의 합 Sₙ을 구해보자.</p>
+
+  <div class="calc-steps">
+    <div class="calc-step">
+      <div class="calc-step-num">1</div>
+      <div class="calc-step-content">
+        <p>합을 써:</p>
+        <div class="math">Sₙ = a + ar + ar² + … + ar^(n-1)</div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">2</div>
+      <div class="calc-step-content">
+        <p>양변에 r을 곱해:</p>
+        <div class="math">rSₙ = ar + ar² + ar³ + … + ar^n</div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">3</div>
+      <div class="calc-step-content">
+        <p>Sₙ - rSₙ 를 계산 (중간 항 다 사라짐!):</p>
+        <div class="math">Sₙ(1 - r) = a - ar^n = a(1 - r^n)</div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">4</div>
+      <div class="calc-step-content">
+        <p>양변을 (1-r)로 나누면 (r ≠ 1일 때):</p>
+        <div class="math">Sₙ = a(1 - r^n) / (1 - r)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">등비수열의 합</div>
+    <div class="formula">Sₙ = a(1 - r<sup>n</sup>) / (1 - r) = a(r<sup>n</sup> - 1) / (r - 1)  (r ≠ 1)</div>
+    <div class="formula">Sₙ = an  (r = 1)</div>
+    <div class="formula-desc">r = 1이면 모든 항이 a로 같으니까 그냥 na!</div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제 1:</strong> 첫째항 1, 공비 2인 등비수열의 첫 6항의 합</p>
+    <p>S₆ = 1 · (2⁶ - 1) / (2 - 1) = (64 - 1) / 1 = <strong>63</strong></p>
+    <p>확인: 1 + 2 + 4 + 8 + 16 + 32 = 63 ✓</p>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제 2:</strong> 첫째항 3, 공비 1/3인 등비수열의 첫 4항의 합</p>
+    <p>S₄ = 3 · [1 - (1/3)⁴] / [1 - 1/3] = 3 · [1 - 1/81] / (2/3)</p>
+    <p>= 3 · (80/81) · (3/2) = 3 · 80/54 = <strong>40/9</strong></p>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>r = 1 체크 먼저!</strong> 공비가 1이면 공식 쓸 필요 없이 Sₙ = na야. 시험에서 r = 1인지 아닌지 확인 안 하면 0 나눗셈 오류 발생!</p>
+    <p>또한 |r| &lt; 1이면 n→∞일 때 r^n → 0이 되어 무한등비급수 공식 a/(1-r)이 나와 (나중에 배워).</p>
+  </div>
+</div>
+</div><!-- /m4-gp -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 수열의 합과 일반항의 관계               -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m4-sum-gen">
+<div class="concept-card">
+  <h3><span class="icon">🔗</span> 수열의 합 Sₙ과 일반항 aₙ의 관계</h3>
+
+  <p>때로는 일반항 대신 <strong>합 Sₙ이 먼저 주어지는</strong> 경우가 있어. 그럴 때 aₙ을 역으로 구하는 방법이야.</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">핵심 관계식</div>
+    <div class="formula">aₙ = Sₙ - Sₙ₋₁  (n ≥ 2)</div>
+    <div class="formula">a₁ = S₁  (n = 1일 때는 따로!)</div>
+    <div class="formula-desc">Sₙ = a₁ + a₂ + … + aₙ₋₁ + aₙ 에서 Sₙ₋₁ = a₁ + … + aₙ₋₁ 을 빼면 aₙ만 남음</div>
+  </div>
+
+  <div class="analogy-box">
+    <p>Sₙ = "n번째까지의 합계 매출"</p>
+    <p>Sₙ₋₁ = "(n-1)번째까지의 합계 매출"</p>
+    <p>aₙ = "n번째 달의 매출" = 이번 달까지 합 - 저번 달까지 합</p>
+    <p>당연한 원리야! 누적에서 이전 누적을 빼면 이번 것만 남아.</p>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>절대 놓치면 안 되는 포인트:</strong></p>
+    <p>aₙ = Sₙ - Sₙ₋₁은 <strong>n ≥ 2</strong>일 때만 성립!</p>
+    <p>반드시 n=1을 따로 대입해서 a₁이 식과 맞는지 확인해야 해. 맞으면 "모든 자연수 n에 대해 성립"이라고 쓸 수 있고, 틀리면 n=1을 따로 써줘야 해.</p>
+  </div>
+</div>
+
+<!-- ── 예제: Sₙ = n²+4n ── -->
+<div class="concept-card">
+  <h3><span class="icon">📝</span> 예제: Sₙ = n² + 4n일 때 aₙ 구하기</h3>
+
+  <div class="calc-steps">
+    <div class="calc-step">
+      <div class="calc-step-num">1</div>
+      <div class="calc-step-content">
+        <p><strong>n ≥ 2일 때</strong> 공식 적용:</p>
+        <div class="math">aₙ = Sₙ - Sₙ₋₁</div>
+        <div class="math">= (n² + 4n) - [(n-1)² + 4(n-1)]</div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">2</div>
+      <div class="calc-step-content">
+        <p>전개:</p>
+        <div class="math">= n² + 4n - [n² - 2n + 1 + 4n - 4]</div>
+        <div class="math">= n² + 4n - n² + 2n - 1 - 4n + 4</div>
+        <div class="math">= 2n + 3</div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">3</div>
+      <div class="calc-step-content">
+        <p><strong>n = 1 확인:</strong> (반드시!)</p>
+        <div class="math">a₁ = S₁ = 1² + 4(1) = 5</div>
+        <div class="math">공식에 n=1 대입: 2(1) + 3 = 5 ✓ 일치!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">최종 답</div>
+    <div class="formula">aₙ = 2n + 3 (모든 자연수 n에 대해 성립)</div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>검증:</strong> S₃ = 9 + 12 = 21, a₁ + a₂ + a₃ = 5 + 7 + 9 = 21 ✓</p>
+  </div>
+</div>
+
+<!-- ── 예제: Sₙ = 3·4ⁿ - 3 ── -->
+<div class="concept-card">
+  <h3><span class="icon">📝</span> 예제: Sₙ = 3·4ⁿ - 3일 때 aₙ 구하기</h3>
+
+  <div class="calc-steps">
+    <div class="calc-step">
+      <div class="calc-step-num">1</div>
+      <div class="calc-step-content">
+        <p><strong>n ≥ 2일 때</strong>:</p>
+        <div class="math">aₙ = Sₙ - Sₙ₋₁</div>
+        <div class="math">= (3·4ⁿ - 3) - (3·4^(n-1) - 3)</div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">2</div>
+      <div class="calc-step-content">
+        <p>정리:</p>
+        <div class="math">= 3·4ⁿ - 3·4^(n-1)</div>
+        <div class="math">= 3·4^(n-1)·(4 - 1)</div>
+        <div class="math">= 9·4^(n-1)</div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">3</div>
+      <div class="calc-step-content">
+        <p><strong>n = 1 확인:</strong></p>
+        <div class="math">a₁ = S₁ = 3·4¹ - 3 = 12 - 3 = 9</div>
+        <div class="math">공식에 n=1 대입: 9·4⁰ = 9·1 = 9 ✓ 일치!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">최종 답</div>
+    <div class="formula">aₙ = 9·4<sup>n-1</sup> (모든 자연수 n에 대해 성립)</div>
+    <div class="formula-desc">이 수열은 첫째항 9, 공비 4인 등비수열이야!</div>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>패턴:</strong> Sₙ = p·rⁿ + q 형태이면 aₙ은 등비수열이 나오는 경우가 많아!</p>
+    <p>반면 Sₙ = an² + bn + c 형태이면 aₙ은 등차수열이 나와.</p>
+  </div>
+</div>
+</div><!-- /m4-sum-gen -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 4강 정리                               -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m4-summary">
+<div class="summary-card">
+  <h3>4강 핵심 정리 체크리스트</h3>
+  <ul>
+    <li>수열 = 자연수 집합 N에서 실수 집합 R로의 함수. {aₙ}로 표기.</li>
+    <li>일반항 aₙ을 알면 모든 항을 구할 수 있다.</li>
+    <li>유한수열 (항의 수 유한) vs 무한수열 (항의 수 무한)</li>
+    <li>등차수열: 일반항 aₙ = a + (n-1)d, 합 Sₙ = n[2a + (n-1)d]/2</li>
+    <li>등차중항 b = (a+c)/2 (산술평균), 등차수열 조건: b - a = c - b</li>
+    <li>조화수열: 역수가 등차수열. 조화중항: 2/b = 1/a + 1/c</li>
+    <li>등비수열: 일반항 aₙ = ar^(n-1), 합 Sₙ = a(rⁿ-1)/(r-1) (r≠1), Sₙ = an (r=1)</li>
+    <li>등비중항 b = ±√(ac) (기하평균), 등비수열 조건: b/a = c/b</li>
+    <li>산술평균 ≥ 기하평균 ≥ 조화평균 (양수에서 성립, 등호는 a=b)</li>
+    <li>Sₙ → aₙ 역산: aₙ = Sₙ - Sₙ₋₁ (n≥2), a₁ = S₁ (반드시 n=1 따로 확인!)</li>
+  </ul>
+
+  <div style="margin-top: 20px; display: flex; gap: 16px; flex-wrap: wrap;">
+    <div style="flex:1; min-width: 200px; background: var(--formula-bg); border: 2px solid var(--formula); border-radius: 14px; padding: 16px; text-align: center;">
+      <p style="color:var(--formula-text); font-weight:700; margin-bottom:8px;">등차수열 핵심 공식</p>
+      <p style="font-size:13px; color:var(--formula-text); font-family: Georgia, serif;">aₙ = a + (n-1)d</p>
+      <p style="font-size:13px; color:var(--formula-text); font-family: Georgia, serif; margin-top:4px;">Sₙ = n[2a+(n-1)d]/2</p>
+    </div>
+    <div style="flex:1; min-width: 200px; background: var(--concept-bg); border: 2px solid var(--concept); border-radius: 14px; padding: 16px; text-align: center;">
+      <p style="color:var(--concept-text); font-weight:700; margin-bottom:8px;">등비수열 핵심 공식</p>
+      <p style="font-size:13px; color:var(--concept-text); font-family: Georgia, serif;">aₙ = ar^(n-1)</p>
+      <p style="font-size:13px; color:var(--concept-text); font-family: Georgia, serif; margin-top:4px;">Sₙ = a(rⁿ-1)/(r-1)</p>
+    </div>
+    <div style="flex:1; min-width: 200px; background: var(--example-bg); border: 2px solid var(--example); border-radius: 14px; padding: 16px; text-align: center;">
+      <p style="color:var(--example-text); font-weight:700; margin-bottom:8px;">Sₙ → aₙ 역산</p>
+      <p style="font-size:13px; color:var(--example-text); font-family: Georgia, serif;">aₙ = Sₙ - Sₙ₋₁ (n≥2)</p>
+      <p style="font-size:13px; color:var(--example-text); font-family: Georgia, serif; margin-top:4px;">a₁ = S₁ (항상 확인!)</p>
+    </div>
+  </div>
+</div>
+</div><!-- /m4-summary -->
+
+</div><!-- /view-lecture-4 -->
+<div class="view-lecture-5">
+
+<!-- ══════════════════════════════════════ -->
+<!-- 5강. 여러 가지 수열의 합                  -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m5-sigma">
+<div class="lecture-header">
+  <div class="lecture-num">5</div>
+  <h2>여러 가지 수열의 합</h2>
+</div>
+
+<div class="concept-card">
+  <h3><span class="icon">Σ</span> 시그마(Σ) 기호의 정의</h3>
+  <p><span class="tt">시그마<span class="ttp"><strong>시그마 Σ (Sigma)</strong><br>그리스 문자 대문자 S. "Sum(합)"의 S에서 왔어. 수열의 합을 간결하게 표기하는 도구야.</span></span>는 수열의 합을 간단하게 쓰기 위한 기호야. k = 1부터 n까지 aₖ를 모두 더한다는 뜻이지.</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">시그마의 정의</div>
+    <div class="formula">∑<sub>k=1</sub><sup>n</sup> aₖ = a₁ + a₂ + ⋯ + aₙ</div>
+    <div class="formula-desc">k를 1부터 n까지 변화시키면서 aₖ를 모두 더한 값</div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제:</strong> ∑<sub>k=1</sub><sup>5</sup> k² = 1² + 2² + 3² + 4² + 5² = 1 + 4 + 9 + 16 + 25 = <strong>55</strong></p>
+    <p><strong>예제:</strong> ∑<sub>k=1</sub><sup>4</sup> (2k - 1) = 1 + 3 + 5 + 7 = <strong>16</strong></p>
+  </div>
+
+  <div class="analogy-box">
+    <p>∑ 기호는 일종의 "반복 더하기 명령어"야. 프로그래밍의 for 루프랑 똑같아!</p>
+    <p><code>for k from 1 to n: sum += a[k]</code> — 이걸 수학 기호로 쓴 게 Σ이지.</p>
+  </div>
+</div>
+
+<!-- ── Σ의 성질 ── -->
+<div class="concept-card">
+  <h3><span class="icon">⚙️</span> Σ의 성질 (4가지)</h3>
+  <p>Σ는 덧셈 기호이기 때문에 덧셈의 성질을 그대로 따라가. 아래 4가지가 핵심이야.</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">① 분배법칙 (합과 차의 분리)</div>
+    <div class="formula">∑(aₖ ± bₖ) = ∑aₖ ± ∑bₖ</div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">② 상수배 (상수는 Σ 밖으로 꺼낼 수 있어)</div>
+    <div class="formula">∑(c · aₖ) = c · ∑aₖ</div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">③ 상수합 (상수를 n번 더하면 cn)</div>
+    <div class="formula">∑<sub>k=1</sub><sup>n</sup> c = cn</div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">④ 종합 (①②③을 한 번에)</div>
+    <div class="formula">∑(paₖ + qbₖ + r) = p∑aₖ + q∑bₖ + rn</div>
+    <div class="formula-desc">상수 r은 n번 더해지므로 rn, p와 q는 Σ 밖으로 꺼냄</div>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>주의!</strong> ∑(aₖ · bₖ) ≠ ∑aₖ · ∑bₖ — 곱은 분리 안 돼! 이건 시험에서 함정으로 자주 나와.</p>
+    <p>상수만 꺼낼 수 있고, 다른 변수가 섞인 곱은 그대로 둬야 해.</p>
+  </div>
+</div>
+
+<!-- ── Σ 성질 예제 ── -->
+<div class="concept-card">
+  <h3><span class="icon">✏️</span> Σ 성질 활용 예제</h3>
+
+  <div class="example-box">
+    <p><strong>문제:</strong> ∑<sub>k=1</sub><sup>n</sup> aₖ = 15n, ∑<sub>k=1</sub><sup>n</sup> bₖ = 20n 일 때, ∑<sub>k=1</sub><sup>n</sup> (3aₖ - 2bₖ + 5)를 구해라.</p>
+  </div>
+
+  <div class="calc-steps">
+    <div class="calc-step">
+      <div class="calc-step-num">1</div>
+      <div class="calc-step-content">
+        <p>성질 ④ 적용: Σ를 분리한다.</p>
+        <div class="math">= 3∑aₖ - 2∑bₖ + ∑5</div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">2</div>
+      <div class="calc-step-content">
+        <p>상수합 성질 적용: ∑5 = 5n</p>
+        <div class="math">= 3(15n) - 2(20n) + 5n</div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">3</div>
+      <div class="calc-step-content">
+        <p>계산</p>
+        <div class="math">= 45n - 40n + 5n = <strong>10n</strong></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div><!-- /m5-sigma -->
+
+
+<!-- ══════════════════════════════════════ -->
+<!-- 자연수 거듭제곱의 합                      -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m5-power-sum">
+
+<div class="concept-card">
+  <h3><span class="icon">🔢</span> 자연수 거듭제곱의 합 공식</h3>
+  <p>Σ 계산에서 가장 자주 쓰이는 4가지 공식이야. 반드시 외워야 해!</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">1제곱의 합 (등차수열의 합)</div>
+    <div class="formula">∑<sub>k=1</sub><sup>n</sup> k = <sup>n(n+1)</sup>⁄<sub>2</sub></div>
+    <div class="formula-desc">1 + 2 + 3 + ⋯ + n = n(n+1)/2</div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">2제곱의 합</div>
+    <div class="formula">∑<sub>k=1</sub><sup>n</sup> k² = <sup>n(n+1)(2n+1)</sup>⁄<sub>6</sub></div>
+    <div class="formula-desc">1² + 2² + 3² + ⋯ + n² = n(n+1)(2n+1)/6</div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">3제곱의 합 (1제곱의 합의 제곱!)</div>
+    <div class="formula">∑<sub>k=1</sub><sup>n</sup> k³ = [<sup>n(n+1)</sup>⁄<sub>2</sub>]²</div>
+    <div class="formula-desc">1³ + 2³ + ⋯ + n³ = {n(n+1)/2}²</div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">4제곱의 합 (참고)</div>
+    <div class="formula">∑<sub>k=1</sub><sup>n</sup> k⁴ = <sup>n(n+1)(2n+1)(3n²+3n−1)</sup>⁄<sub>30</sub></div>
+  </div>
+
+  <div class="analogy-box">
+    <p>외우는 순서: <strong>1제곱</strong> n(n+1)/2 → <strong>2제곱</strong> 분자에 (2n+1) 하나 더 붙고 분모 6 → <strong>3제곱</strong> 1제곱 공식 전체를 제곱!</p>
+    <p>3제곱이 1제곱의 제곱이라는 사실은 정말 신기하지? 시험에서 직접 유도할 줄도 알아야 해.</p>
+  </div>
+</div>
+
+<!-- ── 공식 활용 예제 ── -->
+<div class="concept-card">
+  <h3><span class="icon">📐</span> 공식 활용 예제</h3>
+
+  <div class="example-box">
+    <p><strong>문제:</strong> ∑<sub>k=1</sub><sup>10</sup> (k² + 2k + 3)을 계산해라.</p>
+  </div>
+
+  <div class="calc-steps">
+    <div class="calc-step">
+      <div class="calc-step-num">1</div>
+      <div class="calc-step-content">
+        <p>Σ 분리</p>
+        <div class="math">= ∑k² + 2∑k + ∑3</div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">2</div>
+      <div class="calc-step-content">
+        <p>각 공식 대입 (n = 10)</p>
+        <div class="math">∑k² = 10×11×21/6 = 385</div>
+        <div class="math">2∑k = 2 × 10×11/2 = 110</div>
+        <div class="math">∑3 = 3×10 = 30</div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">3</div>
+      <div class="calc-step-content">
+        <p>합산</p>
+        <div class="math">= 385 + 110 + 30 = <strong>525</strong></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 수열의 합과 일반항의 관계 ── -->
+<div class="concept-card">
+  <h3><span class="icon">🔗</span> 수열의 합 Sₙ과 일반항 aₙ의 관계</h3>
+  <p>처음 n항의 합 <strong>Sₙ = ∑<sub>k=1</sub><sup>n</sup> aₖ</strong> 가 주어지면, 일반항 aₙ을 역으로 구할 수 있어.</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">수열의 합 → 일반항</div>
+    <div class="formula">aₙ = Sₙ − Sₙ₋₁ &nbsp;&nbsp; (n ≥ 2)</div>
+    <div class="formula">a₁ = S₁ &nbsp;&nbsp; (n = 1일 때는 따로 확인!)</div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>문제:</strong> Sₙ = n² + 3n 일 때 일반항 aₙ을 구해라.</p>
+    <p><strong>n ≥ 2:</strong> aₙ = Sₙ − Sₙ₋₁ = (n² + 3n) − {(n−1)² + 3(n−1)}</p>
+    <p>= n² + 3n − (n² − 2n + 1 + 3n − 3) = n² + 3n − n² − n + 2 = <strong>2n + 2</strong></p>
+    <p><strong>n = 1 확인:</strong> a₁ = S₁ = 1 + 3 = 4 = 2(1) + 2 = 4 ✓ → 공식 성립</p>
+    <p><strong>결론:</strong> aₙ = 2n + 2 (모든 자연수 n에 성립)</p>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>n = 1 확인은 필수!</strong> Sₙ − Sₙ₋₁ 공식은 n ≥ 2에서만 성립해. n = 1을 따로 대입해서 a₁이 공식과 일치하는지 반드시 체크해야 해.</p>
+    <p>만약 n = 1에서 다른 값이 나오면 aₙ을 <strong>n = 1일 때</strong>와 <strong>n ≥ 2일 때</strong>로 나눠서 써야 해.</p>
+  </div>
+</div>
+</div><!-- /m5-power-sum -->
+
+
+<!-- ══════════════════════════════════════ -->
+<!-- 계차수열                               -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m5-diff-seq">
+
+<div class="concept-card">
+  <h3><span class="icon">📉</span> 계차수열이란?</h3>
+  <p>수열 {aₙ}에서 <strong>이웃한 두 항의 차</strong>로 만들어지는 새로운 수열 {bₙ}을 <span class="tt">계차수열<span class="ttp"><strong>계차수열 (Difference Sequence)</strong><br>bₙ = aₙ₊₁ − aₙ. "계차"는 "차례차례 차이"를 뜻해. 수열의 규칙이 직접 보이지 않을 때, 계차를 보면 패턴이 드러나는 경우가 많아!</span></span>이라고 해.</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">계차수열의 정의와 일반항 복원</div>
+    <div class="formula">bₙ = aₙ₊₁ − aₙ</div>
+    <div class="formula">aₙ = a₁ + ∑<sub>k=1</sub><sup>n−1</sup> bₖ &nbsp;&nbsp; (n ≥ 2)</div>
+    <div class="formula-desc">처음 항 a₁에 b₁ + b₂ + ⋯ + bₙ₋₁ 을 더해서 aₙ을 복원!</div>
+  </div>
+
+  <div class="flow-row">
+    <div class="flow-box flow-purple">원수열 {aₙ}</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box flow-blue">bₙ = aₙ₊₁ − aₙ</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box flow-green">계차수열 {bₙ}</div>
+  </div>
+  <div class="flow-row">
+    <div class="flow-box flow-green">계차수열 {bₙ}</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box flow-blue">a₁ + Σbₖ</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box flow-purple">aₙ 복원</div>
+  </div>
+</div>
+
+<!-- ── 계차수열 예제 1 ── -->
+<div class="concept-card">
+  <h3><span class="icon">📌</span> 계차수열 예제 1: 계차가 등차수열</h3>
+
+  <div class="example-box">
+    <p><strong>수열:</strong> 1, 3, 7, 13, 21, 31, ...</p>
+    <p><strong>계차 확인:</strong> 3−1=2, 7−3=4, 13−7=6, 21−13=8, 31−21=10</p>
+    <p>계차수열 {bₙ}: 2, 4, 6, 8, 10, ... → <strong>등차수열!</strong> bₙ = 2n</p>
+  </div>
+
+  <div class="calc-steps">
+    <div class="calc-step">
+      <div class="calc-step-num">1</div>
+      <div class="calc-step-content">
+        <p>일반항 복원 공식 적용 (n ≥ 2)</p>
+        <div class="math">aₙ = a₁ + ∑<sub>k=1</sub><sup>n−1</sup> bₖ = 1 + ∑<sub>k=1</sub><sup>n−1</sup> 2k</div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">2</div>
+      <div class="calc-step-content">
+        <p>∑2k 계산</p>
+        <div class="math">= 1 + 2 · <sup>(n−1)n</sup>⁄<sub>2</sub> = 1 + n(n−1)</div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">3</div>
+      <div class="calc-step-content">
+        <p>정리 + n=1 확인</p>
+        <div class="math">aₙ = n² − n + 1</div>
+        <div class="math">a₁ = 1 − 1 + 1 = 1 ✓</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 계차수열 예제 2 ── -->
+<div class="concept-card">
+  <h3><span class="icon">📌</span> 계차수열 예제 2: 계차가 등비수열</h3>
+
+  <div class="example-box">
+    <p><strong>수열:</strong> 3, 4, 6, 10, 18, 34, ...</p>
+    <p><strong>계차 확인:</strong> 4−3=1, 6−4=2, 10−6=4, 18−10=8, 34−18=16</p>
+    <p>계차수열 {bₙ}: 1, 2, 4, 8, 16, ... → <strong>등비수열!</strong> bₙ = 2<sup>n−1</sup></p>
+  </div>
+
+  <div class="calc-steps">
+    <div class="calc-step">
+      <div class="calc-step-num">1</div>
+      <div class="calc-step-content">
+        <p>일반항 복원 공식 적용 (n ≥ 2)</p>
+        <div class="math">aₙ = 3 + ∑<sub>k=1</sub><sup>n−1</sup> 2<sup>k−1</sup></div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">2</div>
+      <div class="calc-step-content">
+        <p>등비수열의 합 공식 적용 (첫항 1, 공비 2, 항수 n−1)</p>
+        <div class="math">= 3 + <sup>1·(2<sup>n−1</sup> − 1)</sup>⁄<sub>2 − 1</sub> = 3 + 2<sup>n−1</sup> − 1</div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">3</div>
+      <div class="calc-step-content">
+        <p>정리 + n=1 확인</p>
+        <div class="math">aₙ = 2<sup>n−1</sup> + 2</div>
+        <div class="math">a₁ = 2⁰ + 2 = 1 + 2 = 3 ✓</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>계차수열 풀이 순서:</strong> ① 계차 직접 계산 → ② 계차의 규칙 파악(등차? 등비?) → ③ 일반항 구하기 → ④ aₙ 복원 → ⑤ n=1 검증</p>
+    <p>계차가 규칙적이지 않으면? 그 계차의 계차(2차 계차)를 다시 구해봐!</p>
+  </div>
+</div>
+</div><!-- /m5-diff-seq -->
+
+
+<!-- ══════════════════════════════════════ -->
+<!-- 등차×등비 꼴 수열의 합                   -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m5-mixed">
+
+<div class="concept-card">
+  <h3><span class="icon">✖️</span> 수열의 곱 유형 분류</h3>
+  <p>두 수열을 곱한 형태의 합은 유형에 따라 풀이 방법이 달라져.</p>
+
+  <table class="compare-table">
+    <thead>
+      <tr><th>유형</th><th>예시</th><th>풀이법</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>등차 × 등차</strong></td>
+        <td>∑k(k+1), ∑(2k−1)(k+3)</td>
+        <td>전개 후 ∑k², ∑k, ∑c 공식 적용</td>
+      </tr>
+      <tr>
+        <td><strong>등비 × 등비</strong></td>
+        <td>∑2<sup>k</sup>·3<sup>k</sup> = ∑6<sup>k</sup></td>
+        <td>합쳐서 등비수열로 처리</td>
+      </tr>
+      <tr>
+        <td><strong>등차 × 등비</strong></td>
+        <td>∑k·2<sup>k−1</sup></td>
+        <td><strong>공비를 곱하고 빼는 방법</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── 등차×등비 꼴 풀이법 ── -->
+<div class="concept-card">
+  <h3><span class="icon">⚡</span> 등차×등비 꼴: 공비를 곱하고 빼는 방법</h3>
+  <p>이 방법은 <strong>S에서 rS를 빼서 대부분의 항을 소거</strong>하는 아이디어야. 등비수열의 합 공식을 유도할 때와 똑같은 발상이지!</p>
+
+  <div class="example-box">
+    <p><strong>문제:</strong> S = ∑<sub>k=1</sub><sup>n</sup> k·2<sup>k−1</sup> = 1·1 + 2·2 + 3·4 + ⋯ + n·2<sup>n−1</sup></p>
+  </div>
+
+  <div class="calc-steps">
+    <div class="calc-step">
+      <div class="calc-step-num">1</div>
+      <div class="calc-step-content">
+        <p>S를 쓰고, 공비 2를 곱한 2S를 한 칸 밀어서 적기</p>
+        <div class="math">S &nbsp;= 1·1 + 2·2 + 3·2² + 4·2³ + ⋯ + n·2<sup>n−1</sup></div>
+        <div class="math">2S = &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1·2 + 2·2² + 3·2³ + ⋯ + (n−1)·2<sup>n−1</sup> + n·2<sup>n</sup></div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">2</div>
+      <div class="calc-step-content">
+        <p>S − 2S 계산 (뺄셈하면 대부분 소거됨)</p>
+        <div class="math">−S = (1 + 2 + 2² + ⋯ + 2<sup>n−1</sup>) − n·2<sup>n</sup></div>
+        <div class="math">−S = <sup>2<sup>n</sup> − 1</sup>⁄<sub>2 − 1</sub> − n·2<sup>n</sup> = 2<sup>n</sup> − 1 − n·2<sup>n</sup></div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">3</div>
+      <div class="calc-step-content">
+        <p>양변에 −1을 곱하면</p>
+        <div class="math">S = n·2<sup>n</sup> − 2<sup>n</sup> + 1 = <strong>(n−1)·2<sup>n</sup> + 1</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>핵심 순서:</strong> ① S 쓰기 → ② 공비 r 곱한 rS를 한 칸 밀어 쓰기 → ③ S − rS 계산 → ④ 등비수열 합 공식 처리 → ⑤ S = ⋯ 정리</p>
+    <p>뺄셈 후 남는 항이 뭔지 꼼꼼히 따져봐. 첫 항과 마지막 항만 살아남아!</p>
+  </div>
+</div>
+
+<!-- ── 일반화 예제 ── -->
+<div class="concept-card">
+  <h3><span class="icon">🔄</span> 일반화: S = ∑(2k)·xᵏ⁻¹ 유형</h3>
+  <p>문자 x가 공비인 일반적인 형태도 같은 방법으로 풀어.</p>
+
+  <div class="example-box">
+    <p><strong>문제:</strong> S = ∑<sub>k=1</sub><sup>n</sup> (2k)·x<sup>k−1</sup> = 2 + 4x + 6x² + ⋯ + 2n·x<sup>n−1</sup> (단 x ≠ 1)</p>
+  </div>
+
+  <div class="calc-steps">
+    <div class="calc-step">
+      <div class="calc-step-num">1</div>
+      <div class="calc-step-content">
+        <div class="math">S &nbsp;= 2 + 4x + 6x² + ⋯ + 2n·x<sup>n−1</sup></div>
+        <div class="math">xS = &nbsp;&nbsp;&nbsp;&nbsp; 2x + 4x² + ⋯ + 2(n−1)·x<sup>n−1</sup> + 2n·x<sup>n</sup></div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">2</div>
+      <div class="calc-step-content">
+        <p>S − xS</p>
+        <div class="math">(1−x)S = 2 + 2x + 2x² + ⋯ + 2x<sup>n−1</sup> − 2n·x<sup>n</sup></div>
+        <div class="math">= 2 · <sup>1 − x<sup>n</sup></sup>⁄<sub>1 − x</sub> − 2n·x<sup>n</sup></div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">3</div>
+      <div class="calc-step-content">
+        <p>(1−x)로 나누기</p>
+        <div class="math">S = <sup>2(1 − x<sup>n</sup>)</sup>⁄<sub>(1−x)²</sub> − <sup>2n·x<sup>n</sup></sup>⁄<sub>1−x</sub></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="analogy-box">
+    <p>등차×등비 꼴은 공식을 외우는 게 아니라 <strong>풀이 과정</strong>을 이해해야 해. 매번 S를 놓고 rS를 빼는 방법을 직접 유도하는 게 훨씬 안전해!</p>
+  </div>
+</div>
+</div><!-- /m5-mixed -->
+
+
+<!-- ══════════════════════════════════════ -->
+<!-- 5강 정리                               -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m5-summary">
+<div class="summary-card">
+  <h3>5강 핵심 정리 — 여러 가지 수열의 합</h3>
+  <ul>
+    <li><strong>Σ 정의:</strong> ∑<sub>k=1</sub><sup>n</sup> aₖ = a₁ + a₂ + ⋯ + aₙ</li>
+    <li><strong>Σ 분리:</strong> ∑(aₖ ± bₖ) = ∑aₖ ± ∑bₖ, ∑(c·aₖ) = c·∑aₖ</li>
+    <li><strong>상수합:</strong> ∑c = cn (상수 c를 n번 더한 것)</li>
+    <li><strong>Σ 곱 주의:</strong> ∑(aₖbₖ) ≠ ∑aₖ · ∑bₖ — 곱은 분리 불가!</li>
+    <li><strong>1제곱의 합:</strong> ∑k = n(n+1)/2</li>
+    <li><strong>2제곱의 합:</strong> ∑k² = n(n+1)(2n+1)/6</li>
+    <li><strong>3제곱의 합:</strong> ∑k³ = [n(n+1)/2]² (1제곱 공식의 제곱!)</li>
+    <li><strong>합→일반항:</strong> aₙ = Sₙ − Sₙ₋₁ (n ≥ 2), a₁ = S₁ — n=1 검증 필수</li>
+    <li><strong>계차수열:</strong> bₙ = aₙ₊₁ − aₙ → aₙ = a₁ + ∑<sub>k=1</sub><sup>n−1</sup> bₖ (n ≥ 2)</li>
+    <li><strong>등차×등차:</strong> 전개 후 Σk², Σk 공식 적용</li>
+    <li><strong>등차×등비:</strong> S 놓고 rS 빼기 → 소거 후 Σ 처리</li>
+  </ul>
+</div>
+</div><!-- /m5-summary -->
+
+
+</div><!-- /view-lecture-5 -->
+<div class="view-lecture-6">
+
+<!-- ══════════════════════════════════════ -->
+<!-- 6강. 점화식과 수학적 귀납법               -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m6-recursive">
+<div class="lecture-header">
+  <div class="lecture-num">6</div>
+  <h2>점화식과 수학적 귀납법</h2>
+</div>
+
+<div class="concept-card">
+  <h3><span class="icon">🔍</span> 귀납법 vs 연역법</h3>
+
+  <p>수학에서 결론을 이끌어내는 방식은 크게 두 가지야. 어떻게 다른지 먼저 파악해보자.</p>
+
+  <table class="compare-table">
+    <thead>
+      <tr><th>방법</th><th>방향</th><th>설명</th><th>예시</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>귀납법</strong></td>
+        <td>구체 → 일반</td>
+        <td>여러 구체적 사실에서 <strong>일반적 결론</strong>을 도출</td>
+        <td>1, 3, 5, 7... 을 보고 "홀수의 합은..." 규칙 발견</td>
+      </tr>
+      <tr>
+        <td><strong>연역법</strong></td>
+        <td>일반 → 구체</td>
+        <td>일반적 가설에서 <strong>구체적 사실을 검증</strong></td>
+        <td>"모든 자연수에 대해 성립" → 특정 n에 대해 확인</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="analogy-box">
+    <p>귀납법 = 탐정이 단서를 모아 범인 추리하기: 사실 하나하나 → "범인은 이 사람!"</p>
+    <p>연역법 = 수학 증명처럼 공리/가정 → 논리적으로 결론 이끌어내기</p>
+    <p><strong>수학적 귀납법</strong>은 이름은 귀납법이지만, 실제로는 <strong>연역적 증명</strong>이야! 헷갈리지 말자.</p>
+  </div>
+</div>
+
+<!-- ── 수열의 귀납적 정의 ── -->
+<div class="concept-card">
+  <h3><span class="icon">🔗</span> 수열의 귀납적 정의</h3>
+
+  <p>수열을 정의하는 방법은 두 가지야:</p>
+
+  <div style="display: flex; gap: 20px; margin: 16px 0; flex-wrap: wrap;">
+    <div style="flex:1; min-width: 220px; background: var(--formula-bg); border: 2px solid var(--formula); border-radius: 14px; padding: 20px;">
+      <h4 style="color:var(--formula-text); margin-bottom: 8px;">일반항 공식</h4>
+      <p style="font-size:14px;">n번째 항을 <strong>n의 식</strong>으로 직접 표현</p>
+      <p style="font-size: 13px; color: var(--text-secondary); margin-top: 8px;">a<sub>n</sub> = 2n → 2, 4, 6, 8, ...</p>
+    </div>
+    <div style="flex:1; min-width: 220px; background: var(--concept-bg); border: 2px solid var(--concept); border-radius: 14px; padding: 20px;">
+      <h4 style="color:var(--concept-text); margin-bottom: 8px;">귀납적 정의 (점화식)</h4>
+      <p style="font-size:14px;"><strong>첫 항 + 이웃한 항들의 관계식</strong>으로 표현</p>
+      <p style="font-size: 13px; color: var(--text-secondary); margin-top: 8px;">a<sub>1</sub>=2, a<sub>n+1</sub>=a<sub>n</sub>+2 → 2, 4, 6, 8, ...</p>
+    </div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">귀납적 정의의 두 요소</div>
+    <div class="formula">① 첫 항 a<sub>1</sub> (초기조건)</div>
+    <div class="formula">② 점화식: a<sub>n+1</sub>과 a<sub>n</sub>의 관계식</div>
+    <div class="formula-desc">두 요소가 모두 있어야 수열이 완전히 정해져!</div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제 1 (등차형):</strong> a<sub>1</sub> = 2, a<sub>n+1</sub> = a<sub>n</sub> + 2</p>
+    <p>a<sub>2</sub> = a<sub>1</sub> + 2 = 4</p>
+    <p>a<sub>3</sub> = a<sub>2</sub> + 2 = 6</p>
+    <p>→ 수열: <strong>2, 4, 6, 8, 10, ...</strong></p>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제 2 (등비형):</strong> b<sub>1</sub> = 1, b<sub>n+1</sub> = 3b<sub>n</sub></p>
+    <p>b<sub>2</sub> = 3 × 1 = 3</p>
+    <p>b<sub>3</sub> = 3 × 3 = 9</p>
+    <p>→ 수열: <strong>1, 3, 9, 27, 81, ...</strong></p>
+  </div>
+</div>
+
+<!-- ── 기본 점화식 ── -->
+<div class="concept-card">
+  <h3><span class="icon">📐</span> 기본 점화식: 세 가지 수열</h3>
+
+  <table class="compare-table">
+    <thead>
+      <tr><th>수열 종류</th><th>점화식</th><th>중항 조건</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>등차수열</strong></td>
+        <td>a<sub>n+1</sub> - a<sub>n</sub> = d (공차)</td>
+        <td>2a<sub>n+1</sub> = a<sub>n</sub> + a<sub>n+2</sub></td>
+      </tr>
+      <tr>
+        <td><strong>등비수열</strong></td>
+        <td>a<sub>n+1</sub> / a<sub>n</sub> = r (공비)</td>
+        <td>(a<sub>n+1</sub>)<sup>2</sup> = a<sub>n</sub> · a<sub>n+2</sub></td>
+      </tr>
+      <tr>
+        <td><strong>조화수열</strong></td>
+        <td>1/a<sub>n+1</sub> - 1/a<sub>n</sub> = d' (역수의 공차)</td>
+        <td>2/a<sub>n+1</sub> = 1/a<sub>n</sub> + 1/a<sub>n+2</sub></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box">
+    <p><strong>등차중항, 등비중항, 조화중항 외우는 법:</strong></p>
+    <p>등차: 세 수의 <strong>합의 절반</strong>이 가운데 항 → 2b = a + c</p>
+    <p>등비: 세 수의 <strong>곱의 제곱근</strong>이 가운데 항 → b<sup>2</sup> = ac</p>
+    <p>조화: 세 수의 <strong>역수가 등차수열</strong> → 2/b = 1/a + 1/c</p>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 여러 가지 점화식                         -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m6-recurrence">
+<div class="concept-card">
+  <h3><span class="icon">➕</span> 차를 활용한 점화식: a<sub>n+1</sub> = a<sub>n</sub> + f(n)</h3>
+
+  <p>이웃한 항의 <span class="tt">차(계차)<span class="ttp"><strong>계차 (Difference)</strong><br>수열 {a<sub>n</sub>}에서 b<sub>n</sub> = a<sub>n+1</sub> - a<sub>n</sub>으로 정의되는 수열 {b<sub>n</sub>}을 계차수열이라 해. 이 수열의 합으로 일반항을 구할 수 있어!</span></span>가 주어진 경우, 누적합으로 일반항을 구해!</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">계차를 이용한 일반항 공식 (n ≥ 2일 때)</div>
+    <div class="formula">a<sub>n</sub> = a<sub>1</sub> + Σ<sub>k=1</sub><sup>n-1</sup> f(k)</div>
+    <div class="formula-desc">단, n=1일 때 별도로 확인! (대부분 성립하지만 확인 필수)</div>
+  </div>
+
+  <div style="display: flex; gap: 20px; margin: 16px 0; flex-wrap: wrap;">
+    <div style="flex:1; min-width: 220px; background: var(--formula-bg); border: 2px solid var(--formula); border-radius: 14px; padding: 20px;">
+      <h4 style="color:var(--formula-text); margin-bottom: 8px;">f(n)이 일차식 → 계차가 등차수열</h4>
+      <p style="font-size:13px; color: var(--text-secondary);">Σk = n(n-1)/2 형태 이용</p>
+    </div>
+    <div style="flex:1; min-width: 220px; background: var(--concept-bg); border: 2px solid var(--concept); border-radius: 14px; padding: 20px;">
+      <h4 style="color:var(--concept-text); margin-bottom: 8px;">f(n)이 거듭제곱 → 계차가 등비수열</h4>
+      <p style="font-size:13px; color: var(--text-secondary);">Σrᵏ = r(rⁿ⁻¹-1)/(r-1) 형태 이용</p>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제 1 (f(n)이 일차):</strong> a<sub>1</sub> = 3, a<sub>n+1</sub> = a<sub>n</sub> + 2n</p>
+    <div class="calc-steps">
+      <div class="calc-step">
+        <div class="calc-step-num">1</div>
+        <div class="calc-step-content">
+          <div class="math">계차수열: f(k) = 2k</div>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">2</div>
+        <div class="calc-step-content">
+          <div class="math">a<sub>n</sub> = 3 + Σ<sub>k=1</sub><sup>n-1</sup> 2k = 3 + 2·(n-1)n/2 (n ≥ 2)</div>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">3</div>
+        <div class="calc-step-content">
+          <div class="math">a<sub>n</sub> = 3 + n(n-1) = <strong>n² - n + 3</strong></div>
+          <p style="font-size:13px; color:var(--text-secondary);">n=1 확인: 1 - 1 + 3 = 3 = a<sub>1</sub> ✓</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제 2 (f(n)이 거듭제곱):</strong> a<sub>1</sub> = 2, a<sub>n+1</sub> = a<sub>n</sub> + 3<sup>n</sup></p>
+    <div class="calc-steps">
+      <div class="calc-step">
+        <div class="calc-step-num">1</div>
+        <div class="calc-step-content">
+          <div class="math">계차수열: f(k) = 3<sup>k</sup> (공비 3인 등비수열)</div>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">2</div>
+        <div class="calc-step-content">
+          <div class="math">a<sub>n</sub> = 2 + Σ<sub>k=1</sub><sup>n-1</sup> 3<sup>k</sup> = 2 + 3·(3<sup>n-1</sup>-1)/(3-1) (n ≥ 2)</div>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">3</div>
+        <div class="calc-step-content">
+          <div class="math">a<sub>n</sub> = 2 + (3<sup>n</sup> - 3)/2 = <strong>(3<sup>n</sup> + 1)/2</strong></div>
+          <p style="font-size:13px; color:var(--text-secondary);">n=1 확인: (3+1)/2 = 2 = a<sub>1</sub> ✓</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 비를 활용한 점화식 ── -->
+<div class="concept-card">
+  <h3><span class="icon">✖️</span> 비를 활용한 점화식: a<sub>n+1</sub> = a<sub>n</sub> · f(n)</h3>
+
+  <p>이웃한 항의 <strong>비</strong>가 주어진 경우, 누적곱(팩토리얼 형태)으로 일반항을 구해!</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">비를 이용한 일반항 공식 (n ≥ 2일 때)</div>
+    <div class="formula">a<sub>n</sub> = a<sub>1</sub> · Π<sub>k=1</sub><sup>n-1</sup> f(k)</div>
+    <div class="formula-desc">Π는 곱의 기호 (Σ의 곱 버전)</div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제 1 (분수형 비):</strong> a<sub>1</sub> = 3, a<sub>n+1</sub> = (n/(n+1)) · a<sub>n</sub></p>
+    <div class="calc-steps">
+      <div class="calc-step">
+        <div class="calc-step-num">1</div>
+        <div class="calc-step-content">
+          <div class="math">a<sub>n</sub> = 3 · Π<sub>k=1</sub><sup>n-1</sup> k/(k+1) (n ≥ 2)</div>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">2</div>
+        <div class="calc-step-content">
+          <div class="math">= 3 · (1/2) · (2/3) · (3/4) · ... · (n-1)/n</div>
+          <p style="font-size:13px; color:var(--text-secondary);">망원급수처럼 중간항이 모두 소거!</p>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">3</div>
+        <div class="calc-step-content">
+          <div class="math">a<sub>n</sub> = 3 · (1/n) = <strong>3/n</strong></div>
+          <p style="font-size:13px; color:var(--text-secondary);">n=1 확인: 3/1 = 3 = a<sub>1</sub> ✓</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제 2 (거듭제곱 비):</strong> a<sub>1</sub> = 1, a<sub>n+1</sub> = 2<sup>n</sup> · a<sub>n</sub></p>
+    <div class="calc-steps">
+      <div class="calc-step">
+        <div class="calc-step-num">1</div>
+        <div class="calc-step-content">
+          <div class="math">a<sub>n</sub> = 1 · Π<sub>k=1</sub><sup>n-1</sup> 2<sup>k</sup> = 2<sup>1+2+3+...+(n-1)</sup> (n ≥ 2)</div>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">2</div>
+        <div class="calc-step-content">
+          <div class="math">지수: 1+2+...+(n-1) = n(n-1)/2</div>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">3</div>
+        <div class="calc-step-content">
+          <div class="math">a<sub>n</sub> = <strong>2<sup>n(n-1)/2</sup></strong></div>
+          <p style="font-size:13px; color:var(--text-secondary);">n=1 확인: 2<sup>0</sup> = 1 = a<sub>1</sub> ✓</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>풀이 전략 요약:</strong></p>
+    <p>a<sub>n+1</sub> = a<sub>n</sub> + f(n) → <strong>계차 누적합</strong>: a<sub>n</sub> = a<sub>1</sub> + Σf(k)</p>
+    <p>a<sub>n+1</sub> = a<sub>n</sub> · f(n) → <strong>비 누적곱</strong>: a<sub>n</sub> = a<sub>1</sub> · Πf(k)</p>
+    <p>항상 n=1일 때 별도 확인!</p>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 수학적 귀납법                            -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m6-induction">
+<div class="concept-card">
+  <h3><span class="icon">🏗️</span> 수학적 귀납법의 원리</h3>
+
+  <p><span class="tt">수학적 귀납법<span class="ttp"><strong>수학적 귀납법 (Mathematical Induction)</strong><br>자연수에 관한 명제를 증명하는 방법. 도미노처럼 첫 번째가 쓰러지고(n=1 성립), 하나가 쓰러지면 다음도 쓰러진다(k→k+1)는 논리로 모든 자연수에 대해 성립을 증명해!</span></span>은 자연수에 관한 명제 P(n)이 모든 자연수에 대해 성립함을 증명하는 방법이야.</p>
+
+  <div class="analogy-box">
+    <p>도미노를 생각해봐!</p>
+    <p>① 첫 번째 도미노가 쓰러진다 (n=1 성립)</p>
+    <p>② k번째가 쓰러지면 k+1번째도 반드시 쓰러진다 (귀납 단계)</p>
+    <p>→ 결론: 모든 도미노가 쓰러진다!</p>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">수학적 귀납법 3단계</div>
+    <div class="formula">① P(1)이 성립함을 보인다 (기저 단계)</div>
+    <div class="formula">② P(k)가 성립한다고 가정할 때, P(k+1)도 성립함을 보인다 (귀납 단계)</div>
+    <div class="formula">③ 따라서 모든 자연수 n에 대해 P(n)이 성립한다</div>
+  </div>
+
+  <div class="flow-row" style="margin: 20px 0;">
+    <div class="flow-box flow-green">P(1) 성립<br><small>n=1 직접 확인</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box flow-blue">P(k) 가정<br><small>귀납 가정</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box flow-purple">P(k+1) 성립<br><small>논리적 유도</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box flow-orange">모든 n<br><small>성립 결론</small></div>
+  </div>
+</div>
+
+<!-- ── 강한 수학적 귀납법 ── -->
+<div class="concept-card">
+  <h3><span class="icon">💪</span> 강한 수학적 귀납법</h3>
+
+  <p>일반 귀납법에서 P(k)만 가정하는 게 아니라, P(1), P(2), ..., P(k)를 <strong>모두 가정</strong>하는 더 강한 형태야.</p>
+
+  <div style="display: flex; gap: 20px; margin: 16px 0; flex-wrap: wrap;">
+    <div style="flex:1; min-width: 220px; background: var(--formula-bg); border: 2px solid var(--formula); border-radius: 14px; padding: 20px;">
+      <h4 style="color:var(--formula-text); margin-bottom: 8px;">일반 귀납법</h4>
+      <p style="font-size:14px;">P(k)가 성립 → P(k+1) 성립</p>
+      <p style="font-size: 13px; color: var(--text-secondary); margin-top: 8px;">바로 이전 항만 이용</p>
+    </div>
+    <div style="flex:1; min-width: 220px; background: var(--concept-bg); border: 2px solid var(--concept); border-radius: 14px; padding: 20px;">
+      <h4 style="color:var(--concept-text); margin-bottom: 8px;">강한 귀납법</h4>
+      <p style="font-size:14px;">P(1),...,P(k) 모두 성립 → P(k+1) 성립</p>
+      <p style="font-size: 13px; color: var(--text-secondary); margin-top: 8px;">이전 항 모두 이용 (점화식 a<sub>n</sub> = a<sub>n-1</sub>+a<sub>n-2</sub> 류에 유용)</p>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>강한 귀납법이 필요한 경우:</strong> 점화식에서 a<sub>n</sub>이 a<sub>n-1</sub>과 a<sub>n-2</sub> 두 항 모두에 의존할 때 (예: 피보나치 수열 유형). 일반 귀납법으로는 두 이전 항을 모두 가정할 수 없으니까!</p>
+  </div>
+</div>
+
+<!-- ── 등식 증명 예제 ── -->
+<div class="concept-card">
+  <h3><span class="icon">🧮</span> 등식 증명: 수학적 귀납법 실전</h3>
+
+  <div class="example-box">
+    <p><strong>증명:</strong> 모든 자연수 n에 대해 1² + 2² + ... + n² = n(n+1)(2n+1)/6</p>
+
+    <div class="calc-steps">
+      <div class="calc-step">
+        <div class="calc-step-num">①</div>
+        <div class="calc-step-content">
+          <p><strong>n=1 확인 (기저 단계):</strong></p>
+          <div class="math">좌변: 1² = 1</div>
+          <div class="math">우변: 1·2·3/6 = 1 ✓</div>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">②</div>
+        <div class="calc-step-content">
+          <p><strong>귀납 가정:</strong> n=k일 때 성립한다고 가정</p>
+          <div class="math">1² + 2² + ... + k² = k(k+1)(2k+1)/6</div>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">③</div>
+        <div class="calc-step-content">
+          <p><strong>n=k+1일 때 성립함을 보인다:</strong></p>
+          <div class="math">1² + ... + k² + (k+1)² = k(k+1)(2k+1)/6 + (k+1)²</div>
+          <div class="math">= (k+1)[k(2k+1)/6 + (k+1)]</div>
+          <div class="math">= (k+1)[k(2k+1) + 6(k+1)]/6</div>
+          <div class="math">= (k+1)(2k² + 7k + 6)/6</div>
+          <div class="math">= (k+1)(k+2)(2k+3)/6</div>
+          <p style="font-size:13px; color:var(--text-secondary);">이것은 n=k+1일 때의 우변 (k+1)(k+2)(2(k+1)+1)/6 과 일치! ✓</p>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">④</div>
+        <div class="calc-step-content">
+          <p><strong>결론:</strong> ①, ②, ③에 의해 모든 자연수 n에 대해 성립한다. □</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 부등식 증명 예제 ── -->
+<div class="concept-card">
+  <h3><span class="icon">⚖️</span> 부등식 증명: 수학적 귀납법 실전</h3>
+
+  <div class="example-box">
+    <p><strong>증명:</strong> 모든 자연수 n에 대해 1 + 1/2 + 1/3 + ... + 1/n ≥ 2n/(n+1)</p>
+
+    <div class="calc-steps">
+      <div class="calc-step">
+        <div class="calc-step-num">①</div>
+        <div class="calc-step-content">
+          <p><strong>n=1 확인 (기저 단계):</strong></p>
+          <div class="math">좌변: 1</div>
+          <div class="math">우변: 2·1/(1+1) = 1</div>
+          <div class="math">1 ≥ 1 ✓</div>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">②</div>
+        <div class="calc-step-content">
+          <p><strong>귀납 가정:</strong> n=k일 때 성립한다고 가정</p>
+          <div class="math">1 + 1/2 + ... + 1/k ≥ 2k/(k+1) ...(★)</div>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">③</div>
+        <div class="calc-step-content">
+          <p><strong>n=k+1일 때:</strong></p>
+          <div class="math">좌변 = (1 + 1/2 + ... + 1/k) + 1/(k+1)</div>
+          <div class="math">≥ 2k/(k+1) + 1/(k+1)   (★ 이용)</div>
+          <div class="math">= (2k+1)/(k+1)</div>
+          <p style="font-size:13px; color:var(--text-secondary);">n=k+1의 우변: 2(k+1)/(k+2). 따라서 (2k+1)/(k+1) ≥ 2(k+1)/(k+2) 를 보이면 돼.</p>
+          <div class="math">(2k+1)(k+2) vs 2(k+1)² 비교:</div>
+          <div class="math">2k²+5k+2 vs 2k²+4k+2 → 2k²+5k+2 ≥ 2k²+4k+2 ✓ (k ≥ 1이므로)</div>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">④</div>
+        <div class="calc-step-content">
+          <p><strong>결론:</strong> 모든 자연수 n에 대해 성립한다. □</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>부등식 귀납법의 핵심:</strong></p>
+    <p>③ 단계에서 "귀납 가정 (★)을 어디에 써서 부등호 방향을 연결하는가"가 핵심이야.</p>
+    <p>등식처럼 "=" 연결이 아니라 "≥" 또는 ">"로 연결하는 거야. 방향 헷갈리지 말자!</p>
+    <p><strong>자주 나오는 부등식:</strong> 2ⁿ > n, n! > 2ⁿ⁻¹ (n≥1), AM-GM 관련 등</p>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 6강 정리                               -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m6-summary">
+<div class="summary-card">
+  <h3>6강 핵심 정리</h3>
+  <ul>
+    <li><strong>귀납적 정의</strong>: 첫 항 + 점화식으로 수열을 완전히 정의</li>
+    <li><strong>등차수열 점화식</strong>: a<sub>n+1</sub> - a<sub>n</sub> = d, 등차중항: 2a<sub>n+1</sub> = a<sub>n</sub> + a<sub>n+2</sub></li>
+    <li><strong>등비수열 점화식</strong>: a<sub>n+1</sub>/a<sub>n</sub> = r, 등비중항: (a<sub>n+1</sub>)² = a<sub>n</sub>·a<sub>n+2</sub></li>
+    <li><strong>조화수열 점화식</strong>: 역수의 공차 d', 조화중항: 2/a<sub>n+1</sub> = 1/a<sub>n</sub> + 1/a<sub>n+2</sub></li>
+    <li><strong>계차 이용</strong>: a<sub>n+1</sub> = a<sub>n</sub> + f(n) → a<sub>n</sub> = a<sub>1</sub> + Σf(k), n=1 확인 필수</li>
+    <li><strong>비 이용</strong>: a<sub>n+1</sub> = a<sub>n</sub>·f(n) → a<sub>n</sub> = a<sub>1</sub>·Πf(k), n=1 확인 필수</li>
+    <li><strong>수학적 귀납법 3단계</strong>: ① P(1) 성립 → ② P(k) 가정, P(k+1) 유도 → ③ 결론</li>
+    <li><strong>강한 귀납법</strong>: P(1),...,P(k) 모두 가정 → P(k+1) 유도 (a<sub>n</sub> = a<sub>n-1</sub>+a<sub>n-2</sub> 유형)</li>
+    <li><strong>등식 증명</strong>: 귀납 가정 양변에 다음 항 추가 → 정리하면 k+1 형태로 변형</li>
+    <li><strong>부등식 증명</strong>: 귀납 가정 + 추가 항 → 부등호 방향 유지하며 원하는 형태 도달</li>
+  </ul>
+</div>
+</div>
+
+</div><!-- /view-lecture-6 -->
+<div class="view-lecture-7">
+
+<!-- ══════════════════════════════════════ -->
+<!-- 7강. 평면좌표                            -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m7-coord">
+<div class="lecture-header">
+  <div class="lecture-num">7</div>
+  <h2>평면좌표</h2>
+</div>
+
+<!-- ── 수직선과 좌표평면 ── -->
+<div class="concept-card">
+  <h3><span class="icon">📍</span> 수직선과 좌표평면</h3>
+
+  <p>수직선 위의 점은 <strong>실수 하나</strong>로 나타낼 수 있고, 좌표평면 위의 점은 <strong>순서쌍 (x, y)</strong>로 나타낼 수 있어.</p>
+
+  <div style="display: flex; gap: 20px; margin: 16px 0; flex-wrap: wrap;">
+    <div style="flex:1; min-width: 220px; background: var(--formula-bg); border: 2px solid var(--formula); border-radius: 14px; padding: 20px;">
+      <h4 style="color:var(--formula-text); margin-bottom: 8px;">수직선 (1차원)</h4>
+      <p style="font-size:14px;">점 A → 실수 <strong>x<sub>a</sub></strong> 하나</p>
+      <p style="font-size:13px; color:var(--text-secondary); margin-top:8px;">두 점 A(a), B(b) 사이의 거리 = |a − b|</p>
+    </div>
+    <div style="flex:1; min-width: 220px; background: var(--concept-bg); border: 2px solid var(--concept); border-radius: 14px; padding: 20px;">
+      <h4 style="color:var(--concept-text); margin-bottom: 8px;">좌표평면 (2차원)</h4>
+      <p style="font-size:14px;">점 A → 순서쌍 <strong>(x<sub>a</sub>, y<sub>a</sub>)</strong></p>
+      <p style="font-size:13px; color:var(--text-secondary); margin-top:8px;">두 점 사이의 거리 = 피타고라스 정리 적용</p>
+    </div>
+  </div>
+
+  <!-- 좌표평면 SVG -->
+  <div class="diagram-box" style="margin: 20px 0;">
+    <svg width="380" height="260" viewBox="0 0 380 260">
+      <!-- Grid lines (subtle) -->
+      <line x1="40" y1="50" x2="40" y2="220" stroke="var(--border)" stroke-width="1"/>
+      <line x1="100" y1="50" x2="100" y2="220" stroke="var(--border)" stroke-width="1"/>
+      <line x1="160" y1="50" x2="160" y2="220" stroke="var(--border)" stroke-width="1"/>
+      <line x1="220" y1="50" x2="220" y2="220" stroke="var(--border)" stroke-width="1"/>
+      <line x1="280" y1="50" x2="280" y2="220" stroke="var(--border)" stroke-width="1"/>
+      <line x1="340" y1="50" x2="340" y2="220" stroke="var(--border)" stroke-width="1"/>
+      <line x1="20" y1="70" x2="360" y2="70" stroke="var(--border)" stroke-width="1"/>
+      <line x1="20" y1="130" x2="360" y2="130" stroke="var(--border)" stroke-width="1"/>
+      <line x1="20" y1="190" x2="360" y2="190" stroke="var(--border)" stroke-width="1"/>
+      <!-- Axes -->
+      <line x1="20" y1="135" x2="365" y2="135" stroke="var(--text-secondary)" stroke-width="2"/>
+      <line x1="190" y1="15" x2="190" y2="250" stroke="var(--text-secondary)" stroke-width="2"/>
+      <!-- Axis arrows -->
+      <polygon points="365,135 357,130 357,140" fill="var(--text-secondary)"/>
+      <polygon points="190,15 185,23 195,23" fill="var(--text-secondary)"/>
+      <!-- Axis labels -->
+      <text x="358" y="150" fill="var(--text-secondary)" font-size="14" font-weight="600">x</text>
+      <text x="196" y="13" fill="var(--text-secondary)" font-size="14" font-weight="600">y</text>
+      <text x="182" y="149" fill="var(--text-muted)" font-size="12">O</text>
+      <!-- Point A(3,2) -->
+      <circle cx="280" cy="75" r="6" fill="var(--example)" stroke="var(--bg-inset)" stroke-width="2"/>
+      <text x="287" y="70" fill="var(--example-text)" font-size="13" font-weight="700">A(3, 2)</text>
+      <!-- Point B(7,5) - scaled: origin at (190,135), 1unit=30px -->
+      <!-- B(7,5): x=190+7*15=295 → but let's use scale 1unit=20px -->
+      <!-- scale: 1unit = 20px. A(3,2): 190+3*20=250, 135-2*20=95 -->
+      <!-- B(7,5): 190+7*20=330, 135-5*20=35 — y goes off, use smaller scale -->
+      <!-- scale 1unit=15px. A(3,2): 190+3*15=235, 135-2*15=105. B(7,5): 190+7*15=295, 135-5*15=60 -->
+      <!-- Dashed lines to axes for A -->
+      <line x1="235" y1="105" x2="235" y2="135" stroke="var(--example)" stroke-width="1" stroke-dasharray="4,3"/>
+      <line x1="235" y1="105" x2="190" y2="105" stroke="var(--example)" stroke-width="1" stroke-dasharray="4,3"/>
+      <!-- Point A -->
+      <circle cx="235" cy="105" r="6" fill="var(--example)" stroke="var(--bg-inset)" stroke-width="2"/>
+      <text x="240" y="100" fill="var(--example-text)" font-size="13" font-weight="700">A(3, 2)</text>
+      <!-- Dashed lines for B -->
+      <line x1="295" y1="60" x2="295" y2="135" stroke="var(--formula)" stroke-width="1" stroke-dasharray="4,3"/>
+      <line x1="295" y1="60" x2="190" y2="60" stroke="var(--formula)" stroke-width="1" stroke-dasharray="4,3"/>
+      <!-- Point B -->
+      <circle cx="295" cy="60" r="6" fill="var(--formula)" stroke="var(--bg-inset)" stroke-width="2"/>
+      <text x="300" y="55" fill="var(--formula-text)" font-size="13" font-weight="700">B(7, 5)</text>
+      <!-- Distance line AB -->
+      <line x1="235" y1="105" x2="295" y2="60" stroke="var(--concept)" stroke-width="2.5"/>
+      <!-- Axis tick labels -->
+      <text x="228" y="150" fill="var(--text-muted)" font-size="11">3</text>
+      <text x="288" y="150" fill="var(--text-muted)" font-size="11">7</text>
+      <text x="174" y="108" fill="var(--text-muted)" font-size="11">2</text>
+      <text x="174" y="63" fill="var(--text-muted)" font-size="11">5</text>
+    </svg>
+    <p style="font-size:13px; color:var(--text-secondary); margin-top:8px;">두 점 A(3, 2), B(7, 5)와 그 사이의 거리</p>
+  </div>
+</div>
+
+<!-- ── 두 점 사이의 거리 공식 ── -->
+<div class="concept-card">
+  <h3><span class="icon">📐</span> 두 점 사이의 거리</h3>
+
+  <div class="formula-box">
+    <div class="formula-desc">수직선 위의 두 점 A(a), B(b) 사이의 거리</div>
+    <div class="formula">AB = |a − b|</div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">좌표평면 위의 두 점 A(x<sub>a</sub>, y<sub>a</sub>), B(x<sub>b</sub>, y<sub>b</sub>) 사이의 거리</div>
+    <div class="formula">AB = √((x<sub>a</sub> − x<sub>b</sub>)² + (y<sub>a</sub> − y<sub>b</sub>)²)</div>
+    <div class="formula-desc">피타고라스 정리를 좌표평면에 적용한 것!</div>
+  </div>
+
+  <div class="analogy-box">
+    <p>가로 이동량² + 세로 이동량² = 대각선 거리²</p>
+    <p>직각삼각형의 빗변 = 두 점 사이의 직선거리야. 결국 <strong>피타고라스</strong>!</p>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제:</strong> A(3, 2), B(7, 5)일 때 AB의 거리</p>
+    <div class="calc-steps">
+      <div class="calc-step">
+        <div class="calc-step-num">1</div>
+        <div class="calc-step-content">
+          <p>x 차이: 7 − 3 = 4, &nbsp; y 차이: 5 − 2 = 3</p>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">2</div>
+        <div class="calc-step-content">
+          <p class="math">AB = √(4² + 3²) = √(16 + 9) = √25 = <strong>5</strong></p>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:8px;">→ AB = <strong>5</strong></p>
+  </div>
+
+  <!-- 응용 예제 -->
+  <div class="example-box" style="margin-top:20px;">
+    <p><strong>응용 예제:</strong> 두 점 A(m², m), B(1, −m) 사이의 거리가 2일 때, m의 값을 구해라.</p>
+    <div class="calc-steps">
+      <div class="calc-step">
+        <div class="calc-step-num">1</div>
+        <div class="calc-step-content">
+          <p>거리 공식 적용: √((m² − 1)² + (m − (−m))²) = 2</p>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">2</div>
+        <div class="calc-step-content">
+          <p class="math">(m² − 1)² + (2m)² = 4</p>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">3</div>
+        <div class="calc-step-content">
+          <p class="math">m⁴ − 2m² + 1 + 4m² = 4</p>
+          <p class="math">m⁴ + 2m² − 3 = 0</p>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">4</div>
+        <div class="calc-step-content">
+          <p class="math">(m² + 3)(m² − 1) = 0</p>
+          <p>m² = −3 (불가) 또는 m² = 1 → <strong>m = ±1</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>시험 팁:</strong> 거리 공식에서 <strong>양변을 제곱</strong>해서 루트를 없애는 게 핵심이야. 제곱하면 = 4처럼 깔끔해져!</p>
+    <p>m²은 항상 0 이상이라는 조건 잊지 말고, 음수가 나오면 해 없음 처리해!</p>
+  </div>
+</div>
+</div><!-- /m7-coord -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 내분점과 외분점                          -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m7-division">
+<div class="concept-card">
+  <h3><span class="icon">✂️</span> 내분점 (Internal Division)</h3>
+
+  <p>선분 AB 위의 점 P가 <strong>AP : PB = m : n</strong>으로 나눌 때, P를 선분 AB의 <span class="tt">내분점<span class="ttp"><strong>내분점 (Internal Division Point)</strong><br>선분 AB를 m:n으로 내분하는 점 P. P는 A와 B 사이에 위치함. m:n=1:1이면 중점!</span></span>이라고 해.</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">수직선에서 A(a), B(b)를 m:n으로 내분하는 점 P</div>
+    <div class="formula">P = (na + mb) / (m + n)</div>
+    <div class="formula-desc">좌표평면에서 A(x<sub>a</sub>, y<sub>a</sub>), B(x<sub>b</sub>, y<sub>b</sub>)를 m:n으로 내분하는 점 P</div>
+    <div class="formula">P = ( (nx<sub>a</sub> + mx<sub>b</sub>) / (m+n),  (ny<sub>a</sub> + my<sub>b</sub>) / (m+n) )</div>
+  </div>
+
+  <div class="analogy-box">
+    <p>내분 공식은 헷갈리기 쉬워. <strong>m:n에서 B쪽 좌표에 m, A쪽 좌표에 n이 곱해져!</strong></p>
+    <p>기억법: P가 A에서 m만큼 가면 B에 더 가까우니까, B의 좌표(x<sub>b</sub>)에 m이 붙음.</p>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">특수 케이스: 중점 M (m:n = 1:1)</div>
+    <div class="formula">M = ( (x<sub>a</sub> + x<sub>b</sub>) / 2,  (y<sub>a</sub> + y<sub>b</sub>) / 2 )</div>
+    <div class="formula-desc">두 좌표의 평균!</div>
+  </div>
+
+  <!-- 내분점 SVG 다이어그램 -->
+  <div class="diagram-box">
+    <svg width="380" height="100" viewBox="0 0 380 100">
+      <!-- Line AB -->
+      <line x1="40" y1="55" x2="340" y2="55" stroke="var(--text-secondary)" stroke-width="2.5"/>
+      <!-- Point A -->
+      <circle cx="40" cy="55" r="7" fill="var(--concept)" stroke="var(--bg-inset)" stroke-width="2"/>
+      <text x="28" y="80" fill="var(--concept-text)" font-size="13" font-weight="700">A</text>
+      <!-- Point B -->
+      <circle cx="340" cy="55" r="7" fill="var(--concept)" stroke="var(--bg-inset)" stroke-width="2"/>
+      <text x="328" y="80" fill="var(--concept-text)" font-size="13" font-weight="700">B</text>
+      <!-- Point P (m:n = 2:1 → P at 40 + 2/3 * 300 = 40+200 = 240) -->
+      <circle cx="240" cy="55" r="8" fill="var(--example)" stroke="var(--bg-inset)" stroke-width="2"/>
+      <text x="228" y="80" fill="var(--example-text)" font-size="13" font-weight="700">P</text>
+      <!-- AP label -->
+      <text x="120" y="42" text-anchor="middle" fill="var(--formula-text)" font-size="12">m</text>
+      <!-- PB label -->
+      <text x="290" y="42" text-anchor="middle" fill="var(--formula-text)" font-size="12">n</text>
+      <!-- Braces -->
+      <line x1="40" y1="32" x2="240" y2="32" stroke="var(--formula)" stroke-width="1.5"/>
+      <line x1="40" y1="28" x2="40" y2="36" stroke="var(--formula)" stroke-width="1.5"/>
+      <line x1="240" y1="28" x2="240" y2="36" stroke="var(--formula)" stroke-width="1.5"/>
+      <line x1="240" y1="32" x2="340" y2="32" stroke="var(--formula)" stroke-width="1.5"/>
+      <line x1="340" y1="28" x2="340" y2="36" stroke="var(--formula)" stroke-width="1.5"/>
+    </svg>
+    <p style="font-size:13px; color:var(--text-secondary);">P가 AP:PB = m:n으로 내분 (P는 A와 B 사이에 위치)</p>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제:</strong> A(1, 2), B(7, 8)을 2:1로 내분하는 점 P를 구해라.</p>
+    <div class="calc-steps">
+      <div class="calc-step">
+        <div class="calc-step-num">1</div>
+        <div class="calc-step-content">
+          <p>m = 2, n = 1 대입</p>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">2</div>
+        <div class="calc-step-content">
+          <p class="math">x = (1·1 + 2·7) / (2+1) = (1 + 14) / 3 = 5</p>
+          <p class="math">y = (1·2 + 2·8) / (2+1) = (2 + 16) / 3 = 6</p>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">3</div>
+        <div class="calc-step-content">
+          <p>→ P = <strong>(5, 6)</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 외분점 ── -->
+<div class="concept-card">
+  <h3><span class="icon">↔️</span> 외분점 (External Division)</h3>
+
+  <p>선분 AB의 <strong>연장선</strong> 위의 점 Q가 <strong>QA : QB = m : n (m ≠ n)</strong>일 때, Q를 <span class="tt">외분점<span class="ttp"><strong>외분점 (External Division Point)</strong><br>선분 AB를 m:n으로 외분하는 점. A나 B의 바깥에 위치. m=n이면 점이 무한대로 가서 정의 불가!</span></span>이라고 해.</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">좌표평면에서 A(x<sub>a</sub>, y<sub>a</sub>), B(x<sub>b</sub>, y<sub>b</sub>)를 m:n으로 외분하는 점 Q</div>
+    <div class="formula">Q = ( (−nx<sub>a</sub> + mx<sub>b</sub>) / (m−n),  (−ny<sub>a</sub> + my<sub>b</sub>) / (m−n) )</div>
+    <div class="formula-desc">내분 공식에서 n → −n으로 바꾼 것! (분모도 m+n → m−n)</div>
+  </div>
+
+  <!-- 외분점 SVG 다이어그램 -->
+  <div class="diagram-box">
+    <svg width="380" height="100" viewBox="0 0 380 100">
+      <!-- Extended line -->
+      <line x1="20" y1="55" x2="360" y2="55" stroke="var(--text-secondary)" stroke-width="2" stroke-dasharray="6,3"/>
+      <line x1="80" y1="55" x2="280" y2="55" stroke="var(--text-secondary)" stroke-width="2.5"/>
+      <!-- Point A -->
+      <circle cx="80" cy="55" r="7" fill="var(--concept)" stroke="var(--bg-inset)" stroke-width="2"/>
+      <text x="68" y="80" fill="var(--concept-text)" font-size="13" font-weight="700">A</text>
+      <!-- Point B -->
+      <circle cx="280" cy="55" r="7" fill="var(--concept)" stroke="var(--bg-inset)" stroke-width="2"/>
+      <text x="268" y="80" fill="var(--concept-text)" font-size="13" font-weight="700">B</text>
+      <!-- Point Q (m:n=3:1 → Q at 80 + 3/2 * 200 = 380, place at 340) -->
+      <circle cx="340" cy="55" r="8" fill="var(--error)" stroke="var(--bg-inset)" stroke-width="2"/>
+      <text x="330" y="80" fill="var(--error-text)" font-size="13" font-weight="700">Q</text>
+      <!-- QA, QB labels -->
+      <text x="207" y="42" text-anchor="middle" fill="var(--formula-text)" font-size="12">m</text>
+      <text x="305" y="42" text-anchor="middle" fill="var(--error-text)" font-size="12">n</text>
+      <line x1="80" y1="32" x2="340" y2="32" stroke="var(--formula)" stroke-width="1.5"/>
+      <line x1="80" y1="28" x2="80" y2="36" stroke="var(--formula)" stroke-width="1.5"/>
+      <line x1="340" y1="28" x2="340" y2="36" stroke="var(--formula)" stroke-width="1.5"/>
+      <line x1="280" y1="32" x2="340" y2="32" stroke="var(--error)" stroke-width="1.5"/>
+      <line x1="280" y1="28" x2="280" y2="36" stroke="var(--error)" stroke-width="1.5"/>
+    </svg>
+    <p style="font-size:13px; color:var(--text-secondary);">Q가 B 바깥에서 QA:QB = m:n으로 외분 (m > n인 경우)</p>
+  </div>
+
+  <div style="display: flex; gap: 20px; margin: 16px 0; flex-wrap: wrap;">
+    <div style="flex:1; min-width: 200px; background: var(--example-bg); border: 2px solid var(--example); border-radius: 14px; padding: 16px;">
+      <h4 style="color:var(--example-text); margin-bottom: 8px;">내분점</h4>
+      <p style="font-size:13px;">P는 <strong>A와 B 사이</strong>에 있어</p>
+      <p style="font-size:13px;">분모: m + n</p>
+    </div>
+    <div style="flex:1; min-width: 200px; background: var(--error-bg); border: 2px solid var(--error); border-radius: 14px; padding: 16px;">
+      <h4 style="color:var(--error-text); margin-bottom: 8px;">외분점</h4>
+      <p style="font-size:13px;">Q는 <strong>선분 바깥</strong>에 있어</p>
+      <p style="font-size:13px;">분모: m − n (m ≠ n)</p>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>시험 팁:</strong> 외분 공식은 내분 공식의 n을 −n으로 바꾼 것! 따로 외울 필요 없이 <strong>n에 마이너스</strong>만 붙이면 돼.</p>
+    <p>m = n이면 외분점은 존재하지 않아 (분모가 0이 됨).</p>
+  </div>
+</div>
+
+<!-- ── 평행사변형 응용 예제 ── -->
+<div class="concept-card">
+  <h3><span class="icon">🔷</span> 중점 활용: 평행사변형 조건</h3>
+
+  <p>평행사변형 ABCD에서 두 대각선 AC, BD는 서로 <strong>중점이 같아야</strong> 해. 이 조건으로 미지수를 구하는 문제가 자주 나와!</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">평행사변형 ABCD의 조건</div>
+    <div class="formula">AC의 중점 = BD의 중점</div>
+    <div class="formula-desc">즉, ( (x<sub>A</sub>+x<sub>C</sub>)/2, (y<sub>A</sub>+y<sub>C</sub>)/2 ) = ( (x<sub>B</sub>+x<sub>D</sub>)/2, (y<sub>B</sub>+y<sub>D</sub>)/2 )</div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제:</strong> A(1, 2), B(3, 5), C(7, 4), D(a, b)가 평행사변형 ABCD를 이룰 때 D의 좌표를 구해라.</p>
+    <div class="calc-steps">
+      <div class="calc-step">
+        <div class="calc-step-num">1</div>
+        <div class="calc-step-content">
+          <p>AC의 중점: ((1+7)/2, (2+4)/2) = (4, 3)</p>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">2</div>
+        <div class="calc-step-content">
+          <p>BD의 중점이 같아야 하므로: ((3+a)/2, (5+b)/2) = (4, 3)</p>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">3</div>
+        <div class="calc-step-content">
+          <p class="math">3 + a = 8 → a = 5</p>
+          <p class="math">5 + b = 6 → b = 1</p>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">4</div>
+        <div class="calc-step-content">
+          <p>→ D = <strong>(5, 1)</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div><!-- /m7-division -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 삼각형의 성질                            -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m7-triangle">
+<div class="concept-card">
+  <h3><span class="icon">△</span> 삼각형의 무게중심</h3>
+
+  <p>삼각형 세 꼭짓점의 좌표를 알면 <span class="tt">무게중심<span class="ttp"><strong>무게중심 (Centroid)</strong><br>세 꼭짓점에서 맞은편 변의 중점으로 그은 중선 3개가 만나는 점. 각 중선을 꼭짓점 쪽에서 2:1로 내분하는 점!</span></span>을 바로 구할 수 있어.</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">삼각형 A(x₁, y₁), B(x₂, y₂), C(x₃, y₃)의 무게중심 G</div>
+    <div class="formula">G = ( (x₁ + x₂ + x₃) / 3,  (y₁ + y₂ + y₃) / 3 )</div>
+    <div class="formula-desc">세 꼭짓점 좌표의 평균!</div>
+  </div>
+
+  <div class="analogy-box">
+    <p>중점은 2개 좌표의 평균, 무게중심은 3개 좌표의 평균이야.</p>
+    <p><strong>무게중심 G는 각 중선을 꼭짓점으로부터 2:1로 내분해!</strong> (꼭짓점 쪽이 2)</p>
+  </div>
+
+  <!-- 삼각형 무게중심 SVG -->
+  <div class="diagram-box">
+    <svg width="380" height="240" viewBox="0 0 380 240">
+      <!-- Triangle vertices: A(60,200), B(320,200), C(190,30) -->
+      <!-- Midpoints: M_AB=(190,200), M_BC=(255,115), M_AC=(125,115) -->
+      <!-- Centroid G = ((60+320+190)/3, (200+200+30)/3) = (190, 143) -->
+
+      <!-- Triangle sides -->
+      <polygon points="60,200 320,200 190,30" fill="var(--formula-bg)" stroke="var(--formula)" stroke-width="2" opacity="0.5"/>
+
+      <!-- Medians (dashed) -->
+      <line x1="60" y1="200" x2="255" y2="115" stroke="var(--concept)" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <line x1="320" y1="200" x2="125" y2="115" stroke="var(--concept)" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <line x1="190" y1="30" x2="190" y2="200" stroke="var(--concept)" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+      <!-- Midpoint dots -->
+      <circle cx="255" cy="115" r="4" fill="var(--tip)"/>
+      <circle cx="125" cy="115" r="4" fill="var(--tip)"/>
+      <circle cx="190" cy="200" r="4" fill="var(--tip)"/>
+      <text x="260" y="112" fill="var(--tip-text)" font-size="11">M₁</text>
+      <text x="107" y="112" fill="var(--tip-text)" font-size="11">M₂</text>
+      <text x="193" y="215" fill="var(--tip-text)" font-size="11">M₃</text>
+
+      <!-- Vertex labels -->
+      <circle cx="60" cy="200" r="6" fill="var(--example)" stroke="var(--bg-inset)" stroke-width="2"/>
+      <text x="42" y="218" fill="var(--example-text)" font-size="13" font-weight="700">A(x₁,y₁)</text>
+
+      <circle cx="320" cy="200" r="6" fill="var(--example)" stroke="var(--bg-inset)" stroke-width="2"/>
+      <text x="294" y="218" fill="var(--example-text)" font-size="13" font-weight="700">B(x₂,y₂)</text>
+
+      <circle cx="190" cy="30" r="6" fill="var(--example)" stroke="var(--bg-inset)" stroke-width="2"/>
+      <text x="162" y="22" fill="var(--example-text)" font-size="13" font-weight="700">C(x₃,y₃)</text>
+
+      <!-- Centroid G -->
+      <circle cx="190" cy="143" r="8" fill="var(--error)" stroke="var(--bg-inset)" stroke-width="2"/>
+      <text x="196" y="138" fill="var(--error-text)" font-size="13" font-weight="700">G</text>
+    </svg>
+    <p style="font-size:13px; color:var(--text-secondary); margin-top:8px;">세 중선이 한 점(무게중심 G)에서 만나고, G는 각 중선을 2:1로 내분해</p>
+  </div>
+</div>
+
+<!-- ── 파푸스의 중선정리 ── -->
+<div class="concept-card">
+  <h3><span class="icon">📏</span> 파푸스의 중선정리</h3>
+
+  <p>삼각형 ABC에서 BC의 중점을 M이라 하면, 다음이 성립해.</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">파푸스의 중선정리 (Pappus / Apollonius)</div>
+    <div class="formula">AB² + AC² = 2(AM² + BM²)</div>
+    <div class="formula-desc">M은 BC의 중점. "두 변의 제곱합 = 2×(중선² + 반쪽변²)"</div>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>외우는 법:</strong> AM은 중선(꼭짓점에서 중점까지), BM은 BC의 절반이야. 공식 자체보다 <strong>언제 쓰는지</strong>가 중요해!</p>
+    <p>중선의 길이 AM을 구할 때, 또는 변의 길이를 AM으로 표현할 때 사용해.</p>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제:</strong> 삼각형 ABC에서 AB = 6, AC = 8, BC = 4일 때 중선 AM의 길이를 구해라.</p>
+    <div class="calc-steps">
+      <div class="calc-step">
+        <div class="calc-step-num">1</div>
+        <div class="calc-step-content">
+          <p>M은 BC의 중점이므로 BM = BC/2 = 2</p>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">2</div>
+        <div class="calc-step-content">
+          <p class="math">AB² + AC² = 2(AM² + BM²)</p>
+          <p class="math">36 + 64 = 2(AM² + 4)</p>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">3</div>
+        <div class="calc-step-content">
+          <p class="math">100 = 2·AM² + 8</p>
+          <p class="math">AM² = 46 → AM = √46</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 각의 이등분선 정리 ── -->
+<div class="concept-card">
+  <h3><span class="icon">🔀</span> 각의 이등분선 정리</h3>
+
+  <p>삼각형 ABC에서 ∠A의 이등분선이 BC와 만나는 점을 D라 하면:</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">각의 이등분선 정리</div>
+    <div class="formula">AB : AC = BD : CD</div>
+    <div class="formula-desc">이등분선은 맞은편 변을 두 인접한 변의 비로 나눠!</div>
+  </div>
+
+  <div class="analogy-box">
+    <p>AB가 길면 D도 B에 더 가까이 있어 (BD가 커짐). <strong>변의 길이 비 = BC를 나누는 비</strong>야.</p>
+  </div>
+
+  <!-- 삼각형 각의 이등분선 SVG -->
+  <div class="diagram-box">
+    <svg width="380" height="220" viewBox="0 0 380 220">
+      <!-- Triangle: A(30,30), B(60,190), C(350,190) -->
+      <polygon points="30,30 60,190 350,190" fill="var(--concept-bg)" stroke="var(--concept)" stroke-width="2" opacity="0.6"/>
+
+      <!-- D on BC: BD:DC = AB:AC. AB≈161, AC≈323 → BD:DC ≈ 1:2 → D at (60 + 1/3*290, 190) ≈ (157, 190) -->
+      <!-- Angle bisector AD -->
+      <line x1="30" y1="30" x2="157" y2="190" stroke="var(--example)" stroke-width="2" stroke-dasharray="6,3"/>
+
+      <!-- Labels -->
+      <circle cx="30" cy="30" r="5" fill="var(--example)"/>
+      <text x="10" y="27" fill="var(--example-text)" font-size="13" font-weight="700">A</text>
+
+      <circle cx="60" cy="190" r="5" fill="var(--formula)"/>
+      <text x="45" y="210" fill="var(--formula-text)" font-size="13" font-weight="700">B</text>
+
+      <circle cx="350" cy="190" r="5" fill="var(--formula)"/>
+      <text x="346" y="210" fill="var(--formula-text)" font-size="13" font-weight="700">C</text>
+
+      <!-- Point D -->
+      <circle cx="157" cy="190" r="5" fill="var(--tip)"/>
+      <text x="150" y="210" fill="var(--tip-text)" font-size="13" font-weight="700">D</text>
+
+      <!-- BD and DC labels -->
+      <text x="100" y="180" fill="var(--formula-text)" font-size="12">BD</text>
+      <text x="240" y="180" fill="var(--formula-text)" font-size="12">DC</text>
+
+      <!-- AB label -->
+      <text x="20" y="115" fill="var(--concept-text)" font-size="12">AB</text>
+      <!-- AC label -->
+      <text x="185" y="95" fill="var(--concept-text)" font-size="12">AC</text>
+
+      <!-- Ratio annotation -->
+      <text x="165" y="150" fill="var(--example-text)" font-size="12" font-weight="600">∠A 이등분선</text>
+    </svg>
+    <p style="font-size:13px; color:var(--text-secondary); margin-top:8px;">∠A의 이등분선이 BC를 D에서 나눌 때, AB:AC = BD:DC</p>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제:</strong> A(1, 4), B(4, 8), C(9, 10)에서 ∠A의 이등분선이 BC와 만나는 점 D의 좌표를 구해라.</p>
+    <div class="calc-steps">
+      <div class="calc-step">
+        <div class="calc-step-num">1</div>
+        <div class="calc-step-content">
+          <p>AB와 AC의 길이를 계산</p>
+          <p class="math">AB = √((4−1)² + (8−4)²) = √(9+16) = √25 = 5</p>
+          <p class="math">AC = √((9−1)² + (10−4)²) = √(64+36) = √100 = 10</p>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">2</div>
+        <div class="calc-step-content">
+          <p>각의 이등분선 정리: BD : DC = AB : AC = 5 : 10 = <strong>1 : 2</strong></p>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">3</div>
+        <div class="calc-step-content">
+          <p>D는 BC를 1:2로 내분하는 점</p>
+          <p class="math">D<sub>x</sub> = (2·4 + 1·9) / (1+2) = (8+9)/3 = 17/3</p>
+          <p class="math">D<sub>y</sub> = (2·8 + 1·10) / (1+2) = (16+10)/3 = 26/3</p>
+        </div>
+      </div>
+      <div class="calc-step">
+        <div class="calc-step-num">4</div>
+        <div class="calc-step-content">
+          <p>→ D = <strong>(17/3, 26/3)</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>풀이 순서 기억!</strong> 이등분선 문제는 항상 이 순서야:</p>
+    <p>① AB, AC 거리 계산 → ② 비 구하기 → ③ 내분점 공식 적용</p>
+    <p>거리를 구할 때 루트 값을 그대로 비로 쓰면 돼 (약분 가능하면 약분)!</p>
+  </div>
+</div>
+</div><!-- /m7-triangle -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 7강 정리                                -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m7-summary">
+<div class="summary-card">
+  <h3>7강 핵심 정리: 평면좌표</h3>
+  <ul>
+    <li><strong>두 점 거리:</strong> AB = √((x<sub>a</sub>−x<sub>b</sub>)² + (y<sub>a</sub>−y<sub>b</sub>)²) — 피타고라스 정리 활용</li>
+    <li><strong>내분점 (m:n):</strong> x = (nx<sub>a</sub> + mx<sub>b</sub>) / (m+n) — B쪽 좌표에 m이 붙음</li>
+    <li><strong>외분점 (m:n):</strong> 내분 공식의 n → −n으로 교체 (분모도 m−n)</li>
+    <li><strong>중점:</strong> M = ((x<sub>a</sub>+x<sub>b</sub>)/2, (y<sub>a</sub>+y<sub>b</sub>)/2) — 2개 좌표 평균</li>
+    <li><strong>무게중심:</strong> G = ((x₁+x₂+x₃)/3, (y₁+y₂+y₃)/3) — 3개 좌표 평균</li>
+    <li><strong>파푸스 중선정리:</strong> AB² + AC² = 2(AM² + BM²), M은 BC의 중점</li>
+    <li><strong>각의 이등분선:</strong> AB:AC = BD:DC → D를 내분점 공식으로 구함</li>
+    <li><strong>평행사변형 조건:</strong> 두 대각선의 중점이 같아야 함</li>
+  </ul>
+</div>
+</div><!-- /m7-summary -->
+
+</div><!-- /view-lecture-7 -->
+<div class="view-lecture-8">
+
+<!-- ══════════════════════════════════════ -->
+<!-- 8강. 함수                               -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m8-func">
+<div class="lecture-header">
+  <div class="lecture-num">8</div>
+  <h2>함수</h2>
+</div>
+
+<!-- ── 함수의 정의 ── -->
+<div class="concept-card">
+  <h3><span class="icon">🔗</span> 함수의 정의</h3>
+  <p>집합 X의 <strong>각 원소</strong>에 집합 Y의 원소를 <strong>하나씩 대응</strong>시키는 규칙을 <span class="tt">함수<span class="ttp"><strong>함수 (Function)</strong><br>f: X → Y 로 표기. X의 모든 원소가 빠짐없이, 하나의 Y 원소에만 대응되어야 함.</span></span>(function)라 하고 <strong>f: X → Y</strong>로 쓴다.</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">함수 표기</div>
+    <div class="formula">f : X → Y</div>
+    <div class="formula-desc">X의 원소 x에 대응하는 Y의 원소를 <strong>f(x)</strong>로 표기 (함수값)</div>
+  </div>
+
+  <!-- 매핑 다이어그램 -->
+  <div class="diagram-box" style="margin: 20px 0;">
+    <svg width="380" height="180" viewBox="0 0 380 180">
+      <!-- X 집합 타원 -->
+      <ellipse cx="90" cy="90" rx="65" ry="75" fill="var(--concept-bg)" stroke="var(--concept)" stroke-width="2"/>
+      <text x="90" y="22" text-anchor="middle" fill="var(--concept-text)" font-size="15" font-weight="700">X (정의역)</text>
+      <!-- Y 집합 타원 -->
+      <ellipse cx="290" cy="90" rx="65" ry="75" fill="var(--formula-bg)" stroke="var(--formula)" stroke-width="2"/>
+      <text x="290" y="22" text-anchor="middle" fill="var(--formula-text)" font-size="15" font-weight="700">Y (공역)</text>
+      <!-- X 원소 -->
+      <circle cx="90" cy="55" r="5" fill="var(--concept)"/>
+      <text x="78" y="59" text-anchor="end" fill="var(--text-primary)" font-size="13">a</text>
+      <circle cx="90" cy="90" r="5" fill="var(--concept)"/>
+      <text x="78" y="94" text-anchor="end" fill="var(--text-primary)" font-size="13">b</text>
+      <circle cx="90" cy="125" r="5" fill="var(--concept)"/>
+      <text x="78" y="129" text-anchor="end" fill="var(--text-primary)" font-size="13">c</text>
+      <!-- Y 원소 -->
+      <circle cx="290" cy="55" r="5" fill="var(--formula)"/>
+      <text x="302" y="59" fill="var(--text-primary)" font-size="13">1</text>
+      <circle cx="290" cy="90" r="5" fill="var(--formula)"/>
+      <text x="302" y="94" fill="var(--text-primary)" font-size="13">2</text>
+      <circle cx="290" cy="125" r="5" fill="var(--formula)"/>
+      <text x="302" y="129" fill="var(--text-primary)" font-size="13">3</text>
+      <!-- 화살표 -->
+      <line x1="98" y1="55" x2="280" y2="55" stroke="var(--example)" stroke-width="1.8" marker-end="url(#arr8)"/>
+      <line x1="98" y1="90" x2="280" y2="90" stroke="var(--example)" stroke-width="1.8" marker-end="url(#arr8)"/>
+      <line x1="98" y1="125" x2="280" y2="125" stroke="var(--example)" stroke-width="1.8" marker-end="url(#arr8)"/>
+      <!-- f 레이블 -->
+      <text x="190" y="75" text-anchor="middle" fill="var(--example-text)" font-size="13" font-weight="700">f</text>
+      <defs>
+        <marker id="arr8" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="var(--example)"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+
+  <!-- 정의역/공역/치역 -->
+  <div style="display: flex; gap: 16px; margin: 16px 0; flex-wrap: wrap;">
+    <div style="flex:1; min-width: 180px; background: var(--concept-bg); border: 2px solid var(--concept); border-radius: 14px; padding: 18px;">
+      <h4 style="color:var(--concept-text); margin-bottom: 8px;">정의역 (Domain)</h4>
+      <p style="font-size:14px;">함수의 <strong>입력값</strong> 집합 X</p>
+      <p style="font-size: 13px; color: var(--text-secondary); margin-top: 6px;">f의 정의역 = X</p>
+    </div>
+    <div style="flex:1; min-width: 180px; background: var(--formula-bg); border: 2px solid var(--formula); border-radius: 14px; padding: 18px;">
+      <h4 style="color:var(--formula-text); margin-bottom: 8px;">공역 (Codomain)</h4>
+      <p style="font-size:14px;">함수의 <strong>출력 후보</strong> 집합 Y</p>
+      <p style="font-size: 13px; color: var(--text-secondary); margin-top: 6px;">f의 공역 = Y</p>
+    </div>
+    <div style="flex:1; min-width: 180px; background: var(--example-bg); border: 2px solid var(--example); border-radius: 14px; padding: 18px;">
+      <h4 style="color:var(--example-text); margin-bottom: 8px;">치역 (Range)</h4>
+      <p style="font-size:14px;">실제로 <strong>대응된 값</strong>들의 집합</p>
+      <p style="font-size: 13px; color: var(--text-secondary); margin-top: 6px;">f(X) = {f(x) | x ∈ X} ⊆ Y</p>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>핵심 구분:</strong> 치역 ⊆ 공역이야. 공역의 모든 원소가 대응되지 않아도 되지만, 치역은 실제로 대응된 것만!</p>
+    <p>예: f: {1,2,3} → {a,b,c,d} 이고 f(1)=a, f(2)=b, f(3)=a 이면 치역 = {a,b}, 공역 = {a,b,c,d}</p>
+  </div>
+</div>
+
+<!-- ── 함수가 아닌 경우 ── -->
+<div class="concept-card">
+  <h3><span class="icon">🚫</span> 함수가 아닌 경우</h3>
+  <p>다음 두 경우는 <strong>함수가 아니야</strong>.</p>
+
+  <div style="display: flex; gap: 16px; margin: 16px 0; flex-wrap: wrap;">
+    <div style="flex:1; min-width: 240px; background: var(--error-bg); border: 2px solid var(--error); border-radius: 14px; padding: 18px;">
+      <h4 style="color:var(--error-text); margin-bottom: 10px;">① 대응 안 되는 원소 존재</h4>
+      <svg width="200" height="130" viewBox="0 0 200 130">
+        <ellipse cx="45" cy="65" rx="38" ry="55" fill="none" stroke="var(--error)" stroke-width="1.5"/>
+        <ellipse cx="155" cy="65" rx="38" ry="55" fill="none" stroke="var(--error)" stroke-width="1.5"/>
+        <text x="45" y="18" text-anchor="middle" fill="var(--error-text)" font-size="11">X</text>
+        <text x="155" y="18" text-anchor="middle" fill="var(--error-text)" font-size="11">Y</text>
+        <circle cx="45" cy="45" r="4" fill="var(--error)"/>
+        <text x="36" y="49" text-anchor="end" fill="var(--text-primary)" font-size="12">a</text>
+        <circle cx="45" cy="75" r="4" fill="var(--error)"/>
+        <text x="36" y="79" text-anchor="end" fill="var(--text-primary)" font-size="12">b</text>
+        <circle cx="45" cy="105" r="4" fill="var(--error)"/>
+        <text x="36" y="109" text-anchor="end" fill="var(--text-primary)" font-size="12">c</text>
+        <circle cx="155" cy="55" r="4" fill="var(--text-secondary)"/>
+        <text x="163" y="59" fill="var(--text-primary)" font-size="12">1</text>
+        <circle cx="155" cy="85" r="4" fill="var(--text-secondary)"/>
+        <text x="163" y="89" fill="var(--text-primary)" font-size="12">2</text>
+        <line x1="51" y1="45" x2="147" y2="55" stroke="var(--error)" stroke-width="1.5" marker-end="url(#arr8e)"/>
+        <line x1="51" y1="75" x2="147" y2="85" stroke="var(--error)" stroke-width="1.5" marker-end="url(#arr8e)"/>
+        <!-- c는 화살표 없음 -->
+        <text x="45" y="118" text-anchor="middle" fill="var(--error)" font-size="10">c는 대응 없음!</text>
+        <defs>
+          <marker id="arr8e" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+            <polygon points="0 0, 7 2.5, 0 5" fill="var(--error)"/>
+          </marker>
+        </defs>
+      </svg>
+      <p style="font-size:13px; color:var(--error-text); margin-top:8px;">정의역의 원소 c에 대응하는 값이 없음 → 함수 X</p>
+    </div>
+    <div style="flex:1; min-width: 240px; background: var(--error-bg); border: 2px solid var(--error); border-radius: 14px; padding: 18px;">
+      <h4 style="color:var(--error-text); margin-bottom: 10px;">② 한 원소가 여러 값에 대응</h4>
+      <svg width="200" height="130" viewBox="0 0 200 130">
+        <ellipse cx="45" cy="65" rx="38" ry="55" fill="none" stroke="var(--error)" stroke-width="1.5"/>
+        <ellipse cx="155" cy="65" rx="38" ry="55" fill="none" stroke="var(--error)" stroke-width="1.5"/>
+        <text x="45" y="18" text-anchor="middle" fill="var(--error-text)" font-size="11">X</text>
+        <text x="155" y="18" text-anchor="middle" fill="var(--error-text)" font-size="11">Y</text>
+        <circle cx="45" cy="55" r="4" fill="var(--error)"/>
+        <text x="36" y="59" text-anchor="end" fill="var(--text-primary)" font-size="12">a</text>
+        <circle cx="45" cy="90" r="4" fill="var(--error)"/>
+        <text x="36" y="94" text-anchor="end" fill="var(--text-primary)" font-size="12">b</text>
+        <circle cx="155" cy="40" r="4" fill="var(--text-secondary)"/>
+        <text x="163" y="44" fill="var(--text-primary)" font-size="12">1</text>
+        <circle cx="155" cy="70" r="4" fill="var(--text-secondary)"/>
+        <text x="163" y="74" fill="var(--text-primary)" font-size="12">2</text>
+        <circle cx="155" cy="100" r="4" fill="var(--text-secondary)"/>
+        <text x="163" y="104" fill="var(--text-primary)" font-size="12">3</text>
+        <!-- a → 1, a → 2 (두 개!) -->
+        <line x1="51" y1="52" x2="147" y2="42" stroke="var(--error)" stroke-width="1.5" marker-end="url(#arr8e2)"/>
+        <line x1="51" y1="58" x2="147" y2="68" stroke="var(--error)" stroke-width="1.5" marker-end="url(#arr8e2)"/>
+        <line x1="51" y1="90" x2="147" y2="100" stroke="var(--error)" stroke-width="1.5" marker-end="url(#arr8e2)"/>
+        <defs>
+          <marker id="arr8e2" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+            <polygon points="0 0, 7 2.5, 0 5" fill="var(--error)"/>
+          </marker>
+        </defs>
+      </svg>
+      <p style="font-size:13px; color:var(--error-text); margin-top:8px;">원소 a가 1과 2 모두에 대응 → 함수 X</p>
+    </div>
+  </div>
+
+  <div class="analogy-box">
+    <p>함수 = <strong>자판기</strong>. 버튼(정의역 원소)을 누르면 반드시 음료(공역 원소) 하나가 나와야 해.</p>
+    <p>버튼을 눌렀는데 아무것도 안 나오거나, 두 개가 나오면 고장난 자판기 → 함수 아님!</p>
+  </div>
+</div>
+
+<!-- ── 일대일 함수 / 일대일 대응 ── -->
+<div class="concept-card">
+  <h3><span class="icon">↔️</span> 일대일 함수와 일대일 대응</h3>
+
+  <table class="compare-table">
+    <thead>
+      <tr><th>종류</th><th>조건</th><th>기호</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>일대일 함수 (단사함수)</strong></td>
+        <td>x₁ ≠ x₂ 이면 f(x₁) ≠ f(x₂)<br><span style="font-size:13px; color:var(--text-secondary)">서로 다른 정의역 원소 → 서로 다른 함수값</span></td>
+        <td>injection</td>
+      </tr>
+      <tr>
+        <td><strong>위로의 함수 (전사함수)</strong></td>
+        <td>치역 = 공역<br><span style="font-size:13px; color:var(--text-secondary)">공역의 모든 원소가 적어도 한 번은 대응됨</span></td>
+        <td>surjection</td>
+      </tr>
+      <tr>
+        <td><strong>일대일 대응 (전단사함수)</strong></td>
+        <td>일대일 함수 <strong>+</strong> 치역 = 공역</td>
+        <td>bijection</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box">
+    <p><strong>일대일 함수 판별법:</strong> f(x₁) = f(x₂) 이면 x₁ = x₂ 임을 보이면 돼.</p>
+    <p><strong>역함수가 존재하려면 반드시 일대일 대응</strong>이어야 해! (8강 Section 3에서 자세히)</p>
+  </div>
+</div>
+
+<!-- ── 함수의 개수 ── -->
+<div class="concept-card">
+  <h3><span class="icon">🔢</span> 함수의 개수</h3>
+  <p>n(X) = m, n(Y) = n 일 때 함수의 종류별 개수를 정리하면:</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">함수의 개수 (X → Y)</div>
+    <div class="formula">n<sup>m</sup></div>
+    <div class="formula-desc">Y의 원소 n개 중에서 X의 원소 m개에 각각 하나씩 대응 (중복 허용)</div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">일대일 함수의 개수 (n ≥ m 일 때)</div>
+    <div class="formula"><sub>n</sub>P<sub>m</sub> = n × (n−1) × ⋯ × (n−m+1)</div>
+    <div class="formula-desc">서로 다른 값에만 대응 → 순열</div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">일대일 대응의 개수 (n = m 일 때만 존재)</div>
+    <div class="formula">m!</div>
+    <div class="formula-desc">치역 = 공역 이어야 하므로 n = m 이어야 함</div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제:</strong> X = {1, 2, 3}, Y = {a, b, c, d} (m=3, n=4) 일 때</p>
+    <p>함수의 개수: 4³ = <strong>64</strong>가지</p>
+    <p>일대일 함수의 개수: ₄P₃ = 4×3×2 = <strong>24</strong>가지</p>
+    <p>일대일 대응: n≠m 이므로 <strong>존재하지 않음</strong></p>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제:</strong> X = {1, 2, 3}, Y = {a, b, c} (m=3, n=3) 일 때</p>
+    <p>함수의 개수: 3³ = <strong>27</strong>가지</p>
+    <p>일대일 함수의 개수: ₃P₃ = 3! = <strong>6</strong>가지</p>
+    <p>일대일 대응: 3! = <strong>6</strong>가지</p>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 함수의 그래프                            -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m8-graph">
+<div class="concept-card">
+  <h3><span class="icon">📈</span> 순서쌍과 곱집합</h3>
+
+  <p>두 집합 X, Y에 대해 <span class="tt">곱집합<span class="ttp"><strong>곱집합 (Cartesian Product)</strong><br>X×Y = {(x,y) | x∈X, y∈Y}. 순서쌍의 집합으로, 좌표평면의 모든 점이 ℝ×ℝ의 원소야.</span></span>은 다음과 같이 정의돼:</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">곱집합 (데카르트 곱)</div>
+    <div class="formula">X × Y = {(x, y) | x ∈ X, y ∈ Y}</div>
+    <div class="formula-desc">n(X×Y) = n(X) × n(Y)</div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제:</strong> X = {1, 2}, Y = {a, b, c} 이면</p>
+    <p>X × Y = {(1,a), (1,b), (1,c), (2,a), (2,b), (2,c)}</p>
+    <p>n(X×Y) = 2 × 3 = 6</p>
+  </div>
+</div>
+
+<!-- ── 함수의 그래프 ── -->
+<div class="concept-card">
+  <h3><span class="icon">🖊️</span> 함수의 그래프</h3>
+
+  <div class="formula-box">
+    <div class="formula-desc">함수 f의 그래프</div>
+    <div class="formula">G(f) = {(x, f(x)) | x ∈ X} ⊆ X × Y</div>
+    <div class="formula-desc">정의역의 각 원소 x와 그에 대응하는 f(x)의 순서쌍 전체</div>
+  </div>
+
+  <!-- 수직선 테스트 설명 SVG -->
+  <div class="diagram-box" style="margin: 20px 0;">
+    <p style="color:var(--concept-text); font-weight:600; margin-bottom:12px;">수직선 테스트 (Vertical Line Test)</p>
+    <div style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;">
+      <div style="text-align:center;">
+        <svg width="160" height="150" viewBox="0 0 160 150">
+          <!-- 축 -->
+          <line x1="20" y1="130" x2="150" y2="130" stroke="var(--text-secondary)" stroke-width="1.5"/>
+          <line x1="20" y1="10" x2="20" y2="130" stroke="var(--text-secondary)" stroke-width="1.5"/>
+          <text x="155" y="133" fill="var(--text-secondary)" font-size="11">x</text>
+          <text x="22" y="10" fill="var(--text-secondary)" font-size="11">y</text>
+          <!-- 곡선 (함수) -->
+          <path d="M30,120 Q55,30 80,60 Q105,90 140,20" fill="none" stroke="var(--example)" stroke-width="2.5"/>
+          <!-- 수직선 -->
+          <line x1="80" y1="20" x2="80" y2="130" stroke="var(--tip)" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <!-- 교점 하나 -->
+          <circle cx="80" cy="60" r="5" fill="var(--example)"/>
+        </svg>
+        <p style="font-size:12px; color:var(--example-text); margin-top:4px;">수직선과 교점 1개 → 함수 O</p>
+      </div>
+      <div style="text-align:center;">
+        <svg width="160" height="150" viewBox="0 0 160 150">
+          <!-- 축 -->
+          <line x1="20" y1="130" x2="150" y2="130" stroke="var(--text-secondary)" stroke-width="1.5"/>
+          <line x1="20" y1="10" x2="20" y2="130" stroke="var(--text-secondary)" stroke-width="1.5"/>
+          <text x="155" y="133" fill="var(--text-secondary)" font-size="11">x</text>
+          <text x="22" y="10" fill="var(--text-secondary)" font-size="11">y</text>
+          <!-- 원 (함수 아님) -->
+          <ellipse cx="85" cy="75" rx="50" ry="55" fill="none" stroke="var(--error)" stroke-width="2.5"/>
+          <!-- 수직선 -->
+          <line x1="85" y1="10" x2="85" y2="140" stroke="var(--tip)" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <!-- 교점 두 개 -->
+          <circle cx="85" cy="20" r="5" fill="var(--error)"/>
+          <circle cx="85" cy="130" r="5" fill="var(--error)"/>
+        </svg>
+        <p style="font-size:12px; color:var(--error-text); margin-top:4px;">수직선과 교점 2개 → 함수 X</p>
+      </div>
+    </div>
+    <p style="font-size:13px; color:var(--text-secondary); margin-top:12px;">임의의 수직선 x = k 가 그래프와 <strong>1개 이하</strong>의 교점을 가져야 함수야.</p>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>수직선 테스트 핵심:</strong> 하나의 x에 y값이 딱 하나! 수직선을 그었을 때 교점이 2개 이상이면 함수가 아니야.</p>
+  </div>
+</div>
+
+<!-- ── 함수의 상등 ── -->
+<div class="concept-card">
+  <h3><span class="icon">⚖️</span> 함수의 상등</h3>
+  <p>두 함수 f, g가 <strong>같은 함수</strong>가 되려면 다음 두 조건이 모두 성립해야 해:</p>
+
+  <div class="flow-row">
+    <div class="flow-box flow-purple">정의역이 같다</div>
+    <div class="flow-arrow">+</div>
+    <div class="flow-box flow-blue">모든 x에서 f(x) = g(x)</div>
+    <div class="flow-arrow">⟹</div>
+    <div class="flow-box flow-green">f = g</div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제:</strong> f(x) = x², 정의역 {1,2,3} 과 g(x) = x², 정의역 {1,2,3,4} 는</p>
+    <p>정의역이 다르므로 <strong>f ≠ g</strong> (함수값이 모든 x에서 같더라도 정의역이 달라서!)</p>
+  </div>
+
+  <div class="concept-card" style="background:var(--bg-inset); border-color:var(--formula); margin-top:16px;">
+    <h3 style="font-size:16px;"><span class="icon">✂️</span> 그래프 활용: f(x) = g(x)의 해</h3>
+    <p style="font-size:14px;">f(x) = g(x)의 해 = <strong>두 함수의 그래프의 교점의 x좌표</strong></p>
+    <p style="font-size:14px; margin-top:8px;">교점의 개수 = 방정식의 실수 해의 개수</p>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 합성함수와 역함수                        -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="m8-composite">
+<div class="concept-card">
+  <h3><span class="icon">🔀</span> 합성함수</h3>
+  <p>f: X → Y, g: Y → Z 일 때, <span class="tt">합성함수<span class="ttp"><strong>합성함수 (Composite Function)</strong><br>(g∘f)(x) = g(f(x)). 먼저 f를 적용하고, 그 결과에 g를 적용함. 순서 주의!</span></span> g∘f는 다음과 같이 정의돼:</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">합성함수 정의</div>
+    <div class="formula">(g ∘ f)(x) = g(f(x))</div>
+    <div class="formula-desc">g∘f : X → Z (f 먼저, g 나중)</div>
+  </div>
+
+  <!-- 합성함수 흐름도 -->
+  <div class="flow-row">
+    <div class="flow-box flow-purple">x ∈ X</div>
+    <div class="flow-arrow">→<br><span style="font-size:11px;">f</span></div>
+    <div class="flow-box flow-blue">f(x) ∈ Y</div>
+    <div class="flow-arrow">→<br><span style="font-size:11px;">g</span></div>
+    <div class="flow-box flow-green">g(f(x)) ∈ Z</div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제:</strong> f(x) = x − 1, g(x) = x² 일 때</p>
+    <p>(g∘f)(x) = g(f(x)) = g(x−1) = <strong>(x−1)²</strong></p>
+    <p>(f∘g)(x) = f(g(x)) = f(x²) = <strong>x² − 1</strong></p>
+    <p style="color:var(--error-text); margin-top:8px;">→ (g∘f)(x) ≠ (f∘g)(x) : 순서가 다르면 결과도 달라!</p>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>주의:</strong> 합성함수는 <strong>교환법칙이 성립하지 않아</strong>. g∘f ≠ f∘g (일반적으로)</p>
+    <p>g∘f를 계산할 때는 <strong>오른쪽(f)부터</strong> 먼저 적용해!</p>
+  </div>
+
+  <!-- 항등함수 -->
+  <div style="background:var(--bg-inset); border:1px solid var(--border); border-radius:var(--radius-md); padding:20px; margin-top:16px;">
+    <h4 style="color:var(--concept-text); margin-bottom:10px;">항등함수 I</h4>
+    <div class="formula-box" style="margin:0;">
+      <div class="formula-desc">항등함수 정의</div>
+      <div class="formula">I(x) = x</div>
+      <div class="formula-desc">f ∘ I = I ∘ f = f &nbsp;(어느 함수와 합성해도 자기 자신)</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 역함수 ── -->
+<div class="concept-card">
+  <h3><span class="icon">↩️</span> 역함수</h3>
+  <p>함수 f가 <strong>일대일 대응</strong>일 때만 <span class="tt">역함수<span class="ttp"><strong>역함수 (Inverse Function)</strong><br>f: X→Y가 일대일 대응일 때, f⁻¹: Y→X가 존재. f⁻¹(y)=x ⟺ f(x)=y</span></span> f⁻¹이 존재해:</p>
+
+  <div class="formula-box">
+    <div class="formula-desc">역함수의 성질</div>
+    <div class="formula">f⁻¹ ∘ f = I<sub>X</sub> &nbsp;,&nbsp; f ∘ f⁻¹ = I<sub>Y</sub></div>
+    <div class="formula-desc">f⁻¹(f(x)) = x &nbsp;,&nbsp; f(f⁻¹(y)) = y</div>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>역함수 존재 조건:</strong> f가 <strong>일대일 대응(전단사)</strong>일 때만 역함수가 존재해!</p>
+    <p>일대일 함수여도 치역=공역이 아니면 역함수가 공역 전체에 대해 정의되지 않아.</p>
+  </div>
+
+  <!-- 역함수 구하는 방법 -->
+  <h4 style="color:var(--formula-text); margin: 20px 0 12px;">역함수 구하는 방법</h4>
+
+  <div class="calc-steps">
+    <div class="calc-step">
+      <div class="calc-step-num">1</div>
+      <div class="calc-step-content">
+        <div class="math">y = f(x) 로 놓는다</div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">2</div>
+      <div class="calc-step-content">
+        <div class="math">x에 대해 풀어서 x = (y에 대한 식) 형태로 만든다</div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">3</div>
+      <div class="calc-step-content">
+        <div class="math">x와 y를 서로 교환한다 → f⁻¹(x) = ...</div>
+      </div>
+    </div>
+    <div class="calc-step">
+      <div class="calc-step-num">4</div>
+      <div class="calc-step-content">
+        <div class="math">정의역 (= 원래 함수의 치역) 을 확인한다</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예제:</strong> f(x) = 2x − 1 의 역함수를 구해라</p>
+    <p>① y = 2x − 1</p>
+    <p>② x에 대해 풀면: 2x = y + 1 &nbsp;→&nbsp; x = (y+1)/2</p>
+    <p>③ x와 y 교환: y = (x+1)/2</p>
+    <p>∴ <strong>f⁻¹(x) = (x+1)/2</strong></p>
+  </div>
+
+  <!-- 역함수 그래프 -->
+  <div class="concept-card" style="background:var(--bg-inset); border-color:var(--tip); margin-top:16px;">
+    <h4 style="color:var(--tip-text);">역함수의 그래프</h4>
+    <p style="font-size:14px;">y = f⁻¹(x)의 그래프는 y = f(x)의 그래프를 <strong>y = x에 대해 대칭</strong>이동한 것이야.</p>
+    <div class="diagram-box" style="margin:12px 0;">
+      <svg width="240" height="220" viewBox="0 0 240 220">
+        <!-- 축 -->
+        <line x1="20" y1="200" x2="230" y2="200" stroke="var(--text-secondary)" stroke-width="1.5"/>
+        <line x1="20" y1="10" x2="20" y2="200" stroke="var(--text-secondary)" stroke-width="1.5"/>
+        <text x="232" y="203" fill="var(--text-secondary)" font-size="11">x</text>
+        <text x="22" y="10" fill="var(--text-secondary)" font-size="11">y</text>
+        <!-- y = x 대칭축 -->
+        <line x1="20" y1="200" x2="220" y2="10" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="210" y="8" fill="var(--text-muted)" font-size="10">y=x</text>
+        <!-- f(x) = 2x-1 → y = 2x-1: 직선 -->
+        <line x1="30" y1="195" x2="140" y2="75" stroke="var(--formula)" stroke-width="2.5"/>
+        <text x="143" y="72" fill="var(--formula-text)" font-size="11">f(x)</text>
+        <!-- f⁻¹(x) = (x+1)/2 -->
+        <line x1="20" y1="190" x2="210" y2="95" stroke="var(--example)" stroke-width="2.5"/>
+        <text x="212" y="93" fill="var(--example-text)" font-size="11">f⁻¹(x)</text>
+      </svg>
+    </div>
+    <p style="font-size:13px; color:var(--text-secondary);">두 그래프는 y=x 직선을 기준으로 서로 대칭이야.</p>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════ -->
+<!-- 8강 핵심 정리                    -->
+<!-- ══════════════════════════════ -->
+<div class="lecture-section" id="m8-summary">
+<div class="summary-card">
+  <h3>8강 핵심 정리</h3>
+  <ul>
+    <li><strong>함수</strong> f: X→Y = 정의역 X의 각 원소에 공역 Y의 원소를 하나씩 대응</li>
+    <li><strong>정의역/공역/치역</strong>: 치역 ⊆ 공역. 치역은 실제 대응된 값들의 집합</li>
+    <li><strong>함수가 아닌 경우</strong>: ① 대응 없는 원소 존재, ② 한 원소가 여러 값에 대응</li>
+    <li><strong>일대일 함수</strong>: x₁≠x₂ ⟹ f(x₁)≠f(x₂). 일대일 대응 = 일대일 + 치역=공역</li>
+    <li><strong>함수 개수</strong>: n^m / 일대일 함수: ₙPₘ (n≥m) / 일대일 대응: m! (n=m)</li>
+    <li><strong>곱집합</strong>: X×Y = {(x,y) | x∈X, y∈Y}, n(X×Y) = n(X)×n(Y)</li>
+    <li><strong>수직선 테스트</strong>: 수직선과 교점이 항상 1개 이하 ⟺ 함수</li>
+    <li><strong>함수의 상등</strong>: 정의역 같고 + 모든 x에서 f(x)=g(x)</li>
+    <li><strong>합성함수</strong>: (g∘f)(x) = g(f(x)). 교환법칙 성립 안 함 (g∘f ≠ f∘g)</li>
+    <li><strong>역함수</strong>: 일대일 대응일 때만 존재. y=f(x)에서 x 풀고 x,y 교환</li>
+    <li><strong>역함수 그래프</strong>: y=f(x)를 y=x에 대해 대칭이동</li>
+  </ul>
+</div>
+</div>
+
+
+</div><!-- /view-lecture-8 -->
 
 
 </div>
