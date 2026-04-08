@@ -67,8 +67,12 @@ document.querySelectorAll('[data-quiz]').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
     const num = link.getAttribute('data-quiz');
-    showView(quizViews[num], 8);
+    const parentGroup = link.closest('.nav-group');
+    hideAllViews();
+    if (quizViews[num]) quizViews[num].classList.add('active');
+    if (parentGroup) parentGroup.classList.add('open');
     link.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'instant' });
   });
 });
 
