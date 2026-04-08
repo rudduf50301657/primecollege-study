@@ -141,7 +141,7 @@
 
   /* ── Example Boxes ── */
   .example-box {
-    background: linear-gradient(135deg, #1a2a1a, var(--example-bg));
+    background: var(--example-bg);
     border: 1px solid var(--example);
     border-radius: var(--radius-md);
     padding: 20px 24px;
@@ -153,7 +153,7 @@
     position: absolute;
     top: -10px; left: 16px;
     background: var(--example);
-    color: #000;
+    color: var(--text-white);
     padding: 2px 12px;
     border-radius: 6px;
     font-size: 12px;
@@ -163,7 +163,7 @@
 
   /* ── Warning / Tip Boxes ── */
   .tip-box {
-    background: linear-gradient(135deg, var(--tip-bg), #3d3a1a);
+    background: var(--tip-bg);
     border: 1px solid var(--tip);
     border-radius: var(--radius-md);
     padding: 20px 24px;
@@ -175,7 +175,7 @@
     position: absolute;
     top: -10px; left: 16px;
     background: var(--tip);
-    color: #000;
+    color: var(--text-white);
     padding: 2px 12px;
     border-radius: 6px;
     font-size: 12px;
@@ -184,7 +184,7 @@
 
   /* ── Analogy Boxes ── */
   .analogy-box {
-    background: linear-gradient(135deg, #1a1a3d, var(--concept-bg));
+    background: var(--concept-bg);
     border: 1px solid var(--concept);
     border-radius: var(--radius-md);
     padding: 20px 24px;
@@ -527,7 +527,7 @@
 
   /* ── Summary Card ── */
   .summary-card {
-    background: linear-gradient(135deg, #1a1a3d, #0f0f2a);
+    background: var(--bg-inset);
     border: 2px solid var(--concept);
     border-radius: var(--radius-lg);
     padding: 28px;

@@ -25,13 +25,13 @@
   .calc-btn:hover { background: var(--border); transform: scale(1.05); }
   .calc-btn:active { transform: scale(0.95); }
   .calc-btn.op { background: var(--concept-bg); color: var(--concept-text); }
-  .calc-btn.op:hover { background: #3d2b79; }
+  .calc-btn.op:hover { background: var(--concept); color: var(--text-white); }
   .calc-btn.fn { background: var(--example-bg); color: var(--example-text); font-size: 12px; }
-  .calc-btn.fn:hover { background: #2a4a3a; }
+  .calc-btn.fn:hover { background: var(--example); color: var(--text-white); }
   .calc-btn.eq { background: linear-gradient(135deg, var(--concept), var(--concept-dark)); color: var(--text-white); }
   .calc-btn.eq:hover { box-shadow: 0 4px 12px rgba(139,92,246,0.4); }
   .calc-btn.ac { background: var(--error-bg); color: var(--error-text); }
-  .calc-btn.ac:hover { background: #4d2a2a; }
+  .calc-btn.ac:hover { background: var(--error); color: var(--text-white); }
   .calc-btn.highlight { animation: calcPulse 0.6s ease; }
   @keyframes calcPulse {
     0% { box-shadow: 0 0 0 0 rgba(139,92,246,0.6); }
