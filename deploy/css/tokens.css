@@ -48,3 +48,39 @@
   /* Font */
   --font: 'Noto Sans KR', sans-serif;
 }
+
+/* ── Light Theme ── */
+[data-theme="light"] {
+  --bg-body: #f4f4f8;
+  --bg-surface: #ffffff;
+  --bg-surface-alt: #f0eff5;
+  --bg-inset: #e9e8f0;
+  --border: #d0cfe0;
+  --border-subtle: #e2e1ec;
+
+  --text-primary: #1a1a2e;
+  --text-secondary: #555;
+  --text-muted: #999;
+  --text-white: #fff;
+
+  --concept: #7c3aed;
+  --concept-dark: #5b21b6;
+  --concept-bg: #ede9fe;
+  --concept-text: #5b21b6;
+
+  --formula: #2563eb;
+  --formula-bg: #dbeafe;
+  --formula-text: #1e40af;
+
+  --example: #16a34a;
+  --example-bg: #dcfce7;
+  --example-text: #166534;
+
+  --tip: #ca8a04;
+  --tip-bg: #fef9c3;
+  --tip-text: #854d0e;
+
+  --error: #dc2626;
+  --error-bg: #fee2e2;
+  --error-text: #991b1b;
+}

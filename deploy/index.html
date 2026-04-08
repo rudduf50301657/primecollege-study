@@ -175,10 +175,19 @@
   <div class="fab-wrap">
     <div class="fab-menu" id="fabMenu">
       <a href="https://open.kakao.com/o/s9OGoOoi" target="_blank">버그 제보 & 문의하기</a>
+      <a href="#" id="themeToggle" onclick="toggleTheme();return false;">라이트 모드</a>
     </div>
-    <button class="fab" onclick="document.getElementById('fabMenu').classList.toggle('open')">?</button>
+    <button class="fab">?</button>
   </div>
 
+<script>
+// Theme toggle
+function toggleTheme(){var t=document.documentElement;var isLight=t.getAttribute('data-theme')==='light';t.setAttribute('data-theme',isLight?'':'light');localStorage.setItem('theme',isLight?'dark':'light');updateToggleLabel();}
+function updateToggleLabel(){var el=document.getElementById('themeToggle');if(el)el.textContent=document.documentElement.getAttribute('data-theme')==='light'?'다크 모드':'라이트 모드';}
+(function(){var s=localStorage.getItem('theme');if(s==='light')document.documentElement.setAttribute('data-theme','light');updateToggleLabel();})();
+// FAB
+document.querySelector('.fab').addEventListener('click',function(){document.getElementById('fabMenu').classList.toggle('open');});
+</script>
 <script>fetch('/api/visitors?page=home').catch(()=>{});</script>
 </body>
 </html>
