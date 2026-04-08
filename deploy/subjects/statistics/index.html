@@ -1420,7 +1420,7 @@
       </div>
       <div class="example-box">
         <p><strong>4명(A,B,C,D)을 4자리에 배치</strong></p>
-        <p>전체: ₄P₄ = 4! = 4×3×2×1 = <strong>24가지</strong></p>
+        <p>전체: <sub>4</sub>P<sub>4</sub> = 4! = 4×3×2×1 = <strong>24가지</strong></p>
         <p style="margin-top: 8px;">A가 맨 왼쪽이면?</p>
         <div style="display: flex; gap: 6px; margin: 6px 0;">
           <div style="padding: 6px 14px; background: var(--concept); border-radius: 6px; font-size: 13px; color: #fff; font-weight: 700;">A (고정!)</div>
@@ -1440,8 +1440,8 @@
       </div>
       <div class="example-box">
         <p>5명(A,B,C,D,E)에서 2명 뽑아 청소</p>
-        <p>₅C₂ = 5!/(2!·3!) = <strong>10가지</strong></p>
-        <p>A가 포함될 경우: ₄C₁ = <strong>4가지</strong></p>
+        <p><sub>5</sub>C<sub>2</sub> = 5!/(2!·3!) = <strong>10가지</strong></p>
+        <p>A가 포함될 경우: <sub>4</sub>C<sub>1</sub> = <strong>4가지</strong></p>
         <p>확률 = 4/10 = <strong>2/5</strong></p>
       </div>
     </div>
@@ -1469,7 +1469,7 @@
 
     <p style="margin-top: 12px; color: var(--concept-text); font-weight: 600;">그래서 나눠서 중복 제거:</p>
     <div style="background: var(--bg-inset); border: 1px solid var(--border); border-radius: 8px; padding: 14px; margin: 8px 0; font-family: 'Consolas', 'Courier New', monospace; font-size: 14px; line-height: 2;">
-      <span style="color: var(--text-primary);">₅C₃ = ₅P₃ / <strong style="color: var(--tip);">3!</strong> = 60 / <strong style="color: var(--tip);">6</strong> = <strong style="color: var(--example);">10</strong></span>
+      <span style="color: var(--text-primary);"><sub>5</sub>C<sub>3</sub> = <sub>5</sub>P<sub>3</sub> / <strong style="color: var(--tip);">3!</strong> = 60 / <strong style="color: var(--tip);">6</strong> = <strong style="color: var(--example);">10</strong></span>
     </div>
 
     <p style="margin-top: 12px; color: var(--concept-text); font-weight: 600;">순열 → 조합, 전체 과정 정리:</p>
@@ -1507,8 +1507,8 @@
     <p style="margin-top: 12px; color: var(--concept-text); font-weight: 600;">더 큰 예로 확인:</p>
     <table class="compare-table" style="margin-top: 4px; max-width: 520px;">
       <tr><th>식</th><th>풀어쓰면</th><th>약분</th><th>결과</th></tr>
-      <tr><td>₅P₂ = 5!/3!</td><td>5×4×<s style="color:var(--error);">3×2×1</s> / <s style="color:var(--error);">3×2×1</s></td><td>5×4</td><td><strong>20</strong></td></tr>
-      <tr><td>₆P₄ = 6!/2!</td><td>6×5×4×3×<s style="color:var(--error);">2×1</s> / <s style="color:var(--error);">2×1</s></td><td>6×5×4×3</td><td><strong>360</strong></td></tr>
+      <tr><td><sub>5</sub>P<sub>2</sub> = 5!/3!</td><td>5×4×<s style="color:var(--error);">3×2×1</s> / <s style="color:var(--error);">3×2×1</s></td><td>5×4</td><td><strong>20</strong></td></tr>
+      <tr><td><sub>6</sub>P<sub>4</sub> = 6!/2!</td><td>6×5×4×3×<s style="color:var(--error);">2×1</s> / <s style="color:var(--error);">2×1</s></td><td>6×5×4×3</td><td><strong>360</strong></td></tr>
     </table>
     <p style="font-size: 13px; color: var(--text-secondary); margin-top: 10px;">n!에서 (n-r)!로 나누면 뒷부분이 <strong>약분돼서 사라지고</strong>, 앞의 r개 곱만 딱 남아!</p>
   </div>
@@ -1521,7 +1521,7 @@
     <p style="margin-top: 10px;"><strong>0! = 1 이다! 오류 안 나고 완벽하게 작동해.</strong></p>
 
     <div style="background: var(--bg-inset); border: 1px solid var(--border); border-radius: 8px; padding: 14px; margin: 12px 0; font-family: 'Consolas', 'Courier New', monospace; font-size: 14px; line-height: 2;">
-      <span style="color: var(--text-primary);">₄P₄ = 4! / (4-4)! = 4! / <strong style="color:var(--tip);">0!</strong> = 24 / <strong style="color:var(--tip);">1</strong> = <strong style="color:var(--example);">24</strong> ✓</span>
+      <span style="color: var(--text-primary);"><sub>4</sub>P<sub>4</sub> = 4! / (4-4)! = 4! / <strong style="color:var(--tip);">0!</strong> = 24 / <strong style="color:var(--tip);">1</strong> = <strong style="color:var(--example);">24</strong> ✓</span>
     </div>
 
     <p style="color: var(--concept-text); font-weight: 600; margin-top: 12px;">왜 0! = 1인가?</p>
@@ -1745,7 +1745,7 @@
   <div class="example-box">
     <p><strong>상자에 6개 제품 중 불량 2개.</strong> 3개 추출할 때 적어도 1개 불량 확률?</p>
     <p>Aᶜ = 불량 0개 = 양품 4개 중 3개 뽑기</p>
-    <p>P(Aᶜ) = ₄C₃ / ₆C₃ = 4/20 = 1/5</p>
+    <p>P(Aᶜ) = <sub>4</sub>C<sub>3</sub> / <sub>6</sub>C<sub>3</sub> = 4/20 = 1/5</p>
     <p>P(A) = 1 − 1/5 = <strong>4/5</strong></p>
   </div>
 </div>
@@ -2425,7 +2425,7 @@
     <tr><td style="color:var(--formula-text);">p</td><td></td><td>한 번에 성공할 확률</td><td>1/2 (앞면)</td></tr>
     <tr><td style="color:var(--formula-text);">(1−p)</td><td></td><td>한 번에 실패할 확률</td><td>1/2 (뒷면)</td></tr>
     <tr><td style="color:var(--formula-text);">x</td><td></td><td>구하려는 성공 횟수</td><td>2 (앞면 2번)</td></tr>
-    <tr><td style="color:var(--formula-text);">ₙCₓ</td><td>"n choose x"</td><td>n번 중 x번 성공하는 조합 수</td><td>₅C₂ = 10가지</td></tr>
+    <tr><td style="color:var(--formula-text);">ₙCₓ</td><td>"n choose x"</td><td>n번 중 x번 성공하는 조합 수</td><td><sub>5</sub>C<sub>2</sub> = 10가지</td></tr>
     <tr><td style="color:var(--formula-text);">pˣ</td><td>"p의 x제곱"</td><td>성공 x번의 확률</td><td>(1/2)² = 1/4</td></tr>
     <tr><td style="color:var(--formula-text);">(1−p)ⁿ⁻ˣ</td><td></td><td>실패 (n-x)번의 확률</td><td>(1/2)³ = 1/8</td></tr>
   </table>
@@ -2445,9 +2445,9 @@
         <div class="calc-step-num">!</div>
         <div class="calc-step-content">
           <p>앞면이 한 번도 안 나올 확률 P(X=0) = ?</p>
-          <div class="math">P(X=0) = ₅C₀ × (1/2)⁰ × (1/2)⁵</div>
+          <div class="math">P(X=0) = <sub>5</sub>C<sub>0</sub> × (1/2)⁰ × (1/2)⁵</div>
           <div class="math" style="font-size: 14px; color: var(--text-secondary);">= 1 × 1 × 1/32 = <strong style="color:var(--formula-text);">1/32</strong></div>
-          <p style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">₅C₀ = 1 (아무것도 안 뽑는 방법 = 1가지), (1/2)⁰ = 1 (뭐든 0제곱은 1)</p>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;"><sub>5</sub>C<sub>0</sub> = 1 (아무것도 안 뽑는 방법 = 1가지), (1/2)⁰ = 1 (뭐든 0제곱은 1)</p>
           <p style="font-size: 13px; color: var(--example); margin-top: 8px;"><strong>R 함수:</strong> <code style="color:var(--example);">dbinom(x, n, p)</code> → <code>dbinom(0, 5, 0.5)</code> = 1/32</p>
         </div>
       </div>
@@ -2509,7 +2509,7 @@
       <div class="calc-step">
         <div class="calc-step-num">1</div>
         <div class="calc-step-content">
-          <div class="math">P(X=3) = ₁₀C₃ × 0.2³ × 0.8⁷</div>
+          <div class="math">P(X=3) = <sub>10</sub>C<sub>3</sub> × 0.2³ × 0.8⁷</div>
         </div>
       </div>
       <div class="calc-step">
@@ -2643,8 +2643,8 @@
 
   <div class="example-box">
     <p><strong>흰공 3개 + 검은공 2개</strong>에서 2개 뽑기. X = 검은공 수</p>
-    <p>P(X=0) = ₂C₀·₃C₂ / ₅C₂ = 1×3/10 = <strong>3/10</strong></p>
-    <p>P(X=2) = ₂C₂·₃C₀ / ₅C₂ = 1×1/10 = <strong>1/10</strong></p>
+    <p>P(X=0) = <sub>2</sub>C<sub>0</sub>·<sub>3</sub>C<sub>2</sub> / <sub>5</sub>C<sub>2</sub> = 1×3/10 = <strong>3/10</strong></p>
+    <p>P(X=2) = <sub>2</sub>C<sub>2</sub>·<sub>3</sub>C<sub>0</sub> / <sub>5</sub>C<sub>2</sub> = 1×1/10 = <strong>1/10</strong></p>
   </div>
 
   <div class="tip-box">
@@ -5718,7 +5718,7 @@
 <div class="quiz-card" id="q21">
   <div class="quiz-card-header"><div class="quiz-num q-obj">1</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">₇C₃의 값은?</div>
+    <div class="quiz-question"><sub>7</sub>C<sub>3</sub>의 값은?</div>
     <ul class="quiz-options" data-answer="3">
       <li data-label="A" onclick="selectOption(this)">21</li>
       <li data-label="B" onclick="selectOption(this)">210</li>
@@ -5726,13 +5726,13 @@
       <li data-label="D" onclick="selectOption(this)">42</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(21)">힌트 보기</button>
-    <div class="quiz-hint" id="q21-hint">₇C₃ = 7! / (3! × 4!)로 계산합니다. 분자를 (7×6×5), 분모를 (3×2×1)로 간단히 할 수 있습니다.</div>
+    <div class="quiz-hint" id="q21-hint"><sub>7</sub>C<sub>3</sub> = 7! / (3! × 4!)로 계산합니다. 분자를 (7×6×5), 분모를 (3×2×1)로 간단히 할 수 있습니다.</div>
     <button class="quiz-submit" onclick="submitMC(21)">답 제출하기</button>
     <div class="quiz-result" id="q21-result"></div>
     <div class="quiz-explanation" id="q21-explain">
       <div class="quiz-explain-label">해설</div>
       <strong>핵심 개념: 조합(Combination) 계산</strong><br><br>
-      ₇C₃ = 7! / (3! × 4!) = (7×6×5) / (3×2×1) = 210 / 6 = <strong>35</strong><br><br>
+      <sub>7</sub>C<sub>3</sub> = 7! / (3! × 4!) = (7×6×5) / (3×2×1) = 210 / 6 = <strong>35</strong><br><br>
       💡 <strong>빠른 방법:</strong> 분자는 위에서 3개(7,6,5)만 곱하고, 분모는 3!로 나누기
     </div>
   </div>
@@ -5780,7 +5780,7 @@
       <div class="quiz-explain-label">해설</div>
       <strong>핵심 개념: 여사건을 이용한 확률 계산</strong><br><br>
       "적어도 1개" = 1 − P(0개)<br><br>
-      P(불량 0개) = ₄C₃ / ₆C₃ = 4/20 = 1/5<br>
+      P(불량 0개) = <sub>4</sub>C<sub>3</sub> / <sub>6</sub>C<sub>3</sub> = 4/20 = 1/5<br>
       P(적어도 1개 불량) = 1 − 1/5 = <strong>4/5</strong><br><br>
       💡 <strong>Tip:</strong> "적어도 하나"가 나오면 여사건(전혀 없는 경우)을 빼는 것이 훨씬 쉽습니다.
     </div>
@@ -5841,7 +5841,7 @@
 <div class="quiz-card" id="q51">
   <div class="quiz-card-header"><div class="quiz-num q-obj">6</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">5명 중 3명을 뽑아 <strong>일렬로 세우는</strong> 경우의 수(순열, ₅P₃)는?</div>
+    <div class="quiz-question">5명 중 3명을 뽑아 <strong>일렬로 세우는</strong> 경우의 수(순열, <sub>5</sub>P<sub>3</sub>)는?</div>
     <ul class="quiz-options" data-answer="4">
       <li data-label="A" onclick="selectOption(this)">10</li>
       <li data-label="B" onclick="selectOption(this)">15</li>
@@ -5849,15 +5849,15 @@
       <li data-label="D" onclick="selectOption(this)">60</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(51)">힌트 보기</button>
-    <div class="quiz-hint" id="q51-hint">순열은 순서가 중요하므로 ₅P₃ = 5!/(5-3)!로 계산합니다.</div>
+    <div class="quiz-hint" id="q51-hint">순열은 순서가 중요하므로 <sub>5</sub>P<sub>3</sub> = 5!/(5-3)!로 계산합니다.</div>
     <button class="quiz-submit" onclick="submitMC(51)">답 제출하기</button>
     <div class="quiz-result" id="q51-result"></div>
     <div class="quiz-explanation" id="q51-explain">
       <div class="quiz-explain-label">해설</div>
       <strong>핵심 개념: 순열(Permutation) 계산</strong><br><br>
-      ₅P₃ = 5!/(5−3)! = 5!/2! = (5×4×3×2×1)/(2×1) = <strong>60</strong><br><br>
+      <sub>5</sub>P<sub>3</sub> = 5!/(5−3)! = 5!/2! = (5×4×3×2×1)/(2×1) = <strong>60</strong><br><br>
       빠른 방법: 위에서 3개만 곱하기 = 5×4×3 = <strong>60</strong><br><br>
-      💡 <strong>순열 vs 조합:</strong> 순열은 순서 중요(₅P₃=60), 조합은 순서 무관(₅C₃=10). 순열 = 조합 × r!
+      💡 <strong>순열 vs 조합:</strong> 순열은 순서 중요(<sub>5</sub>P<sub>3</sub>=60), 조합은 순서 무관(<sub>5</sub>C<sub>3</sub>=10). 순열 = 조합 × r!
     </div>
   </div>
 </div>
@@ -5988,8 +5988,8 @@
       <div class="quiz-explain-label">해설</div>
       <strong>핵심 개념: 비복원추출의 확률 계산</strong><br><br>
       빨간 공 4개, 파란 공 6개 (총 10개)에서 2개 동시 추출:<br><br>
-      빨간 공 2개 선택: ₄C₂ = 6<br>
-      전체에서 2개 선택: ₁₀C₂ = 45<br>
+      빨간 공 2개 선택: <sub>4</sub>C<sub>2</sub> = 6<br>
+      전체에서 2개 선택: <sub>10</sub>C<sub>2</sub> = 45<br>
       P = 6/45 = <strong>2/15</strong> ≈ 0.133<br><br>
       💡 <strong>주의:</strong> 4/25 = 0.16은 복원추출(독립)일 때의 값 (4/10)² 입니다. 비복원에서는 조합을 사용하세요.
     </div>
@@ -6099,7 +6099,7 @@
 <div class="quiz-card" id="q106">
   <div class="quiz-card-header"><div class="quiz-num q-obj">16</div><span class="quiz-type obj">객관식</span></div>
   <div class="quiz-card-body">
-    <div class="quiz-question">₈P₃ + ₈C₃의 값은?</div>
+    <div class="quiz-question"><sub>8</sub>P<sub>3</sub> + <sub>8</sub>C<sub>3</sub>의 값은?</div>
     <ul class="quiz-options" data-answer="3">
       <li data-label="A" onclick="selectOption(this)">336</li>
       <li data-label="B" onclick="selectOption(this)">56</li>
@@ -6107,14 +6107,14 @@
       <li data-label="D" onclick="selectOption(this)">448</li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(106)">힌트 보기</button>
-    <div class="quiz-hint" id="q106-hint">₈P₃ = 8×7×6, ₈C₃ = 8!/(3!×5!)을 각각 계산해서 더하세요.</div>
+    <div class="quiz-hint" id="q106-hint"><sub>8</sub>P<sub>3</sub> = 8×7×6, <sub>8</sub>C<sub>3</sub> = 8!/(3!×5!)을 각각 계산해서 더하세요.</div>
     <button class="quiz-submit" onclick="submitMC(106)">답 제출하기</button>
     <div class="quiz-result" id="q106-result"></div>
     <div class="quiz-explanation" id="q106-explain">
       <div class="quiz-explain-label">해설</div>
       <strong>핵심 개념: 순열과 조합 합산</strong><br><br>
-      ₈P₃ = 8×7×6 = <strong>336</strong> (순서 O)<br>
-      ₈C₃ = 8!/(3!×5!) = 336/6 = <strong>56</strong> (순서 X)<br>
+      <sub>8</sub>P<sub>3</sub> = 8×7×6 = <strong>336</strong> (순서 O)<br>
+      <sub>8</sub>C<sub>3</sub> = 8!/(3!×5!) = 336/6 = <strong>56</strong> (순서 X)<br>
       합: 336 + 56 = <strong>392</strong><br><br>
       💡 <strong>관계:</strong> ₙPᵣ = ₙCᵣ × r! 이므로, 336 = 56 × 6 이 성립합니다.
     </div>
@@ -6896,7 +6896,7 @@
       <div class="quiz-explain-label">해설</div>
       <strong>핵심 개념: 이항분포의 확률 계산</strong><br><br>
       X ~ B(5, 0.5), P(X=2) = ?<br><br>
-      P(X=2) = ₅C₂ × 0.5² × 0.5³<br>
+      P(X=2) = <sub>5</sub>C<sub>2</sub> × 0.5² × 0.5³<br>
       = 10 × 0.25 × 0.125 = <strong>0.3125</strong><br><br>
       💡 <strong>공식:</strong> P(X=k) = ₙCₖ × pᵏ × (1-p)ⁿ⁻ᵏ
     </div>
@@ -7053,8 +7053,8 @@
       <div class="quiz-explain-label">해설</div>
       <strong>핵심 개념: 이항분포의 누적확률 계산</strong><br><br>
       X ~ B(10, 0.4), P(X ≤ 1) = P(X=0) + P(X=1)<br><br>
-      P(X=0) = ₁₀C₀ × 0.4⁰ × 0.6¹⁰ ≈ 0.006<br>
-      P(X=1) = ₁₀C₁ × 0.4¹ × 0.6⁹ ≈ 0.040<br>
+      P(X=0) = <sub>10</sub>C<sub>0</sub> × 0.4⁰ × 0.6¹⁰ ≈ 0.006<br>
+      P(X=1) = <sub>10</sub>C<sub>1</sub> × 0.4¹ × 0.6⁹ ≈ 0.040<br>
       P(X≤1) ≈ 0.006 + 0.040 = <strong>약 0.046</strong><br><br>
       💡 <strong>Tip:</strong> 이항분포의 누적확률은 각 경우를 개별적으로 계산해서 더합니다.
     </div>
@@ -7171,10 +7171,10 @@
   <div class="quiz-card-body">
     <div class="quiz-question">상자에 빨간 공 8개, 흰 공 12개가 있다. 5개를 비복원추출할 때, 빨간 공이 정확히 2개일 확률은? (초기하분포)</div>
     <ul class="quiz-options" data-answer="2">
-      <li data-label="A" onclick="selectOption(this)">₈C₂ / ₂₀C₅</li>
-      <li data-label="B" onclick="selectOption(this)">(₈C₂ × ₁₂C₃) / ₂₀C₅</li>
-      <li data-label="C" onclick="selectOption(this)">₅C₂ × 0.4² × 0.6³</li>
-      <li data-label="D" onclick="selectOption(this)">(₈C₂ × ₁₂C₃) / ₂₀P₅</li>
+      <li data-label="A" onclick="selectOption(this)"><sub>8</sub>C<sub>2</sub> / <sub>20</sub>C<sub>5</sub></li>
+      <li data-label="B" onclick="selectOption(this)">(<sub>8</sub>C<sub>2</sub> × <sub>12</sub>C<sub>3</sub>) / <sub>20</sub>C<sub>5</sub></li>
+      <li data-label="C" onclick="selectOption(this)"><sub>5</sub>C<sub>2</sub> × 0.4² × 0.6³</li>
+      <li data-label="D" onclick="selectOption(this)">(<sub>8</sub>C<sub>2</sub> × <sub>12</sub>C<sub>3</sub>) / <sub>20</sub>P<sub>5</sub></li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(126)">힌트 보기</button>
     <div class="quiz-hint" id="q126-hint">초기하분포 공식: (성공 중 k개 선택) × (실패 중 나머지 선택) / (전체 중 n개 선택).</div>
@@ -7184,10 +7184,10 @@
       <div class="quiz-explain-label">해설</div>
       <strong>핵심 개념: 초기하분포 공식</strong><br><br>
       P(X=k) = (ₐCₖ × ₙ₋ₐCₘ₋ₖ) / ₙCₘ<br><br>
-      빨간(성공) 8개 중 2개: ₈C₂ = 28<br>
-      흰(실패) 12개 중 3개: ₁₂C₃ = 220<br>
-      전체 20개 중 5개: ₂₀C₅ = 15504<br>
-      P = <strong>(₈C₂ × ₁₂C₃) / ₂₀C₅</strong> ≈ 0.397<br><br>
+      빨간(성공) 8개 중 2개: <sub>8</sub>C<sub>2</sub> = 28<br>
+      흰(실패) 12개 중 3개: <sub>12</sub>C<sub>3</sub> = 220<br>
+      전체 20개 중 5개: <sub>20</sub>C<sub>5</sub> = 15504<br>
+      P = <strong>(<sub>8</sub>C<sub>2</sub> × <sub>12</sub>C<sub>3</sub>) / <sub>20</sub>C<sub>5</sub></strong> ≈ 0.397<br><br>
       💡 <strong>주의:</strong> C(이항분포 공식)와 D(분모가 순열)는 오답입니다.
     </div>
   </div>
@@ -7288,10 +7288,10 @@
       <div class="quiz-explain-label">해설</div>
       <strong>핵심 개념: 이항분포의 상위 꼬리 확률</strong><br><br>
       X ~ B(8, 0.5), P(X ≥ 7) = P(X=7) + P(X=8)<br><br>
-      P(X=7) = ₈C₇ × 0.5⁷ × 0.5¹ = 8/256<br>
-      P(X=8) = ₈C₈ × 0.5⁸ = 1/256<br>
+      P(X=7) = <sub>8</sub>C<sub>7</sub> × 0.5⁷ × 0.5¹ = 8/256<br>
+      P(X=8) = <sub>8</sub>C<sub>8</sub> × 0.5⁸ = 1/256<br>
       P(X≥7) = 8/256 + 1/256 = <strong>9/256</strong> ≈ 0.035<br><br>
-      💡 <strong>Tip:</strong> 0.5⁸ = 1/256이고, ₈C₇ = 8, ₈C₈ = 1입니다.
+      💡 <strong>Tip:</strong> 0.5⁸ = 1/256이고, <sub>8</sub>C<sub>7</sub> = 8, <sub>8</sub>C<sub>8</sub> = 1입니다.
     </div>
   </div>
 </div>
@@ -7897,8 +7897,8 @@
 </div>
 
 <div class="guide-card">
-  <h4>예제 2: 조합 ₁₀C₃ — 공식대로 풀기</h4>
-  <p class="goal">₁₀C₃ = 10! ÷ (3! × 7!)</p>
+  <h4>예제 2: 조합 <sub>10</sub>C<sub>3</sub> — 공식대로 풀기</h4>
+  <p class="goal"><sub>10</sub>C<sub>3</sub> = 10! ÷ (3! × 7!)</p>
   <p style="color:var(--text-secondary); font-size:13px; margin-bottom:12px;">n! 버튼으로 수식을 조립하고, = 으로 한번에 계산합니다.</p>
   <ol class="step-list">
     <li><span class="key-badge">1</span><span class="key-badge">0</span> <span class="key-badge fn-key">n!</span> → 화면에 <strong>fact(10)</strong></li>
@@ -7912,8 +7912,8 @@
 </div>
 
 <div class="guide-card">
-  <h4>예제 3: 조합 ₁₀C₃ — 빠른 방법</h4>
-  <p class="goal">₁₀C₃ = (10×9×8) ÷ 3!</p>
+  <h4>예제 3: 조합 <sub>10</sub>C<sub>3</sub> — 빠른 방법</h4>
+  <p class="goal"><sub>10</sub>C<sub>3</sub> = (10×9×8) ÷ 3!</p>
   <p style="color:var(--text-secondary); font-size:13px; margin-bottom:12px;">분자를 직접 곱하면 더 빠릅니다. 3개를 뽑으니 위에서 3개만 곱하고 3!로 나누기.</p>
   <ol class="step-list">
     <li><span class="key-badge">1</span><span class="key-badge">0</span> <span class="key-badge op-key">×</span> <span class="key-badge">9</span> <span class="key-badge op-key">×</span> <span class="key-badge">8</span></li>
@@ -7924,8 +7924,8 @@
 </div>
 
 <div class="guide-card">
-  <h4>예제 4: 순열 ₅P₂ 구하기</h4>
-  <p class="goal">₅P₂ = 5! ÷ 3! = 5 × 4</p>
+  <h4>예제 4: 순열 <sub>5</sub>P<sub>2</sub> 구하기</h4>
+  <p class="goal"><sub>5</sub>P<sub>2</sub> = 5! ÷ 3! = 5 × 4</p>
   <p style="color:var(--text-secondary); font-size:13px; margin-bottom:12px;">순열은 위에서부터 r개만 곱하면 됩니다.</p>
   <ol class="step-list">
     <li><span class="key-badge">5</span> <span class="key-badge op-key">×</span> <span class="key-badge">4</span> <span class="key-badge op-key">=</span></li>
@@ -8034,10 +8034,10 @@
 
 <div class="guide-card">
   <h4>예제 13: 이항분포 확률 계산</h4>
-  <p class="goal">X~B(5, 0.3)일 때 P(X=2)<br>= ₅C₂ × 0.3² × 0.7³</p>
+  <p class="goal">X~B(5, 0.3)일 때 P(X=2)<br>= <sub>5</sub>C<sub>2</sub> × 0.3² × 0.7³</p>
   <p style="color:var(--text-secondary); font-size:13px; margin-bottom:12px;">이항분포 공식을 단계별로 계산합니다.</p>
   <ol class="step-list">
-    <li>₅C₂: <span class="key-badge">5</span> <span class="key-badge op-key">×</span> <span class="key-badge">4</span> <span class="key-badge op-key">÷</span> <span class="key-badge">(</span><span class="key-badge">2</span> <span class="key-badge fn-key">n!</span><span class="key-badge">)</span> → <strong>10</strong></li>
+    <li><sub>5</sub>C<sub>2</sub>: <span class="key-badge">5</span> <span class="key-badge op-key">×</span> <span class="key-badge">4</span> <span class="key-badge op-key">÷</span> <span class="key-badge">(</span><span class="key-badge">2</span> <span class="key-badge fn-key">n!</span><span class="key-badge">)</span> → <strong>10</strong></li>
     <li><span class="key-badge op-key">×</span> <span class="key-badge">0</span><span class="key-badge">.</span><span class="key-badge">3</span> <span class="key-badge fn-key">x<sup>y</sup></span> <span class="key-badge">2</span></li>
     <li><span class="key-badge op-key">×</span> <span class="key-badge">0</span><span class="key-badge">.</span><span class="key-badge">7</span> <span class="key-badge fn-key">x<sup>y</sup></span> <span class="key-badge">3</span></li>
     <li><span class="key-badge op-key">=</span></li>
