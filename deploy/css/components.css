@@ -127,7 +127,7 @@
       z-index: 300;
     }
     .sidebar.open { transform: translateX(0); }
-    .main { margin-left: 0; padding: 16px; padding-top: 72px; }
+    .main { margin-left: 0; padding: 16px; padding-top: 72px; max-width: 100%; overflow-x: hidden; margin-right: auto; }
     .hero { padding: 30px 0 20px; }
     .hero h1 { font-size: 28px; }
     .lecture-header h2 { font-size: 20px; }
@@ -143,6 +143,10 @@
     .quiz-card-body { padding: 16px 20px 20px; }
     .quiz-card-header { padding: 16px 20px 0; }
     .quiz-options li { padding: 12px 14px; font-size: 13px; }
+    .compare-table { display: block; overflow-x: auto; }
+    .formula-box .formula { font-size: 14px; word-break: break-all; }
+    .diagram-box { overflow-x: auto; }
+    .diagram-box svg { max-width: 100%; height: auto; }
     .fab-wrap { bottom: 16px; right: 16px; }
     .update-banner { left: 0; top: 56px; }
   }

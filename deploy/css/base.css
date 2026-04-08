@@ -8,6 +8,7 @@
     color: var(--text-primary);
     line-height: 1.8;
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   /* ── Custom Scrollbar ── */
