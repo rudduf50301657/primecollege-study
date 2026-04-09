@@ -1232,13 +1232,13 @@
 <div class="concept-card">
   <h3><span class="icon">🪞</span> 켤레복소수</h3>
 
-  <p>z = a + bi의 <span class="tt">켤레복소수<span class="ttp"><strong>켤레복소수 (Conjugate)</strong><br>z = a + bi의 켤레는 z̄ = a - bi. 허수부의 부호만 반대!</span></span>는 <strong>z̄ = a - bi</strong>야. (허수부 부호만 반대)</p>
+  <p>z = a + bi의 <span class="tt">켤레복소수<span class="ttp"><strong>켤레복소수 (Conjugate)</strong><br>z = a + bi의 켤레는 <span class="ovl">z</span> = a - bi. 허수부의 부호만 반대!</span></span>는 <strong><span class="ovl">z</span> = a - bi</strong>야. (허수부 부호만 반대)</p>
 
   <div class="formula-box">
     <div class="formula-desc">켤레복소수의 성질</div>
-    <div class="formula">z + z̄ = 2a (실수)</div>
-    <div class="formula">z x z̄ = a<sup>2</sup> + b<sup>2</sup> (실수, 항상 ≥ 0)</div>
-    <div class="formula">z̄̄ = z (두 번 켤레하면 원래로)</div>
+    <div class="formula">z + <span class="ovl">z</span> = 2a (실수)</div>
+    <div class="formula">z x <span class="ovl">z</span> = a<sup>2</sup> + b<sup>2</sup> (실수, 항상 ≥ 0)</div>
+    <div class="formula"><span class="ovl"><span class="ovl">z</span></span> = z (두 번 켤레하면 원래로)</div>
   </div>
 
   <div class="tip-box">
@@ -1337,7 +1337,7 @@
     <li><strong>GCD x LCM = a x b</strong></li>
     <li><strong>p진법</strong>: 10진법 → p진법은 나누기 반복 후 나머지 역순 읽기</li>
     <li><strong>복소수</strong>: a + bi, 허수단위 i<sup>2</sup> = -1</li>
-    <li><strong>켤레복소수</strong>: z̄ = a - bi, z x z̄ = a<sup>2</sup> + b<sup>2</sup></li>
+    <li><strong>켤레복소수</strong>: <span class="ovl">z</span> = a - bi, z x <span class="ovl">z</span> = a<sup>2</sup> + b<sup>2</sup></li>
     <li><strong>i의 주기</strong>: i, -1, -i, 1 반복 (주기 4)</li>
   </ul>
 </div>
@@ -4279,7 +4279,7 @@
     <li><strong>절댓값</strong>: |a| = a (a≥0), −a (a&lt;0). |a|² = a². |ab| = |a||b|.</li>
     <li><strong>약수·배수 / GCD·LCM</strong>: GCD×LCM = 두 수의 곱 (a×b). 유클리드 호제법으로 GCD 계산.</li>
     <li><strong>복소수 연산</strong>: a+bi 형태. 덧셈은 실수·허수 따로, 곱셈은 i² = −1 활용.</li>
-    <li><strong>켤레복소수</strong>: z = a+bi의 켤레 z̄ = a−bi. z+z̄ = 2a (실수), z·z̄ = a²+b² (실수).</li>
+    <li><strong>켤레복소수</strong>: z = a+bi의 켤레 <span class="ovl">z</span> = a−bi. z+<span class="ovl">z</span> = 2a (실수), z·<span class="ovl">z</span> = a²+b² (실수).</li>
     <li><strong>복소수 나눗셈</strong>: 분모·분자에 켤레복소수 곱해서 분모 실수화.</li>
   </ul>
 </div>
@@ -4892,12 +4892,12 @@
     <span class="quiz-type obj">객관식</span>
   </div>
   <div class="quiz-card-body">
-    <div class="quiz-question">복소수 z = a + bi에서 켤레복소수 z̄의 정의로 올바른 것은?</div>
+    <div class="quiz-question">복소수 z = a + bi에서 켤레복소수 <span class="ovl">z</span>의 정의로 올바른 것은?</div>
     <ul class="quiz-options" data-answer="1">
-      <li data-label="A" onclick="selectOption(this)">z̄ = a − bi</li>
-      <li data-label="B" onclick="selectOption(this)">z̄ = −a + bi</li>
-      <li data-label="C" onclick="selectOption(this)">z̄ = −a − bi</li>
-      <li data-label="D" onclick="selectOption(this)">z̄ = a + bi</li>
+      <li data-label="A" onclick="selectOption(this)"><span><span class="ovl">z</span> = a − bi</span></li>
+      <li data-label="B" onclick="selectOption(this)"><span><span class="ovl">z</span> = −a + bi</span></li>
+      <li data-label="C" onclick="selectOption(this)"><span><span class="ovl">z</span> = −a − bi</span></li>
+      <li data-label="D" onclick="selectOption(this)"><span><span class="ovl">z</span> = a + bi</span></li>
     </ul>
     <button class="quiz-hint-btn" onclick="showHint(113)">힌트 보기</button>
     <div class="quiz-hint" id="q113-hint">켤레복소수는 허수부의 부호만 반대로 바꾸는 거야. 실수부는 그대로!</div>
@@ -4905,7 +4905,7 @@
     <div class="quiz-result" id="q113-result"></div>
     <div class="quiz-explanation" id="q113-explain">
       <div class="quiz-explain-label">해설</div>
-      z = a + bi의 켤레복소수는 <strong>z̄ = a − bi</strong>야. 허수부(b)의 부호만 반대로 바꾸고 실수부(a)는 그대로야. 켤레복소수 성질: z + z̄ = 2a (실수), z × z̄ = a² + b² (항상 ≥ 0인 실수). 복소수 나눗셈에서 분모를 실수로 만들 때 켤레복소수를 곱해!
+      z = a + bi의 켤레복소수는 <strong><span class="ovl">z</span> = a − bi</strong>야. 허수부(b)의 부호만 반대로 바꾸고 실수부(a)는 그대로야. 켤레복소수 성질: z + <span class="ovl">z</span> = 2a (실수), z × <span class="ovl">z</span> = a² + b² (항상 ≥ 0인 실수). 복소수 나눗셈에서 분모를 실수로 만들 때 켤레복소수를 곱해!
     </div>
   </div>
 </div>

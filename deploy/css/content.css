@@ -1,3 +1,6 @@
+  /* ── Overline (켤레복소수 등) ── */
+  .ovl { text-decoration: overline; }
+
   /* ── Tooltip Popup ── */
   .tt {
     position: relative;
