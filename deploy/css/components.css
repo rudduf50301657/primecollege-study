@@ -118,6 +118,16 @@
   .sidebar-overlay.open { display: block; }
 
   /* ── Vocabulary Study Mode ── */
+  .view-vocab { overflow-x: hidden; }
+  .view-vocab .concept-card { overflow-x: auto; }
+  .view-vocab .compare-table { table-layout: fixed; width: 100%; }
+  .view-vocab .compare-table th:nth-child(1),
+  .view-vocab .compare-table td:nth-child(1) { width: 20%; }
+  .view-vocab .compare-table th:nth-child(2),
+  .view-vocab .compare-table td:nth-child(2) { width: 30%; }
+  .view-vocab .compare-table th:nth-child(3),
+  .view-vocab .compare-table td:nth-child(3) { width: 50%; word-break: break-word; }
+
   .vocab-controls {
     display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap;
     background: var(--bg-surface); padding: 16px; border-radius: var(--radius-lg);
