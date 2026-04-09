@@ -9,7 +9,7 @@ function toggleTheme() {
 
 function updateToggleLabel() {
   var el = document.getElementById('themeToggle');
-  if (el) el.textContent = document.documentElement.getAttribute('data-theme') === 'light' ? '다크 모드' : '라이트 모드';
+  if (el) el.textContent = document.documentElement.getAttribute('data-theme') === 'light' ? '☀️' : '🌙';
 }
 
 // Apply saved theme on load
