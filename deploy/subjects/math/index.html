@@ -140,6 +140,8 @@
       <span class="nav-arrow">▶</span> 시험 대비
     </div>
     <div class="nav-links">
+      <a href="#exam-summary" data-lecture="exam">핵심 요약</a>
+      <a href="#exam-formulas" data-lecture="exam">공식 정리</a>
     </div>
   </div>
 
@@ -4242,6 +4244,329 @@
 
 
 </div><!-- /view-lecture-8 -->
+
+<div class="view-exam">
+
+<!-- ══════════════════════════════════════ -->
+<!-- Section 1: 핵심 요약                    -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="exam-summary">
+<div class="lecture-header">
+  <div class="lecture-num" style="background: linear-gradient(135deg, var(--error), #b91c1c);">★</div>
+  <h2>핵심 요약</h2>
+</div>
+
+<!-- 1강 -->
+<div class="concept-card">
+  <h3>1강 — 집합과 명제</h3>
+  <ul>
+    <li><strong>집합</strong>: 조건에 의해 대상을 분명하게 정할 수 있는 모임. 원소나열법 / 조건제시법으로 표시.</li>
+    <li><strong>집합 연산</strong>: A∪B (합집합, 또는), A∩B (교집합, 그리고), A−B (차집합), A<sup>c</sup> (여집합).</li>
+    <li><strong>드모르간</strong>: (A∪B)<sup>c</sup> = A<sup>c</sup>∩B<sup>c</sup> &nbsp;|&nbsp; (A∩B)<sup>c</sup> = A<sup>c</sup>∪B<sup>c</sup>. 보수 씌우면 ∪↔∩ 뒤집힌다.</li>
+    <li><strong>원소 개수</strong>: n(A∪B) = n(A)+n(B)−n(A∩B). 세 집합도 같은 원리로 확장.</li>
+    <li><strong>부분집합 개수</strong>: 원소 n개인 집합의 부분집합 = 2<sup>n</sup>개. 공집합은 모든 집합의 부분집합.</li>
+    <li><strong>명제 p→q</strong>: 역(q→p), 이(¬p→¬q), 대우(¬q→¬p). 명제와 대우는 진리값 동일.</li>
+    <li><strong>충분·필요조건</strong>: p→q 이면 p는 q의 충분조건, q는 p의 필요조건. 양방향이면 필요충분조건.</li>
+  </ul>
+</div>
+
+<!-- 2강 -->
+<div class="concept-card">
+  <h3>2강 — 실수와 복소수</h3>
+  <ul>
+    <li><strong>수 체계</strong>: 자연수 ⊂ 정수 ⊂ 유리수 ⊂ 실수 ⊂ 복소수. 무리수∪유리수 = 실수.</li>
+    <li><strong>사칙연산 우선순위</strong>: 괄호 → 지수 → 곱나눗셈 → 덧뺄셈. 정수 나눗셈에서 나머지는 항상 0 이상.</li>
+    <li><strong>절댓값</strong>: |a| = a (a≥0), −a (a&lt;0). |a|² = a². |ab| = |a||b|.</li>
+    <li><strong>약수·배수 / GCD·LCM</strong>: GCD×LCM = 두 수의 곱 (a×b). 유클리드 호제법으로 GCD 계산.</li>
+    <li><strong>복소수 연산</strong>: a+bi 형태. 덧셈은 실수·허수 따로, 곱셈은 i² = −1 활용.</li>
+    <li><strong>켤레복소수</strong>: z = a+bi의 켤레 z̄ = a−bi. z+z̄ = 2a (실수), z·z̄ = a²+b² (실수).</li>
+    <li><strong>복소수 나눗셈</strong>: 분모·분자에 켤레복소수 곱해서 분모 실수화.</li>
+  </ul>
+</div>
+
+<!-- 3강 -->
+<div class="concept-card">
+  <h3>3강 — 인수분해와 나머지정리</h3>
+  <ul>
+    <li><strong>지수법칙</strong>: aᵐ·aⁿ = aᵐ⁺ⁿ, (aᵐ)ⁿ = aᵐⁿ, (ab)ⁿ = aⁿbⁿ, a⁰ = 1 (a≠0), a⁻ⁿ = 1/aⁿ.</li>
+    <li><strong>주요 곱셈공식</strong>: (a±b)² = a²±2ab+b², (a+b)(a−b) = a²−b², (a±b)³ = a³±3a²b+3ab²±b³.</li>
+    <li><strong>인수분해</strong>: 공통인수 묶기 → 완전제곱식 → 합차공식 순으로 시도. x²+(a+b)x+ab = (x+a)(x+b).</li>
+    <li><strong>항등식</strong>: 모든 x에 대해 성립. 미정계수법: 양변 계수 비교 또는 특정 값 대입.</li>
+    <li><strong>나머지정리</strong>: f(x)를 (x−a)로 나눈 나머지 = f(a). 직접 나누지 않고 대입만으로 OK.</li>
+    <li><strong>확장</strong>: f(x)를 (ax−b)로 나눈 나머지 = f(b/a). 이차식 나눔: 나머지 = px+q, f(a)·f(b)로 연립.</li>
+    <li><strong>인수정리</strong>: f(a) = 0 ⟺ (x−a)가 f(x)의 인수. 인수 찾을 때 상수항 약수부터 대입 시도.</li>
+  </ul>
+</div>
+
+<!-- 4강 -->
+<div class="concept-card">
+  <h3>4강 — 수열과 수열의 합</h3>
+  <ul>
+    <li><strong>등차수열</strong>: 일반항 aₙ = a + (n−1)d. 합 Sₙ = n[2a+(n−1)d]/2 = n(a+l)/2 (l: 끝항).</li>
+    <li><strong>등차중항</strong>: b = (a+c)/2. 등차수열 조건: b−a = c−b (공차 일정).</li>
+    <li><strong>등비수열</strong>: 일반항 aₙ = ar^(n−1). 합 Sₙ = a(rⁿ−1)/(r−1) (r≠1), Sₙ = an (r=1).</li>
+    <li><strong>등비중항</strong>: b = ±√(ac). 등비수열 조건: b/a = c/b (공비 일정).</li>
+    <li><strong>조화수열</strong>: 역수가 등차수열. 조화중항: 2/b = 1/a + 1/c.</li>
+    <li><strong>Sₙ → aₙ 역산</strong>: aₙ = Sₙ − Sₙ₋₁ (n≥2), a₁ = S₁. 반드시 n=1 따로 확인!</li>
+    <li><strong>평균 부등식</strong>: 산술평균 ≥ 기하평균 ≥ 조화평균 (양수, 등호: a=b).</li>
+  </ul>
+</div>
+
+<!-- 5강 -->
+<div class="concept-card">
+  <h3>5강 — 여러 가지 수열의 합</h3>
+  <ul>
+    <li><strong>Σ 정의</strong>: ∑<sub>k=1</sub><sup>n</sup> aₖ = a₁+a₂+⋯+aₙ. 인덱스 변수는 더미(dummy).</li>
+    <li><strong>Σ 성질</strong>: ∑(aₖ±bₖ) = ∑aₖ±∑bₖ, ∑c·aₖ = c·∑aₖ. 단, ∑(aₖbₖ) ≠ ∑aₖ·∑bₖ (곱은 분리 불가!).</li>
+    <li><strong>Σk 공식</strong>: ∑k = n(n+1)/2, ∑k² = n(n+1)(2n+1)/6, ∑k³ = [n(n+1)/2]².</li>
+    <li><strong>상수합</strong>: ∑<sub>k=1</sub><sup>n</sup> c = cn.</li>
+    <li><strong>계차수열</strong>: bₙ = aₙ₊₁−aₙ이면 aₙ = a₁+∑<sub>k=1</sub><sup>n−1</sup> bₖ (n≥2). n=1 검증 필수.</li>
+    <li><strong>등차×등비 꼴</strong>: S 놓고 rS 빼기(소거법). 공식 외우기보다 과정 이해가 중요.</li>
+    <li><strong>합→일반항</strong>: aₙ = Sₙ−Sₙ₋₁ (n≥2). Sₙ = pn²+qn+c이면 aₙ은 등차, Sₙ = p·rⁿ+q이면 aₙ은 등비.</li>
+  </ul>
+</div>
+
+<!-- 6강 -->
+<div class="concept-card">
+  <h3>6강 — 점화식과 수학적 귀납법</h3>
+  <ul>
+    <li><strong>귀납적 정의</strong>: 첫 항(초기값) + 점화식(점화 관계)으로 수열을 완전히 정의.</li>
+    <li><strong>등차형 점화식</strong>: aₙ₊₁−aₙ = d → 등차수열. 등차중항: 2aₙ₊₁ = aₙ+aₙ₊₂.</li>
+    <li><strong>등비형 점화식</strong>: aₙ₊₁/aₙ = r → 등비수열. 등비중항: (aₙ₊₁)² = aₙ·aₙ₊₂.</li>
+    <li><strong>계차 이용</strong>: aₙ₊₁ = aₙ+f(n) → aₙ = a₁+∑f(k). n=1 확인 필수.</li>
+    <li><strong>비 이용</strong>: aₙ₊₁ = aₙ·f(n) → aₙ = a₁·∏f(k). n=1 확인 필수.</li>
+    <li><strong>수학적 귀납법 3단계</strong>: ① n=1 성립 확인 → ② n=k 가정 → ③ n=k+1 성립 증명 → 결론.</li>
+    <li><strong>부등식 귀납법</strong>: ③ 단계에서 귀납 가정을 써서 부등호 방향 연결하는 게 핵심. ≥ 또는 > 방향 주의.</li>
+  </ul>
+</div>
+
+<!-- 7강 -->
+<div class="concept-card">
+  <h3>7강 — 평면좌표</h3>
+  <ul>
+    <li><strong>두 점 거리</strong>: AB = √((xₐ−x_b)²+(yₐ−y_b)²). 피타고라스 정리 활용.</li>
+    <li><strong>내분점 (m:n)</strong>: x = (m·x_b+n·xₐ)/(m+n). B쪽 좌표에 m이 붙는다는 점 주의!</li>
+    <li><strong>외분점 (m:n)</strong>: 내분 공식에서 n → −n으로 교체 (분모도 m−n). m=n이면 외분점 없음.</li>
+    <li><strong>중점</strong>: M = ((xₐ+x_b)/2, (yₐ+y_b)/2). 2개 좌표의 평균.</li>
+    <li><strong>무게중심</strong>: G = ((x₁+x₂+x₃)/3, (y₁+y₂+y₃)/3). 세 꼭짓점 좌표 평균.</li>
+    <li><strong>중선정리</strong>: 삼각형 중선을 2:1로 내분하는 점 = 무게중심. 세 중선이 한 점에서 만남.</li>
+    <li><strong>각이등분선 정리</strong>: ∠A의 이등분선이 BC를 D로 나눌 때 BD:DC = AB:AC. 거리 비 → 내분점.</li>
+  </ul>
+</div>
+
+<!-- 8강 -->
+<div class="concept-card">
+  <h3>8강 — 함수</h3>
+  <ul>
+    <li><strong>함수 정의</strong>: f: X→Y. 정의역 X의 각 원소에 공역 Y의 원소를 하나씩 대응. 치역 ⊆ 공역.</li>
+    <li><strong>함수가 아닌 경우</strong>: ① 대응 없는 원소 존재, ② 한 원소가 여러 값에 대응. 수직선 테스트 활용.</li>
+    <li><strong>일대일 함수</strong>: x₁≠x₂ ⟹ f(x₁)≠f(x₂). 서로 다른 입력 → 서로 다른 출력.</li>
+    <li><strong>일대일 대응(전단사)</strong>: 일대일 + 치역=공역(전사). 역함수가 존재하는 조건.</li>
+    <li><strong>함수 개수</strong>: X→Y 일반 함수: n(Y)^n(X), 일대일 함수: ₙ(Y)Pₙ(X), 일대일 대응(n=m): m!</li>
+    <li><strong>합성함수</strong>: (g∘f)(x) = g(f(x)). 교환법칙 불성립 (g∘f ≠ f∘g). 결합법칙은 성립.</li>
+    <li><strong>역함수</strong>: 일대일 대응일 때만 존재. y=f(x)에서 x 풀고 x,y 교환 → f⁻¹(x). 그래프는 y=x 대칭.</li>
+  </ul>
+</div>
+
+</div><!-- /exam-summary -->
+
+
+<!-- ══════════════════════════════════════ -->
+<!-- Section 2: 공식 정리                    -->
+<!-- ══════════════════════════════════════ -->
+<div class="lecture-section" id="exam-formulas">
+<div class="lecture-header">
+  <div class="lecture-num" style="background: linear-gradient(135deg, var(--error), #b91c1c);">∑</div>
+  <h2>공식 정리</h2>
+</div>
+
+<!-- ① 집합 공식 -->
+<div class="concept-card">
+  <h3>① 집합 공식</h3>
+
+  <div class="formula-box">
+    <div class="formula-desc">합집합의 원소 개수</div>
+    <div class="formula">n(A∪B) = n(A) + n(B) − n(A∩B)</div>
+    <div class="formula-desc">세 집합: n(A∪B∪C) = n(A)+n(B)+n(C) − n(A∩B) − n(B∩C) − n(A∩C) + n(A∩B∩C)</div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">부분집합 개수</div>
+    <div class="formula">원소 n개인 집합의 부분집합 = 2ⁿ개</div>
+    <div class="formula-desc">진부분집합 = 2ⁿ − 1개 (자기 자신 제외)</div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">드모르간 법칙</div>
+    <div class="formula">(A ∪ B)<sup>c</sup> = A<sup>c</sup> ∩ B<sup>c</sup></div>
+    <div class="formula">(A ∩ B)<sup>c</sup> = A<sup>c</sup> ∪ B<sup>c</sup></div>
+    <div class="formula-desc">보수 씌우면 ∪ ↔ ∩ 뒤집힌다!</div>
+  </div>
+</div>
+
+<!-- ② 수열 공식 -->
+<div class="concept-card">
+  <h3>② 수열 공식</h3>
+
+  <table class="compare-table">
+    <thead>
+      <tr><th>구분</th><th>일반항 aₙ</th><th>합 Sₙ</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>등차수열</strong><br><small>(공차 d)</small></td>
+        <td>a + (n−1)d</td>
+        <td>n[2a+(n−1)d]/2<br>= n(a+l)/2</td>
+      </tr>
+      <tr>
+        <td><strong>등비수열</strong><br><small>(공비 r)</small></td>
+        <td>ar^(n−1)</td>
+        <td>a(rⁿ−1)/(r−1) &nbsp;(r≠1)<br>an &nbsp;(r=1)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="formula-box" style="margin-top: 16px;">
+    <div class="formula-desc">Sₙ → aₙ 역산 (반드시 n=1 따로 검증!)</div>
+    <div class="formula">aₙ = Sₙ − Sₙ₋₁ &nbsp;(n ≥ 2)</div>
+    <div class="formula">a₁ = S₁</div>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>패턴 암기:</strong> Sₙ = an²+bn+c → aₙ 등차 | Sₙ = p·rⁿ+q → aₙ 등비</p>
+  </div>
+</div>
+
+<!-- ③ Σ 공식 -->
+<div class="concept-card">
+  <h3>③ Σ 공식</h3>
+
+  <div class="formula-box">
+    <div class="formula-desc">Σ 기본 공식 (k=1부터 n까지)</div>
+    <div class="formula">∑k &nbsp;= n(n+1)/2</div>
+    <div class="formula">∑k² = n(n+1)(2n+1)/6</div>
+    <div class="formula">∑k³ = [n(n+1)/2]² &nbsp;← (∑k)² 와 같다!</div>
+    <div class="formula">∑c &nbsp;= cn &nbsp;(c는 상수)</div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">Σ 성질</div>
+    <div class="formula">∑(aₖ ± bₖ) = ∑aₖ ± ∑bₖ</div>
+    <div class="formula">∑(c·aₖ) = c·∑aₖ</div>
+    <div class="formula">∑(aₖ·bₖ) ≠ ∑aₖ · ∑bₖ &nbsp;← 곱은 분리 불가!</div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-desc">계차수열</div>
+    <div class="formula">bₙ = aₙ₊₁ − aₙ 이면: &nbsp; aₙ = a₁ + ∑<sub>k=1</sub><sup>n−1</sup> bₖ &nbsp;(n ≥ 2)</div>
+  </div>
+</div>
+
+<!-- ④ 좌표 공식 -->
+<div class="concept-card">
+  <h3>④ 평면좌표 공식</h3>
+
+  <div class="formula-box">
+    <div class="formula-desc">두 점 A(xₐ, yₐ), B(x_b, y_b) 사이의 거리</div>
+    <div class="formula">AB = √( (xₐ−x_b)² + (yₐ−y_b)² )</div>
+  </div>
+
+  <table class="compare-table">
+    <thead>
+      <tr><th>구분</th><th>x 좌표</th><th>y 좌표</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>내분점</strong> (m:n)</td>
+        <td>(m·x_b + n·xₐ) / (m+n)</td>
+        <td>(m·y_b + n·yₐ) / (m+n)</td>
+      </tr>
+      <tr>
+        <td><strong>외분점</strong> (m:n)</td>
+        <td>(m·x_b − n·xₐ) / (m−n)</td>
+        <td>(m·y_b − n·yₐ) / (m−n)</td>
+      </tr>
+      <tr>
+        <td><strong>중점</strong></td>
+        <td>(xₐ + x_b) / 2</td>
+        <td>(yₐ + y_b) / 2</td>
+      </tr>
+      <tr>
+        <td><strong>무게중심</strong></td>
+        <td>(x₁+x₂+x₃) / 3</td>
+        <td>(y₁+y₂+y₃) / 3</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box">
+    <p><strong>내분점 기억법:</strong> m:n으로 내분할 때 B쪽 좌표에 m이 붙어! (반대편 비율이 해당 점 좌표에 곱해짐)</p>
+    <p><strong>각이등분선:</strong> BD:DC = AB:AC → 비 구한 뒤 내분점 공식 적용</p>
+  </div>
+</div>
+
+<!-- ⑤ 함수 공식 -->
+<div class="concept-card">
+  <h3>⑤ 함수 개수 공식</h3>
+
+  <table class="compare-table">
+    <thead>
+      <tr><th>함수 종류</th><th>조건</th><th>개수</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>일반 함수</strong></td>
+        <td>X→Y (|X|=m, |Y|=n)</td>
+        <td>n<sup>m</sup></td>
+      </tr>
+      <tr>
+        <td><strong>일대일 함수</strong></td>
+        <td>n ≥ m 조건 필요</td>
+        <td><sub>n</sub>P<sub>m</sub> = n!/(n−m)!</td>
+      </tr>
+      <tr>
+        <td><strong>일대일 대응</strong></td>
+        <td>n = m (정의역=공역 크기)</td>
+        <td>m! &nbsp;(= n!)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="formula-box" style="margin-top: 16px;">
+    <div class="formula-desc">합성함수 / 역함수</div>
+    <div class="formula">(g∘f)(x) = g(f(x)) &nbsp;← 안에서 밖으로</div>
+    <div class="formula">역함수: y=f(x) → x 풀기 → x,y 교환 → f⁻¹(x)</div>
+    <div class="formula-desc">역함수 존재 조건: 일대일 대응 (전단사) | 그래프: y=x 대칭</div>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>합성 순서 주의:</strong> g∘f 는 f 먼저, g 나중. g∘f ≠ f∘g (교환법칙 불성립).</p>
+    <p><strong>역함수 합성:</strong> (f⁻¹∘f)(x) = x, (f∘f⁻¹)(x) = x</p>
+  </div>
+</div>
+
+<!-- 수학적 귀납법 정리 -->
+<div class="concept-card">
+  <h3>⑥ 수학적 귀납법 3단계</h3>
+
+  <div class="formula-box">
+    <div class="formula-desc">모든 자연수 n에 대해 명제 P(n) 증명하기</div>
+    <div class="formula">① n=1일 때 P(1) 성립 확인</div>
+    <div class="formula">② n=k일 때 P(k) 성립 가정 (귀납 가정)</div>
+    <div class="formula">③ n=k+1일 때 P(k+1) 성립 증명</div>
+    <div class="formula-desc">→ 모든 자연수 n에 대해 성립 (□)</div>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>부등식 귀납법:</strong> ③에서 귀납 가정(★)을 써서 부등호 방향을 연결하는 게 핵심. 등식과 달리 ≥ 또는 &gt; 로 연결.</p>
+    <p><strong>자주 나오는 형태:</strong> 2ⁿ &gt; n, n! &gt; 2ⁿ⁻¹, 등차/등비 합 공식 증명</p>
+  </div>
+</div>
+
+</div><!-- /exam-formulas -->
+
+</div><!-- /view-exam -->
+
 
 <!-- ═══════════ 1강 연습문제 ═══════════ -->
 <div class="view-quiz-1">
