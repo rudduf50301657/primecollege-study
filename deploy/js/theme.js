@@ -12,9 +12,13 @@ function updateToggleLabel() {
   if (el) el.textContent = document.documentElement.getAttribute('data-theme') === 'light' ? '☀️' : '🌙';
 }
 
-// Apply saved theme on load
+// Apply saved theme on load (default: light)
 (function() {
   var saved = localStorage.getItem('theme');
-  if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  if (saved === 'dark') {
+    document.documentElement.removeAttribute('data-theme');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
   updateToggleLabel();
 })();

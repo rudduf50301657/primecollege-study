@@ -184,7 +184,7 @@
 // Theme toggle
 function toggleTheme(){var t=document.documentElement;var isLight=t.getAttribute('data-theme')==='light';t.setAttribute('data-theme',isLight?'':'light');localStorage.setItem('theme',isLight?'dark':'light');updateToggleLabel();}
 function updateToggleLabel(){var el=document.getElementById('themeToggle');if(el)el.textContent=document.documentElement.getAttribute('data-theme')==='light'?'☀️':'🌙';}
-(function(){var s=localStorage.getItem('theme');if(s==='light')document.documentElement.setAttribute('data-theme','light');updateToggleLabel();})();
+(function(){var s=localStorage.getItem('theme');if(s==='dark'){document.documentElement.removeAttribute('data-theme');}else{document.documentElement.setAttribute('data-theme','light');}updateToggleLabel();})();
 // FAB
 document.querySelector('.fab').addEventListener('click',function(){document.getElementById('fabMenu').classList.toggle('open');});
 </script>
