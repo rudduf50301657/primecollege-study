@@ -117,6 +117,27 @@
   }
   .sidebar-overlay.open { display: block; }
 
+  /* ── Vocabulary Study Mode ── */
+  .vocab-controls {
+    display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap;
+    background: var(--bg-surface); padding: 16px; border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+  }
+  .vocab-btn {
+    padding: 10px 20px; border-radius: 10px; border: 1px solid var(--concept);
+    background: transparent; color: var(--concept); font-family: var(--font);
+    font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .vocab-btn:hover { background: rgba(139,92,246,0.1); transform: translateY(-1px); }
+  .vocab-btn.active { background: var(--concept); color: var(--text-white); box-shadow: 0 4px 12px rgba(139,92,246,0.3); }
+
+  .hide-word .vocab-word { color: transparent !important; background: var(--border-subtle); border-radius: 4px; transition: all 0.2s; cursor: help; }
+  .hide-word .vocab-word:hover { color: var(--text-primary) !important; background: transparent; }
+  
+  .hide-meaning .vocab-meaning { color: transparent !important; background: var(--border-subtle); border-radius: 4px; transition: all 0.2s; cursor: help; }
+  .hide-meaning .vocab-meaning:hover { color: var(--text-secondary) !important; background: transparent; }
+
   /* ── Responsive ── */
   @media (max-width: 900px) {
     .mobile-header { display: flex; }

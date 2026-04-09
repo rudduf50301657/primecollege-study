@@ -116,10 +116,10 @@
 
   <div class="nav-group">
     <div class="lecture-label" style="color: var(--example);" onclick="this.parentElement.classList.toggle('open')">
-      <span class="nav-arrow">▶</span> 도구
+      <span class="nav-arrow">▶</span> 단어장
     </div>
     <div class="nav-links">
-      <a href="/tools/">도구 모음</a>
+      <a href="#vocab-all" data-vocab>전체 단어 보기</a>
     </div>
   </div>
 </div>
@@ -3353,6 +3353,71 @@
 
 </div>
 
+<div class="view-vocab">
+  <div class="hero">
+    <h1>전체 단어장</h1>
+    <p>5강까지의 모든 단어를 모아보세요. 공부하기 모드를 활용해 단어나 뜻을 가릴 수 있습니다.</p>
+  </div>
+
+  <div class="vocab-controls">
+    <button class="vocab-btn" onclick="toggleVocabMode('hide-word', this)">영단어 가리기</button>
+    <button class="vocab-btn" onclick="toggleVocabMode('hide-meaning', this)">뜻 가리기</button>
+  </div>
+
+  <div class="concept-card">
+    <table class="compare-table" id="vocab-table">
+      <thead>
+        <tr><th>단어</th><th>뜻 / 품사</th><th>예문 / 활용</th></tr>
+      </thead>
+      <tbody>
+        <!-- 1강 -->
+        <tr><td><strong class="vocab-word">cheat</strong></td><td class="vocab-meaning">속이다, 사기치다</td><td>Don't cheat on the exam.</td></tr>
+        <tr><td><strong class="vocab-word">lose</strong></td><td class="vocab-meaning">잃다, 지다</td><td>I don't want to lose this chance.</td></tr>
+        <tr><td><strong class="vocab-word">control</strong></td><td class="vocab-meaning">통제하다 / 통제력</td><td>She lost control of the situation.</td></tr>
+        <tr><td><strong class="vocab-word">soul</strong></td><td class="vocab-meaning">영혼</td><td>He put his heart and soul into the work.</td></tr>
+        <tr><td><strong class="vocab-word">resist</strong></td><td class="vocab-meaning">저항하다, 참다</td><td>I can't resist chocolate cake.</td></tr>
+        <tr><td><strong class="vocab-word">miss</strong></td><td class="vocab-meaning">그리워하다 / 놓치다</td><td>I miss you. / She missed the bus.</td></tr>
+        <tr><td><strong class="vocab-word">brokenhearted</strong></td><td class="vocab-meaning">비탄에 빠진, 실연한</td><td>He was brokenhearted after the breakup.</td></tr>
+        <tr><td><strong class="vocab-word">blue</strong></td><td class="vocab-meaning">우울한 / 파란색의</td><td>Why are you looking so blue today?</td></tr>
+        <tr><td><strong class="vocab-word">part</strong></td><td class="vocab-meaning">헤어지다 / 부분</td><td>We parted at the station.</td></tr>
+        <tr><td><strong class="vocab-word">count</strong></td><td class="vocab-meaning">세다, 중요하다</td><td>Every vote counts.</td></tr>
+        <!-- 2강 -->
+        <tr><td><strong class="vocab-word">recall</strong></td><td class="vocab-meaning">상기하다, 기억해내다</td><td>I can't recall his name right now.</td></tr>
+        <tr><td><strong class="vocab-word">last</strong></td><td class="vocab-meaning">지난 / 마지막의 / 지속되다</td><td>last summer / The concert lasted two hours.</td></tr>
+        <tr><td><strong class="vocab-word">remain</strong></td><td class="vocab-meaning">남아있다, 계속 ~이다</td><td>Only a few tickets remain. / She remained calm.</td></tr>
+        <tr><td><strong class="vocab-word">regret</strong></td><td class="vocab-meaning">후회하다 / 후회</td><td>I regret not calling her sooner.</td></tr>
+        <tr><td><strong class="vocab-word">underneath</strong></td><td class="vocab-meaning">~아래에, ~밑에</td><td>The cat hid underneath the bed.</td></tr>
+        <tr><td><strong class="vocab-word">jam</strong></td><td class="vocab-meaning">혼잡, 막힘 / 잼</td><td>We got stuck in a traffic jam.</td></tr>
+        <tr><td><strong class="vocab-word">dull</strong></td><td class="vocab-meaning">따분한, 지루한 / 흐린</td><td>What a dull lecture it was! / a dull sky</td></tr>
+        <!-- 3강 -->
+        <tr><td><strong class="vocab-word">spend</strong></td><td class="vocab-meaning">(시간/돈을) 쓰다</td><td>spend time / spend money</td></tr>
+        <tr><td><strong class="vocab-word">blow</strong></td><td class="vocab-meaning">(바람이) 불다</td><td>The wind is blowing hard.</td></tr>
+        <tr><td><strong class="vocab-word">prayer</strong></td><td class="vocab-meaning">기도</td><td>say a prayer / morning prayers</td></tr>
+        <tr><td><strong class="vocab-word">midnight</strong></td><td class="vocab-meaning">자정</td><td>at midnight / after midnight</td></tr>
+        <tr><td><strong class="vocab-word">fortune</strong></td><td class="vocab-meaning">재산, 행운</td><td>make a fortune / fortune teller</td></tr>
+        <tr><td><strong class="vocab-word">win</strong></td><td class="vocab-meaning">얻다, 이기다</td><td>win a prize / win the game</td></tr>
+        <tr><td><strong class="vocab-word">gaze</strong></td><td class="vocab-meaning">응시하다</td><td>gaze at / gaze into</td></tr>
+        <!-- 4강 -->
+        <tr><td><strong class="vocab-word">twice</strong></td><td class="vocab-meaning">두 번, 두 배</td><td>I've been there twice. / twice as big</td></tr>
+        <tr><td><strong class="vocab-word">open-hearted</strong></td><td class="vocab-meaning">솔직한, 마음이 열린</td><td>an open-hearted person</td></tr>
+        <tr><td><strong class="vocab-word">voice</strong></td><td class="vocab-meaning">목소리</td><td>raise your voice / a soft voice</td></tr>
+        <tr><td><strong class="vocab-word">choice</strong></td><td class="vocab-meaning">선택</td><td>make a choice / have no choice</td></tr>
+        <tr><td><strong class="vocab-word">mean</strong></td><td class="vocab-meaning">의미하다</td><td>What does this word mean?</td></tr>
+        <tr><td><strong class="vocab-word">curious</strong></td><td class="vocab-meaning">호기심 많은</td><td>be curious about / curious child</td></tr>
+        <tr><td><strong class="vocab-word">grow</strong></td><td class="vocab-meaning">성장하다</td><td>grow up / grow older</td></tr>
+        <!-- 5강 -->
+        <tr><td><strong class="vocab-word">reach</strong></td><td class="vocab-meaning">닿다, 도달하다 (동사)</td><td>reach the goal</td></tr>
+        <tr><td><strong class="vocab-word">close</strong></td><td class="vocab-meaning">닫다; 가까운 (동/형)</td><td>close the door / stay close</td></tr>
+        <tr><td><strong class="vocab-word">understood</strong></td><td class="vocab-meaning">이해했다 (과거/PP)</td><td>I understood her.</td></tr>
+        <tr><td><strong class="vocab-word">save</strong></td><td class="vocab-meaning">구하다, 저장하다 (동사)</td><td>save my life / save the file</td></tr>
+        <tr><td><strong class="vocab-word">gone</strong></td><td class="vocab-meaning">사라진, 가버린 (형/PP)</td><td>She's gone.</td></tr>
+        <tr><td><strong class="vocab-word">slam</strong></td><td class="vocab-meaning">쾅 닫다 (동사)</td><td>slam the door</td></tr>
+        <tr><td><strong class="vocab-word">cupboard</strong></td><td class="vocab-meaning">찬장, 벽장 (명사)</td><td>in the cupboard</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 <div class="fab-wrap">
   <div class="fab-menu" id="fabMenu">
     <a href="https://open.kakao.com/o/s9OGoOoi" target="_blank">버그 제보 & 문의하기</a>
@@ -3362,6 +3427,13 @@
 </div>
 
 <!-- ═══════════ JAVASCRIPT ═══════════ -->
+<script>
+function toggleVocabMode(className, btn) {
+  const table = document.getElementById('vocab-table');
+  table.classList.toggle(className);
+  btn.classList.toggle('active');
+}
+</script>
 <script src="/js/demos.js"></script>
 <script src="/js/sidebar.js"></script>
 <script src="/js/view-toggle.js"></script>

@@ -14,8 +14,9 @@ for (let i = 1; i <= 8; i++) {
 const viewCalc = document.querySelector('.view-calc');
 const viewZtable = document.querySelector('.view-ztable');
 const viewTtable = document.querySelector('.view-ttable');
+const viewVocab = document.querySelector('.view-vocab');
 
-const allViews = [viewHero, ...Object.values(lectureViews), ...Object.values(quizViews), viewCalc, viewZtable, viewTtable];
+const allViews = [viewHero, ...Object.values(lectureViews), ...Object.values(quizViews), viewCalc, viewZtable, viewTtable, viewVocab];
 
 function hideAllViews() {
   allViews.forEach(v => { if (v) v.classList.remove('active'); });
@@ -97,6 +98,14 @@ document.querySelectorAll('[data-ttable]').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
     showView(viewTtable, navGroups.length - 1);
+    link.classList.add('active');
+  });
+});
+
+document.querySelectorAll('[data-vocab]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    showView(viewVocab, navGroups.length - 1);
     link.classList.add('active');
   });
 });

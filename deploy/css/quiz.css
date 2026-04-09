@@ -1,6 +1,6 @@
   /* ── View Toggle ── */
-  .view-hero, .view-lecture-1, .view-lecture-2, .view-lecture-3, .view-lecture-4, .view-lecture-5, .view-lecture-6, .view-lecture-7, .view-exam, .view-quiz-1, .view-quiz-2, .view-quiz-3, .view-quiz-4, .view-quiz-5, .view-quiz-6, .view-quiz-7, .view-calc, .view-ztable, .view-ttable { display: none; }
-  .view-hero.active, .view-lecture-1.active, .view-lecture-2.active, .view-lecture-3.active, .view-lecture-4.active, .view-lecture-5.active, .view-lecture-6.active, .view-lecture-7.active, .view-exam.active, .view-quiz-1.active, .view-quiz-2.active, .view-quiz-3.active, .view-quiz-4.active, .view-quiz-5.active, .view-quiz-6.active, .view-quiz-7.active, .view-calc.active, .view-ztable.active, .view-ttable.active { display: block; animation: viewIn 0.3s ease; }
+  .view-hero, .view-lecture-1, .view-lecture-2, .view-lecture-3, .view-lecture-4, .view-lecture-5, .view-lecture-6, .view-lecture-7, .view-exam, .view-quiz-1, .view-quiz-2, .view-quiz-3, .view-quiz-4, .view-quiz-5, .view-quiz-6, .view-quiz-7, .view-calc, .view-ztable, .view-ttable, .view-vocab { display: none; }
+  .view-hero.active, .view-lecture-1.active, .view-lecture-2.active, .view-lecture-3.active, .view-lecture-4.active, .view-lecture-5.active, .view-lecture-6.active, .view-lecture-7.active, .view-exam.active, .view-quiz-1.active, .view-quiz-2.active, .view-quiz-3.active, .view-quiz-4.active, .view-quiz-5.active, .view-quiz-6.active, .view-quiz-7.active, .view-calc.active, .view-ztable.active, .view-ttable.active, .view-vocab.active { display: block; animation: viewIn 0.3s ease; }
   .view-hero.active { display: block; }
   @keyframes viewIn {
     from { opacity: 0; transform: translateY(16px); }
