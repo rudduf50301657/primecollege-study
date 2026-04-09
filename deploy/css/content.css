@@ -42,7 +42,7 @@
   }
   .tt .ttp strong { color: var(--tip); }
   .tt .ttp .ttp-formula {
-    font-family: Georgia, serif;
+    font-family: 'STIX Two Math', Georgia, serif;
     font-size: 15px;
     color: var(--formula-text);
     margin: 6px 0;
