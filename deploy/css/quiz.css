@@ -152,15 +152,15 @@
 
   .quiz-explanation {
     margin-top: 16px; padding: 20px 24px;
-    background: var(--bg-inset);
+    background: var(--concept-bg);
     border-left: 4px solid var(--concept); border-radius: 0 14px 14px 0;
-    display: none; font-size: 14px; line-height: 1.9; color: var(--text-secondary);
+    display: none; font-size: 14px; line-height: 1.9; color: var(--text-primary);
     animation: quizFadeIn 0.5s ease;
   }
   .quiz-explanation.show { display: block; }
   .quiz-explanation strong { color: var(--concept); }
   .quiz-explain-label {
     display: inline-flex; align-items: center; gap: 6px;
-    font-size: 13px; font-weight: 700; color: var(--formula);
+    font-size: 13px; font-weight: 700; color: var(--concept);
     text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
   }
