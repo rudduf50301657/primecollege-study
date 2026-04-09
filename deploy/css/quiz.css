@@ -85,11 +85,6 @@
   .quiz-options li.correct::before { background: var(--example); color: var(--text-white); content: '\2713'; }
   .quiz-options li.wrong { border-color: var(--error); background: rgba(239,68,68,0.08); cursor: default; }
   .quiz-options li.wrong::before { background: var(--error); color: var(--text-white); content: '\2717'; }
-  .quiz-options li > sup {
-    position: relative;
-    top: -0.5em;
-    font-size: 0.75em;
-  }
   .quiz-options[data-submitted] li { cursor: default; }
   .quiz-options[data-submitted] li:hover { transform: none; }
 
