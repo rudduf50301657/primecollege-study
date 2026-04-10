@@ -161,6 +161,12 @@
   .hide-meaning .vocab-meaning { color: transparent !important; background: var(--border-subtle); border-radius: 4px; transition: all 0.2s; cursor: help; }
   .hide-meaning .vocab-meaning:hover { color: var(--text-secondary) !important; background: transparent; }
 
+  .hide-answers .answer-cell { color: transparent !important; background: var(--border-subtle); border-radius: 4px; transition: all 0.2s; cursor: help; user-select: none; }
+  .hide-answers .answer-cell:hover { color: var(--text-primary) !important; background: transparent; }
+
+  .toggle-btn { display: inline-block; padding: 8px 20px; border-radius: 8px; border: 1.5px solid var(--concept); background: transparent; color: var(--concept); font-weight: 600; cursor: pointer; transition: all 0.2s; margin-top: 4px; }
+  .toggle-btn:hover { background: rgba(139,92,246,0.1); transform: translateY(-1px); }
+
   /* ── Responsive ── */
   @media (max-width: 900px) {
     .mobile-header { display: flex; }

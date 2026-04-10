@@ -30,7 +30,9 @@ function showLecture(lectureKey, scrollToId) {
   if (view) view.classList.add('active');
 
   // Open corresponding nav group
-  const groupIdx = lectureKey === 'exam' ? 7 : (parseInt(lectureKey) - 1);
+  const groupIdx = lectureKey === 'exam'
+    ? [...navGroups].findIndex(g => g.querySelector('[data-lecture="exam"]'))
+    : (parseInt(lectureKey) - 1);
   if (navGroups[groupIdx]) navGroups[groupIdx].classList.add('open');
 
   if (scrollToId) {
