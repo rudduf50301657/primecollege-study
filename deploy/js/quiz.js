@@ -77,3 +77,33 @@ function submitSA(qNum) {
   quiz1Submitted[qNum] = true;
 
 }
+
+function resetQuiz(qNum) {
+  if (!quiz1Submitted[qNum]) return;
+  const card = document.getElementById('q' + qNum);
+  const resultEl = document.getElementById('q' + qNum + '-result');
+  const explainEl = document.getElementById('q' + qNum + '-explain');
+  const btn = card.querySelector('.quiz-submit');
+
+  // 객관식 초기화
+  const ul = card.querySelector('.quiz-options');
+  if (ul) {
+    delete ul.dataset.submitted;
+    ul.querySelectorAll('li').forEach(l => {
+      l.classList.remove('selected', 'correct', 'wrong');
+    });
+  }
+
+  // 주관식 초기화
+  const input = document.getElementById('q' + qNum + '-input');
+  if (input) {
+    input.readOnly = false;
+    input.value = '';
+  }
+
+  btn.disabled = false;
+  resultEl.className = 'quiz-result';
+  resultEl.innerHTML = '';
+  explainEl.classList.remove('show');
+  delete quiz1Submitted[qNum];
+}

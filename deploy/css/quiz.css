@@ -130,6 +130,16 @@
   .quiz-submit:active { transform: translateY(0); }
   .quiz-submit:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
 
+  .quiz-reset {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 16px; margin-left: 10px; padding: 12px 24px;
+    background: transparent; color: var(--text-secondary); border: 1px solid var(--border);
+    border-radius: var(--radius-md); font-family: var(--font);
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    transition: all 0.2s;
+  }
+  .quiz-reset:hover { background: var(--bg-inset); color: var(--text-primary); border-color: var(--text-secondary); }
+
   .quiz-result {
     margin-top: 16px; padding: 14px 20px; border-radius: 14px;
     font-weight: 600; font-size: 15px; display: none;
