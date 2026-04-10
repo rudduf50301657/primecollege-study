@@ -2111,7 +2111,7 @@
 <div class="view-quiz-1">
 <div class="quiz-hero">
   <h3>1강 - Mamma Mia</h3>
-  <p>객관식 10문항 | 하 3 · 중 5 · 상 2</p>
+  <p>객관식 10 · 주관식 5 | 하 3 · 중 5 · 상 2 · 서술 5</p>
 </div>
 
 <!-- Q1: 하 -->
@@ -2364,6 +2364,113 @@
   </div>
 </div>
 
+<!-- S1: 주관식 -->
+<div class="quiz-card" id="q251">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">11</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 문장을 <strong>수동태</strong>로 바꾸시오.<br><br>"You cheated me."</div>
+    <textarea class="quiz-textarea" id="q251-input" placeholder="영어로 작성하세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(251)">힌트 보기</button>
+    <div class="quiz-hint" id="q251-hint">수동태 공식: 주어(능동태의 목적어) + be동사 + PP + by + 행위자. 시제에 주의!</div>
+    <button class="quiz-submit" onclick="submitSA(251)">답 제출하기</button>
+    <div class="quiz-result" id="q251-result"></div>
+    <div class="quiz-explanation" id="q251-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>I was cheated by you.</strong><br><br>
+      능동태 "You cheated me."에서 목적어 me가 주어가 되어 I로 바뀌고, 동사는 과거시제이므로 was + PP(cheated), 행위자는 by you로 표현해.
+    </div>
+  </div>
+</div>
+
+<!-- S2: 주관식 -->
+<div class="quiz-card" id="q252">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">12</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 한국어를 영어로 표현하시오.<br><br>"난 결심을 했어."</div>
+    <textarea class="quiz-textarea" id="q252-input" placeholder="영어로 작성하세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(252)">힌트 보기</button>
+    <div class="quiz-hint" id="q252-hint">"결심하다"에 해당하는 숙어 make up one's mind를 사용해봐.</div>
+    <button class="quiz-submit" onclick="submitSA(252)">답 제출하기</button>
+    <div class="quiz-result" id="q252-result"></div>
+    <div class="quiz-explanation" id="q252-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>I made up my mind.</strong><br><br>
+      make up one's mind = 결심하다. 과거시제이므로 made up my mind.
+    </div>
+  </div>
+</div>
+
+<!-- S3: 주관식 -->
+<div class="quiz-card" id="q253">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">13</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 빈칸을 채우시오.<br><br>"I can't count the times I have cried ________ you."<br>(너 때문에 운 게 몇 번인지 셀 수도 없어.)</div>
+    <textarea class="quiz-textarea" id="q253-input" placeholder="빈칸에 들어갈 단어를 쓰세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(253)">힌트 보기</button>
+    <div class="quiz-hint" id="q253-hint">"~때문에 울다"에서 전치사 하나가 빠져 있어.</div>
+    <button class="quiz-submit" onclick="submitSA(253)">답 제출하기</button>
+    <div class="quiz-result" id="q253-result"></div>
+    <div class="quiz-explanation" id="q253-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>over</strong><br><br>
+      cry over = ~때문에 울다. 강의 예문: "I can't count the times I have cried over you."
+    </div>
+  </div>
+</div>
+
+<!-- S4: 주관식 -->
+<div class="quiz-card" id="q254">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">14</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">"should have PP"와 "should not have PP"의 의미를 각각 쓰고, 다음 문장을 해석하시오.<br><br>"I should not have let you go."</div>
+    <textarea class="quiz-textarea" id="q254-input" placeholder="의미와 해석을 작성하세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(254)">힌트 보기</button>
+    <div class="quiz-hint" id="q254-hint">should have PP는 사실은 하지 않았을 때, should not have PP는 사실은 해버렸을 때 쓰는 표현이야.</div>
+    <button class="quiz-submit" onclick="submitSA(254)">답 제출하기</button>
+    <div class="quiz-result" id="q254-result"></div>
+    <div class="quiz-explanation" id="q254-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>should have PP</strong>: ~했어야 했는데 (사실은 하지 않았음)<br>
+      <strong>should not have PP</strong>: ~하지 말았어야 했는데 (사실은 해버렸음)<br><br>
+      "I should not have let you go."<br>
+      → <strong>널 보내지 말았어야 했는데 (사실은 보내버렸다).</strong>
+    </div>
+  </div>
+</div>
+
+<!-- S5: 주관식 -->
+<div class="quiz-card" id="q255">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">15</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 한국어를 영어로 표현하시오.<br><br>"우리가 헤어진 이후로 난 절망에 빠졌고 우울했어."</div>
+    <textarea class="quiz-textarea" id="q255-input" placeholder="영어로 작성하세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(255)">힌트 보기</button>
+    <div class="quiz-hint" id="q255-hint">현재완료 시제(have + PP)와 접속사 since를 사용해봐. broken-hearted, blue 등의 단어를 활용!</div>
+    <button class="quiz-submit" onclick="submitSA(255)">답 제출하기</button>
+    <div class="quiz-result" id="q255-result"></div>
+    <div class="quiz-explanation" id="q255-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>I have been broken hearted and blue since we parted.</strong><br><br>
+      현재완료(have been)로 과거부터 현재까지 지속됨을 표현하고, since we parted로 "헤어진 이후로"를 나타내.
+    </div>
+  </div>
+</div>
+
 </div><!-- /view-quiz-1 -->
 
 
@@ -2371,7 +2478,7 @@
 <div class="view-quiz-2">
 <div class="quiz-hero">
   <h3>2강 - Our Last Summer</h3>
-  <p>객관식 10문항 | 하 3 · 중 5 · 상 2</p>
+  <p>객관식 10 · 주관식 5 | 하 3 · 중 5 · 상 2 · 서술 5</p>
 </div>
 
 <!-- Q1: 하 -->
@@ -2624,12 +2731,118 @@
   </div>
 </div>
 
+<!-- S1: 주관식 -->
+<div class="quiz-card" id="q256">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">11</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 한국어를 영어로 표현하시오.<br><br>"우린 강을 따라 나아갔다."</div>
+    <textarea class="quiz-textarea" id="q256-input" placeholder="영어로 작성하세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(256)">힌트 보기</button>
+    <div class="quiz-hint" id="q256-hint">"나아가다"에 해당하는 숙어 make one's way와 전치사 along을 사용해봐.</div>
+    <button class="quiz-submit" onclick="submitSA(256)">답 제출하기</button>
+    <div class="quiz-result" id="q256-result"></div>
+    <div class="quiz-explanation" id="q256-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>We made our way along the river.</strong><br><br>
+      make one's way = 나아가다, 전진하다. along = ~을 따라.
+    </div>
+  </div>
+</div>
+
+<!-- S2: 주관식 -->
+<div class="quiz-card" id="q257">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">12</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 빈칸을 채우시오.<br><br>"We had a fear of ________ old and slowly ________."<br>(우린 나이 들고 서서히 죽어가는 것에 대해 두려움이 있었다.)</div>
+    <textarea class="quiz-textarea" id="q257-input" placeholder="빈칸에 들어갈 단어를 쓰세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(257)">힌트 보기</button>
+    <div class="quiz-hint" id="q257-hint">전치사 of 뒤에 동명사(V+ing)가 와야 해. "나이 들다"와 "죽다"에 해당하는 동사를 찾아봐.</div>
+    <button class="quiz-submit" onclick="submitSA(257)">답 제출하기</button>
+    <div class="quiz-result" id="q257-result"></div>
+    <div class="quiz-explanation" id="q257-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>growing</strong>, <strong>dying</strong><br><br>
+      전치사 of 뒤에는 동명사(V+ing)가 와야 해. "We had a fear of growing old and slowly dying."
+    </div>
+  </div>
+</div>
+
+<!-- S3: 주관식 -->
+<div class="quiz-card" id="q258">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">13</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 문장을 감탄문으로 바꾸시오.<br><br>"It seems very dull."<br>(얼마나 따분하게 여겨지는지!)</div>
+    <textarea class="quiz-textarea" id="q258-input" placeholder="영어로 작성하세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(258)">힌트 보기</button>
+    <div class="quiz-hint" id="q258-hint">How + 형용사 + S + V! 형태의 감탄문을 만들어봐.</div>
+    <button class="quiz-submit" onclick="submitSA(258)">답 제출하기</button>
+    <div class="quiz-result" id="q258-result"></div>
+    <div class="quiz-explanation" id="q258-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>How dull it seems!</strong><br><br>
+      감탄문 공식: How + 형용사(dull) + 주어(it) + 동사(seems)!
+    </div>
+  </div>
+</div>
+
+<!-- S4: 주관식 -->
+<div class="quiz-card" id="q259">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">14</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">"take a chance"의 뜻을 쓰고, 이 표현을 사용하여 영어 문장을 하나 만드시오.</div>
+    <textarea class="quiz-textarea" id="q259-input" placeholder="뜻과 예문을 작성하세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(259)">힌트 보기</button>
+    <div class="quiz-hint" id="q259-hint">2강 핵심 표현 중 하나야. "위험을 감수하고 해보다"라는 뜻이야.</div>
+    <button class="quiz-submit" onclick="submitSA(259)">답 제출하기</button>
+    <div class="quiz-result" id="q259-result"></div>
+    <div class="quiz-explanation" id="q259-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>뜻:</strong> 위험을 감수하고 해보다<br>
+      <strong>예문:</strong> We took a chance. (우린 위험을 감수하고 해봤다.)<br><br>
+      강의 예문에서 "위험을 감수하고 해보다"라는 의미로 쓰였어.
+    </div>
+  </div>
+</div>
+
+<!-- S5: 주관식 -->
+<div class="quiz-card" id="q260">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">15</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 한국어를 영어로 표현하시오.<br><br>"난 우리의 마지막 여름을 기억할 수 있다."</div>
+    <textarea class="quiz-textarea" id="q260-input" placeholder="영어로 작성하세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(260)">힌트 보기</button>
+    <div class="quiz-hint" id="q260-hint">"기억하다, 상기하다"에 해당하는 동사 recall을 사용해봐.</div>
+    <button class="quiz-submit" onclick="submitSA(260)">답 제출하기</button>
+    <div class="quiz-result" id="q260-result"></div>
+    <div class="quiz-explanation" id="q260-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>I can recall our last summer.</strong><br><br>
+      recall = 상기하다, 기억해내다. 조동사 can과 함께 "기억할 수 있다"를 표현해.
+    </div>
+  </div>
+</div>
+
 </div><!-- /view-quiz-2 -->
 
 <div class="view-quiz-3">
 <div class="quiz-hero">
   <h3>3강 - Gimme! Gimme! Gimme!</h3>
-  <p>객관식 10문항 | 하 3 · 중 5 · 상 2</p>
+  <p>객관식 10 · 주관식 5 | 하 3 · 중 5 · 상 2 · 서술 5</p>
 </div>
 <!-- 대학기초영어 3강 퀴즈 (q221-q230) -->
 
@@ -2945,12 +3158,118 @@
 </div>
 
 
+<!-- S1: 주관식 -->
+<div class="quiz-card" id="q261">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">11</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 한국어를 영어로 표현하시오.<br><br>"어둠을 보니 너무 우울하다."</div>
+    <textarea class="quiz-textarea" id="q261-input" placeholder="영어로 작성하세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(261)">힌트 보기</button>
+    <div class="quiz-hint" id="q261-hint">가주어 It 구문(It makes me ~ to ...)과 5형식을 활용해봐.</div>
+    <button class="quiz-submit" onclick="submitSA(261)">답 제출하기</button>
+    <div class="quiz-result" id="q261-result"></div>
+    <div class="quiz-explanation" id="q261-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>It makes me so depressed to see the gloom.</strong><br><br>
+      It = 가주어, to see the gloom = 진주어. make + 목적어(me) + 형용사(depressed) = 5형식.
+    </div>
+  </div>
+</div>
+
+<!-- S2: 주관식 -->
+<div class="quiz-card" id="q262">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">12</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 빈칸을 채우시오.<br><br>"Won't somebody help me ________ the shadows ________?"<br>(누군가가 내가 그림자를 몰아낼 수 있도록 도와주지 않을까?)</div>
+    <textarea class="quiz-textarea" id="q262-input" placeholder="빈칸에 들어갈 단어를 쓰세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(262)">힌트 보기</button>
+    <div class="quiz-hint" id="q262-hint">"몰아내다"에 해당하는 숙어를 떠올려봐. help + 목적어 + 동사원형 구조야.</div>
+    <button class="quiz-submit" onclick="submitSA(262)">답 제출하기</button>
+    <div class="quiz-result" id="q262-result"></div>
+    <div class="quiz-explanation" id="q262-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>chase</strong>, <strong>away</strong><br><br>
+      chase away = 몰아내다. help + 목적어 + 동사원형: "help me chase the shadows away."
+    </div>
+  </div>
+</div>
+
+<!-- S3: 주관식 -->
+<div class="quiz-card" id="q263">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">13</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 표현의 뜻을 쓰시오.<br><br>① on one's own<br>② be different from<br>③ gaze into</div>
+    <textarea class="quiz-textarea" id="q263-input" placeholder="각 표현의 뜻을 쓰세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(263)">힌트 보기</button>
+    <div class="quiz-hint" id="q263-hint">3강에서 배운 핵심 표현들이야. 각각 "혼자", "다르다", "응시하다"와 관련돼.</div>
+    <button class="quiz-submit" onclick="submitSA(263)">답 제출하기</button>
+    <div class="quiz-result" id="q263-result"></div>
+    <div class="quiz-explanation" id="q263-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      ① <strong>on one's own</strong>: 혼자서, 혼자 힘으로<br>
+      ② <strong>be different from</strong>: ~과 다르다<br>
+      ③ <strong>gaze into</strong>: ~를 응시하다
+    </div>
+  </div>
+</div>
+
+<!-- S4: 주관식 -->
+<div class="quiz-card" id="q264">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">14</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 한국어를 영어로 표현하시오.<br><br>"그 남자는 어둠을 뚫고 새벽으로 날 데려갈 것이다."</div>
+    <textarea class="quiz-textarea" id="q264-input" placeholder="영어로 작성하세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(264)">힌트 보기</button>
+    <div class="quiz-hint" id="q264-hint">take ~ through ... to ... 구조와 "새벽"에 해당하는 표현 the break of the day를 사용해봐.</div>
+    <button class="quiz-submit" onclick="submitSA(264)">답 제출하기</button>
+    <div class="quiz-result" id="q264-result"></div>
+    <div class="quiz-explanation" id="q264-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>He will take me through the darkness to the break of the day.</strong><br><br>
+      take ~ through ... to ... = ~를 ...를 뚫고 ...로 데려가다. the break of the day = 새벽.
+    </div>
+  </div>
+</div>
+
+<!-- S5: 주관식 -->
+<div class="quiz-card" id="q265">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">15</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 문장에서 to부정사의 용법(명사적/형용사적/부사적)을 쓰시오.<br><br>"Is there somebody <strong>to hear</strong> my prayers?"</div>
+    <textarea class="quiz-textarea" id="q265-input" placeholder="to부정사의 용법을 쓰세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(265)">힌트 보기</button>
+    <div class="quiz-hint" id="q265-hint">to hear가 앞의 명사 somebody를 수식하고 있어. "기도를 들어줄 누군가"에서 "들어줄"이 "누군가"를 꾸며주고 있지?</div>
+    <button class="quiz-submit" onclick="submitSA(265)">답 제출하기</button>
+    <div class="quiz-result" id="q265-result"></div>
+    <div class="quiz-explanation" id="q265-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>형용사적 용법 (명사 수식)</strong><br><br>
+      to hear가 앞의 명사 somebody를 수식 → "기도를 들어줄 누군가." to부정사가 명사 뒤에서 해당 명사를 꾸며주는 형용사적 용법이야.
+    </div>
+  </div>
+</div>
+
 </div><!-- /view-quiz-3 -->
 
 <div class="view-quiz-4">
 <div class="quiz-hero">
   <h3>4강 - The Name of the Game</h3>
-  <p>객관식 10문항 | 하 3 · 중 5 · 상 2</p>
+  <p>객관식 10 · 주관식 5 | 하 3 · 중 5 · 상 2 · 서술 5</p>
 </div>
 <!-- 대학기초영어 4강 퀴즈 (q231-q240) -->
 
@@ -3268,12 +3587,119 @@
   </div>
 </div>
 
+<!-- S1: 주관식 -->
+<div class="quiz-card" id="q266">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">11</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 한국어를 영어로 표현하시오.<br><br>"당신은 내가 숨기려 애쓰는 것을 보여주게 만든다."</div>
+    <textarea class="quiz-textarea" id="q266-input" placeholder="영어로 작성하세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(266)">힌트 보기</button>
+    <div class="quiz-hint" id="q266-hint">사역동사 make + 목적어 + 동사원형 구조와 관계대명사 what을 활용해봐.</div>
+    <button class="quiz-submit" onclick="submitSA(266)">답 제출하기</button>
+    <div class="quiz-result" id="q266-result"></div>
+    <div class="quiz-explanation" id="q266-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>You make me show what I'm trying to conceal.</strong><br><br>
+      make + 목적어(me) + 동사원형(show) = 5형식 사역동사. what = ~것 (관계대명사). conceal = 감추다.
+    </div>
+  </div>
+</div>
+
+<!-- S2: 주관식 -->
+<div class="quiz-card" id="q267">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">12</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 표현의 뜻을 쓰시오.<br><br>① the name of the game<br>② see through<br>③ let down<br>④ care for</div>
+    <textarea class="quiz-textarea" id="q267-input" placeholder="각 표현의 뜻을 쓰세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(267)">힌트 보기</button>
+    <div class="quiz-hint" id="q267-hint">4강에서 배운 핵심 숙어들이야. 노래 제목과 관련된 표현도 있어!</div>
+    <button class="quiz-submit" onclick="submitSA(267)">답 제출하기</button>
+    <div class="quiz-result" id="q267-result"></div>
+    <div class="quiz-explanation" id="q267-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      ① <strong>the name of the game</strong>: 가장 중요한 것, 핵심, 본질<br>
+      ② <strong>see through</strong>: 간파하다<br>
+      ③ <strong>let down</strong>: 실망시키다<br>
+      ④ <strong>care for</strong>: 돌보다, 좋아하다
+    </div>
+  </div>
+</div>
+
+<!-- S3: 주관식 -->
+<div class="quiz-card" id="q268">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">13</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 빈칸을 채우시오.<br><br>"It ________ that I'm getting more open-hearted."<br>(난 더 솔직해져 가는 것 같다.)</div>
+    <textarea class="quiz-textarea" id="q268-input" placeholder="빈칸에 들어갈 단어를 쓰세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(268)">힌트 보기</button>
+    <div class="quiz-hint" id="q268-hint">"~인 것 같다"에 해당하는 표현 It seems that ~을 떠올려봐.</div>
+    <button class="quiz-submit" onclick="submitSA(268)">답 제출하기</button>
+    <div class="quiz-result" id="q268-result"></div>
+    <div class="quiz-explanation" id="q268-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>seems</strong><br><br>
+      It seems (that) ~ = ~인 것 같다. "It seems that I'm getting more open-hearted."
+    </div>
+  </div>
+</div>
+
+<!-- S4: 주관식 -->
+<div class="quiz-card" id="q269">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">14</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 한국어를 영어로 표현하시오.<br><br>"내가 당신을 신뢰하면 날 실망시킬 건가요?"</div>
+    <textarea class="quiz-textarea" id="q269-input" placeholder="영어로 작성하세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(269)">힌트 보기</button>
+    <div class="quiz-hint" id="q269-hint">trust in(신뢰하다)과 let down(실망시키다)을 사용해봐. 조건절 if와 조동사 would를 활용!</div>
+    <button class="quiz-submit" onclick="submitSA(269)">답 제출하기</button>
+    <div class="quiz-result" id="q269-result"></div>
+    <div class="quiz-explanation" id="q269-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>If I trust in you, would you let me down?</strong><br><br>
+      trust in = 신뢰하다, let down = 실망시키다. 조건절(If ~)과 의문문(would you ~?)을 결합한 문장이야.
+    </div>
+  </div>
+</div>
+
+<!-- S5: 주관식 -->
+<div class="quiz-card" id="q270">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">15</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 한국어를 영어로 표현하시오.<br><br>"그건 나에게 많은 것을 의미한다."</div>
+    <textarea class="quiz-textarea" id="q270-input" placeholder="영어로 작성하세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(270)">힌트 보기</button>
+    <div class="quiz-hint" id="q270-hint">"~에게 큰 의미가 있다"에 해당하는 표현 mean a lot to를 사용해봐.</div>
+    <button class="quiz-submit" onclick="submitSA(270)">답 제출하기</button>
+    <div class="quiz-result" id="q270-result"></div>
+    <div class="quiz-explanation" id="q270-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>It means a lot to me.</strong><br><br>
+      mean a lot to ~ = ~에게 많은 것을 의미하다, 큰 의미가 있다.
+    </div>
+  </div>
+</div>
+
 </div><!-- /view-quiz-4 -->
 
 <div class="view-quiz-5">
 <div class="quiz-hero">
   <h3>5강 - S.O.S.</h3>
-  <p>객관식 10문항 | 하 3 · 중 5 · 상 2</p>
+  <p>객관식 10 · 주관식 5 | 하 3 · 중 5 · 상 2 · 서술 5</p>
 </div>
 
 <!-- Q1: 하 -->
@@ -3522,6 +3948,112 @@
     <div class="quiz-explanation" id="q250-explain">
       <div class="quiz-explain-label">해설</div>
       <strong>when</strong>은 "~할 때"를 나타내는 시간 종속접속사야. (가) "I found it when I was cleaning out the cupboards." — 찬장을 정리하던 때에 그것을 발견했어. (나) "We'll go when you're ready." — 네가 준비됐을 때 우리 갈게. because는 이유(~때문에), although는 양보(~비록), whatever는 강조·놀라움 표현이야.
+    </div>
+  </div>
+</div>
+
+<!-- S1: 주관식 -->
+<div class="quiz-card" id="q271">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">11</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 한국어를 영어로 표현하시오.<br><br>"내가 이해할 수 있으면 좋으련만."</div>
+    <textarea class="quiz-textarea" id="q271-input" placeholder="영어로 작성하세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(271)">힌트 보기</button>
+    <div class="quiz-hint" id="q271-hint">현실과 반대되는 소망을 나타내는 wish 구문을 사용해봐. wish + 과거동사!</div>
+    <button class="quiz-submit" onclick="submitSA(271)">답 제출하기</button>
+    <div class="quiz-result" id="q271-result"></div>
+    <div class="quiz-explanation" id="q271-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>I wish I understood.</strong><br><br>
+      I wish + 과거동사: 현재 사실의 반대를 소망. 현재 이해하지 못하는 상황에서 "이해할 수 있으면 좋겠다"를 표현해.
+    </div>
+  </div>
+</div>
+
+<!-- S2: 주관식 -->
+<div class="quiz-card" id="q272">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">12</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 빈칸을 채우시오.<br><br>"It ________ ________ be so nice. It ________ ________ be so good."<br>(그건 너무 좋았었다. 그건 너무 멋졌었다.)</div>
+    <textarea class="quiz-textarea" id="q272-input" placeholder="빈칸에 들어갈 단어를 쓰세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(272)">힌트 보기</button>
+    <div class="quiz-hint" id="q272-hint">"~였다, ~하곤 했다"에 해당하는 표현 used to + 동사원형을 떠올려봐.</div>
+    <button class="quiz-submit" onclick="submitSA(272)">답 제출하기</button>
+    <div class="quiz-result" id="q272-result"></div>
+    <div class="quiz-explanation" id="q272-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>used to</strong> (두 빈칸 모두 동일)<br><br>
+      used to + 동사원형 = ~였다, ~하곤 했다. "It used to be so nice. It used to be so good."
+    </div>
+  </div>
+</div>
+
+<!-- S3: 주관식 -->
+<div class="quiz-card" id="q273">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">13</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 한국어를 영어로 표현하시오.<br><br>"당신이 가까이 서 있는데도, 너무 멀리 있는 것 같다."</div>
+    <textarea class="quiz-textarea" id="q273-input" placeholder="영어로 작성하세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(273)">힌트 보기</button>
+    <div class="quiz-hint" id="q273-hint">접속사 though(~에도 불구하고)와 seem(~인 것 같다)을 사용해봐.</div>
+    <button class="quiz-submit" onclick="submitSA(273)">답 제출하기</button>
+    <div class="quiz-result" id="q273-result"></div>
+    <div class="quiz-explanation" id="q273-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>Though you are standing near, you seem so far away.</strong><br><br>
+      though = ~에도 불구하고. seem = ~인 것 같다. far away = 멀리.
+    </div>
+  </div>
+</div>
+
+<!-- S4: 주관식 -->
+<div class="quiz-card" id="q274">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">14</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 표현의 뜻을 쓰시오.<br><br>① reach for<br>② be gone<br>③ carry on</div>
+    <textarea class="quiz-textarea" id="q274-input" placeholder="각 표현의 뜻을 쓰세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(274)">힌트 보기</button>
+    <div class="quiz-hint" id="q274-hint">5강에서 배운 핵심 표현들이야. "뻗다", "사라지다", "계속하다"와 관련돼.</div>
+    <button class="quiz-submit" onclick="submitSA(274)">답 제출하기</button>
+    <div class="quiz-result" id="q274-result"></div>
+    <div class="quiz-explanation" id="q274-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      ① <strong>reach for</strong>: ~을 향해 손을 뻗다 / ~을 얻으려 애쓰다<br>
+      ② <strong>be gone</strong>: 사라지다, 가버리다<br>
+      ③ <strong>carry on</strong>: 계속하다
+    </div>
+  </div>
+</div>
+
+<!-- S5: 주관식 -->
+<div class="quiz-card" id="q275">
+  <div class="quiz-card-header">
+    <div class="quiz-num q-subj">15</div>
+    <span class="quiz-type subj">주관식</span>
+  </div>
+  <div class="quiz-card-body">
+    <div class="quiz-question">다음 한국어를 영어로 표현하시오.<br><br>"다른 그 어떤 것도 날 구할 수 없다."</div>
+    <textarea class="quiz-textarea" id="q275-input" placeholder="영어로 작성하세요"></textarea>
+    <button class="quiz-hint-btn" onclick="showHint(275)">힌트 보기</button>
+    <div class="quiz-hint" id="q275-hint">"아무것도 ~할 수 없다"에서 nothing else를 주어로 사용해봐.</div>
+    <button class="quiz-submit" onclick="submitSA(275)">답 제출하기</button>
+    <div class="quiz-result" id="q275-result"></div>
+    <div class="quiz-explanation" id="q275-explain">
+      <div class="quiz-explain-label">모범답안</div>
+      <strong>Nothing else can save me.</strong><br><br>
+      nothing else = 다른 그 어떤 것도 ~않다. nothing이 주어이므로 부정의 의미가 이미 포함돼 있어.
     </div>
   </div>
 </div>
