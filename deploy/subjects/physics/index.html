@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>일반물리 | 프라임칼리지 벼락치기 연구소</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:title" content="일반물리 | 프라임칼리지 벼락치기 연구소">
+<meta property="og:description" content="건물주로 태어나지 않은 이상 공부해야해..!">
+<meta property="og:image" content="https://a-please.com/og-image.jpg">
+<meta property="og:url" content="https://a-please.com/subjects/physics/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/sidebar.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/content.css">
+<link rel="stylesheet" href="/css/quiz.css">
+<link rel="stylesheet" href="/css/calculator.css">
+<link rel="stylesheet" href="/css/tables.css">
+<link rel="stylesheet" href="/css/components.css">
+<style>
+.slide-viewer{margin-bottom:32px}
+.slide-viewer img{width:100%;border-radius:var(--radius-md);border:1px solid var(--border);display:block;margin-bottom:12px}
+.slide-viewer img+img{margin-top:0}
+.slide-nav{display:flex;align-items:center;justify-content:center;gap:12px;margin:24px 0 32px;flex-wrap:wrap}
+.slide-nav button{background:var(--bg-surface);border:1px solid var(--border);color:var(--text-primary);padding:8px 16px;border-radius:var(--radius-sm);cursor:pointer;font-size:14px;transition:all .2s}
+.slide-nav button:hover{border-color:var(--concept);color:var(--concept)}
+.slide-nav button:disabled{opacity:.4;cursor:default}
+.slide-nav .page-info{color:var(--text-secondary);font-size:14px;min-width:80px;text-align:center}
+.slide-single{position:relative}
+.slide-single img{width:100%;border-radius:var(--radius-md);border:1px solid var(--border);display:block;cursor:pointer;transition:border-color .2s}
+.slide-single img:hover{border-color:var(--concept)}
+.slide-grid{display:grid;grid-template-columns:1fr;gap:8px}
+.view-mode-bar{display:flex;gap:8px;margin-bottom:20px;justify-content:flex-end}
+.view-mode-bar button{background:var(--bg-surface);border:1px solid var(--border);color:var(--text-secondary);padding:6px 14px;border-radius:var(--radius-sm);cursor:pointer;font-size:13px;transition:all .2s}
+.view-mode-bar button.active{border-color:var(--concept);color:var(--concept)}
+</style>
+</head>
+<body>
+<div class="mobile-header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <h1>일반물리</h1>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- ═══════════ SIDEBAR ═══════════ -->
+<nav class="sidebar">
+<div class="sidebar-content">
+  <h2>목차</h2>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="1" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 1강 - 단위계와 1차원 운동
+    </div>
+    <div class="nav-links">
+      <a href="#p1-slides" data-lecture="1">강의록 (36p)</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="2" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 2강 - 2차원 운동
+    </div>
+    <div class="nav-links">
+      <a href="#p2-slides" data-lecture="2">강의록 (33p)</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="3" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 3강 - 뉴턴의 운동 법칙
+    </div>
+    <div class="nav-links">
+      <a href="#p3-slides" data-lecture="3">강의록 (30p)</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="4" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 4강 - 일과 에너지
+    </div>
+    <div class="nav-links">
+      <a href="#p4-slides" data-lecture="4">강의록 (27p)</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="5" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 5강 - 선 운동량과 충돌
+    </div>
+    <div class="nav-links">
+      <a href="#p5-slides" data-lecture="5">강의록 (32p)</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="6" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 6강 - 물체의 회전 운동
+    </div>
+    <div class="nav-links">
+      <a href="#p6-slides" data-lecture="6">강의록 (29p)</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="7" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 7강 - 회전 운동의 법칙
+    </div>
+    <div class="nav-links">
+      <a href="#p7-slides" data-lecture="7">강의록 (35p)</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="8" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 8강 - Help Desk 1
+    </div>
+    <div class="nav-links">
+      <a href="#p8-slides" data-lecture="8">강의록 (50p)</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="sidebar-bottom">
+  <select class="sb-select" onchange="if(this.value) location.href=this.value">
+    <option disabled>과목 전환</option>
+    <option value="/subjects/statistics/">통계학개론</option>
+    <option value="/subjects/math/">대학기초수학</option>
+    <option value="/subjects/english/">대학기초영어</option>
+    <option disabled>파이썬 (준비중)</option>
+    <option value="/subjects/physics/" selected>일반물리</option>
+    <option disabled>R컴퓨팅 (준비중)</option>
+  </select>
+  <a href="/" class="sb-back">&larr; 홈으로 돌아가기</a>
+  <div id="visitor-stats" style="text-align:center; padding:8px 0 0; font-size:11px; color:var(--text-muted); letter-spacing:0.3px; line-height:1.8;"></div>
+</div>
+</nav>
+
+<div class="update-banner" id="updateBanner">
+  <span id="bannerText"></span>
+  <button class="refresh-link" id="bannerRefreshBtn" onclick="location.reload()" style="display:none">새로고침</button>
+  <button class="close-banner" onclick="document.getElementById('updateBanner').style.display='none'">&times;</button>
+</div>
+
+<!-- ═══════════ MAIN ═══════════ -->
+<div class="main">
+
+<!-- ── Hero View ── -->
+<div class="view-hero active">
+
+<div class="hero">
+  <p style="color:var(--text-secondary); font-size:14px; margin-bottom:8px;">벼락치기 연구소</p>
+  <h1>일반물리</h1>
+  <p>1강 ~ 8강</p>
+</div>
+
+</div><!-- /view-hero -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 1강. 단위계와 1차원 운동                   -->
+<!-- ══════════════════════════════════════ -->
+<div class="view-lecture-1">
+<div class="lecture-section" id="p1-slides">
+<div class="lecture-header">
+  <div class="lecture-num">1</div>
+  <h2>단위계와 1차원 운동</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(1,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(1,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-1" data-lecture="1" data-pages="36" data-folder="일반물리_1강_강의록_판서"></div>
+</div>
+</div><!-- /view-lecture-1 -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 2강. 2차원 운동                           -->
+<!-- ══════════════════════════════════════ -->
+<div class="view-lecture-2">
+<div class="lecture-section" id="p2-slides">
+<div class="lecture-header">
+  <div class="lecture-num">2</div>
+  <h2>2차원 운동</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(2,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(2,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-2" data-lecture="2" data-pages="33" data-folder="일반물리_2강_강의록_판서"></div>
+</div>
+</div><!-- /view-lecture-2 -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 3강. 뉴턴의 운동 법칙                      -->
+<!-- ══════════════════════════════════════ -->
+<div class="view-lecture-3">
+<div class="lecture-section" id="p3-slides">
+<div class="lecture-header">
+  <div class="lecture-num">3</div>
+  <h2>뉴턴의 운동 법칙</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(3,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(3,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-3" data-lecture="3" data-pages="30" data-folder="일반물리_3강_강의록_판서"></div>
+</div>
+</div><!-- /view-lecture-3 -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 4강. 일과 에너지                           -->
+<!-- ══════════════════════════════════════ -->
+<div class="view-lecture-4">
+<div class="lecture-section" id="p4-slides">
+<div class="lecture-header">
+  <div class="lecture-num">4</div>
+  <h2>일과 에너지</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(4,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(4,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-4" data-lecture="4" data-pages="27" data-folder="일반물리_4강_강의록_판서"></div>
+</div>
+</div><!-- /view-lecture-4 -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 5강. 선 운동량과 충돌                       -->
+<!-- ══════════════════════════════════════ -->
+<div class="view-lecture-5">
+<div class="lecture-section" id="p5-slides">
+<div class="lecture-header">
+  <div class="lecture-num">5</div>
+  <h2>선 운동량과 충돌</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(5,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(5,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-5" data-lecture="5" data-pages="32" data-folder="일반물리_5강_강의록_판서"></div>
+</div>
+</div><!-- /view-lecture-5 -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 6강. 물체의 회전 운동                       -->
+<!-- ══════════════════════════════════════ -->
+<div class="view-lecture-6">
+<div class="lecture-section" id="p6-slides">
+<div class="lecture-header">
+  <div class="lecture-num">6</div>
+  <h2>물체의 회전 운동</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(6,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(6,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-6" data-lecture="6" data-pages="29" data-folder="일반물리_6강_강의록_판서"></div>
+</div>
+</div><!-- /view-lecture-6 -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 7강. 회전 운동의 법칙                       -->
+<!-- ══════════════════════════════════════ -->
+<div class="view-lecture-7">
+<div class="lecture-section" id="p7-slides">
+<div class="lecture-header">
+  <div class="lecture-num">7</div>
+  <h2>회전 운동의 법칙</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(7,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(7,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-7" data-lecture="7" data-pages="35" data-folder="일반물리_7강_강의록_판서"></div>
+</div>
+</div><!-- /view-lecture-7 -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 8강. Help Desk 1                         -->
+<!-- ══════════════════════════════════════ -->
+<div class="view-lecture-8">
+<div class="lecture-section" id="p8-slides">
+<div class="lecture-header">
+  <div class="lecture-num">8</div>
+  <h2>Help Desk 1</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(8,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(8,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-8" data-lecture="8" data-pages="50" data-folder="일반물리_8강_강의록_판서"></div>
+</div>
+</div><!-- /view-lecture-8 -->
+
+
+</div><!-- /main -->
+
+<div class="fab-wrap">
+  <div class="fab-menu" id="fabMenu">
+    <a href="https://open.kakao.com/o/s9OGoOoi" target="_blank">버그 제보 & 문의하기</a>
+  </div>
+  <button class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()">🌙</button>
+  <button class="fab">?</button>
+</div>
+
+<!-- ═══════════ JAVASCRIPT ═══════════ -->
+<script src="/js/sidebar.js"></script>
+<script src="/js/view-toggle.js"></script>
+<script src="/js/theme.js"></script>
+<script src="/js/fab.js"></script>
+<script src="/js/visitors.js"></script>
+<script src="/js/banner.js"></script>
+<script src="/js/mobile.js"></script>
+
+<script>
+// ── Slide Viewer ──
+const viewerState = {};
+
+function initViewer(num) {
+  const el = document.getElementById('viewer-' + num);
+  if (!el) return;
+  const pages = parseInt(el.dataset.pages);
+  const folder = el.dataset.folder;
+  viewerState[num] = { page: 1, pages, folder, mode: 'single' };
+  renderViewer(num);
+}
+
+function imgSrc(folder, page) {
+  return 'images/' + encodeURIComponent(folder) + '/page_' + String(page).padStart(3, '0') + '.png';
+}
+
+function renderViewer(num) {
+  const s = viewerState[num];
+  const el = document.getElementById('viewer-' + num);
+  if (!el) return;
+
+  if (s.mode === 'all') {
+    let html = '<div class="slide-grid">';
+    for (let i = 1; i <= s.pages; i++) {
+      html += '<img src="' + imgSrc(s.folder, i) + '" alt="' + i + '/' + s.pages + '" loading="lazy">';
+    }
+    html += '</div>';
+    el.innerHTML = html;
+  } else {
+    let html = '<div class="slide-single">';
+    html += '<img src="' + imgSrc(s.folder, s.page) + '" alt="' + s.page + '/' + s.pages + '">';
+    html += '</div>';
+    html += '<div class="slide-nav">';
+    html += '<button onclick="goPage(' + num + ',' + 1 + ')"' + (s.page <= 1 ? ' disabled' : '') + '>&laquo;</button>';
+    html += '<button onclick="goPage(' + num + ',' + (s.page - 1) + ')"' + (s.page <= 1 ? ' disabled' : '') + '>&lsaquo; 이전</button>';
+    html += '<span class="page-info">' + s.page + ' / ' + s.pages + '</span>';
+    html += '<button onclick="goPage(' + num + ',' + (s.page + 1) + ')"' + (s.page >= s.pages ? ' disabled' : '') + '>다음 &rsaquo;</button>';
+    html += '<button onclick="goPage(' + num + ',' + s.pages + ')"' + (s.page >= s.pages ? ' disabled' : '') + '>&raquo;</button>';
+    html += '</div>';
+    el.innerHTML = html;
+  }
+}
+
+function goPage(num, page) {
+  const s = viewerState[num];
+  if (page < 1 || page > s.pages) return;
+  s.page = page;
+  renderViewer(num);
+  document.getElementById('viewer-' + num).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function setViewMode(num, mode, btn) {
+  viewerState[num].mode = mode;
+  const bar = btn.parentElement;
+  bar.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderViewer(num);
+}
+
+// keyboard navigation
+document.addEventListener('keydown', function(e) {
+  // find which lecture view is active
+  for (let i = 1; i <= 8; i++) {
+    const view = document.querySelector('.view-lecture-' + i);
+    if (view && view.classList.contains('active') && viewerState[i] && viewerState[i].mode === 'single') {
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        goPage(i, viewerState[i].page - 1);
+      } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        goPage(i, viewerState[i].page + 1);
+      }
+      break;
+    }
+  }
+});
+
+// init all viewers
+for (let i = 1; i <= 8; i++) initViewer(i);
+</script>
+
+<script>fetch('/api/visitors?page=physics').catch(()=>{});</script>
+</body>
+</html>
