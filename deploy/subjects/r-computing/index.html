@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R컴퓨팅 | 프라임칼리지 벼락치기 연구소</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:title" content="R컴퓨팅 | 프라임칼리지 벼락치기 연구소">
+<meta property="og:description" content="건물주로 태어나지 않은 이상 공부해야해..!">
+<meta property="og:image" content="https://a-please.com/og-image.jpg">
+<meta property="og:url" content="https://a-please.com/subjects/r-computing/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/sidebar.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/content.css">
+<link rel="stylesheet" href="/css/quiz.css">
+<link rel="stylesheet" href="/css/calculator.css">
+<link rel="stylesheet" href="/css/tables.css">
+<link rel="stylesheet" href="/css/components.css">
+</head>
+<body>
+<div class="mobile-header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <h1>R컴퓨팅</h1>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- ═══════════ SIDEBAR ═══════════ -->
+<nav class="sidebar">
+<div class="sidebar-content">
+  <h2>목차</h2>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="1" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 1강 - R 프로그래밍 기초 (1)
+    </div>
+    <div class="nav-links">
+      <a href="#r1-intro" data-lecture="1">R 프로그램 소개</a>
+      <a href="#r1-install" data-lecture="1">R 설치와 실행</a>
+      <a href="#r1-basic" data-lecture="1">기본 활용</a>
+      <a href="#r1-datatype" data-lecture="1">데이터 타입</a>
+      <a href="#r1-summary" data-lecture="1">1강 정리</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="2" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 2강 - R 프로그래밍 기초 (2)
+    </div>
+    <div class="nav-links">
+      <a href="#r2-workspace" data-lecture="2">작업폴더와 작업공간</a>
+      <a href="#r2-package" data-lecture="2">패키지 설치와 활용</a>
+      <a href="#r2-rstudio" data-lecture="2">RStudio</a>
+      <a href="#r2-summary" data-lecture="2">2강 정리</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="3" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 3강 - 데이터 입출력
+    </div>
+    <div class="nav-links">
+      <a href="#r3-input" data-lecture="3">데이터 입력</a>
+      <a href="#r3-read" data-lecture="3">데이터 불러오기</a>
+      <a href="#r3-save" data-lecture="3">데이터 저장하기</a>
+      <a href="#r3-summary" data-lecture="3">3강 정리</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="4" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 4강 - 데이터 구조 (1)
+    </div>
+    <div class="nav-links">
+      <a href="#r4-vector" data-lecture="4">벡터</a>
+      <a href="#r4-vector-edit" data-lecture="4">벡터 편집</a>
+      <a href="#r4-matrix" data-lecture="4">행렬</a>
+      <a href="#r4-summary" data-lecture="4">4강 정리</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="5" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 5강 - 데이터 구조 (2)
+    </div>
+    <div class="nav-links">
+      <a href="#r5-array" data-lecture="5">배열</a>
+      <a href="#r5-list" data-lecture="5">리스트</a>
+      <a href="#r5-dataframe" data-lecture="5">데이터프레임</a>
+      <a href="#r5-summary" data-lecture="5">5강 정리</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="6" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 6강 - Tidyverse와 Tibble
+    </div>
+    <div class="nav-links">
+      <a href="#r6-tidyverse" data-lecture="6">Tidyverse 생태계</a>
+      <a href="#r6-tibble" data-lecture="6">Tibble</a>
+      <a href="#r6-summary" data-lecture="6">6강 정리</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="7" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 7강 - readr과 dplyr
+    </div>
+    <div class="nav-links">
+      <a href="#r7-readr" data-lecture="7">readr 패키지</a>
+      <a href="#r7-dplyr" data-lecture="7">dplyr 패키지</a>
+      <a href="#r7-summary" data-lecture="7">7강 정리</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="8" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 8강 - 연산자와 내장 함수
+    </div>
+    <div class="nav-links">
+      <a href="#r8-arith" data-lecture="8">산술 연산자</a>
+      <a href="#r8-compare" data-lecture="8">비교/논리 연산자</a>
+      <a href="#r8-set" data-lecture="8">집합 연산</a>
+      <a href="#r8-builtin" data-lecture="8">내장 함수</a>
+      <a href="#r8-summary" data-lecture="8">8강 정리</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="9" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 9강 - 조건문, 반복문, 함수
+    </div>
+    <div class="nav-links">
+      <a href="#r9-if" data-lecture="9">조건문</a>
+      <a href="#r9-loop" data-lecture="9">반복문</a>
+      <a href="#r9-branch" data-lecture="9">break와 next</a>
+      <a href="#r9-func" data-lecture="9">사용자 정의 함수</a>
+      <a href="#r9-summary" data-lecture="9">9강 정리</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="10" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 10강 - 단일 변수 시각화
+    </div>
+    <div class="nav-links">
+      <a href="#r10-concept" data-lecture="10">단일 변수 시각화 개념</a>
+      <a href="#r10-bar" data-lecture="10">막대/원형 그래프</a>
+      <a href="#r10-hist" data-lecture="10">히스토그램/상자 그림</a>
+      <a href="#r10-layout" data-lecture="10">그래픽 레이아웃</a>
+      <a href="#r10-summary" data-lecture="10">10강 정리</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="11" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 11강 - 두 변수 시각화
+    </div>
+    <div class="nav-links">
+      <a href="#r11-scatter" data-lecture="11">산점도와 plot()</a>
+      <a href="#r11-addon" data-lecture="11">부가 그래픽 함수</a>
+      <a href="#r11-layout" data-lecture="11">layout() 함수</a>
+      <a href="#r11-summary" data-lecture="11">11강 정리</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="sidebar-bottom">
+  <select class="sb-select" onchange="if(this.value) location.href=this.value">
+    <option disabled>과목 전환</option>
+    <option value="/subjects/statistics/">통계학개론</option>
+    <option value="/subjects/math/">대학기초수학</option>
+    <option value="/subjects/english/">대학기초영어</option>
+    <option disabled>파이썬 (준비중)</option>
+    <option value="/subjects/physics/">일반물리</option>
+    <option value="/subjects/r-computing/" selected>R컴퓨팅</option>
+  </select>
+  <a href="/" class="sb-back">&larr; 홈으로 돌아가기</a>
+  <div id="visitor-stats" style="text-align:center; padding:8px 0 0; font-size:11px; color:var(--text-muted); letter-spacing:0.3px; line-height:1.8;"></div>
+</div>
+</nav>
+
+<div class="update-banner" id="updateBanner">
+  <span id="bannerText"></span>
+  <button class="refresh-link" id="bannerRefreshBtn" onclick="location.reload()" style="display:none">새로고침</button>
+  <button class="close-banner" onclick="document.getElementById('updateBanner').style.display='none'">&times;</button>
+</div>
+
+<!-- ═══════════ MAIN ═══════════ -->
+<div class="main">
+
+<!-- ── Hero View ── -->
+<div class="view-hero active">
+
+<div class="hero">
+  <p style="color:var(--text-secondary); font-size:14px; margin-bottom:8px;">벼락치기 연구소</p>
+  <h1>R컴퓨팅</h1>
+  <p>1강 ~ 11강</p>
+</div>
+
+</div><!-- /view-hero -->
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 1강. R 프로그래밍 기초 (1)                           -->
+<!-- ══════════════════════════════════════════════════ -->
+<div class="view-lecture-1">
+
+<div class="lecture-section" id="r1-intro">
+<div class="lecture-header">
+  <div class="lecture-num">1</div>
+  <h2>R 프로그래밍 기초 (1)</h2>
+</div>
+
+<div class="concept-card">
+  <h3><span class="icon">💡</span> R 프로그램이란?</h3>
+  <p><strong>R</strong>은 통계 컴퓨팅과 그래픽을 위한 <strong>프로그래밍 언어이자 소프트웨어 환경</strong>이야.</p>
+  <p>뉴질랜드 오클랜드 대학의 <strong>로버트 젠틀맨</strong>(Robert Gentleman)과 <strong>로스 이하카</strong>(Ross Ihaka)가 S 언어를 기반으로 개발했어.</p>
+
+  <div style="display:flex; gap:16px; margin:16px 0; flex-wrap:wrap;">
+    <div style="flex:1; min-width:200px; background:var(--concept-bg); border:2px solid var(--concept); border-radius:14px; padding:16px;">
+      <h4 style="color:var(--concept-text); margin-bottom:8px;">R의 강점</h4>
+      <ul style="font-size:14px; padding-left:18px;">
+        <li>오픈소스 (GNU GPL) - 무료</li>
+        <li>CRAN: 15,000+ 패키지</li>
+        <li>강력한 시각화 (ggplot2, plotly)</li>
+        <li>대화형 프로그래밍 환경</li>
+      </ul>
+    </div>
+    <div style="flex:1; min-width:200px; background:var(--error-bg,rgba(255,100,100,0.1)); border:2px solid var(--error); border-radius:14px; padding:16px;">
+      <h4 style="color:var(--error); margin-bottom:8px;">R의 한계</h4>
+      <ul style="font-size:14px; padding-left:18px;">
+        <li>대용량 데이터 처리 속도 느림</li>
+        <li>메모리 제약</li>
+        <li>패키지 간 품질 차이</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>시험 포인트:</strong> R의 활용 분야 — 금융, 제약, 생명과학, 마케팅, 사회과학 등 다양한 분야에서 데이터 분석 플랫폼으로 활용됨</p>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r1-install">
+<div class="concept-card">
+  <h3><span class="icon">📥</span> R 설치와 실행</h3>
+  <p><strong>CRAN</strong>(Comprehensive R Archive Network)에서 R을 다운로드할 수 있어.</p>
+  <p>주소: <code>http://www.r-project.org</code></p>
+
+  <div class="formula-box">
+    <h4>R 프로그램 실행 순서</h4>
+    <ol style="font-size:14px; padding-left:18px;">
+      <li>바탕화면 아이콘 더블클릭 → R 콘솔(Console) 창 열림</li>
+      <li>프롬프트(<code>&gt;</code>) 뒤에 명령어 입력</li>
+      <li>Enter 키로 결과 확인</li>
+    </ol>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예시:</strong> 기본 사칙연산</p>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+&gt; 1 + 2
+[1] 3
+&gt; 1 * 2
+[1] 2
+&gt; 1 / 2
+[1] 0.5</pre>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r1-basic">
+<div class="concept-card">
+  <h3><span class="icon">📝</span> 변수 할당과 기본 활용</h3>
+  <p>R에서는 <code>&lt;-</code> 또는 <code>=</code>를 사용해서 변수에 값을 할당해.</p>
+
+  <div class="example-box">
+    <p><strong>예시:</strong> 변수 할당과 연산</p>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+&gt; a &lt;- 1
+&gt; b &lt;- 2
+&gt; a + b
+[1] 3</pre>
+  </div>
+
+  <div class="formula-box">
+    <h4>변수 이름 규칙</h4>
+    <table class="compare-table">
+      <tr><th>규칙</th><th>설명</th></tr>
+      <tr><td>사용 가능 문자</td><td>a~z, A~Z, 0~9, <code>.</code>, <code>_</code></td></tr>
+      <tr><td>첫 글자 제한</td><td>숫자와 <code>_</code>로 시작 불가</td></tr>
+      <tr><td>대소문자</td><td>구분됨 (myVar ≠ myvar)</td></tr>
+    </table>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예시:</strong> 세미콜론으로 한 줄에 여러 명령</p>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+&gt; a = 1; b = 2; a + b
+[1] 3</pre>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>스크립트 편집기:</strong> '파일' → '새 스크립트'로 R 편집기를 열고, 여러 명령문을 작성/실행할 수 있어. 단축키: <code>Ctrl + R</code> (선택영역 실행)</p>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r1-datatype">
+<div class="concept-card">
+  <h3><span class="icon">🗂️</span> 데이터 타입</h3>
+
+  <table class="compare-table">
+    <tr><th>타입</th><th>설명</th><th>예시</th></tr>
+    <tr><td><strong>숫자형</strong> (numeric)</td><td>정수와 실수 모두 포함</td><td><code>3</code>, <code>3.14</code></td></tr>
+    <tr><td><strong>문자형</strong> (character)</td><td>텍스트 데이터</td><td><code>"hello"</code>, <code>'R'</code></td></tr>
+    <tr><td><strong>논리형</strong> (logical)</td><td>참/거짓</td><td><code>TRUE</code>, <code>FALSE</code></td></tr>
+  </table>
+
+  <div class="tip-box">
+    <p><strong>핵심:</strong> R의 강점은 단순 연산이 아니라, 객체에 값을 할당하고 함수들을 사용하여 객체들을 다루고 분석하는 데 있어!</p>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r1-summary">
+<div class="concept-card" style="border-color: var(--tip);">
+  <h3><span class="icon">📌</span> 1강 핵심 정리</h3>
+  <ol>
+    <li>R은 <strong>통계 컴퓨팅 + 그래픽</strong> 전용 프로그래밍 언어 (오픈소스)</li>
+    <li>CRAN에서 설치, 콘솔에서 대화형으로 명령 실행</li>
+    <li><code>&lt;-</code> 또는 <code>=</code>로 변수에 값 할당</li>
+    <li>스크립트 편집기로 여러 명령을 저장·실행</li>
+    <li>데이터 타입: 숫자형, 문자형, 논리형</li>
+  </ol>
+</div>
+</div>
+
+</div><!-- /view-lecture-1 -->
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 2강. R 프로그래밍 기초 (2)                           -->
+<!-- ══════════════════════════════════════════════════ -->
+<div class="view-lecture-2">
+
+<div class="lecture-section" id="r2-workspace">
+<div class="lecture-header">
+  <div class="lecture-num">2</div>
+  <h2>R 프로그래밍 기초 (2)</h2>
+</div>
+
+<div class="concept-card">
+  <h3><span class="icon">📂</span> 작업폴더와 작업공간</h3>
+
+  <div class="formula-box">
+    <h4>작업폴더 관련 함수</h4>
+    <table class="compare-table">
+      <tr><th>함수</th><th>기능</th></tr>
+      <tr><td><code>getwd()</code></td><td>현재 작업 폴더 확인</td></tr>
+      <tr><td><code>setwd("경로")</code></td><td>작업 폴더 변경</td></tr>
+      <tr><td><code>ls()</code></td><td>현재 생성된 객체 목록 확인</td></tr>
+      <tr><td><code>rm(x)</code></td><td>특정 객체 삭제</td></tr>
+      <tr><td><code>rm(list=ls())</code></td><td>모든 객체 삭제</td></tr>
+    </table>
+  </div>
+
+  <div class="example-box">
+    <p><strong>작업공간 저장/불러오기</strong></p>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+&gt; save.image(file = "mydata.RData")   # 저장
+&gt; load(file = "mydata.RData")         # 불러오기</pre>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r2-package">
+<div class="concept-card">
+  <h3><span class="icon">📦</span> 패키지 설치와 활용</h3>
+  <p><strong>패키지</strong>란 특정 분석을 수행할 수 있는 함수, 객체, 도움말, 데이터 등의 집합이야.</p>
+
+  <div class="formula-box">
+    <h4>패키지 관련 함수</h4>
+    <table class="compare-table">
+      <tr><th>함수</th><th>기능</th></tr>
+      <tr><td><code>install.packages("패키지명")</code></td><td>패키지 설치</td></tr>
+      <tr><td><code>library(패키지명)</code></td><td>패키지 불러오기 (활성화)</td></tr>
+      <tr><td><code>packageVersion("패키지명")</code></td><td>버전 확인</td></tr>
+      <tr><td><code>update.packages()</code></td><td>패키지 업데이트</td></tr>
+    </table>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예시:</strong> tidyverse 패키지 사용</p>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+&gt; install.packages("tidyverse")
+&gt; library(tidyverse)
+&gt; AirPassengers %&gt;% log() %&gt;% aggregate() %&gt;% plot()</pre>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>파이프 연산자:</strong> <code>%&gt;%</code>(tidyverse) 또는 <code>|&gt;</code>(R 4.0+) — 왼쪽 결과를 오른쪽 함수의 첫 번째 인수로 전달</p>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r2-rstudio">
+<div class="concept-card">
+  <h3><span class="icon">🖥️</span> RStudio</h3>
+  <p>RStudio는 R의 사용 편의성을 강화한 <strong>IDE</strong>(통합개발환경)로, 현재 <strong>Posit</strong>으로 사명이 변경됐어.</p>
+
+  <div class="formula-box">
+    <h4>RStudio 화면 구성</h4>
+    <table class="compare-table">
+      <tr><th>위치</th><th>구성 요소</th></tr>
+      <tr><td>좌측 상단</td><td>편집기 (스크립트 작성)</td></tr>
+      <tr><td>좌측 하단</td><td>R 콘솔 (명령 실행)</td></tr>
+      <tr><td>우측 상단</td><td>작업공간(Workspace) / 작업이력(History)</td></tr>
+      <tr><td>우측 하단</td><td>Files / Plots / Packages / Help</td></tr>
+    </table>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>단축키:</strong> <code>Ctrl + Enter</code> = 선택 코드 실행, <code>Ctrl + Shift + N</code> = 새 스크립트</p>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r2-summary">
+<div class="concept-card" style="border-color: var(--tip);">
+  <h3><span class="icon">📌</span> 2강 핵심 정리</h3>
+  <ol>
+    <li><code>setwd()</code> / <code>getwd()</code>로 작업폴더 관리</li>
+    <li><code>install.packages()</code>로 설치, <code>library()</code>로 활성화</li>
+    <li>파이프 연산자(<code>%&gt;%</code> / <code>|&gt;</code>)로 함수 체이닝</li>
+    <li>RStudio = R의 편의 IDE (코드 작성 + 실행 + 시각화 + 패키지 관리)</li>
+  </ol>
+</div>
+</div>
+
+</div><!-- /view-lecture-2 -->
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 3강. 데이터 입출력                                   -->
+<!-- ══════════════════════════════════════════════════ -->
+<div class="view-lecture-3">
+
+<div class="lecture-section" id="r3-input">
+<div class="lecture-header">
+  <div class="lecture-num">3</div>
+  <h2>데이터 입출력</h2>
+</div>
+
+<div class="concept-card">
+  <h3><span class="icon">⌨️</span> 데이터 입력 함수</h3>
+
+  <div class="formula-box">
+    <h4>c() 함수 — 가장 기본적인 벡터 생성</h4>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+&gt; x &lt;- c(1, 2, 3, 4, 5)       # 숫자형 벡터
+&gt; x1 &lt;- c("a", "b", "c")      # 문자형 벡터
+&gt; x2 &lt;- c(T, F, T, T)         # 논리형 벡터</pre>
+  </div>
+
+  <div class="formula-box">
+    <h4>scan() 함수 — 대화식 입력</h4>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+&gt; z1 &lt;- scan()      # 숫자 입력 후 빈 줄에서 Enter로 종료
+&gt; z2 &lt;- scan(what=" ")   # 문자형 데이터 입력</pre>
+  </div>
+
+  <div class="formula-box">
+    <h4>edit() 함수 — 데이터 편집기 창</h4>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+&gt; dat1 &lt;- data.frame()
+&gt; dat1 &lt;- edit(dat1)    # 스프레드시트 형태로 편집</pre>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r3-read">
+<div class="concept-card">
+  <h3><span class="icon">📄</span> 데이터 불러오기</h3>
+
+  <table class="compare-table">
+    <tr><th>함수</th><th>용도</th><th>핵심 옵션</th></tr>
+    <tr><td><code>read.table()</code></td><td>공백/탭 구분 파일</td><td><code>header=T</code>, <code>sep=","</code></td></tr>
+    <tr><td><code>read.csv()</code></td><td>CSV 파일</td><td><code>sep=","</code>, <code>header=T</code> 기본값</td></tr>
+    <tr><td><code>scan()</code></td><td>외부 파일 읽기</td><td><code>what</code>, <code>skip</code>, <code>sep</code></td></tr>
+  </table>
+
+  <div class="example-box">
+    <p><strong>예시:</strong> 외부 파일 불러오기</p>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+&gt; read.table("example1.txt", header=T)
+&gt; read.csv("data.csv")
+&gt; setwd("C:/data")   # 작업경로 지정 후 파일명만으로 불러오기</pre>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>주의:</strong> 경로 구분자는 Windows에서도 <code>/</code> 또는 <code>\\</code>를 사용해야 해!</p>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r3-save">
+<div class="concept-card">
+  <h3><span class="icon">💾</span> 데이터 저장하기</h3>
+
+  <table class="compare-table">
+    <tr><th>함수</th><th>용도</th></tr>
+    <tr><td><code>write.table()</code></td><td>텍스트 파일로 저장</td></tr>
+    <tr><td><code>write.csv()</code></td><td>CSV 파일로 저장</td></tr>
+    <tr><td><code>save()</code></td><td>R 객체를 .RData로 저장</td></tr>
+  </table>
+</div>
+</div>
+
+<div class="lecture-section" id="r3-summary">
+<div class="concept-card" style="border-color: var(--tip);">
+  <h3><span class="icon">📌</span> 3강 핵심 정리</h3>
+  <ol>
+    <li><code>c()</code>: 벡터 생성의 기본 함수</li>
+    <li><code>read.table()</code>: <code>header</code>와 <code>sep</code> 옵션이 핵심</li>
+    <li><code>read.csv()</code>: CSV 전용 (<code>sep=","</code>가 기본값)</li>
+    <li>작업경로를 <code>setwd()</code>로 지정하면 파일명만으로 불러오기 가능</li>
+  </ol>
+</div>
+</div>
+
+</div><!-- /view-lecture-3 -->
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 4강. R 데이터 구조 (1) — 벡터, 행렬                  -->
+<!-- ══════════════════════════════════════════════════ -->
+<div class="view-lecture-4">
+
+<div class="lecture-section" id="r4-vector">
+<div class="lecture-header">
+  <div class="lecture-num">4</div>
+  <h2>R 데이터 구조 (1) — 벡터와 행렬</h2>
+</div>
+
+<div class="concept-card">
+  <h3><span class="icon">🔢</span> 벡터(Vector)</h3>
+  <p><strong>벡터</strong>는 1개 이상의 원소로 구성된 R의 <strong>가장 기본 자료 객체</strong>야. 하나의 벡터 안에는 <strong>한 가지 형태(mode)</strong>만 가능해.</p>
+
+  <div class="formula-box">
+    <h4>벡터 생성 함수</h4>
+    <table class="compare-table">
+      <tr><th>함수</th><th>용도</th><th>예시</th></tr>
+      <tr><td><code>c()</code></td><td>원소를 직접 나열</td><td><code>c(3, 4, 5, 6, 7)</code></td></tr>
+      <tr><td><code>seq()</code></td><td>수열 생성 (from, to, by)</td><td><code>seq(3, 7, 1)</code></td></tr>
+      <tr><td><code>rep()</code></td><td>반복 벡터 생성</td><td><code>rep(1:2, times=3)</code></td></tr>
+      <tr><td><code>scan()</code></td><td>대화식 입력</td><td><code>scan()</code></td></tr>
+    </table>
+  </div>
+
+  <div class="example-box">
+    <p><strong>seq() 함수 활용</strong></p>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+&gt; seq(from=3, to=7, by=1)      # [1] 3 4 5 6 7
+&gt; seq(from=3, to=7, length=3)  # [1] 3 5 7
+&gt; seq(from=1, by=0.05, along=1:5)  # [1] 1.00 1.05 1.10 1.15 1.20</pre>
+  </div>
+
+  <div class="example-box">
+    <p><strong>rep() 함수 활용</strong></p>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+&gt; rep(c(1,2), times=2)      # [1] 1 2 1 2
+&gt; rep(c(2,4), each=2)       # [1] 2 2 4 4
+&gt; rep(c(2,4,8), length=5)   # [1] 2 4 8 2 4</pre>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r4-vector-edit">
+<div class="concept-card">
+  <h3><span class="icon">✂️</span> 벡터 자료 편집</h3>
+
+  <table class="compare-table">
+    <tr><th>방법</th><th>설명</th><th>예시</th></tr>
+    <tr><td><code>[ ]</code> 추출</td><td>인덱스로 원소 추출</td><td><code>v1[c(3,5)]</code></td></tr>
+    <tr><td><code>[ ]</code> 조건</td><td>조건으로 필터링</td><td><code>v1[v1 &gt; 15]</code></td></tr>
+    <tr><td><code>[-c()]</code> 삭제</td><td>특정 위치 제외</td><td><code>v1[-c(2,4)]</code></td></tr>
+    <tr><td><code>replace()</code></td><td>일부 자료 대체</td><td><code>replace(v, 2, 99)</code></td></tr>
+    <tr><td><code>append()</code></td><td>자료 삽입</td><td><code>append(v, 10, after=3)</code></td></tr>
+    <tr><td><code>sort()</code></td><td>오름차순 정렬</td><td><code>sort(v, decreasing=F)</code></td></tr>
+    <tr><td><code>rank()</code></td><td>순위 출력</td><td><code>rank(v)</code></td></tr>
+    <tr><td><code>order()</code></td><td>정렬 시 위치값</td><td><code>order(v)</code></td></tr>
+  </table>
+</div>
+</div>
+
+<div class="lecture-section" id="r4-matrix">
+<div class="concept-card">
+  <h3><span class="icon">📊</span> 행렬(Matrix)</h3>
+  <p>행렬은 행(row)과 열(column)로 구성된 <strong>2차원 자료 구조</strong>야. 벡터와 마찬가지로 <strong>한 가지 형태(mode)</strong>만 가능해.</p>
+
+  <div class="formula-box">
+    <h4>행렬 생성</h4>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+&gt; matrix(1:6, nrow=2, ncol=3)           # 2x3 행렬
+&gt; matrix(1:6, nrow=2, byrow=TRUE)       # 행 우선 채우기
+&gt; rbind(c(1,2,3), c(4,5,6))             # 행 결합
+&gt; cbind(c(1,4), c(2,5), c(3,6))         # 열 결합</pre>
+  </div>
+
+  <div class="formula-box">
+    <h4>행렬 속성 함수</h4>
+    <table class="compare-table">
+      <tr><th>함수</th><th>기능</th></tr>
+      <tr><td><code>nrow()</code> / <code>ncol()</code></td><td>행/열 개수</td></tr>
+      <tr><td><code>dim()</code></td><td>차원 확인</td></tr>
+      <tr><td><code>t()</code></td><td>전치행렬</td></tr>
+      <tr><td><code>det()</code></td><td>행렬식</td></tr>
+      <tr><td><code>solve()</code></td><td>역행렬</td></tr>
+    </table>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>핵심:</strong> <code>*</code>는 원소별 곱셈, <code>%*%</code>는 수학적 행렬 곱셈 — 완전히 다른 결과!</p>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r4-summary">
+<div class="concept-card" style="border-color: var(--tip);">
+  <h3><span class="icon">📌</span> 4강 핵심 정리</h3>
+  <ol>
+    <li>벡터: R의 가장 기본 자료 객체, 한 가지 타입만 가능</li>
+    <li><code>c()</code>, <code>seq()</code>, <code>rep()</code>으로 벡터 생성</li>
+    <li><code>[ ]</code>로 추출/삭제, <code>sort()</code>/<code>rank()</code>/<code>order()</code>로 정렬</li>
+    <li><code>matrix()</code>, <code>rbind()</code>, <code>cbind()</code>로 행렬 생성</li>
+    <li><code>*</code>(원소별) vs <code>%*%</code>(행렬 곱) 구분 필수!</li>
+  </ol>
+</div>
+</div>
+
+</div><!-- /view-lecture-4 -->
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 5강. R 데이터 구조 (2) — 배열, 리스트, 데이터프레임   -->
+<!-- ══════════════════════════════════════════════════ -->
+<div class="view-lecture-5">
+
+<div class="lecture-section" id="r5-array">
+<div class="lecture-header">
+  <div class="lecture-num">5</div>
+  <h2>R 데이터 구조 (2)</h2>
+</div>
+
+<div class="concept-card">
+  <h3><span class="icon">🧊</span> 배열(Array)</h3>
+  <p><strong>배열</strong>은 행렬을 <strong>2차원 이상</strong>으로 확장한 객체야. 3차원 배열 = 행렬 여러 개를 겹쳐 놓은 것!</p>
+
+  <div class="formula-box">
+    <h4>배열 생성</h4>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+&gt; arr &lt;- array(1:24, c(3, 3, 2))   # 3행 3열 행렬 2개
+&gt; dim(arr)                           # [1] 3 3 2
+&gt; arr[,,1]                           # 첫 번째 행렬만 추출
+&gt; arr[1,1,]                          # 1행 1열의 모든 행렬</pre>
+  </div>
+
+  <table class="compare-table">
+    <tr><th>속성</th><th>함수</th><th>설명</th></tr>
+    <tr><td>개수</td><td><code>length(arr)</code></td><td>전체 원소 수</td></tr>
+    <tr><td>형태</td><td><code>mode(arr)</code></td><td>데이터 타입</td></tr>
+    <tr><td>차원</td><td><code>dim(arr)</code></td><td>각 차원 크기</td></tr>
+    <tr><td>이름</td><td><code>dimnames(arr)</code></td><td>각 차원 이름</td></tr>
+  </table>
+</div>
+</div>
+
+<div class="lecture-section" id="r5-list">
+<div class="concept-card">
+  <h3><span class="icon">📋</span> 리스트(List)</h3>
+  <p><strong>서로 다른 형태(mode)</strong>의 데이터로 구성 가능! 벡터·행렬과 달리 성분마다 타입과 길이가 달라도 돼.</p>
+
+  <div class="example-box">
+    <p><strong>리스트 생성과 추출</strong></p>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+&gt; newlist &lt;- list(1:10, 11:15, "string")
+&gt; newlist[[1]]          # 첫 번째 성분 추출 (벡터)
+&gt; newlist[[2]][3]       # 두 번째 성분의 3번째 원소
+&gt; newlist$name          # 이름이 있으면 $ 연산자로 접근</pre>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>핵심 구분:</strong> <code>[[ ]]</code> = 성분(component) 추출, <code>[ ]</code> = 성분 내 원소 추출, <code>$</code> = 이름으로 접근</p>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r5-dataframe">
+<div class="concept-card">
+  <h3><span class="icon">📊</span> 데이터프레임(Data Frame)</h3>
+  <p>데이터프레임은 <strong>열(변수)마다 다른 타입</strong>이 가능한 2차원 구조야. 통계 분석에서 가장 많이 사용되는 형태!</p>
+
+  <div class="example-box">
+    <p><strong>데이터프레임 생성</strong></p>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+&gt; df &lt;- data.frame(
++   name = c("Kim", "Lee", "Park"),
++   score = c(85, 90, 78),
++   pass = c(TRUE, TRUE, FALSE)
++ )
+&gt; df$name        # 열 접근
+&gt; df[1, ]        # 1행 추출
+&gt; df[, 2]        # 2열 추출</pre>
+  </div>
+
+  <div style="display:flex; gap:16px; margin:16px 0; flex-wrap:wrap;">
+    <div style="flex:1; min-width:200px; background:var(--concept-bg); border:2px solid var(--concept); border-radius:14px; padding:16px;">
+      <h4 style="color:var(--concept-text); margin-bottom:8px;">벡터/행렬/배열</h4>
+      <p style="font-size:14px;"><strong>같은 타입</strong>만 가능</p>
+    </div>
+    <div style="flex:1; min-width:200px; background:var(--formula-bg); border:2px solid var(--formula); border-radius:14px; padding:16px;">
+      <h4 style="color:var(--formula-text); margin-bottom:8px;">리스트</h4>
+      <p style="font-size:14px;"><strong>다른 타입 + 다른 길이</strong> 가능</p>
+    </div>
+    <div style="flex:1; min-width:200px; background:var(--example-bg); border:2px solid var(--example); border-radius:14px; padding:16px;">
+      <h4 style="color:var(--example-text); margin-bottom:8px;">데이터프레임</h4>
+      <p style="font-size:14px;"><strong>열마다 다른 타입</strong>, 행 길이 동일</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r5-summary">
+<div class="concept-card" style="border-color: var(--tip);">
+  <h3><span class="icon">📌</span> 5강 핵심 정리</h3>
+  <ol>
+    <li>배열: 행렬의 다차원 확장, <code>array()</code>로 생성</li>
+    <li>리스트: 서로 다른 타입·길이의 성분 저장 가능</li>
+    <li>데이터프레임: 열마다 다른 타입 가능, 통계 분석의 핵심 구조</li>
+    <li><code>[[ ]]</code> vs <code>[ ]</code> vs <code>$</code> 접근법 구분</li>
+  </ol>
+</div>
+</div>
+
+</div><!-- /view-lecture-5 -->
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 6강. 확장된 R 데이터 구조 (1) — Tidyverse, Tibble    -->
+<!-- ══════════════════════════════════════════════════ -->
+<div class="view-lecture-6">
+
+<div class="lecture-section" id="r6-tidyverse">
+<div class="lecture-header">
+  <div class="lecture-num">6</div>
+  <h2>Tidyverse와 Tibble</h2>
+</div>
+
+<div class="concept-card">
+  <h3><span class="icon">🌐</span> Tidyverse 생태계</h3>
+  <p><strong>Tidyverse</strong>는 데이터 과학을 위해 자주 쓰이는 패키지를 묶어 제공하는 <strong>통합 생태계</strong>야.</p>
+
+  <div class="formula-box">
+    <h4>Tidyverse 핵심 패키지</h4>
+    <table class="compare-table">
+      <tr><th>패키지</th><th>기능</th></tr>
+      <tr><td><code>dplyr</code></td><td>데이터 편집과 가공</td></tr>
+      <tr><td><code>ggplot2</code></td><td>데이터 시각화</td></tr>
+      <tr><td><code>tidyr</code></td><td>tidy 구조로 변환</td></tr>
+      <tr><td><code>readr</code></td><td>CSV 등 빠르게 읽기</td></tr>
+      <tr><td><code>tibble</code></td><td>개선된 데이터프레임</td></tr>
+      <tr><td><code>stringr</code></td><td>문자열 처리</td></tr>
+      <tr><td><code>forcats</code></td><td>범주형(factor) 데이터</td></tr>
+      <tr><td><code>purrr</code></td><td>함수형 프로그래밍</td></tr>
+      <tr><td><code>lubridate</code></td><td>날짜/시간 처리</td></tr>
+    </table>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r6-tibble">
+<div class="concept-card">
+  <h3><span class="icon">📐</span> Tibble: 개선된 데이터프레임</h3>
+  <p><strong>tibble</strong>은 기존 data.frame의 한계를 극복한 개선된 구조야.</p>
+
+  <div style="display:flex; gap:16px; margin:16px 0; flex-wrap:wrap;">
+    <div style="flex:1; min-width:200px; background:var(--concept-bg); border:2px solid var(--concept); border-radius:14px; padding:16px;">
+      <h4 style="color:var(--concept-text); margin-bottom:8px;">data.frame</h4>
+      <ul style="font-size:14px; padding-left:18px;">
+        <li>문자열 → factor 자동 변환</li>
+        <li>전체 데이터 출력</li>
+        <li>변수명 자동 수정</li>
+      </ul>
+    </div>
+    <div style="flex:1; min-width:200px; background:var(--example-bg); border:2px solid var(--example); border-radius:14px; padding:16px;">
+      <h4 style="color:var(--example-text); margin-bottom:8px;">tibble</h4>
+      <ul style="font-size:14px; padding-left:18px;">
+        <li>문자열 그대로 character</li>
+        <li>화면 크기에 맞게 요약 출력</li>
+        <li>사용자 지정 열 이름 보존</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>tibble 생성</strong></p>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+&gt; tb1 &lt;- tibble(학번 = 101:103, 국어 = c(85,90,78), 수학 = c(92,88,81))
+&gt; tb1
+# A tibble: 3 x 3
+  학번  국어  수학
+ &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+1  101    85    92
+2  102    90    88
+3  103    78    81</pre>
+  </div>
+
+  <div class="formula-box">
+    <h4>변환 함수</h4>
+    <table class="compare-table">
+      <tr><th>함수</th><th>방향</th></tr>
+      <tr><td><code>as_tibble(df)</code></td><td>data.frame → tibble</td></tr>
+      <tr><td><code>as.data.frame(tb)</code></td><td>tibble → data.frame</td></tr>
+    </table>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r6-summary">
+<div class="concept-card" style="border-color: var(--tip);">
+  <h3><span class="icon">📌</span> 6강 핵심 정리</h3>
+  <ol>
+    <li>Tidyverse = 데이터 과학 패키지 통합 생태계</li>
+    <li>tibble은 data.frame의 개선판 (문자열 보존, 요약 출력)</li>
+    <li><code>tibble()</code>: 열 단위 생성, <code>tribble()</code>: 행 단위 생성</li>
+    <li><code>as_tibble()</code> / <code>as.data.frame()</code>으로 상호 변환</li>
+  </ol>
+</div>
+</div>
+
+</div><!-- /view-lecture-6 -->
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 7강. 확장된 R 데이터 구조 (2) — readr, dplyr         -->
+<!-- ══════════════════════════════════════════════════ -->
+<div class="view-lecture-7">
+
+<div class="lecture-section" id="r7-readr">
+<div class="lecture-header">
+  <div class="lecture-num">7</div>
+  <h2>readr과 dplyr</h2>
+</div>
+
+<div class="concept-card">
+  <h3><span class="icon">📥</span> readr 패키지 — 데이터 불러오기/저장하기</h3>
+  <p>readr은 데이터를 <strong>tibble 형태</strong>로 빠르게 읽어오는 패키지야.</p>
+
+  <div class="formula-box">
+    <h4>읽기 함수</h4>
+    <table class="compare-table">
+      <tr><th>함수</th><th>구분자</th><th>용도</th></tr>
+      <tr><td><code>read_csv()</code></td><td>콤마 <code>,</code></td><td>CSV 파일</td></tr>
+      <tr><td><code>read_tsv()</code></td><td>탭 <code>\t</code></td><td>TSV 파일</td></tr>
+      <tr><td><code>read_delim()</code></td><td>사용자 지정</td><td>임의 구분자</td></tr>
+      <tr><td><code>read_table()</code></td><td>공백</td><td>공백 구분 파일</td></tr>
+    </table>
+  </div>
+
+  <div class="formula-box">
+    <h4>쓰기 함수</h4>
+    <table class="compare-table">
+      <tr><th>함수</th><th>용도</th></tr>
+      <tr><td><code>write_csv()</code></td><td>CSV로 저장</td></tr>
+      <tr><td><code>write_tsv()</code></td><td>TSV로 저장</td></tr>
+      <tr><td><code>write_delim()</code></td><td>임의 구분자로 저장</td></tr>
+    </table>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>read.csv() vs read_csv():</strong> read_csv()는 tibble로 반환하고, 문자열을 factor로 변환하지 않아!</p>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r7-dplyr">
+<div class="concept-card">
+  <h3><span class="icon">🔧</span> dplyr 패키지 — 데이터 다루기</h3>
+  <p><strong>dplyr</strong>은 직관적인 문법으로 데이터를 선택, 필터링, 정렬, 요약, 변환하는 패키지야.</p>
+
+  <div class="formula-box">
+    <h4>dplyr 핵심 함수</h4>
+    <table class="compare-table">
+      <tr><th>함수</th><th>기능</th><th>예시</th></tr>
+      <tr><td><code>filter()</code></td><td>조건에 맞는 행 추출</td><td><code>filter(df, score &gt; 80)</code></td></tr>
+      <tr><td><code>select()</code></td><td>특정 열 선택</td><td><code>select(df, name, score)</code></td></tr>
+      <tr><td><code>arrange()</code></td><td>정렬</td><td><code>arrange(df, desc(score))</code></td></tr>
+      <tr><td><code>mutate()</code></td><td>새 열 추가/변환</td><td><code>mutate(df, grade = score/10)</code></td></tr>
+      <tr><td><code>summarise()</code></td><td>요약 통계</td><td><code>summarise(df, avg = mean(score))</code></td></tr>
+    </table>
+  </div>
+
+  <div class="example-box">
+    <p><strong>파이프 연산자와 dplyr 조합</strong></p>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+&gt; storms %&gt;%
++   filter(wind &gt;= 100, pressure &lt;= 950) %&gt;%
++   select(name, year, wind, pressure) %&gt;%
++   arrange(desc(wind))</pre>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r7-summary">
+<div class="concept-card" style="border-color: var(--tip);">
+  <h3><span class="icon">📌</span> 7강 핵심 정리</h3>
+  <ol>
+    <li>readr: <code>read_csv()</code>/<code>read_tsv()</code>/<code>read_delim()</code>으로 tibble 형태 읽기</li>
+    <li>dplyr 5대 함수: <code>filter</code>, <code>select</code>, <code>arrange</code>, <code>mutate</code>, <code>summarise</code></li>
+    <li>파이프(<code>%&gt;%</code>)와 결합하면 여러 단계를 자연스럽게 연결</li>
+  </ol>
+</div>
+</div>
+
+</div><!-- /view-lecture-7 -->
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 8강. 연산자와 내장 함수                               -->
+<!-- ══════════════════════════════════════════════════ -->
+<div class="view-lecture-8">
+
+<div class="lecture-section" id="r8-arith">
+<div class="lecture-header">
+  <div class="lecture-num">8</div>
+  <h2>연산자와 내장 함수</h2>
+</div>
+
+<div class="concept-card">
+  <h3><span class="icon">➕</span> 산술 연산자</h3>
+  <p>R의 모든 일반 연산자는 <strong>Componentwise</strong>(같은 위치 원소끼리) 연산이야!</p>
+
+  <table class="compare-table">
+    <tr><th>연산자</th><th>기능</th><th>비고</th></tr>
+    <tr><td><code>+</code></td><td>덧셈</td><td>Componentwise</td></tr>
+    <tr><td><code>-</code></td><td>뺄셈</td><td>Componentwise</td></tr>
+    <tr><td><code>*</code></td><td>곱셈</td><td>원소별 곱 (행렬도!)</td></tr>
+    <tr><td><code>/</code></td><td>나눗셈</td><td>Componentwise</td></tr>
+    <tr><td><code>^</code></td><td>거듭제곱</td><td>Componentwise</td></tr>
+    <tr><td><code>%/%</code></td><td>정수 나눗셈 (몫)</td><td>소수점 이하 버림</td></tr>
+    <tr><td><code>%*%</code></td><td>행렬 곱</td><td>수학적 행렬 곱셈</td></tr>
+  </table>
+
+  <div class="tip-box">
+    <p><strong>시험 핵심:</strong> <code>*</code>(원소별 곱)과 <code>%*%</code>(행렬 곱)은 <strong>완전히 다른 결과</strong>! 0으로 나누면 <code>Inf</code> 또는 <code>NaN</code> 출력</p>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r8-compare">
+<div class="concept-card">
+  <h3><span class="icon">⚖️</span> 비교 연산자와 논리 연산자</h3>
+
+  <div style="display:flex; gap:16px; margin:16px 0; flex-wrap:wrap;">
+    <div style="flex:1; min-width:220px;">
+      <div class="formula-box">
+        <h4>비교 연산자</h4>
+        <table class="compare-table">
+          <tr><th>연산자</th><th>의미</th></tr>
+          <tr><td><code>==</code></td><td>같다</td></tr>
+          <tr><td><code>!=</code></td><td>같지 않다</td></tr>
+          <tr><td><code>&lt;</code>, <code>&lt;=</code></td><td>작다, 작거나 같다</td></tr>
+          <tr><td><code>&gt;</code>, <code>&gt;=</code></td><td>크다, 크거나 같다</td></tr>
+        </table>
+      </div>
+    </div>
+    <div style="flex:1; min-width:220px;">
+      <div class="formula-box">
+        <h4>논리 연산자</h4>
+        <table class="compare-table">
+          <tr><th>연산자</th><th>용도</th></tr>
+          <tr><td><code>&&</code></td><td>AND (스칼라용)</td></tr>
+          <tr><td><code>&</code></td><td>AND (벡터용)</td></tr>
+          <tr><td><code>||</code></td><td>OR (스칼라용)</td></tr>
+          <tr><td><code>|</code></td><td>OR (벡터용)</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>주의:</strong> <code>==</code>(비교)와 <code>=</code>(할당) 구분 필수! 벡터에는 반드시 <code>&</code>/<code>|</code>(하나)를 사용 — <code>&&</code>/<code>||</code>(두 개)는 에러 발생!</p>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r8-set">
+<div class="concept-card">
+  <h3><span class="icon">🔗</span> 집합 연산</h3>
+  <p>R에서 벡터를 <strong>집합</strong>으로 간주하여 연산할 수 있어.</p>
+
+  <table class="compare-table">
+    <tr><th>함수</th><th>기능</th><th>주의</th></tr>
+    <tr><td><code>union(x, y)</code></td><td>합집합 (중복 제거)</td><td></td></tr>
+    <tr><td><code>intersect(x, y)</code></td><td>교집합</td><td></td></tr>
+    <tr><td><code>setdiff(x, y)</code></td><td>차집합</td><td>순서에 따라 결과 다름!</td></tr>
+    <tr><td><code>setequal(x, y)</code></td><td>같은 집합인지 판단</td><td>논리값 반환</td></tr>
+    <tr><td><code>%in%</code></td><td>원소 포함 여부</td><td>논리값 반환</td></tr>
+    <tr><td><code>choose(n, k)</code></td><td>조합 (nCk)</td><td></td></tr>
+  </table>
+
+  <div class="tip-box">
+    <p><strong>핵심:</strong> <code>setdiff(x, y)</code> ≠ <code>setdiff(y, x)</code> — 순서가 바뀌면 결과도 달라져!</p>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r8-builtin">
+<div class="concept-card">
+  <h3><span class="icon">🧮</span> 내장 함수</h3>
+
+  <div style="display:flex; gap:16px; margin:16px 0; flex-wrap:wrap;">
+    <div style="flex:1; min-width:200px;">
+      <div class="formula-box">
+        <h4>수치형 함수</h4>
+        <table class="compare-table">
+          <tr><td><code>pi</code></td><td>원주율 상수</td></tr>
+          <tr><td><code>log(x)</code></td><td>자연로그</td></tr>
+          <tr><td><code>log10(x)</code></td><td>상용로그</td></tr>
+          <tr><td><code>exp(x)</code></td><td>지수함수</td></tr>
+          <tr><td><code>sqrt(x)</code></td><td>제곱근</td></tr>
+          <tr><td><code>sin, cos, tan</code></td><td>삼각함수</td></tr>
+        </table>
+      </div>
+    </div>
+    <div style="flex:1; min-width:200px;">
+      <div class="formula-box">
+        <h4>통계 함수</h4>
+        <table class="compare-table">
+          <tr><td><code>mean(x)</code></td><td>평균</td></tr>
+          <tr><td><code>sd(x)</code></td><td>표준편차</td></tr>
+          <tr><td><code>var(x)</code></td><td>분산</td></tr>
+          <tr><td><code>median(x)</code></td><td>중위수</td></tr>
+          <tr><td><code>quantile(x, p)</code></td><td>p분위수</td></tr>
+          <tr><td><code>cor(x, y)</code></td><td>상관계수</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="formula-box">
+    <h4>최솟값/최댓값 함수</h4>
+    <table class="compare-table">
+      <tr><th>함수</th><th>동작</th><th>결과</th></tr>
+      <tr><td><code>min(x)</code> / <code>max(x)</code></td><td>전체에서 최솟/최댓값</td><td>스칼라 1개</td></tr>
+      <tr><td><code>range(x)</code></td><td>최솟값 + 최댓값</td><td>길이 2 벡터</td></tr>
+      <tr><td><code>pmin(x1, x2)</code> / <code>pmax(x1, x2)</code></td><td>같은 위치끼리 비교</td><td>벡터 반환</td></tr>
+    </table>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r8-summary">
+<div class="concept-card" style="border-color: var(--tip);">
+  <h3><span class="icon">📌</span> 8강 핵심 정리</h3>
+  <ol>
+    <li>R 연산은 기본적으로 <strong>Componentwise</strong> (같은 위치 원소끼리)</li>
+    <li>행렬 곱(<code>%*%</code>)만 유일하게 수학적 행렬 곱셈</li>
+    <li>비교: <code>==</code>(두 개) vs 할당: <code>=</code>(한 개) 구분</li>
+    <li>논리: 스칼라는 <code>&&</code>/<code>||</code>, 벡터는 <code>&</code>/<code>|</code></li>
+    <li><code>setdiff</code>는 순서에 따라 결과가 달라짐</li>
+  </ol>
+</div>
+</div>
+
+</div><!-- /view-lecture-8 -->
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 9강. 조건문, 반복문, 함수                             -->
+<!-- ══════════════════════════════════════════════════ -->
+<div class="view-lecture-9">
+
+<div class="lecture-section" id="r9-if">
+<div class="lecture-header">
+  <div class="lecture-num">9</div>
+  <h2>조건문, 반복문, 함수</h2>
+</div>
+
+<div class="concept-card">
+  <h3><span class="icon">🔀</span> 조건문 (Conditional Statements)</h3>
+
+  <div class="formula-box">
+    <h4>if / if-else 조건문</h4>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+# 기본 if
+if (조건) {
+  실행문
+}
+
+# if-else
+if (조건) {
+  실행문1
+} else {
+  실행문2
+}</pre>
+  </div>
+
+  <div class="formula-box">
+    <h4>ifelse() 함수 — 벡터화된 조건문</h4>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+ifelse(조건, 참일 때 값, 거짓일 때 값)
+
+# 중첩 가능 (구간 분류)
+ifelse(temp &gt; 30, "hot", ifelse(temp &gt; 15, "mild", "cold"))</pre>
+  </div>
+
+  <div class="formula-box">
+    <h4>switch 문</h4>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+switch(매개변수,
+  이름1 = 실행1,
+  이름2 = 실행2,
+  ...
+)</pre>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>핵심 차이:</strong> <code>if/else</code> = 스칼라 조건, <code>ifelse()</code> = 벡터 각 원소별 판단!</p>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r9-loop">
+<div class="concept-card">
+  <h3><span class="icon">🔄</span> 반복문 (Loop Statements)</h3>
+
+  <div style="display:flex; gap:16px; margin:16px 0; flex-wrap:wrap;">
+    <div style="flex:1; min-width:200px;">
+      <div class="formula-box">
+        <h4>for 문</h4>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+for (i in 1:5) {
+  print(i)
+}</pre>
+        <p style="font-size:13px; margin-top:8px;">시점/종점 명확, 가장 많이 사용</p>
+      </div>
+    </div>
+    <div style="flex:1; min-width:200px;">
+      <div class="formula-box">
+        <h4>while 문</h4>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+i &lt;- 1
+while (i &lt;= 5) {
+  print(i)
+  i &lt;- i + 1
+}</pre>
+        <p style="font-size:13px; margin-top:8px;">조건이 TRUE인 동안 반복</p>
+      </div>
+    </div>
+    <div style="flex:1; min-width:200px;">
+      <div class="formula-box">
+        <h4>repeat 문</h4>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+i &lt;- 1
+repeat {
+  print(i)
+  i &lt;- i + 1
+  if (i &gt; 5) break
+}</pre>
+        <p style="font-size:13px; margin-top:8px; color:var(--error);">break 필수! 없으면 무한루프</p>
+      </div>
+    </div>
+  </div>
+
+  <table class="compare-table">
+    <tr><th>구분</th><th>for</th><th>while</th><th>repeat</th></tr>
+    <tr><td>초기값</td><td>자동 (in)</td><td>직접 선언</td><td>직접 선언</td></tr>
+    <tr><td>종료 조건</td><td>범위 끝</td><td>조건 FALSE</td><td>break</td></tr>
+    <tr><td>i 업데이트</td><td>자동</td><td>직접</td><td>직접</td></tr>
+    <tr><td>무한루프 위험</td><td>낮음</td><td>중간</td><td>높음</td></tr>
+  </table>
+</div>
+</div>
+
+<div class="lecture-section" id="r9-branch">
+<div class="concept-card">
+  <h3><span class="icon">🚦</span> break와 next</h3>
+
+  <div style="display:flex; gap:16px; margin:16px 0; flex-wrap:wrap;">
+    <div style="flex:1; min-width:220px; background:var(--error-bg,rgba(255,100,100,0.1)); border:2px solid var(--error); border-radius:14px; padding:16px;">
+      <h4 style="color:var(--error); margin-bottom:8px;">break</h4>
+      <p style="font-size:14px;">루프를 <strong>즉시 탈출</strong></p>
+      <p style="font-size:13px; color:var(--text-secondary);">중첩 루프에서는 안쪽(inner) 루프만 탈출</p>
+    </div>
+    <div style="flex:1; min-width:220px; background:var(--formula-bg); border:2px solid var(--formula); border-radius:14px; padding:16px;">
+      <h4 style="color:var(--formula-text); margin-bottom:8px;">next</h4>
+      <p style="font-size:14px;">현재 반복만 <strong>건너뛰기</strong></p>
+      <p style="font-size:13px; color:var(--text-secondary);">다음 반복으로 바로 진행 (루프 계속)</p>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예시:</strong> break와 next 활용</p>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+# break: 누적합이 25 초과하면 탈출
+x &lt;- 0
+for (i in 1:10) {
+  x &lt;- x + i
+  if (x &gt; 25) break
+}
+
+# next: 8 미만은 건너뛰고 8 이상만 출력
+for (i in 1:10) {
+  if (i &lt; 8) next
+  print(i)
+}</pre>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r9-func">
+<div class="concept-card">
+  <h3><span class="icon">🛠️</span> 사용자 정의 함수</h3>
+
+  <div class="formula-box">
+    <h4>함수 생성 구문</h4>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+함수이름 &lt;- function(매개변수) {
+  함수 몸체 (실행 코드)
+  return(결과값)
+}</pre>
+  </div>
+
+  <div style="display:flex; gap:16px; margin:16px 0; flex-wrap:wrap;">
+    <div style="flex:1; min-width:120px; background:var(--concept-bg); border:2px solid var(--concept); border-radius:14px; padding:16px; text-align:center;">
+      <h4 style="color:var(--concept-text);">효율성</h4>
+      <p style="font-size:13px;">긴 코드를 한 줄 호출</p>
+    </div>
+    <div style="flex:1; min-width:120px; background:var(--formula-bg); border:2px solid var(--formula); border-radius:14px; padding:16px; text-align:center;">
+      <h4 style="color:var(--formula-text);">유연성</h4>
+      <p style="font-size:13px;">수정/보완 용이</p>
+    </div>
+    <div style="flex:1; min-width:120px; background:var(--example-bg); border:2px solid var(--example); border-radius:14px; padding:16px; text-align:center;">
+      <h4 style="color:var(--example-text);">가독성</h4>
+      <p style="font-size:13px;">코드 이해 용이</p>
+    </div>
+    <div style="flex:1; min-width:120px; background:var(--tip-bg); border:2px solid var(--tip); border-radius:14px; padding:16px; text-align:center;">
+      <h4 style="color:var(--tip-text);">재사용성</h4>
+      <p style="font-size:13px;">한번 정의 → 계속 호출</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r9-summary">
+<div class="concept-card" style="border-color: var(--tip);">
+  <h3><span class="icon">📌</span> 9강 핵심 정리</h3>
+  <table class="compare-table">
+    <tr><th>구문</th><th>특징</th><th>사용 시점</th></tr>
+    <tr><td><code>if/else</code></td><td>조건 분기</td><td>단순 참/거짓 분기</td></tr>
+    <tr><td><code>ifelse()</code></td><td>벡터화된 조건</td><td>벡터 각 원소별 판단</td></tr>
+    <tr><td><code>switch</code></td><td>다중 매칭</td><td>여러 케이스 중 선택</td></tr>
+    <tr><td><code>for</code></td><td>범위 반복</td><td>시점/종점 명확</td></tr>
+    <tr><td><code>while</code></td><td>조건 반복</td><td>종료 시점이 조건 의존</td></tr>
+    <tr><td><code>repeat</code></td><td>무한 반복+break</td><td>break 조건으로 탈출</td></tr>
+    <tr><td><code>break</code></td><td>루프 탈출</td><td>조기 종료 필요 시</td></tr>
+    <tr><td><code>next</code></td><td>건너뛰기</td><td>특정 조건 무시</td></tr>
+  </table>
+</div>
+</div>
+
+</div><!-- /view-lecture-9 -->
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 10강. R 그래픽스 — 단일 변수 시각화                    -->
+<!-- ══════════════════════════════════════════════════ -->
+<div class="view-lecture-10">
+
+<div class="lecture-section" id="r10-concept">
+<div class="lecture-header">
+  <div class="lecture-num">10</div>
+  <h2>단일 변수 데이터 시각화</h2>
+</div>
+
+<div class="concept-card">
+  <h3><span class="icon">📈</span> 단일 변수 시각화의 목적</h3>
+  <p>변수가 <strong>1개</strong>인 데이터의 분포, 중심, 산포를 시각적으로 파악하는 거야.</p>
+
+  <table class="compare-table">
+    <tr><th>확인 사항</th><th>설명</th></tr>
+    <tr><td>분포 (Distribution)</td><td>값들이 어떻게 퍼져 있는지</td></tr>
+    <tr><td>중심 위치</td><td>평균, 중앙값의 위치</td></tr>
+    <tr><td>산포도</td><td>평균 주위로 얼마나 흩어졌는지</td></tr>
+    <tr><td>치우침 (Skewness)</td><td>좌/우로 꼬리가 긴지</td></tr>
+    <tr><td>이상치 (Outlier)</td><td>전체 분포에서 동떨어진 값</td></tr>
+  </table>
+</div>
+</div>
+
+<div class="lecture-section" id="r10-bar">
+<div class="concept-card">
+  <h3><span class="icon">📊</span> 막대 그림과 원형 그림</h3>
+
+  <div style="display:flex; gap:16px; margin:16px 0; flex-wrap:wrap;">
+    <div style="flex:1; min-width:220px;">
+      <div class="formula-box">
+        <h4>barplot() — 막대 그림</h4>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+barplot(height, names, col,
+  beside=T, horiz=F,
+  main="제목")</pre>
+        <p style="font-size:13px; margin-top:8px;">용도: <strong>범주별 크기 비교</strong></p>
+      </div>
+    </div>
+    <div style="flex:1; min-width:220px;">
+      <div class="formula-box">
+        <h4>pie() — 원형 그림</h4>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+pie(x, labels, col,
+  main="제목")</pre>
+        <p style="font-size:13px; margin-top:8px;">용도: <strong>전체 대비 비율</strong> 표현</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r10-hist">
+<div class="concept-card">
+  <h3><span class="icon">📉</span> 히스토그램과 상자 그림</h3>
+
+  <div style="display:flex; gap:16px; margin:16px 0; flex-wrap:wrap;">
+    <div style="flex:1; min-width:220px;">
+      <div class="formula-box">
+        <h4>hist() — 히스토그램</h4>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+hist(x, breaks=10,
+  col="skyblue",
+  main="제목", xlab="X축")</pre>
+        <p style="font-size:13px; margin-top:8px;">용도: <strong>연속형 변수의 분포</strong> 확인</p>
+        <p style="font-size:13px;"><code>breaks</code>: 구간 수 조절</p>
+      </div>
+    </div>
+    <div style="flex:1; min-width:220px;">
+      <div class="formula-box">
+        <h4>boxplot() — 상자 그림</h4>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+boxplot(x, main="제목")</pre>
+        <p style="font-size:13px; margin-top:8px;">구성요소:</p>
+        <ul style="font-size:13px; padding-left:18px;">
+          <li>상자: Q1(25%) ~ Q3(75%)</li>
+          <li>중앙선: 중앙값(Median)</li>
+          <li>수염: Q1-1.5xIQR ~ Q3+1.5xIQR</li>
+          <li>점: 이상치(Outlier)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r10-layout">
+<div class="concept-card">
+  <h3><span class="icon">🖼️</span> 그래픽 레이아웃</h3>
+
+  <div class="formula-box">
+    <h4>par(mfrow) — 그래프 분할 배치</h4>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+par(mfrow = c(1, 2))   # 1행 2열 (좌우 나란히)
+par(mfrow = c(2, 1))   # 2행 1열 (위아래)
+par(mfrow = c(2, 2))   # 2행 2열 (4분할)</pre>
+    <p style="font-size:13px; margin-top:8px;">함수 실행 순서대로 각 공간에 배치됨</p>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r10-summary">
+<div class="concept-card" style="border-color: var(--tip);">
+  <h3><span class="icon">📌</span> 10강 핵심 정리</h3>
+  <table class="compare-table">
+    <tr><th>그래프</th><th>함수</th><th>적합한 데이터</th><th>주요 확인</th></tr>
+    <tr><td>막대 그림</td><td><code>barplot()</code></td><td>범주형</td><td>범주별 크기 비교</td></tr>
+    <tr><td>원형 그림</td><td><code>pie()</code></td><td>범주형</td><td>전체 대비 비율</td></tr>
+    <tr><td>히스토그램</td><td><code>hist()</code></td><td>연속형</td><td>분포 모양, 치우침</td></tr>
+    <tr><td>상자 그림</td><td><code>boxplot()</code></td><td>연속형</td><td>중앙값, IQR, 이상치</td></tr>
+  </table>
+</div>
+</div>
+
+</div><!-- /view-lecture-10 -->
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 11강. R 그래픽스 (2) — 두 변수 시각화                  -->
+<!-- ══════════════════════════════════════════════════ -->
+<div class="view-lecture-11">
+
+<div class="lecture-section" id="r11-scatter">
+<div class="lecture-header">
+  <div class="lecture-num">11</div>
+  <h2>두 변수 간 관계 시각화</h2>
+</div>
+
+<div class="concept-card">
+  <h3><span class="icon">🔵</span> 산점도와 plot() 함수</h3>
+  <p><strong>산점도(Scatter Plot)</strong>는 두 변수 간 관계를 파악하는 가장 기초적이고 중요한 그래프야. 모형 적합(fitting) 전에 반드시 먼저 그려봐야 해!</p>
+
+  <div class="formula-box">
+    <h4>plot() 기본 문법</h4>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+plot(x, y, main="제목", xlab="X축", ylab="Y축", sub="부제목")</pre>
+  </div>
+
+  <div class="formula-box">
+    <h4>type 옵션 — 그래프 형태</h4>
+    <table class="compare-table">
+      <tr><th>type</th><th>설명</th></tr>
+      <tr><td><code>"p"</code></td><td>점(Point) — 기본값</td></tr>
+      <tr><td><code>"l"</code></td><td>선(Line) — 점을 선으로 연결</td></tr>
+      <tr><td><code>"b"</code></td><td>Both — 점과 선 모두</td></tr>
+      <tr><td><code>"o"</code></td><td>점을 통과하는 선</td></tr>
+      <tr><td><code>"h"</code></td><td>히스토그램형 막대</td></tr>
+      <tr><td><code>"s"</code></td><td>계단(Step)형</td></tr>
+      <tr><td><code>"n"</code></td><td>공백 (이후 커스텀용)</td></tr>
+    </table>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>핵심:</strong> <code>type="n"</code>으로 빈 그래프를 만든 후, <code>points()</code>/<code>lines()</code>로 커스텀하면 깔끔해!</p>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r11-addon">
+<div class="concept-card">
+  <h3><span class="icon">🎨</span> 부가 그래픽 함수</h3>
+  <p>기본 <code>plot()</code> 위에 추가로 덧그리는 함수들이야.</p>
+
+  <table class="compare-table">
+    <tr><th>함수</th><th>기능</th><th>주요 옵션</th></tr>
+    <tr><td><code>points(x, y)</code></td><td>점 추가</td><td><code>pch</code>=모양(0~25), <code>cex</code>=크기</td></tr>
+    <tr><td><code>lines(x, y)</code></td><td>선 추가</td><td><code>lty</code>=종류, <code>col</code>=색, <code>lwd</code>=굵기</td></tr>
+    <tr><td><code>text(x, y)</code></td><td>텍스트 추가</td><td>특정 좌표에 문자열 표시</td></tr>
+    <tr><td><code>abline()</code></td><td>직선 추가</td><td><code>h=</code>수평선, <code>v=</code>수직선, <code>lm()</code>=회귀선</td></tr>
+    <tr><td><code>curve()</code></td><td>함수 곡선</td><td><code>add=TRUE</code>로 겹쳐 그리기</td></tr>
+  </table>
+
+  <div class="example-box">
+    <p><strong>예시:</strong> curve() 활용</p>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+curve(sin(x), from=0, to=2*pi, col="blue", lwd=2)
+curve(x^2, add=TRUE, col="red")   # 기존 위에 겹쳐 그리기</pre>
+  </div>
+
+  <div class="tip-box">
+    <p><strong>plot 옵션 vs 별도 함수:</strong> plot 옵션은 생성 시 설정 (디폴트 제한적), 별도 함수는 생성 후 추가 (모양/크기/색상 자유 조절, 겹치기 가능)</p>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r11-layout">
+<div class="concept-card">
+  <h3><span class="icon">🖼️</span> layout() 함수</h3>
+  <p><code>par(mfrow)</code>보다 유연한 레이아웃을 설계할 수 있어!</p>
+
+  <div class="formula-box">
+    <h4>layout() vs par(mfrow)</h4>
+    <table class="compare-table">
+      <tr><th>기능</th><th>par(mfrow)</th><th>layout()</th></tr>
+      <tr><td>분할</td><td>균등 분할만</td><td>불균등 분할 가능</td></tr>
+      <tr><td>크기 조절</td><td>불가</td><td>widths, heights로 비율 지정</td></tr>
+      <tr><td>영역 병합</td><td>불가</td><td>행렬로 설계 가능</td></tr>
+    </table>
+  </div>
+
+  <div class="example-box">
+    <p><strong>예시:</strong> layout() 활용</p>
+<pre style="background:var(--bg-secondary); padding:12px; border-radius:8px; font-size:13px; overflow-x:auto;">
+# 1번 그래프는 위쪽 전체, 2·3번은 아래쪽 좌우 분할
+layout(matrix(c(1,1,2,3), 2, 2, byrow=TRUE),
+       widths=c(3,1), heights=c(1,2))</pre>
+  </div>
+</div>
+</div>
+
+<div class="lecture-section" id="r11-summary">
+<div class="concept-card" style="border-color: var(--tip);">
+  <h3><span class="icon">📌</span> 11강 핵심 정리</h3>
+  <ol>
+    <li><strong>산점도</strong>(<code>plot</code>)는 두 변수 관계 탐색의 첫 단계 — 모형 적합 전 필수</li>
+    <li><code>type</code> 옵션으로 그래프 형태 변경 (p, l, b, o, h, s, n)</li>
+    <li><code>type="n"</code> + <code>points()</code>/<code>lines()</code> 조합으로 깔끔한 커스텀</li>
+    <li><code>curve(add=TRUE)</code>로 이론적 함수를 데이터 위에 겹쳐 표현</li>
+    <li><code>par(mfrow)</code>: 균등 분할, <code>layout()</code>: 유연한 레이아웃</li>
+  </ol>
+</div>
+</div>
+
+</div><!-- /view-lecture-11 -->
+
+
+</div><!-- /main -->
+
+<div class="fab-wrap">
+  <div class="fab-menu" id="fabMenu">
+    <a href="https://open.kakao.com/o/s9OGoOoi" target="_blank">버그 제보 & 문의하기</a>
+  </div>
+  <button class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()">🌙</button>
+  <button class="fab">?</button>
+</div>
+
+<!-- ═══════════ JAVASCRIPT ═══════════ -->
+<script src="/js/demos.js"></script>
+<script src="/js/sidebar.js"></script>
+<script src="/js/view-toggle.js"></script>
+<script src="/js/quiz.js"></script>
+<script src="/js/calculator.js"></script>
+<script src="/js/tables.js"></script>
+<script src="/js/theme.js"></script>
+<script src="/js/fab.js"></script>
+<script src="/js/visitors.js"></script>
+<script src="/js/banner.js"></script>
+<script src="/js/mobile.js"></script>
+</body>
+</html>
