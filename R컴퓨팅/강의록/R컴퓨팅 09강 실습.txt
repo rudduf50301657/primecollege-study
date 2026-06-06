@@ -1,0 +1,134 @@
+ x <- c(1,2,3,4)
+ y <- c(3,4,5,6)
+ if(sum(x) < sum(y)) print(x)
+
+ if(mean(x)>mean(y)) print("Mean(x)>Mean(y)") else
+ print("Mean(x)<Mean(y)") 
+
+
+if(mean(x)>mean(y)) { # x의 평균이 y의 평균보다 크면
+print(mean(x))
+print(var(x)) # x의 평균과 분산을 출력
+} else { # 그렇지 않으면
+print(mean(y))
+print(var(y)) # y의 평균과 분산을 출력
+} 
+
+
+score <- c(85, 90, 88, 92, 98)
+ avg <- mean(score)
+ # 중첩 조건문
+ if (avg >= 80) {
+ cat("합격\n")
+ if (avg >= 90) {
+ cat("우수\n")
+ }
+ } else {
+ cat("불합격\n")
+ }
+
+temperature <- c(-3, 0, 12, 18, 27, 5)
+status <- ifelse(temperature >= 0, "above freezing", "below freezing")
+print(status)
+avg_temp <- mean(temperature)
+ifelse(avg_temp >= 25, "Hot",ifelse(avg_temp >= 10, "Mild", "Cold"))
+
+ x <- c(1,2,3,4)
+ switch(-1, mean(x), sum(x), var(x))
+ switch(0, mean(x), sum(x), var(x))
+ switch(1, mean(x), sum(x), var(x))
+
+for(i in 1:5) print(rep(i,i))
+
+x <- 0
+for(i in 1:10)
+x <- x+i
+
+ i <- 1
+ while(i<=5) {
+ print(rep(i,i)) 
+ i <- i+1			# 1씩 증가시켜 i 자신에게 할당
+ } 
+
+ i <- 1
+ repeat {
+ if(i > 5) break
+ print(rep(i,i)) 
+ i <- i+1
+ } 
+
+ x <- 0
+ for(i in 1:10) {
+ x <- x+i
+ if(x > 25) break	    # 만약 각 단계까지의 합계 x가 25보다 크다면 
+ 			# break문을 수행하여 반복문을 벗어나게 됨
+ print(x)
+ }
+
+i <- 1
+x <- 0
+while(i < 10) {
+ i <- i+1
+ if(i < 8) next # next 이후의 명령은 if문의 조건이 충족되는 한 미수행
+ print(i)
+ x <- x+i
+ }
+
+x
+
+
+
+ u <- 1	# 전역변수
+ v <- 8	# 전역변수
+ g <- function(x) {	# x: 매개변수
+ x <- x+1 # 전달된 인자에 1을 더함
+ u <- u+x	# 값을 할당받는 u는 함수 내부의 지역변수로 새로 정의
+ return(u)
+ }
+ g(v)	# v에 8이라는 값이 할당되어 있으므로 g(8)의 의미
+
+ u	# 전역변수는 값의 변화가 없음
+
+ v
+
+
+d.mean <- function(x) {
+ s <- 0
+ for (i in 1:length(x)) {
+ s <- s + x[i]
+ }
+ return(s / length(x))
+ }
+x <- c(2, 4, 6, 8, 10)
+d.mean(x)
+
+f1 <- function(x,y) {return(x+y)}
+f2 <- function(x,y) {return(x-y)}
+f <- f1					# f1을 f라는 이름으로 저장
+f(1,2)
+f <- f2					# f2를 f라는 이름으로 저장
+f(1,2)
+
+g <- function(h,x,y) {h(x,y)}	# h는 함수를 받는 매개변수 
+g(f1,1,2)		
+g(f2,1,2)	
+
+is.function(f1) 
+
+"%a2b%" <- function(a,b) return(2*a+b)
+3 %a2b% 5
+
+f <- function(x) {
+v <- 2
+g <- function(y) return((u+v+y)^2) # 함수 내에서 함수를 정의
+gu <- g(u)
+print(gu)
+}
+u <- 5
+f()
+
+
+
+args(log)
+
+

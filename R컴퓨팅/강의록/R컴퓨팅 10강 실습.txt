@@ -1,0 +1,168 @@
+# [예제 6-1] 막대그림(barplot) 실습
+
+barplot.test1 <- function() {
+
+  par(mfrow=c(1,2)) # 1행 2열 배치
+
+  
+
+  # (1) 과일 선호도 - 단순 빈도 (벡터)
+
+  fruits <- c(Apple=30, Banana=25, Orange=20, Grape=15)
+
+  barplot(fruits, col="skyblue", main="과일 선호도 (단일 벡터)")
+
+  
+
+  # (2) 지역별 과일 선호도 (행렬)
+
+  fruits.mat <- matrix(c(15,10,5,8, # 지역 A
+
+                         15,15,10,7), # 지역 B
+
+                       nrow=2, byrow=TRUE)
+
+  colnames(fruits.mat) <- c("Apple","Banana","Orange","Grape")
+
+  rownames(fruits.mat) <- c("Region A","Region B")
+
+  barplot(fruits.mat, col=c("tomato","gold"), main="지역별 과일 선호도")
+
+}
+
+barplot.test1()
+
+
+
+
+
+# [예제 6-2] 원형 그림(pie chart) 실습
+
+pie.test1 <- function() {
+
+  # 데이터: 과일 판매량
+
+  sales <- c(Apple=50, Banana=30, Orange=10, Grape=10)
+
+  
+
+  # 원형 그림 작성
+
+  pie(sales,
+
+      labels = paste(names(sales), sales, sep=": "),
+
+      col = c("red","yellow","orange","purple"),
+
+      main = "과일 판매 비율")
+
+}
+
+pie.test1()
+
+
+
+
+
+# [예제 6-3] 히스토그램(histogram) 실습
+
+hist.test1 <- function() {
+
+  # 데이터: 평균 170, 표준편차 5인 정규분포에서 난수 100개 생성
+
+  height <- rnorm(100, mean=170, sd=5)
+
+  par(mfrow=c(1,2))
+
+  
+
+  # (1) 빈도 히스토그램
+
+  hist(height,
+
+       breaks=10,
+
+       col="lightblue",
+
+       main="학생 키 분포 (빈도)",
+
+       xlab="Height(cm)", ylab="Frequency")
+
+  
+
+  # (2) 밀도 히스토그램 + 이론적 정규분포 곡선
+
+  hist(height,
+
+       breaks=10,
+
+       freq=FALSE,
+
+       col="lightgreen",
+
+       main="학생 키 분포 (밀도)",
+
+       xlab="Height(cm)", ylab="Density")
+
+  curve(dnorm(x, mean=170, sd=5), add=TRUE, col="red", lwd=2)
+
+}
+
+hist.test1()
+
+
+
+
+
+# [예제 6-4] 상자그림(boxplot) 실습
+
+boxplot.test1 <- function() {
+
+  # 데이터 생성
+
+  classA <- rnorm(30, mean=75, sd=10) # A반: 평균 75, 표준편차 10
+
+  classB <- rnorm(30, mean=70, sd=12) # B반: 평균 70, 표준편차 12
+
+  scores <- data.frame(
+
+    Score = c(classA, classB),
+
+    Class = rep(c("A반","B반"), each=30)
+
+  )
+
+  par(mfrow=c(1,2))
+
+  
+
+  # (1) 두 반의 점수 분포 비교 (세로 상자 그림)
+
+  boxplot(Score ~ Class, 
+
+          data=scores,
+
+          col=c("lightblue","lightpink"),
+
+          main="학급별 시험 점수 분포 (세로)",
+
+          xlab="Class", ylab="Score")
+
+          
+
+  # (2) 동일 데이터, 가로 상자 그림
+
+  boxplot(Score ~ Class, data=scores,
+
+          col=c("lightgreen","orange"),
+
+          main="학급별 시험 점수 분포 (가로)",
+
+          xlab="Score", ylab="Class",
+
+          horizontal=TRUE)
+
+}
+
+boxplot.test1()
+
