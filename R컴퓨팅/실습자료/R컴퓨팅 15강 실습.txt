@@ -1,0 +1,127 @@
+# Quarto 설치
+https://quarto.org/docs/get-started/
+
+
+
+
+# Tex 설치(R 환경 최소)
+ install.packages("tinytex")
+ tinytex::install_tinytex()
+
+# 에러 발생 시 R 종료 및 https://cran.rstudio.com/bon/windows/Rtools 에서 버전 맞는 Rtools 설치 (예: R-4.2.2 버전일 경우 Rtools42)
+#  R 재시작 및 패키지 설치(콘솔에서 설치)
+
+# 문서 작성 예제
+
+---
+title: "RStudio에서 Quarto 배우기"
+subtitle: "Learning Quarto in RStudio"
+author: "Hong Gil-Dong"
+date: "2025/12/31"
+format:html: 
+fig_width: 6
+fig_height: 4
+---
+# Quarto를 이용한 동적 문서화
+## Quarto란?
++ *코드와 결과를 통합해서 문서로 만들어주는 오픈소스 출판 시스
+템*이다 <https://quarto.org>.
+## Quarto를 써야 하는 이유
++ **재현 가능한 분석:** 코드와 실행 결과를 하나의 문서에 저장해 
+분석 과정을 투명하게 공유할 수 있다
++ **다양한 출력 옵션:** 하나의 소스 파일로 HTML, PDF, PPT, Word 
+등 여러 형식의 결과물을 만들 수 있다
++ **다중 언어 지원:** R, Python, Julia 등 여러 프로그래밍 언어를 
+동일한 문서에서 함께 사용할 수 있다
++ **편리한 수학적 수식 사용:** LaTeX 기반으로 수식 사용이 편리하
+다. 예를 들어 다음과 같은 수식을 만들 수 있다. 
+$$
+\int_0^{2\pi} \frac{\sin(x)+1}{\cos(x)+2}dx = \frac{2\pi}
+{\sqrt{3}}
+$$
++ R 마크다운 vs. Quarto
+
+ | | 프로그래밍 언어 | 플랫폼 |
+ |:----:|:--------------:|:----------:|
+ | R 마크다운 | R | RStudio |
+ | Quarto | R, Python, Julia 등 | RStudio, VS Code, 터미널 등 |
+
+### R을 이용한 데이터 분석 
+`cars` 데이터 기술통계량 및 그래프
+```{r}
+summary(cars)
+plot(cars)
+```
++ `cars` 데이터의 변수 `speed`와 `dist`의 평균은 각각 `r 
+mean(cars$speed)`와 `r mean(cars$dist)`이다. 
+
+
+
+# Shiny 설치
+
+install.packages("shiny") 
+
+# 에러 발생 시 https://cran.rstudio.com/bon/windows/Rtools 에서 버전 맞는 Rtools 설치 후 R 재시작 및 패키지 설치(콘솔에서 설치)
+# 즉, 콘솔 환경에서 install.packages("shiny") 실행
+
+library(shiny)  
+
+runExample("01_hello") 
+
+runExample("01_hello") # a histogram
+runExample("02_text") # tables and data frames
+runExample("03_reactivity") # a reactive expression
+runExample("04_mpg") # global variables
+runExample("05_sliders") # slider bars
+runExample("06_tabsets") # tabbed panels
+runExample("07_widgets") # help text and submit buttons
+runExample("08_html") # Shiny app built from HTML
+runExample("09_upload") # file upload wizard
+runExample("10_download") # file download wizard
+runExample("11_timer") # an automated timer
+
+
+# RStudio 좌측 상단의 초록색 (+) 단추를 클릭하고 “Shiny Web App...”를 선택, Single 선택 시 하나의 스크립트 파일로 생성
+
+ui <- fluidPage(
+  h1("내 첫 Shiny 앱"),
+  textInput("name", "이름을 입력하세요"),
+  textOutput("greeting")
+)
+
+server <- function(input, output) {
+  output$greeting <- renderText({
+    paste("안녕하세요,", input$name)
+  })
+}
+
+shinyApp(ui = ui, server = server)
+
+
+# vs code 설치
+https://code.visualstudio.com/
+
+
+# VS code에서 quarto 실행을 위해서는 Quarto Extension 설치
+# 아래 코드 qmd 파일로 저장 후  Preview 버튼 클릭 or Ctrl+Shift+K
+
+---
+title: "Untitled"
+format: html
+---
+## 소개
+이것은 Quarto로 만든 첫 문서입니다.
+```{r}
+# R 코드 예제
+library(ggplot2)
+data(mtcars)
+ggplot(mtcars, aes(x = mpg, y = hp)) +
+geom_point() +
+labs(title = "MPG vs Horsepower")
+```
+
+
+https://colab.research.google.com
+drive.google.com
+
+

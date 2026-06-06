@@ -1,0 +1,30 @@
+# ggplot2 패키지 설치 및 로드
+# install.packages("ggplot2") 
+library(ggplot2)
+
+# iris 데이터의 종별(Species) 빈도 시각화
+ggplot(data = iris) + 
+  geom_bar(aes(x = Species))
+
+# iris 데이터의 꽃받침 길이(Sepal.Length) 분포 (구간 폭 0.5)
+ggplot(data = iris) + 
+  geom_histogram(aes(x = Sepal.Length), binwidth = 0.5)
+
+# iris 데이터의 종별 꽃받침 길이 분포 비교
+ggplot(data = iris) + 
+  geom_boxplot(aes(x = Species, y = Sepal.Length))
+
+# 꽃받침 길이와 꽃잎 길이의 관계를 종별 색상으로 구분
+ggplot(data = iris) + 
+  geom_point(aes(x = Sepal.Length, y = Petal.Length, color = Species))
+
+# airquality 데이터에서 월별 온도 변화 시각화
+ggplot(data = airquality) + 
+  geom_line(aes(x = Day, y = Temp, group = Month, color = factor(Month)))
+
+# 산점도에 제목과 축 이름 추가
+ggplot(data = iris) + 
+  geom_point(aes(x = Sepal.Length, y = Petal.Length)) + 
+  labs(title = "붓꽃 자료의 산점도", 
+       x = "꽃받침 길이", 
+       y = "꽃잎 길이")
