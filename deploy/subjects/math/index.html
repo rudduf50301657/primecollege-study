@@ -20,6 +20,23 @@
 <link rel="stylesheet" href="/css/calculator.css">
 <link rel="stylesheet" href="/css/tables.css">
 <link rel="stylesheet" href="/css/components.css">
+<style>
+.slide-viewer{margin-bottom:32px}
+.slide-viewer img{width:100%;border-radius:var(--radius-md);border:1px solid var(--border);display:block;margin-bottom:12px}
+.slide-viewer img+img{margin-top:0}
+.slide-nav{display:flex;align-items:center;justify-content:center;gap:12px;margin:24px 0 32px;flex-wrap:wrap}
+.slide-nav button{background:var(--bg-surface);border:1px solid var(--border);color:var(--text-primary);padding:8px 16px;border-radius:var(--radius-sm);cursor:pointer;font-size:14px;transition:all .2s}
+.slide-nav button:hover{border-color:var(--concept);color:var(--concept)}
+.slide-nav button:disabled{opacity:.4;cursor:default}
+.slide-nav .page-info{color:var(--text-secondary);font-size:14px;min-width:80px;text-align:center}
+.slide-single{position:relative}
+.slide-single img{width:100%;border-radius:var(--radius-md);border:1px solid var(--border);display:block;cursor:pointer;transition:border-color .2s}
+.slide-single img:hover{border-color:var(--concept)}
+.slide-grid{display:grid;grid-template-columns:1fr;gap:8px}
+.view-mode-bar{display:flex;gap:8px;margin-bottom:20px;justify-content:flex-end}
+.view-mode-bar button{background:var(--bg-surface);border:1px solid var(--border);color:var(--text-secondary);padding:6px 14px;border-radius:var(--radius-sm);cursor:pointer;font-size:13px;transition:all .2s}
+.view-mode-bar button.active{border-color:var(--concept);color:var(--concept)}
+</style>
 </head>
 <body>
 <div class="mobile-header">
@@ -136,6 +153,76 @@
   </div>
 
   <div class="nav-group">
+    <div class="lecture-label" data-lecture="9" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 9강 - 일차함수와 이차함수
+    </div>
+    <div class="nav-links">
+      <a href="#m9-slides" data-lecture="9">강의록 (28p)</a>
+      <a href="#m9-exercise" data-lecture="9">보충자료 (2p)</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="10" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 10강 - 부등식의 영역
+    </div>
+    <div class="nav-links">
+      <a href="#m10-slides" data-lecture="10">강의록 (27p)</a>
+      <a href="#m10-exercise" data-lecture="10">보충자료 (2p)</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="11" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 11강 - 삼각함수 (1)
+    </div>
+    <div class="nav-links">
+      <a href="#m11-slides" data-lecture="11">강의록 (28p)</a>
+      <a href="#m11-exercise" data-lecture="11">보충자료 (3p)</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="12" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 12강 - 삼각함수 (2)
+    </div>
+    <div class="nav-links">
+      <a href="#m12-slides" data-lecture="12">강의록 (29p)</a>
+      <a href="#m12-exercise" data-lecture="12">보충자료 (3p)</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="13" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 13강 - 공간좌표
+    </div>
+    <div class="nav-links">
+      <a href="#m13-slides" data-lecture="13">강의록 (31p)</a>
+      <a href="#m13-exercise" data-lecture="13">보충자료 (3p)</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="14" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 14강 - 벡터
+    </div>
+    <div class="nav-links">
+      <a href="#m14-slides" data-lecture="14">강의록 (31p)</a>
+      <a href="#m14-exercise" data-lecture="14">보충자료 (3p)</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="lecture-label" data-lecture="15" onclick="this.parentElement.classList.toggle('open')">
+      <span class="nav-arrow">▶</span> 15강 - 벡터 방정식
+    </div>
+    <div class="nav-links">
+      <a href="#m15-slides" data-lecture="15">강의록 (31p)</a>
+      <a href="#m15-exercise" data-lecture="15">보충자료 (3p)</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
     <div class="lecture-label" data-lecture="exam" style="color: var(--error);" onclick="this.parentElement.classList.toggle('open')">
       <span class="nav-arrow">▶</span> 시험 대비
     </div>
@@ -201,7 +288,7 @@
 <div class="hero">
   <p style="color:var(--text-secondary); font-size:14px; margin-bottom:8px;">벼락치기 연구소</p>
   <h1>대학기초수학</h1>
-  <p>1강 ~ 8강</p>
+  <p>1강 ~ 15강</p>
 </div>
 
 </div><!-- /view-hero -->
@@ -4245,6 +4332,202 @@
 
 </div><!-- /view-lecture-8 -->
 
+<!-- ══════════════════════════════════════ -->
+<!-- 9강. 일차함수와 이차함수                     -->
+<!-- ══════════════════════════════════════ -->
+<div class="view-lecture-9">
+<div class="lecture-section" id="m9-slides">
+<div class="lecture-header">
+  <div class="lecture-num">9</div>
+  <h2>일차함수와 이차함수</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(9,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(9,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-9" data-lecture="9" data-pages="28" data-folder="대학기초수학_9강_강의록"></div>
+</div>
+<div class="lecture-section" id="m9-exercise">
+<div class="lecture-header">
+  <div class="lecture-num">9</div>
+  <h2>보충자료 (연습문제)</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(109,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(109,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-109" data-lecture="109" data-pages="2" data-folder="대학기초수학_9강_보충자료"></div>
+</div>
+</div><!-- /view-lecture-9 -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 10강. 부등식의 영역                         -->
+<!-- ══════════════════════════════════════ -->
+<div class="view-lecture-10">
+<div class="lecture-section" id="m10-slides">
+<div class="lecture-header">
+  <div class="lecture-num">10</div>
+  <h2>부등식의 영역</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(10,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(10,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-10" data-lecture="10" data-pages="27" data-folder="대학기초수학_10강_강의록"></div>
+</div>
+<div class="lecture-section" id="m10-exercise">
+<div class="lecture-header">
+  <div class="lecture-num">10</div>
+  <h2>보충자료 (연습문제)</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(110,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(110,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-110" data-lecture="110" data-pages="2" data-folder="대학기초수학_10강_보충자료"></div>
+</div>
+</div><!-- /view-lecture-10 -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 11강. 삼각함수 (1)                         -->
+<!-- ══════════════════════════════════════ -->
+<div class="view-lecture-11">
+<div class="lecture-section" id="m11-slides">
+<div class="lecture-header">
+  <div class="lecture-num">11</div>
+  <h2>삼각함수 (1)</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(11,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(11,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-11" data-lecture="11" data-pages="28" data-folder="대학기초수학_11강_강의록"></div>
+</div>
+<div class="lecture-section" id="m11-exercise">
+<div class="lecture-header">
+  <div class="lecture-num">11</div>
+  <h2>보충자료 (연습문제)</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(111,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(111,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-111" data-lecture="111" data-pages="3" data-folder="대학기초수학_11강_보충자료"></div>
+</div>
+</div><!-- /view-lecture-11 -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 12강. 삼각함수 (2)                         -->
+<!-- ══════════════════════════════════════ -->
+<div class="view-lecture-12">
+<div class="lecture-section" id="m12-slides">
+<div class="lecture-header">
+  <div class="lecture-num">12</div>
+  <h2>삼각함수 (2)</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(12,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(12,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-12" data-lecture="12" data-pages="29" data-folder="대학기초수학_12강_강의록"></div>
+</div>
+<div class="lecture-section" id="m12-exercise">
+<div class="lecture-header">
+  <div class="lecture-num">12</div>
+  <h2>보충자료 (연습문제)</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(112,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(112,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-112" data-lecture="112" data-pages="3" data-folder="대학기초수학_12강_보충자료"></div>
+</div>
+</div><!-- /view-lecture-12 -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 13강. 공간좌표                              -->
+<!-- ══════════════════════════════════════ -->
+<div class="view-lecture-13">
+<div class="lecture-section" id="m13-slides">
+<div class="lecture-header">
+  <div class="lecture-num">13</div>
+  <h2>공간좌표</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(13,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(13,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-13" data-lecture="13" data-pages="31" data-folder="대학기초수학_13강_강의록"></div>
+</div>
+<div class="lecture-section" id="m13-exercise">
+<div class="lecture-header">
+  <div class="lecture-num">13</div>
+  <h2>보충자료 (연습문제)</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(113,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(113,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-113" data-lecture="113" data-pages="3" data-folder="대학기초수학_13강_보충자료"></div>
+</div>
+</div><!-- /view-lecture-13 -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 14강. 벡터                                 -->
+<!-- ══════════════════════════════════════ -->
+<div class="view-lecture-14">
+<div class="lecture-section" id="m14-slides">
+<div class="lecture-header">
+  <div class="lecture-num">14</div>
+  <h2>벡터</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(14,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(14,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-14" data-lecture="14" data-pages="31" data-folder="대학기초수학_14강_강의록"></div>
+</div>
+<div class="lecture-section" id="m14-exercise">
+<div class="lecture-header">
+  <div class="lecture-num">14</div>
+  <h2>보충자료 (연습문제)</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(114,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(114,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-114" data-lecture="114" data-pages="3" data-folder="대학기초수학_14강_보충자료"></div>
+</div>
+</div><!-- /view-lecture-14 -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- 15강. 벡터 방정식                           -->
+<!-- ══════════════════════════════════════ -->
+<div class="view-lecture-15">
+<div class="lecture-section" id="m15-slides">
+<div class="lecture-header">
+  <div class="lecture-num">15</div>
+  <h2>벡터 방정식</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(15,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(15,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-15" data-lecture="15" data-pages="31" data-folder="대학기초수학_15강_강의록"></div>
+</div>
+<div class="lecture-section" id="m15-exercise">
+<div class="lecture-header">
+  <div class="lecture-num">15</div>
+  <h2>보충자료 (연습문제)</h2>
+</div>
+<div class="view-mode-bar">
+  <button class="active" onclick="setViewMode(115,'single',this)">한 장씩</button>
+  <button onclick="setViewMode(115,'all',this)">전체 보기</button>
+</div>
+<div class="slide-viewer" id="viewer-115" data-lecture="115" data-pages="3" data-folder="대학기초수학_15강_보충자료"></div>
+</div>
+</div><!-- /view-lecture-15 -->
+
 <div class="view-exam">
 
 <!-- ══════════════════════════════════════ -->
@@ -6963,5 +7246,82 @@
 <script src="/js/visitors.js"></script>
 <script src="/js/banner.js"></script>
 <script src="/js/mobile.js"></script>
+
+<script>
+// ── Slide Viewer ──
+const viewerState = {};
+
+function initViewer(num) {
+  const el = document.getElementById('viewer-' + num);
+  if (!el) return;
+  const pages = parseInt(el.dataset.pages);
+  const folder = el.dataset.folder;
+  viewerState[num] = { page: 1, pages, folder, mode: 'single' };
+  renderViewer(num);
+}
+
+function imgSrc(folder, page) {
+  return 'images/' + encodeURIComponent(folder) + '/page_' + String(page).padStart(3, '0') + '.png';
+}
+
+function renderViewer(num) {
+  const s = viewerState[num];
+  const el = document.getElementById('viewer-' + num);
+  if (!el) return;
+
+  if (s.mode === 'all') {
+    let html = '<div class="slide-grid">';
+    for (let i = 1; i <= s.pages; i++) {
+      html += '<img src="' + imgSrc(s.folder, i) + '" alt="' + i + '/' + s.pages + '" loading="lazy">';
+    }
+    html += '</div>';
+    el.innerHTML = html;
+  } else {
+    let html = '<div class="slide-single">';
+    html += '<img src="' + imgSrc(s.folder, s.page) + '" alt="' + s.page + '/' + s.pages + '">';
+    html += '</div>';
+    html += '<div class="slide-nav">';
+    html += '<button onclick="goPage(' + num + ',' + 1 + ')"' + (s.page <= 1 ? ' disabled' : '') + '>&laquo;</button>';
+    html += '<button onclick="goPage(' + num + ',' + (s.page - 1) + ')"' + (s.page <= 1 ? ' disabled' : '') + '>&lsaquo; 이전</button>';
+    html += '<span class="page-info">' + s.page + ' / ' + s.pages + '</span>';
+    html += '<button onclick="goPage(' + num + ',' + (s.page + 1) + ')"' + (s.page >= s.pages ? ' disabled' : '') + '>다음 &rsaquo;</button>';
+    html += '<button onclick="goPage(' + num + ',' + s.pages + ')"' + (s.page >= s.pages ? ' disabled' : '') + '>&raquo;</button>';
+    html += '</div>';
+    el.innerHTML = html;
+  }
+}
+
+function goPage(num, page) {
+  const s = viewerState[num];
+  if (page < 1 || page > s.pages) return;
+  s.page = page;
+  renderViewer(num);
+  document.getElementById('viewer-' + num).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function setViewMode(num, mode, btn) {
+  viewerState[num].mode = mode;
+  const bar = btn.parentElement;
+  bar.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderViewer(num);
+}
+
+document.addEventListener('keydown', function(e) {
+  for (let i = 9; i <= 15; i++) {
+    const view = document.querySelector('.view-lecture-' + i);
+    if (view && view.classList.contains('active') && viewerState[i] && viewerState[i].mode === 'single') {
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); goPage(i, viewerState[i].page - 1); }
+      else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); goPage(i, viewerState[i].page + 1); }
+      break;
+    }
+  }
+});
+
+// init all viewers (lectures 9-15 + exercises 109-115)
+for (let i = 9; i <= 15; i++) { initViewer(i); initViewer(100 + i); }
+</script>
+
+<script>fetch('/api/visitors?page=math').catch(()=>{});</script>
 </body>
 </html>
