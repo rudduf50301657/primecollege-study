@@ -70,6 +70,11 @@ def main():
 
     total_pages = 0
     for pdf_file in pdf_files:
+        pdf_name = os.path.splitext(pdf_file)[0]
+        pdf_output = os.path.join(output_dir, pdf_name)
+        if os.path.exists(pdf_output) and os.listdir(pdf_output):
+            print(f"[skip] {pdf_file} (already converted)")
+            continue
         pdf_path = os.path.join(pdf_dir, pdf_file)
         print(f"[convert] {pdf_file}")
         pages = convert_pdf_to_images(pdf_path, output_dir, args.dpi)
