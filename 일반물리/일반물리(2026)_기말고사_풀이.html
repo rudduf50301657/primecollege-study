@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>일반물리 기말고사 풀이 | 프라임칼리지</title>
+<link rel="stylesheet" href="../deploy/css/tokens.css">
+<link rel="stylesheet" href="../deploy/css/base.css">
+<link rel="stylesheet" href="../deploy/css/sidebar.css">
+<link rel="stylesheet" href="../deploy/css/layout.css">
+<link rel="stylesheet" href="../deploy/css/content.css">
+<link rel="stylesheet" href="../deploy/css/components.css">
+<style>
+/* ── Fallback & Standalone Styles ── */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=STIX+Two+Math&display=swap');
+:root {
+  --bg-body: #0f0f1a; --bg-surface: #1a1a2e; --bg-surface-alt: #161625; --bg-inset: #12121f;
+  --border: #2a2a4a; --border-subtle: #1e1e35;
+  --text-primary: #e0e0e0; --text-secondary: #888; --text-muted: #555; --text-white: #fff;
+  --concept: #8b5cf6; --concept-dark: #6d28d9; --concept-bg: #2d1b69; --concept-text: #c4b5fd;
+  --formula: #3b82f6; --formula-bg: #1e3a5f; --formula-text: #93c5fd;
+  --example: #22c55e; --example-bg: #1a3a2a; --example-text: #86efac;
+  --tip: #eab308; --tip-bg: #2a2a1a; --tip-text: #d4c87a;
+  --error: #ef4444; --error-bg: #3d1a1a; --error-text: #fca5a5;
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-xl: 20px;
+  --font: 'Noto Sans KR', sans-serif;
+}
+
+/* ── Exam-specific styles ── */
+.exam-sidebar {
+  position: fixed; top: 0; left: 0; bottom: 0; width: 260px;
+  background: var(--bg-surface); border-right: 1px solid var(--border);
+  overflow-y: auto; z-index: 100; padding: 24px 0;
+}
+.exam-sidebar h2 {
+  color: var(--concept); font-size: 16px; font-weight: 700;
+  padding: 0 20px 16px; border-bottom: 1px solid var(--border); margin-bottom: 8px;
+}
+.exam-sidebar .toc-list { list-style: none; padding: 0; }
+.exam-sidebar .toc-list li a {
+  display: block; padding: 10px 20px; color: var(--text-secondary);
+  text-decoration: none; font-size: 14px; transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+.exam-sidebar .toc-list li a:hover,
+.exam-sidebar .toc-list li a.active {
+  color: var(--concept-text); background: var(--concept-bg);
+  border-left-color: var(--concept);
+}
+.exam-sidebar .toc-list li a .prob-num {
+  display: inline-block; width: 24px; height: 24px; line-height: 24px;
+  text-align: center; background: var(--border-subtle); border-radius: 6px;
+  font-size: 12px; font-weight: 700; margin-right: 8px; color: var(--concept-text);
+}
+.exam-sidebar .toc-list li a:hover .prob-num,
+.exam-sidebar .toc-list li a.active .prob-num {
+  background: var(--concept); color: white;
+}
+.exam-sidebar .sidebar-info {
+  padding: 16px 20px; margin-top: 16px; border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--text-muted); line-height: 1.8;
+}
+
+.exam-main {
+  margin-left: 260px; padding: 40px 60px 100px; max-width: 1100px;
+}
+
+/* ── Problem Section ── */
+.problem-section {
+  margin-bottom: 64px; scroll-margin-top: 30px;
+}
+.problem-header {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 28px; padding-bottom: 16px;
+  border-bottom: 2px solid var(--concept);
+}
+.problem-num {
+  background: linear-gradient(135deg, var(--concept), var(--concept-dark));
+  color: white; width: 52px; height: 52px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; font-weight: 900; flex-shrink: 0;
+}
+.problem-header h2 { font-size: 24px; font-weight: 700; color: var(--text-white); }
+.problem-header .lecture-tag {
+  margin-left: auto; padding: 4px 14px; border-radius: 20px;
+  background: var(--concept-bg); color: var(--concept-text);
+  font-size: 13px; font-weight: 600; white-space: nowrap;
+}
+
+/* ── Problem Statement ── */
+.problem-statement {
+  background: var(--bg-inset); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 24px 28px; margin-bottom: 24px;
+  position: relative;
+}
+.problem-statement::before {
+  content: '문제'; position: absolute; top: -10px; left: 16px;
+  background: var(--formula); color: white; padding: 2px 14px;
+  border-radius: 6px; font-size: 12px; font-weight: 700;
+}
+.problem-statement p { margin-top: 4px; line-height: 1.9; font-size: 15px; }
+
+/* ── Given / Find ── */
+.given-find {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;
+}
+.given-box, .find-box {
+  background: var(--bg-surface); border: 1px solid var(--border);
+  border-radius: var(--radius-md); padding: 16px 20px;
+}
+.given-box h4, .find-box h4 {
+  font-size: 13px; font-weight: 700; margin-bottom: 8px;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.given-box h4 { color: var(--formula-text); }
+.find-box h4 { color: var(--example-text); }
+.given-box ul, .find-box ul {
+  list-style: none; padding: 0;
+}
+.given-box li, .find-box li {
+  font-size: 14px; padding: 3px 0;
+  font-family: 'Georgia', 'STIX Two Math', serif;
+}
+
+/* ── Solution Section ── */
+.solution-label {
+  font-size: 18px; font-weight: 700; color: var(--concept);
+  margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+}
+
+/* ── Final Answer ── */
+.final-answer {
+  background: linear-gradient(135deg, var(--example-bg), rgba(34,197,94,0.08));
+  border: 2px solid var(--example); border-radius: var(--radius-lg);
+  padding: 20px 28px; margin-top: 20px; position: relative;
+}
+.final-answer::before {
+  content: '최종 답'; position: absolute; top: -10px; left: 16px;
+  background: var(--example); color: white; padding: 2px 14px;
+  border-radius: 6px; font-size: 12px; font-weight: 700;
+}
+.final-answer p {
+  font-size: 17px; font-weight: 700; color: var(--example-text);
+  font-family: 'Georgia', 'STIX Two Math', serif; margin-top: 4px;
+}
+
+/* ── Concept Card tweaks ── */
+.concept-card {
+  background: var(--bg-surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 28px 36px; margin-bottom: 24px;
+  transition: border-color 0.3s;
+}
+.concept-card:hover { border-color: var(--concept); }
+.concept-card h3 {
+  font-size: 20px; color: var(--concept); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+
+/* ── Formula Box ── */
+.formula-box {
+  background: var(--border-subtle); border: 2px solid var(--formula);
+  border-radius: 14px; padding: 24px; margin: 16px 0; text-align: center;
+}
+.formula-box .formula {
+  font-size: 22px; color: var(--formula-text); font-weight: 700;
+  margin: 8px 0; font-family: 'Georgia', 'STIX Two Math', serif;
+}
+.formula-box .formula-desc {
+  color: var(--text-secondary); font-size: 13px;
+}
+
+/* ── Calc Steps ── */
+.calc-steps { margin: 16px 0; }
+.calc-step {
+  display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px;
+}
+.calc-step-num {
+  background: var(--formula); color: white;
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+}
+.calc-step-content { flex: 1; }
+.calc-step-content .math {
+  font-family: 'Georgia', 'STIX Two Math', serif;
+  color: var(--formula-text); font-size: 16px; margin: 4px 0;
+}
+.calc-step-content .explain {
+  color: var(--text-secondary); font-size: 13px; line-height: 1.7;
+}
+
+/* ── Tip Box ── */
+.tip-box {
+  background: var(--tip-bg); border: 1px solid var(--tip);
+  border-radius: var(--radius-md); padding: 20px 24px; margin: 16px 0;
+  position: relative;
+}
+.tip-box::before {
+  content: '시험 포인트'; position: absolute; top: -10px; left: 16px;
+  background: var(--tip); color: var(--text-white); padding: 2px 12px;
+  border-radius: 6px; font-size: 12px; font-weight: 700;
+}
+
+/* ── Example Box ── */
+.example-box {
+  background: var(--example-bg); border: 1px solid var(--example);
+  border-radius: var(--radius-md); padding: 20px 24px; margin: 16px 0;
+  position: relative;
+}
+.example-box::before {
+  content: '핵심 개념'; position: absolute; top: -10px; left: 16px;
+  background: var(--example); color: var(--text-white); padding: 2px 12px;
+  border-radius: 6px; font-size: 12px; font-weight: 700;
+}
+
+/* ── Mobile ── */
+.mobile-header-exam {
+  display: none; position: fixed; top: 0; left: 0; right: 0; height: 56px;
+  background: var(--bg-surface); border-bottom: 1px solid var(--border);
+  z-index: 200; align-items: center; padding: 0 16px; gap: 12px;
+}
+.mobile-header-exam h1 {
+  font-size: 15px; font-weight: 700; color: var(--concept); flex: 1;
+}
+.mobile-header-exam .menu-btn-exam {
+  width: 40px; height: 40px; background: none; border: none;
+  color: var(--text-primary); font-size: 24px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .mobile-header-exam { display: flex; }
+  .exam-sidebar {
+    transform: translateX(-100%); transition: transform 0.3s;
+    z-index: 300;
+  }
+  .exam-sidebar.open { transform: translateX(0); }
+  .exam-main { margin-left: 0; padding: 16px; padding-top: 72px; max-width: 100%; }
+  .given-find { grid-template-columns: 1fr; }
+  .problem-header { flex-wrap: wrap; }
+  .problem-header .lecture-tag { margin-left: 0; }
+  .formula-box .formula { font-size: 16px; }
+}
+
+/* ── Light theme overrides ── */
+[data-theme="light"] { --bg-body:#f7f7fa; --bg-surface:#fff; --bg-surface-alt:#fafafa; --bg-inset:#f0f0f4; --border:#e0e0e8; --border-subtle:#eaeaf0; --text-primary:#111; --text-secondary:#666; --text-muted:#aaa; --concept:#7c3aed; --concept-dark:#6d28d9; --concept-bg:#f5f3ff; --concept-text:#7c3aed; --formula:#7c3aed; --formula-bg:#f5f3ff; --formula-text:#5b21b6; --example:#16a34a; --example-bg:#f0faf0; --example-text:#333; --tip:#7c3aed; --tip-bg:#f5f3ff; --tip-text:#333; --error:#dc2626; --error-bg:#fef2f2; --error-text:#333; }
+[data-theme="light"] .exam-sidebar { background: #fff; border-right-color: #e0e0e8; }
+[data-theme="light"] .problem-header h2 { color: #111; }
+[data-theme="light"] .final-answer { background: #f0faf0; border-color: var(--example); }
+[data-theme="light"] .final-answer p { color: #166534; }
+</style>
+</head>
+<body>
+
+<!-- ── Mobile Header ── -->
+<div class="mobile-header-exam">
+  <button class="menu-btn-exam" onclick="document.querySelector('.exam-sidebar').classList.toggle('open')">&#9776;</button>
+  <h1>일반물리 기말고사 풀이</h1>
+</div>
+
+<!-- ═══════════ SIDEBAR ═══════════ -->
+<nav class="exam-sidebar">
+  <h2>기말고사 풀이</h2>
+  <ul class="toc-list">
+    <li><a href="#prob1"><span class="prob-num">1</span>단순조화운동</a></li>
+    <li><a href="#prob2"><span class="prob-num">2</span>파동의 성질</a></li>
+    <li><a href="#prob3"><span class="prob-num">3</span>도플러 효과</a></li>
+    <li><a href="#prob4"><span class="prob-num">4</span>쿨롱의 법칙</a></li>
+    <li><a href="#prob5"><span class="prob-num">5</span>전기장</a></li>
+    <li><a href="#prob6"><span class="prob-num">6</span>자기장 속 도선</a></li>
+    <li><a href="#prob7"><span class="prob-num">7</span>직선도선 자기장</a></li>
+    <li><a href="#prob8"><span class="prob-num">8</span>전자기 유도</a></li>
+    <li><a href="#prob9"><span class="prob-num">9</span>변압기</a></li>
+    <li><a href="#prob10"><span class="prob-num">10</span>전력 계산</a></li>
+  </ul>
+  <div class="sidebar-info">
+    일반물리 (2026)<br>
+    기말고사 풀이<br>
+    g = 10 m/s&sup2;<br>
+    9강 ~ 15강 범위
+  </div>
+</nav>
+
+<!-- ═══════════ MAIN ═══════════ -->
+<div class="exam-main">
+
+<!-- ── Hero ── -->
+<div style="text-align:center; padding:60px 0 40px; margin-bottom:40px; border-bottom:1px solid var(--border);">
+  <p style="color:var(--text-secondary); font-size:14px; margin-bottom:8px;">프라임칼리지 벼락치기 연구소</p>
+  <h1 style="font-size:42px; font-weight:900; background:linear-gradient(135deg,var(--concept),var(--formula)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:12px;">일반물리 기말고사 풀이</h1>
+  <p style="color:var(--text-secondary); font-size:16px;">2026학년도 | 10문항 | g = 10 m/s&sup2;</p>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- 문제 1: 단순조화운동                                      -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="problem-section" id="prob1">
+<div class="problem-header">
+  <div class="problem-num">1</div>
+  <h2>단순조화운동 - 변위와 속력</h2>
+  <span class="lecture-tag">9강 - 단순조화운동</span>
+</div>
+
+<div class="problem-statement">
+  <p>용수철에 매달린 질량 m인 물체를 마찰 없는 평면에서 <strong>10 cm 당긴 후 놓았다</strong>. 주기 T = 0.5초, 원점 돌아왔을 때 속력 1.5 m/s이다. 운동 시작 후 <strong>0.2초 후의 변위와 속력</strong>을 구하시오.</p>
+</div>
+
+<div class="given-find">
+  <div class="given-box">
+    <h4>주어진 것 (Given)</h4>
+    <ul>
+      <li>진폭 A = 10 cm = 0.1 m</li>
+      <li>주기 T = 0.5 s</li>
+      <li>원점에서 속력 v<sub>max</sub> = 1.5 m/s</li>
+      <li>t = 0.2 s</li>
+    </ul>
+  </div>
+  <div class="find-box">
+    <h4>구할 것 (Find)</h4>
+    <ul>
+      <li>t = 0.2초에서의 변위 x</li>
+      <li>t = 0.2초에서의 속력 v</li>
+    </ul>
+  </div>
+</div>
+
+<div class="solution-label">풀이</div>
+
+<div class="example-box" style="margin-bottom:24px;">
+  <p style="margin-top:8px;">단순조화운동(SHM)에서 물체를 <strong>최대 변위에서 놓으면</strong> 코사인 함수로 표현해! 처음 위치가 +A이니까 x(t) = A cos(wt) 형태야.</p>
+</div>
+
+<div class="calc-steps">
+
+  <div class="calc-step">
+    <div class="calc-step-num">1</div>
+    <div class="calc-step-content">
+      <p class="explain">먼저 <strong>각진동수 w</strong>를 구하자. 주기 T와 각진동수의 관계식을 써!</p>
+      <div class="formula-box">
+        <div class="formula">w = 2&pi; / T</div>
+        <div class="formula-desc">각진동수와 주기의 관계</div>
+      </div>
+      <p class="math">w = 2&pi; / 0.5 = 4&pi; rad/s</p>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">2</div>
+    <div class="calc-step-content">
+      <p class="explain">물체를 <strong>+A (10 cm) 위치에서 놓았으니까</strong>, 초기 위치 = 최대 변위야. 그래서 <strong>코사인 함수</strong>를 쓰면 돼!</p>
+      <div class="formula-box">
+        <div class="formula">x(t) = A cos(wt)</div>
+        <div class="formula-desc">최대 변위에서 출발하는 단순조화운동의 변위 방정식</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">3</div>
+    <div class="calc-step-content">
+      <p class="explain">t = 0.2초를 대입해서 <strong>변위</strong>를 구하자!</p>
+      <p class="math">x(0.2) = 0.1 &times; cos(4&pi; &times; 0.2)</p>
+      <p class="math">= 0.1 &times; cos(0.8&pi;)</p>
+      <p class="explain">0.8&pi; = 144&deg;이고, cos(144&deg;) = cos(180&deg; &minus; 36&deg;) = &minus;cos(36&deg;)</p>
+      <p class="math">cos(144&deg;) = &minus;0.809</p>
+      <p class="math">x(0.2) = 0.1 &times; (&minus;0.809) = &minus;0.0809 m</p>
+      <p class="math"><strong>x(0.2) &approx; &minus;0.081 m = &minus;8.1 cm</strong></p>
+      <p class="explain">음수니까 원점 기준으로 <strong>반대 방향으로 8.1 cm</strong> 떨어진 위치야!</p>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">4</div>
+    <div class="calc-step-content">
+      <p class="explain">이제 <strong>속도 방정식</strong>을 세우자. 변위를 시간에 대해 미분하면 속도야!</p>
+      <div class="formula-box">
+        <div class="formula">v(t) = &minus;Aw sin(wt)</div>
+        <div class="formula-desc">단순조화운동의 속도 방정식 (변위의 시간 미분)</div>
+      </div>
+      <p class="explain">여기서 최대 속력 Aw = 0.1 &times; 4&pi; = 0.4&pi; &approx; 1.257 m/s인데, 문제에서 원점 통과 시 속력이 1.5 m/s라고 했으니 문제에서 주어진 v<sub>max</sub> = 1.5 m/s를 사용하자.</p>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">5</div>
+    <div class="calc-step-content">
+      <p class="explain">t = 0.2초에서의 <strong>속력</strong>을 구해보자!</p>
+      <p class="math">v(0.2) = &minus;Aw sin(4&pi; &times; 0.2) = &minus;1.5 &times; sin(0.8&pi;)</p>
+      <p class="explain">sin(0.8&pi;) = sin(144&deg;) = sin(36&deg;) = 0.588</p>
+      <p class="math">v(0.2) = &minus;1.5 &times; 0.588 = &minus;0.882 m/s</p>
+      <p class="math"><strong>|v(0.2)| &approx; 0.88 m/s</strong></p>
+    </div>
+  </div>
+
+</div>
+
+<div class="tip-box" style="margin-top:24px;">
+  <p style="margin-top:8px;"><strong>검증:</strong> 에너지 보존으로 확인해볼 수 있어! v&sup2; = v<sub>max</sub>&sup2; &minus; w&sup2;x&sup2;에 대입하면:<br>
+  v&sup2; = 1.5&sup2; &minus; (4&pi;)&sup2; &times; 0.0809&sup2; = 2.25 &minus; 1.034 = 1.216, v = 1.10 m/s<br>
+  Aw = 4&pi; &times; 0.1 = 1.257 m/s를 쓰면: v&sup2; = 1.257&sup2; &minus; (4&pi;)&sup2; &times; 0.0809&sup2; = 1.58 &minus; 1.03 = 0.55, v = 0.74 m/s<br>
+  문제에서 v<sub>max</sub> = 1.5 m/s가 주어져 있으므로 이 값을 최대 속력으로 사용하는 게 출제 의도야!</p>
+</div>
+
+<div class="final-answer">
+  <p>변위: x(0.2) &approx; &minus;8.1 cm (반대 방향)</p>
+  <p>속력: |v(0.2)| &approx; 0.88 m/s</p>
+</div>
+</div><!-- /prob1 -->
+
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- 문제 2: 파동의 성질                                       -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="problem-section" id="prob2">
+<div class="problem-header">
+  <div class="problem-num">2</div>
+  <h2>파동 - 파장, 진동수, 주기의 관계</h2>
+  <span class="lecture-tag">10강 - 파동</span>
+</div>
+
+<div class="problem-statement">
+  <p><strong>일정한 속력</strong>의 파동에서 <strong>파장이 2배 증가</strong>하면, 진동수와 주기는 어떻게 달라지는가?</p>
+</div>
+
+<div class="given-find">
+  <div class="given-box">
+    <h4>주어진 것 (Given)</h4>
+    <ul>
+      <li>파동 속력 v = 일정</li>
+      <li>파장: &lambda;' = 2&lambda;</li>
+    </ul>
+  </div>
+  <div class="find-box">
+    <h4>구할 것 (Find)</h4>
+    <ul>
+      <li>진동수 f'는 어떻게 되나?</li>
+      <li>주기 T'는 어떻게 되나?</li>
+    </ul>
+  </div>
+</div>
+
+<div class="solution-label">풀이</div>
+
+<div class="example-box" style="margin-bottom:24px;">
+  <p style="margin-top:8px;">파동의 기본 관계식 v = f&lambda;를 떠올려봐! 속력이 일정하면 파장과 진동수는 <strong>반비례</strong> 관계야.</p>
+</div>
+
+<div class="calc-steps">
+
+  <div class="calc-step">
+    <div class="calc-step-num">1</div>
+    <div class="calc-step-content">
+      <p class="explain"><strong>파동의 기본 관계식</strong>부터 쓰자!</p>
+      <div class="formula-box">
+        <div class="formula">v = f &times; &lambda;</div>
+        <div class="formula-desc">파동의 속력 = 진동수 &times; 파장</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">2</div>
+    <div class="calc-step-content">
+      <p class="explain">속력이 일정하니까, 진동수를 파장으로 표현하면:</p>
+      <p class="math">f = v / &lambda;</p>
+      <p class="explain">파장이 2배가 되면 (&lambda;' = 2&lambda;):</p>
+      <p class="math">f' = v / &lambda;' = v / (2&lambda;) = (1/2) &times; (v / &lambda;) = f / 2</p>
+      <p class="explain"><strong>진동수는 1/2로 줄어든다!</strong> 속력이 일정할 때 파장과 진동수는 반비례하니까 당연한 결과야.</p>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">3</div>
+    <div class="calc-step-content">
+      <p class="explain">주기는 진동수의 역수니까:</p>
+      <div class="formula-box">
+        <div class="formula">T = 1 / f</div>
+        <div class="formula-desc">주기와 진동수의 관계</div>
+      </div>
+      <p class="math">T' = 1 / f' = 1 / (f/2) = 2 / f = 2T</p>
+      <p class="explain"><strong>주기는 2배로 늘어난다!</strong></p>
+    </div>
+  </div>
+
+</div>
+
+<div class="tip-box" style="margin-top:24px;">
+  <p style="margin-top:8px;">핵심 정리: 파동 속력이 일정할 때, <strong>파장 &uarr; &rarr; 진동수 &darr; &rarr; 주기 &uarr;</strong>. 전부 반비례 관계라서, 파장이 n배면 진동수는 1/n배, 주기는 n배가 돼!</p>
+</div>
+
+<div class="final-answer">
+  <p>진동수: 1/2로 감소 (f' = f/2)</p>
+  <p>주기: 2배로 증가 (T' = 2T)</p>
+</div>
+</div><!-- /prob2 -->
+
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- 문제 3: 도플러 효과                                       -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="problem-section" id="prob3">
+<div class="problem-header">
+  <div class="problem-num">3</div>
+  <h2>도플러 효과</h2>
+  <span class="lecture-tag">11강 - 도플러 효과</span>
+</div>
+
+<div class="problem-statement">
+  <p>정지한 소방차 사이렌의 진동수는 <strong>200 Hz</strong>. 소방차가 시속 <strong>50 km/h</strong>로 나를 향해 올 때, 내가 듣는 주파수는? (음속 = 340 m/s)</p>
+</div>
+
+<div class="given-find">
+  <div class="given-box">
+    <h4>주어진 것 (Given)</h4>
+    <ul>
+      <li>음원 진동수 f<sub>0</sub> = 200 Hz</li>
+      <li>음원 속력 v<sub>s</sub> = 50 km/h</li>
+      <li>관측자 속력 v<sub>o</sub> = 0 (정지)</li>
+      <li>음속 v = 340 m/s</li>
+    </ul>
+  </div>
+  <div class="find-box">
+    <h4>구할 것 (Find)</h4>
+    <ul>
+      <li>관측자가 듣는 주파수 f</li>
+    </ul>
+  </div>
+</div>
+
+<div class="solution-label">풀이</div>
+
+<div class="example-box" style="margin-bottom:24px;">
+  <p style="margin-top:8px;">도플러 효과: 음원이 다가오면 파동이 압축되니까 진동수가 올라가고(높은 음), 멀어지면 진동수가 내려가(낮은 음). 구급차가 다가올 때 사이렌 소리가 높아지는 경험 해봤지?</p>
+</div>
+
+<div class="calc-steps">
+
+  <div class="calc-step">
+    <div class="calc-step-num">1</div>
+    <div class="calc-step-content">
+      <p class="explain">먼저 단위를 통일하자! km/h &rarr; m/s 변환이 필요해.</p>
+      <p class="math">v<sub>s</sub> = 50 km/h = 50 &times; (1000/3600) = 50/3.6 &approx; 13.89 m/s</p>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">2</div>
+    <div class="calc-step-content">
+      <p class="explain"><strong>도플러 효과 공식</strong>을 써보자. 관측자는 정지, 음원이 다가오는 경우야!</p>
+      <div class="formula-box">
+        <div class="formula">f = f<sub>0</sub> &times; v / (v &minus; v<sub>s</sub>)</div>
+        <div class="formula-desc">음원이 관측자에게 다가올 때 (분모에서 빼기)</div>
+      </div>
+      <p class="explain">음원이 <strong>다가오면 분모에서 빼고</strong>, 멀어지면 더해. 관측자가 다가가면 분자에서 더하고, 멀어지면 빼는 거야.</p>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">3</div>
+    <div class="calc-step-content">
+      <p class="explain">값을 대입하자!</p>
+      <p class="math">f = 200 &times; 340 / (340 &minus; 13.89)</p>
+      <p class="math">= 200 &times; 340 / 326.11</p>
+      <p class="math">= 200 &times; 1.0426</p>
+      <p class="math">= 208.5 Hz</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="tip-box" style="margin-top:24px;">
+  <p style="margin-top:8px;">도플러 효과 공식 외우는 법: <strong>"관측자는 위, 음원은 아래"</strong><br>
+  f = f<sub>0</sub> &times; (v &plusmn; v<sub>o</sub>) / (v &mp; v<sub>s</sub>)<br>
+  다가오면 진동수 &uarr; (관측자 +, 음원 &minus;), 멀어지면 진동수 &darr; (관측자 &minus;, 음원 +)</p>
+</div>
+
+<div class="final-answer">
+  <p>f &approx; 208.5 Hz</p>
+  <p>원래 200 Hz보다 높은 음으로 들린다 (약 4.3% 증가)</p>
+</div>
+</div><!-- /prob3 -->
+
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- 문제 4: 쿨롱의 법칙                                       -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="problem-section" id="prob4">
+<div class="problem-header">
+  <div class="problem-num">4</div>
+  <h2>쿨롱의 법칙 - 세 전하</h2>
+  <span class="lecture-tag">12강 - 쿨롱의 법칙</span>
+</div>
+
+<div class="problem-statement">
+  <p>세 전하가 일직선에 놓여 있다. 왼쪽부터 <strong>q<sub>2</sub> = &minus;44 &mu;C</strong>, <strong>q<sub>1</sub> = +15 &mu;C</strong>, <strong>q<sub>3</sub> = +13 &mu;C</strong>. q<sub>2</sub>와 q<sub>1</sub> 간격 10 cm, q<sub>1</sub>과 q<sub>3</sub> 간격 10 cm. <strong>q<sub>1</sub>에 작용하는 힘의 크기와 방향</strong>을 구하시오. (k = 9 &times; 10<sup>9</sup> N&middot;m<sup>2</sup>/C<sup>2</sup>)</p>
+</div>
+
+<div class="given-find">
+  <div class="given-box">
+    <h4>주어진 것 (Given)</h4>
+    <ul>
+      <li>q<sub>2</sub> = &minus;44 &mu;C = &minus;44 &times; 10<sup>&minus;6</sup> C (왼쪽)</li>
+      <li>q<sub>1</sub> = +15 &mu;C = +15 &times; 10<sup>&minus;6</sup> C (가운데)</li>
+      <li>q<sub>3</sub> = +13 &mu;C = +13 &times; 10<sup>&minus;6</sup> C (오른쪽)</li>
+      <li>r<sub>21</sub> = r<sub>13</sub> = 10 cm = 0.1 m</li>
+      <li>k = 9 &times; 10<sup>9</sup> N&middot;m<sup>2</sup>/C<sup>2</sup></li>
+    </ul>
+  </div>
+  <div class="find-box">
+    <h4>구할 것 (Find)</h4>
+    <ul>
+      <li>q<sub>1</sub>에 작용하는 합력 F의 크기</li>
+      <li>F의 방향</li>
+    </ul>
+  </div>
+</div>
+
+<div class="solution-label">풀이</div>
+
+<div class="example-box" style="margin-bottom:24px;">
+  <p style="margin-top:8px;">전하 배치: q<sub>2</sub>(&minus;) --- 10cm --- q<sub>1</sub>(+) --- 10cm --- q<sub>3</sub>(+)<br>
+  q<sub>1</sub>에 작용하는 힘을 구하려면 q<sub>2</sub>가 q<sub>1</sub>에 미치는 힘(F<sub>21</sub>)과 q<sub>3</sub>가 q<sub>1</sub>에 미치는 힘(F<sub>31</sub>)을 각각 구해서 더하면 돼!</p>
+</div>
+
+<div class="calc-steps">
+
+  <div class="calc-step">
+    <div class="calc-step-num">1</div>
+    <div class="calc-step-content">
+      <p class="explain"><strong>q<sub>2</sub>가 q<sub>1</sub>에 미치는 힘 (F<sub>21</sub>)</strong>을 구하자.</p>
+      <div class="formula-box">
+        <div class="formula">F = k |q<sub>1</sub>||q<sub>2</sub>| / r<sup>2</sup></div>
+        <div class="formula-desc">쿨롱의 법칙</div>
+      </div>
+      <p class="math">F<sub>21</sub> = 9 &times; 10<sup>9</sup> &times; (15 &times; 10<sup>&minus;6</sup>) &times; (44 &times; 10<sup>&minus;6</sup>) / (0.1)<sup>2</sup></p>
+      <p class="math">= 9 &times; 10<sup>9</sup> &times; 660 &times; 10<sup>&minus;12</sup> / 0.01</p>
+      <p class="math">= 9 &times; 10<sup>9</sup> &times; 6.6 &times; 10<sup>&minus;8</sup></p>
+      <p class="math">= 594 N</p>
+      <p class="explain"><strong>방향:</strong> q<sub>2</sub>는 음전하, q<sub>1</sub>은 양전하 &rarr; 서로 끌어당기니까 F<sub>21</sub>은 <strong>왼쪽</strong>(&larr;) 방향!</p>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">2</div>
+    <div class="calc-step-content">
+      <p class="explain"><strong>q<sub>3</sub>가 q<sub>1</sub>에 미치는 힘 (F<sub>31</sub>)</strong>을 구하자.</p>
+      <p class="math">F<sub>31</sub> = 9 &times; 10<sup>9</sup> &times; (15 &times; 10<sup>&minus;6</sup>) &times; (13 &times; 10<sup>&minus;6</sup>) / (0.1)<sup>2</sup></p>
+      <p class="math">= 9 &times; 10<sup>9</sup> &times; 195 &times; 10<sup>&minus;12</sup> / 0.01</p>
+      <p class="math">= 9 &times; 10<sup>9</sup> &times; 1.95 &times; 10<sup>&minus;8</sup></p>
+      <p class="math">= 175.5 N</p>
+      <p class="explain"><strong>방향:</strong> q<sub>3</sub>와 q<sub>1</sub>은 둘 다 양전하 &rarr; 서로 밀어내니까 F<sub>31</sub>은 <strong>왼쪽</strong>(&larr;) 방향!</p>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">3</div>
+    <div class="calc-step-content">
+      <p class="explain"><strong>합력</strong>을 구하자. 두 힘이 같은 방향(왼쪽)이니까 더하면 돼!</p>
+      <p class="math">F<sub>합</sub> = F<sub>21</sub> + F<sub>31</sub> = 594 + 175.5 = 769.5 N</p>
+      <p class="explain">방향: <strong>왼쪽</strong> (q<sub>2</sub> 방향)</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="tip-box" style="margin-top:24px;">
+  <p style="margin-top:8px;"><strong>힘의 방향 판단법:</strong> 같은 부호 &rarr; 척력(밀어냄), 다른 부호 &rarr; 인력(끌어당김). 이 문제에서 q<sub>1</sub> 입장에서 왼쪽의 q<sub>2</sub>(음전하)는 끌어당기고, 오른쪽의 q<sub>3</sub>(양전하)는 밀어내니까 두 힘 다 왼쪽 방향이야!</p>
+</div>
+
+<div class="final-answer">
+  <p>크기: F = 769.5 N</p>
+  <p>방향: 왼쪽 (q<sub>2</sub> 방향)</p>
+</div>
+</div><!-- /prob4 -->
+
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- 문제 5: 전기장                                            -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="problem-section" id="prob5">
+<div class="problem-header">
+  <div class="problem-num">5</div>
+  <h2>전기장의 세기와 방향</h2>
+  <span class="lecture-tag">13강 - 전기장</span>
+</div>
+
+<div class="problem-statement">
+  <p>x축 원점에 <strong>+1.5 &times; 10<sup>&minus;9</sup> C</strong> 전하가 있다. <strong>10 cm 떨어진 지점</strong>의 전기장 세기와 방향을 구하고, <strong>전기장이 10%가 되는 지점</strong>의 거리를 구하시오.</p>
+</div>
+
+<div class="given-find">
+  <div class="given-box">
+    <h4>주어진 것 (Given)</h4>
+    <ul>
+      <li>Q = +1.5 &times; 10<sup>&minus;9</sup> C</li>
+      <li>r = 10 cm = 0.1 m</li>
+      <li>k = 9 &times; 10<sup>9</sup> N&middot;m<sup>2</sup>/C<sup>2</sup></li>
+    </ul>
+  </div>
+  <div class="find-box">
+    <h4>구할 것 (Find)</h4>
+    <ul>
+      <li>r = 0.1 m에서 전기장 E</li>
+      <li>E의 방향</li>
+      <li>E가 10%가 되는 거리 r'</li>
+    </ul>
+  </div>
+</div>
+
+<div class="solution-label">풀이</div>
+
+<div class="calc-steps">
+
+  <div class="calc-step">
+    <div class="calc-step-num">1</div>
+    <div class="calc-step-content">
+      <p class="explain"><strong>점전하의 전기장 공식</strong>을 쓰자!</p>
+      <div class="formula-box">
+        <div class="formula">E = kQ / r<sup>2</sup></div>
+        <div class="formula-desc">점전하가 만드는 전기장의 세기</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">2</div>
+    <div class="calc-step-content">
+      <p class="explain">r = 0.1 m에서의 전기장을 계산하자!</p>
+      <p class="math">E = 9 &times; 10<sup>9</sup> &times; 1.5 &times; 10<sup>&minus;9</sup> / (0.1)<sup>2</sup></p>
+      <p class="math">= (9 &times; 1.5) &times; 10<sup>9&minus;9</sup> / 0.01</p>
+      <p class="math">= 13.5 / 0.01</p>
+      <p class="math"><strong>E = 1350 N/C</strong></p>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">3</div>
+    <div class="calc-step-content">
+      <p class="explain"><strong>방향:</strong> 양전하(+)가 만드는 전기장은 전하에서 <strong>바깥쪽으로</strong> 향해! x축 양의 방향이면 +x 방향, 음의 방향이면 &minus;x 방향이야.</p>
+      <p class="math">방향: 전하에서 멀어지는 방향 (+x 방향, 오른쪽)</p>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">4</div>
+    <div class="calc-step-content">
+      <p class="explain">이제 <strong>전기장이 10%</strong>가 되는 거리를 구하자! E' = 0.1E가 되려면?</p>
+      <p class="math">E' = kQ / r'<sup>2</sup> = 0.1 &times; kQ / r<sup>2</sup></p>
+      <p class="explain">양변에서 kQ를 소거하면:</p>
+      <p class="math">1 / r'<sup>2</sup> = 0.1 / r<sup>2</sup></p>
+      <p class="math">r'<sup>2</sup> = r<sup>2</sup> / 0.1 = 10 &times; r<sup>2</sup></p>
+      <p class="math">r' = r &times; &radic;10 = 0.1 &times; &radic;10</p>
+      <p class="math">r' = 0.1 &times; 3.162 = 0.316 m</p>
+      <p class="math"><strong>r' &approx; 31.6 cm</strong></p>
+    </div>
+  </div>
+
+</div>
+
+<div class="tip-box" style="margin-top:24px;">
+  <p style="margin-top:8px;">전기장은 거리의 <strong>제곱에 반비례</strong>해! 전기장이 1/10이 되려면 거리가 &radic;10배 (&approx; 3.16배)로 멀어져야 한다는 거야. 이건 중력도 마찬가지!</p>
+</div>
+
+<div class="final-answer">
+  <p>전기장 세기: E = 1350 N/C</p>
+  <p>방향: +x 방향 (전하에서 멀어지는 방향)</p>
+  <p>전기장이 10%가 되는 거리: r' &approx; 31.6 cm (= 0.1&radic;10 m)</p>
+</div>
+</div><!-- /prob5 -->
+
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- 문제 6: 자기장 속 도선                                     -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="problem-section" id="prob6">
+<div class="problem-header">
+  <div class="problem-num">6</div>
+  <h2>자기장 속 도선에 작용하는 힘</h2>
+  <span class="lecture-tag">14강 - 자기장</span>
+</div>
+
+<div class="problem-statement">
+  <p>전자석 N극과 S극 간격 <strong>10 cm</strong>, 자기장 <strong>2.0 T</strong>, 도선에 작용하는 힘 <strong>5.0 N</strong>일 때 도선에 흐르는 전류는?</p>
+</div>
+
+<div class="given-find">
+  <div class="given-box">
+    <h4>주어진 것 (Given)</h4>
+    <ul>
+      <li>도선 길이 L = 10 cm = 0.1 m</li>
+      <li>자기장 B = 2.0 T</li>
+      <li>힘 F = 5.0 N</li>
+      <li>도선이 자기장에 수직 (sin 90&deg; = 1)</li>
+    </ul>
+  </div>
+  <div class="find-box">
+    <h4>구할 것 (Find)</h4>
+    <ul>
+      <li>전류 I</li>
+    </ul>
+  </div>
+</div>
+
+<div class="solution-label">풀이</div>
+
+<div class="example-box" style="margin-bottom:24px;">
+  <p style="margin-top:8px;">자기장 안에 전류가 흐르는 도선을 놓으면 힘을 받아! N극과 S극 사이에 도선이 있으니까 도선 길이 = 극 사이 간격이야.</p>
+</div>
+
+<div class="calc-steps">
+
+  <div class="calc-step">
+    <div class="calc-step-num">1</div>
+    <div class="calc-step-content">
+      <p class="explain">전류가 흐르는 도선이 자기장에서 받는 힘의 공식:</p>
+      <div class="formula-box">
+        <div class="formula">F = BIL sin&theta;</div>
+        <div class="formula-desc">자기장 속 전류 도선에 작용하는 힘 (B: 자기장, I: 전류, L: 도선 길이, &theta;: 전류와 자기장 사이 각도)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">2</div>
+    <div class="calc-step-content">
+      <p class="explain">도선이 자기장에 <strong>수직</strong>이니까 &theta; = 90&deg;, sin 90&deg; = 1이야. 전류 I에 대해 정리하자!</p>
+      <p class="math">F = BIL &times; 1</p>
+      <p class="math">I = F / (BL)</p>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">3</div>
+    <div class="calc-step-content">
+      <p class="explain">값을 대입하자!</p>
+      <p class="math">I = 5.0 / (2.0 &times; 0.1)</p>
+      <p class="math">= 5.0 / 0.2</p>
+      <p class="math"><strong>I = 25 A</strong></p>
+    </div>
+  </div>
+
+</div>
+
+<div class="tip-box" style="margin-top:24px;">
+  <p style="margin-top:8px;">F = BIL에서 &theta;를 안 써도 되는 경우: 도선이 자기장에 <strong>수직</strong>일 때! sin 90&deg; = 1이니까 그냥 F = BIL이 돼. 도선이 자기장에 평행하면 sin 0&deg; = 0이라 힘이 0이야!</p>
+</div>
+
+<div class="final-answer">
+  <p>I = 25 A</p>
+</div>
+</div><!-- /prob6 -->
+
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- 문제 7: 직선도선의 자기장                                   -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="problem-section" id="prob7">
+<div class="problem-header">
+  <div class="problem-num">7</div>
+  <h2>직선도선이 만드는 자기장</h2>
+  <span class="lecture-tag">14강 - 전류가 만드는 자기장</span>
+</div>
+
+<div class="problem-statement">
+  <p>직선도선에 <strong>15 A</strong> 전류가 흐를 때, 도선으로부터 <strong>2 m</strong> 떨어진 지점의 자기장을 구하시오. (&mu;<sub>0</sub> = 4&pi; &times; 10<sup>&minus;7</sup> T&middot;m/A)</p>
+</div>
+
+<div class="given-find">
+  <div class="given-box">
+    <h4>주어진 것 (Given)</h4>
+    <ul>
+      <li>전류 I = 15 A</li>
+      <li>거리 r = 2 m</li>
+      <li>&mu;<sub>0</sub> = 4&pi; &times; 10<sup>&minus;7</sup> T&middot;m/A</li>
+    </ul>
+  </div>
+  <div class="find-box">
+    <h4>구할 것 (Find)</h4>
+    <ul>
+      <li>자기장 B</li>
+    </ul>
+  </div>
+</div>
+
+<div class="solution-label">풀이</div>
+
+<div class="calc-steps">
+
+  <div class="calc-step">
+    <div class="calc-step-num">1</div>
+    <div class="calc-step-content">
+      <p class="explain">무한히 긴 직선도선이 만드는 자기장 공식 (앙페르의 법칙에서 유도):</p>
+      <div class="formula-box">
+        <div class="formula">B = &mu;<sub>0</sub>I / (2&pi;r)</div>
+        <div class="formula-desc">직선 전류가 만드는 자기장 (거리 r에 반비례)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">2</div>
+    <div class="calc-step-content">
+      <p class="explain">값을 대입하자!</p>
+      <p class="math">B = (4&pi; &times; 10<sup>&minus;7</sup>) &times; 15 / (2&pi; &times; 2)</p>
+      <p class="explain">&pi;가 약분돼서 깔끔해져!</p>
+      <p class="math">= (4 &times; 10<sup>&minus;7</sup> &times; 15) / (2 &times; 2)</p>
+      <p class="math">= (60 &times; 10<sup>&minus;7</sup>) / 4</p>
+      <p class="math">= 15 &times; 10<sup>&minus;7</sup></p>
+      <p class="math"><strong>B = 1.5 &times; 10<sup>&minus;6</sup> T = 1.5 &mu;T</strong></p>
+    </div>
+  </div>
+
+</div>
+
+<div class="tip-box" style="margin-top:24px;">
+  <p style="margin-top:8px;">자기장의 <strong>방향</strong>은 오른손 법칙으로 결정해! 오른손 엄지를 전류 방향으로 향하게 하면 나머지 네 손가락이 감아쥐는 방향이 자기장 방향이야. 도선 주위를 원형으로 감싸는 형태!</p>
+</div>
+
+<div class="final-answer">
+  <p>B = 1.5 &times; 10<sup>&minus;6</sup> T = 1.5 &mu;T</p>
+</div>
+</div><!-- /prob7 -->
+
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- 문제 8: 전자기 유도                                        -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="problem-section" id="prob8">
+<div class="problem-header">
+  <div class="problem-num">8</div>
+  <h2>전자기 유도 (패러데이 법칙)</h2>
+  <span class="lecture-tag">15강 - 전자기 유도</span>
+</div>
+
+<div class="problem-statement">
+  <p>자기장 <strong>0.15 T</strong>, 감은수 <strong>10</strong>, 한 변 <strong>0.05 m</strong>인 정사각형 코일이 자기장과 <strong>평행하게</strong> 놓여있다. <strong>0.1초</strong> 동안 자기장 밖으로 꺼내면 코일에 발생하는 기전력은?</p>
+</div>
+
+<div class="given-find">
+  <div class="given-box">
+    <h4>주어진 것 (Given)</h4>
+    <ul>
+      <li>자기장 B = 0.15 T</li>
+      <li>감은수 N = 10</li>
+      <li>한 변의 길이 a = 0.05 m</li>
+      <li>&Delta;t = 0.1 s</li>
+      <li>코일이 자기장과 평행</li>
+    </ul>
+  </div>
+  <div class="find-box">
+    <h4>구할 것 (Find)</h4>
+    <ul>
+      <li>유도 기전력 &epsilon;</li>
+    </ul>
+  </div>
+</div>
+
+<div class="solution-label">풀이</div>
+
+<div class="example-box" style="margin-bottom:24px;">
+  <p style="margin-top:8px;">패러데이 법칙: 코일을 통과하는 <strong>자기 선속(자속)이 변하면</strong> 기전력이 유도돼! 코일을 자기장 밖으로 꺼내면 자속이 변하니까 기전력이 생겨.</p>
+  <p style="margin-top:8px;"><strong>주의:</strong> "코일이 자기장과 평행"이라는 건 코일의 <strong>면</strong>이 자기장과 평행하다는 뜻이야. 그러면 자기장은 코일 면에 <strong>수직</strong>으로 통과하니까 &theta; = 0&deg;, cos&theta; = 1이 돼!</p>
+</div>
+
+<div class="calc-steps">
+
+  <div class="calc-step">
+    <div class="calc-step-num">1</div>
+    <div class="calc-step-content">
+      <p class="explain"><strong>패러데이 법칙</strong>을 쓰자!</p>
+      <div class="formula-box">
+        <div class="formula">&epsilon; = &minus;N &times; &Delta;&Phi; / &Delta;t</div>
+        <div class="formula-desc">유도 기전력 = &minus;감은수 &times; (자기 선속의 변화량 / 시간)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">2</div>
+    <div class="calc-step-content">
+      <p class="explain">먼저 코일의 <strong>넓이</strong>를 구하자 (정사각형이니까 한 변의 제곱):</p>
+      <p class="math">A = a<sup>2</sup> = (0.05)<sup>2</sup> = 0.0025 m<sup>2</sup></p>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">3</div>
+    <div class="calc-step-content">
+      <p class="explain"><strong>자기 선속(자속)</strong>을 계산하자. 자기장이 코일 면에 수직으로 통과하니까:</p>
+      <p class="math">&Phi; = B &times; A &times; cos&theta; = B &times; A &times; 1 = 0.15 &times; 0.0025 = 3.75 &times; 10<sup>&minus;4</sup> Wb</p>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">4</div>
+    <div class="calc-step-content">
+      <p class="explain">코일을 완전히 꺼내면 자속이 0이 되니까, <strong>자속 변화량</strong>은:</p>
+      <p class="math">&Delta;&Phi; = &Phi;<sub>최종</sub> &minus; &Phi;<sub>처음</sub> = 0 &minus; 3.75 &times; 10<sup>&minus;4</sup> = &minus;3.75 &times; 10<sup>&minus;4</sup> Wb</p>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">5</div>
+    <div class="calc-step-content">
+      <p class="explain"><strong>유도 기전력</strong>을 구하자!</p>
+      <p class="math">|&epsilon;| = N &times; |&Delta;&Phi;| / &Delta;t</p>
+      <p class="math">= 10 &times; 3.75 &times; 10<sup>&minus;4</sup> / 0.1</p>
+      <p class="math">= 10 &times; 3.75 &times; 10<sup>&minus;3</sup></p>
+      <p class="math"><strong>|&epsilon;| = 0.0375 V = 37.5 mV</strong></p>
+    </div>
+  </div>
+
+</div>
+
+<div class="tip-box" style="margin-top:24px;">
+  <p style="margin-top:8px;"><strong>렌츠의 법칙:</strong> 유도 기전력은 자속 변화를 <strong>방해하는 방향</strong>으로 생겨. 자속이 줄어들면 이를 유지하려는 방향으로 전류가 흘러!</p>
+</div>
+
+<div class="final-answer">
+  <p>&epsilon; = 37.5 mV = 0.0375 V</p>
+</div>
+</div><!-- /prob8 -->
+
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- 문제 9: 변압기                                            -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="problem-section" id="prob9">
+<div class="problem-header">
+  <div class="problem-num">9</div>
+  <h2>강압 변압기 (트랜스포머)</h2>
+  <span class="lecture-tag">15강 - 변압기</span>
+</div>
+
+<div class="problem-statement">
+  <p><strong>강압 트랜스:</strong> 220V &rarr; 110V, 1차 코일 감은수 <strong>100</strong>일 때, 2차 코일 감은수는?</p>
+</div>
+
+<div class="given-find">
+  <div class="given-box">
+    <h4>주어진 것 (Given)</h4>
+    <ul>
+      <li>1차 전압 V<sub>1</sub> = 220 V</li>
+      <li>2차 전압 V<sub>2</sub> = 110 V</li>
+      <li>1차 감은수 N<sub>1</sub> = 100</li>
+    </ul>
+  </div>
+  <div class="find-box">
+    <h4>구할 것 (Find)</h4>
+    <ul>
+      <li>2차 감은수 N<sub>2</sub></li>
+    </ul>
+  </div>
+</div>
+
+<div class="solution-label">풀이</div>
+
+<div class="example-box" style="margin-bottom:24px;">
+  <p style="margin-top:8px;">변압기(트랜스포머)는 전자기 유도를 이용해서 전압을 바꿔! 1차 코일의 교류 전류가 자기장을 만들고, 이 변하는 자기장이 2차 코일에 기전력을 유도하는 원리야.</p>
+</div>
+
+<div class="calc-steps">
+
+  <div class="calc-step">
+    <div class="calc-step-num">1</div>
+    <div class="calc-step-content">
+      <p class="explain"><strong>변압기의 기본 공식</strong>을 쓰자!</p>
+      <div class="formula-box">
+        <div class="formula">V<sub>1</sub> / V<sub>2</sub> = N<sub>1</sub> / N<sub>2</sub></div>
+        <div class="formula-desc">전압비 = 감은수비 (이상적인 변압기)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">2</div>
+    <div class="calc-step-content">
+      <p class="explain">N<sub>2</sub>에 대해 정리하면:</p>
+      <p class="math">N<sub>2</sub> = N<sub>1</sub> &times; V<sub>2</sub> / V<sub>1</sub></p>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">3</div>
+    <div class="calc-step-content">
+      <p class="explain">값을 대입하자!</p>
+      <p class="math">N<sub>2</sub> = 100 &times; 110 / 220</p>
+      <p class="math">= 100 &times; 0.5</p>
+      <p class="math"><strong>N<sub>2</sub> = 50 (회)</strong></p>
+    </div>
+  </div>
+
+</div>
+
+<div class="tip-box" style="margin-top:24px;">
+  <p style="margin-top:8px;"><strong>강압 vs 승압:</strong><br>
+  - <strong>강압</strong> (step-down): V<sub>2</sub> &lt; V<sub>1</sub> &rarr; N<sub>2</sub> &lt; N<sub>1</sub> (2차 코일 감은수가 적어)<br>
+  - <strong>승압</strong> (step-up): V<sub>2</sub> &gt; V<sub>1</sub> &rarr; N<sub>2</sub> &gt; N<sub>1</sub> (2차 코일 감은수가 많아)<br>
+  - 이상적인 변압기에서는 전력이 보존돼: V<sub>1</sub>I<sub>1</sub> = V<sub>2</sub>I<sub>2</sub></p>
+</div>
+
+<div class="final-answer">
+  <p>N<sub>2</sub> = 50회</p>
+  <p>전압이 1/2로 줄어드니까 감은수도 1/2이 된다!</p>
+</div>
+</div><!-- /prob9 -->
+
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- 문제 10: 전력 계산                                        -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="problem-section" id="prob10">
+<div class="problem-header">
+  <div class="problem-num">10</div>
+  <h2>전력, 전류, 저항 계산</h2>
+  <span class="lecture-tag">15강 - 전력</span>
+</div>
+
+<div class="problem-statement">
+  <p><strong>220V, 1kW</strong> 헤어드라이기의 <strong>소모전류</strong>와 <strong>저항</strong>을 구하시오.</p>
+</div>
+
+<div class="given-find">
+  <div class="given-box">
+    <h4>주어진 것 (Given)</h4>
+    <ul>
+      <li>전압 V = 220 V</li>
+      <li>전력 P = 1 kW = 1000 W</li>
+    </ul>
+  </div>
+  <div class="find-box">
+    <h4>구할 것 (Find)</h4>
+    <ul>
+      <li>전류 I</li>
+      <li>저항 R</li>
+    </ul>
+  </div>
+</div>
+
+<div class="solution-label">풀이</div>
+
+<div class="calc-steps">
+
+  <div class="calc-step">
+    <div class="calc-step-num">1</div>
+    <div class="calc-step-content">
+      <p class="explain">먼저 <strong>전류</strong>를 구하자! 전력 공식 P = VI에서 I를 구해!</p>
+      <div class="formula-box">
+        <div class="formula">P = V &times; I &nbsp;&nbsp;&rArr;&nbsp;&nbsp; I = P / V</div>
+        <div class="formula-desc">전력 = 전압 &times; 전류</div>
+      </div>
+      <p class="math">I = 1000 / 220</p>
+      <p class="math"><strong>I &approx; 4.55 A</strong></p>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">2</div>
+    <div class="calc-step-content">
+      <p class="explain">다음으로 <strong>저항</strong>을 구하자! 두 가지 방법이 있어:</p>
+      <p class="explain"><strong>방법 1: 옴의 법칙</strong> V = IR에서</p>
+      <div class="formula-box">
+        <div class="formula">R = V / I</div>
+        <div class="formula-desc">옴의 법칙: 저항 = 전압 / 전류</div>
+      </div>
+      <p class="math">R = 220 / 4.55 = 48.4 &Omega;</p>
+    </div>
+  </div>
+
+  <div class="calc-step">
+    <div class="calc-step-num">3</div>
+    <div class="calc-step-content">
+      <p class="explain"><strong>방법 2: 전력 공식</strong> P = V<sup>2</sup>/R에서 직접 구하기</p>
+      <div class="formula-box">
+        <div class="formula">R = V<sup>2</sup> / P</div>
+        <div class="formula-desc">전력 공식을 저항에 대해 정리</div>
+      </div>
+      <p class="math">R = 220<sup>2</sup> / 1000 = 48400 / 1000</p>
+      <p class="math"><strong>R = 48.4 &Omega;</strong></p>
+      <p class="explain">두 방법 다 같은 답이 나와! 어느 방법을 쓰든 상관없어.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="tip-box" style="margin-top:24px;">
+  <p style="margin-top:8px;"><strong>전력 공식 3가지</strong> (다 외워둬!):<br>
+  P = VI (기본)<br>
+  P = I<sup>2</sup>R (전류와 저항으로)<br>
+  P = V<sup>2</sup>/R (전압과 저항으로)<br>
+  상황에 따라 편한 걸 골라 쓰면 돼!</p>
+</div>
+
+<div class="final-answer">
+  <p>전류: I &approx; 4.55 A</p>
+  <p>저항: R = 48.4 &Omega;</p>
+</div>
+</div><!-- /prob10 -->
+
+
+<!-- ── Footer ── -->
+<div style="text-align:center; padding:60px 0 20px; border-top:1px solid var(--border); margin-top:60px;">
+  <p style="color:var(--text-muted); font-size:13px;">일반물리 기말고사 풀이 | 프라임칼리지 벼락치기 연구소</p>
+  <p style="color:var(--text-muted); font-size:12px; margin-top:4px;">9강~15강 범위 | g = 10 m/s&sup2;</p>
+</div>
+
+</div><!-- /exam-main -->
+
+<!-- ═══════════ JAVASCRIPT ═══════════ -->
+<script>
+// ── Sidebar active state ──
+const tocLinks = document.querySelectorAll('.toc-list a');
+const sections = document.querySelectorAll('.problem-section');
+
+function updateActive() {
+  let current = '';
+  sections.forEach(s => {
+    const top = s.getBoundingClientRect().top;
+    if (top < 120) current = s.id;
+  });
+  tocLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+}
+window.addEventListener('scroll', updateActive);
+updateActive();
+
+// ── Mobile sidebar close on link click ──
+tocLinks.forEach(a => {
+  a.addEventListener('click', () => {
+    document.querySelector('.exam-sidebar').classList.remove('open');
+  });
+});
+
+// ── Theme toggle ──
+function getTheme() {
+  return localStorage.getItem('theme') || 'dark';
+}
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  localStorage.setItem('theme', t);
+}
+applyTheme(getTheme());
+</script>
+
+</body>
+</html>
