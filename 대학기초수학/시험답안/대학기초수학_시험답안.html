@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>대학기초수학 기말고사 풀이</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans KR', sans-serif; background: #f5f5f0; color: #333; line-height: 1.8; padding: 20px; }
+  .container { max-width: 800px; margin: 0 auto; }
+  h1 { text-align: center; margin: 30px 0; font-size: 1.8em; color: #2c3e50; border-bottom: 3px solid #2c3e50; padding-bottom: 10px; }
+  .problem { background: #fff; border-radius: 12px; padding: 25px 30px; margin: 25px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .problem-header { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+  .problem-num { background: #2c3e50; color: #fff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.95em; flex-shrink: 0; }
+  .problem-title { font-weight: bold; font-size: 1.05em; }
+  .answer-box { background: #e8f4fd; border-left: 4px solid #3498db; padding: 12px 18px; margin: 15px 0; border-radius: 0 8px 8px 0; font-weight: bold; font-size: 1.1em; }
+  .caution { background: #fff3cd; border-left: 4px solid #ffc107; padding: 10px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; font-size: 0.9em; color: #856404; }
+  .step { margin: 12px 0; padding-left: 10px; }
+  .step-label { font-weight: bold; color: #2c3e50; margin-bottom: 4px; }
+  .explain { color: #666; font-size: 0.92em; margin: 4px 0 8px 0; }
+  .ref { background: #f0f0f0; padding: 8px 14px; border-radius: 6px; font-size: 0.88em; color: #555; margin-top: 12px; }
+  .math-line { margin: 8px 0; padding: 4px 0; }
+  hr { border: none; border-top: 1px dashed #ddd; margin: 8px 0; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>대학기초수학 2026학년도 1학기 기말고사 풀이</h1>
+
+<!-- 1번 -->
+<div class="problem">
+  <div class="problem-header">
+    <div class="problem-num">1</div>
+    <div class="problem-title">좌표공간의 두 점 \(A(-1,1,-2)\), \(B(2,4,1)\)에 대하여 선분 \(\overline{AB}\)가 \(xy\)평면과 만나는 점을 \(P\)라 할 때, 선분 \(\overline{BP}\)의 길이는?</div>
+  </div>
+  <div class="answer-box">답: ③ \(\sqrt{3}\)</div>
+  <div class="caution">⚠️ 오답 주의: \(2\sqrt{3}\)은 \(BP\)가 아닌 \(AP\)를 구하거나 내분비를 반대로 적용한 경우.</div>
+
+  <div class="step">
+    <div class="step-label">STEP 1. 선분 AB를 매개변수로 표현</div>
+    <div class="explain">점 A에서 점 B로 향하는 직선 위의 점을 매개변수 \(t\)로 나타낸다.</div>
+    <div class="math-line">\[P = A + t(B - A) = (-1+3t,\; 1+3t,\; -2+3t)\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 2. xy평면과 만나는 조건 (z = 0)</div>
+    <div class="explain">\(xy\)평면은 \(z = 0\)인 평면이므로, \(z\)좌표를 0으로 놓고 \(t\)를 구한다.</div>
+    <div class="math-line">\[-2 + 3t = 0 \implies t = \frac{2}{3}\]</div>
+    <div class="explain">즉, 점 \(P\)는 선분 \(AB\)를 \(A\)에서 \(B\) 방향으로 \(2:1\)로 내분하는 점이다.</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 3. P의 좌표 계산</div>
+    <div class="math-line">\[x = -1 + 3 \cdot \tfrac{2}{3} = 1,\quad y = 1 + 3 \cdot \tfrac{2}{3} = 3,\quad z = 0\]</div>
+    <div class="math-line">\[\therefore P(1, 3, 0)\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 4. BP의 길이</div>
+    <div class="explain">두 점 사이의 거리 공식 \(d = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}\)을 적용한다.</div>
+    <div class="math-line">\[\overline{BP} = \sqrt{(2-1)^2 + (4-3)^2 + (1-0)^2} = \sqrt{1+1+1} = \boxed{\sqrt{3}}\]</div>
+  </div>
+
+  <div class="ref">📖 근거: 13강 「공간좌표」 — 2.1 두 점 사이의 거리, 2.2 내분점과 외분점</div>
+</div>
+
+<!-- 2번 -->
+<div class="problem">
+  <div class="problem-header">
+    <div class="problem-num">2</div>
+    <div class="problem-title">\(\dfrac{3}{4}\pi < \theta < \pi\) 인 \(\theta\)에 대하여 \(\sin\theta\cos\theta = -\dfrac{12}{25}\) 일 때, \(\sin\theta + \cos\theta\)의 값은?</div>
+  </div>
+  <div class="answer-box">답: ④ \(-\dfrac{1}{5}\)</div>
+  <div class="caution">⚠️ 오답 주의: \(\frac{1}{5}\)는 부호 결정에서 \(\theta\)의 범위를 무시한 경우. \(\frac{3}{4}\pi < \theta < \pi\)에서 \(\sin\theta+\cos\theta < 0\).</div>
+
+  <div class="step">
+    <div class="step-label">STEP 1. \(s = \sin\theta + \cos\theta\)로 치환</div>
+    <div class="explain">양변을 제곱하면 \(\sin\theta\cos\theta\)와의 관계가 나온다.</div>
+    <div class="math-line">\[s^2 = \sin^2\theta + 2\sin\theta\cos\theta + \cos^2\theta\]</div>
+    <div class="explain">\(\sin^2\theta + \cos^2\theta = 1\) (항등식)이므로:</div>
+    <div class="math-line">\[s^2 = 1 + 2\sin\theta\cos\theta\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 2. 조건 대입</div>
+    <div class="math-line">\[s^2 = 1 + 2\left(-\frac{12}{25}\right) = 1 - \frac{24}{25} = \frac{1}{25}\]</div>
+    <div class="math-line">\[\therefore s = \pm\frac{1}{5}\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 3. 부호 결정</div>
+    <div class="explain">\(\theta\)의 범위에서 \(\sin\theta + \cos\theta\)의 부호를 판단한다.</div>
+    <div class="math-line">\[\theta = \tfrac{3}{4}\pi \;\Rightarrow\; \sin\theta + \cos\theta = \tfrac{\sqrt{2}}{2} - \tfrac{\sqrt{2}}{2} = 0\]</div>
+    <div class="math-line">\[\theta = \pi \;\Rightarrow\; \sin\theta + \cos\theta = 0 + (-1) = -1\]</div>
+    <div class="explain">따라서 \(\frac{3}{4}\pi < \theta < \pi\) 구간에서 \(\sin\theta + \cos\theta < 0\)</div>
+    <div class="math-line">\[\therefore \sin\theta + \cos\theta = \boxed{-\frac{1}{5}}\]</div>
+  </div>
+
+  <div class="ref">📖 근거: 11~12강 「삼각함수 (1)(2)」 — 삼각함수 항등식, 각의 범위에 따른 부호</div>
+</div>
+
+<!-- 3번 -->
+<div class="problem">
+  <div class="problem-header">
+    <div class="problem-num">3</div>
+    <div class="problem-title">점 \(A(0,0,2)\)를 지나는 직선이 구 \(C(\sqrt{2},5,5)\), 반지름 1과 한 점 \(P\)에서 만날 때, 세 점을 지나는 원의 \(xy\)평면 정사영 넓이의 최댓값이 \(\dfrac{b\sqrt{3}}{a}\pi\)일 때 \(a+b\)?</div>
+  </div>
+  <div class="answer-box">답: ② 11</div>
+  <div class="caution">⚠️ 오답 주의: 9는 정사영 축소 비율 \(|\cos\alpha|\)를 빠뜨린 경우.</div>
+
+  <div class="step">
+    <div class="step-label">STEP 1. AC 거리</div>
+    <div class="math-line">\[AC = \sqrt{(\sqrt{2})^2 + 5^2 + 3^2} = \sqrt{2+25+9} = \sqrt{36} = 6\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 2. 접선 조건에서 ∠APC = 90°</div>
+    <div class="explain">직선이 구와 한 점 \(P\)에서 접하므로 \(CP \perp AP\). 따라서 \(\angle APC = 90°\)이고, \(AC\)가 원의 지름이 된다.</div>
+    <div class="math-line">\[\text{원의 반지름} = \frac{AC}{2} = 3,\quad \text{원의 넓이} = 9\pi\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 3. 정사영 넓이 최댓값</div>
+    <div class="explain">정사영 넓이 = 원래 넓이 × \(|\cos\alpha|\). 최댓값을 위해 \(|\cos\alpha|\)의 최댓값을 구한다.</div>
+    <div class="math-line">\[\vec{d} = \overrightarrow{AC} = (\sqrt{2},\,5,\,3),\quad |\vec{d}| = 6\]</div>
+    <div class="explain">\(\hat{z} = (0,0,1)\)의 \(\vec{d}\) 방향 성분을 빼면 \(\vec{d}\)에 수직인 성분이 남는다.</div>
+    <div class="math-line">\[\hat{z} \cdot \hat{d} = \frac{3}{6} = \frac{1}{2}\]</div>
+    <div class="math-line">\[|\cos\alpha|_{\max} = \sqrt{1 - \left(\frac{1}{2}\right)^2} = \sqrt{\frac{3}{4}} = \frac{\sqrt{3}}{2}\]</div>
+    <div class="math-line">\[\text{최대 정사영 넓이} = 9\pi \times \frac{\sqrt{3}}{2} = \frac{9\sqrt{3}}{2}\pi\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 4. a+b 구하기</div>
+    <div class="math-line">\[\frac{b\sqrt{3}}{a}\pi = \frac{9\sqrt{3}}{2}\pi \implies b = 9,\; a = 2 \quad\text{(서로소)}\]</div>
+    <div class="math-line">\[\therefore a + b = \boxed{11}\]</div>
+  </div>
+
+  <div class="ref">📖 근거: 13강 「공간좌표」 — 1.2 정사영의 개념, 2.1 두 점 사이의 거리</div>
+</div>
+
+<!-- 4번 -->
+<div class="problem">
+  <div class="problem-header">
+    <div class="problem-num">4</div>
+    <div class="problem-title">두 벡터 \(\vec{a} = (x+1, 2)\), \(\vec{b} = (1, -x)\)가 서로 수직일 때 \(x\)의 값은?</div>
+  </div>
+  <div class="answer-box">답: ① 1</div>
+  <div class="caution">⚠️ 오답 주의: 2는 성분 순서를 혼동하여 \((x+1)(-x) + 2 \cdot 1 = 0\)으로 잘못 계산한 경우.</div>
+
+  <div class="step">
+    <div class="step-label">수직 조건: 내적 = 0</div>
+    <div class="explain">두 벡터가 수직이면 같은 위치의 성분끼리 곱한 합이 0이다.</div>
+    <div class="math-line">\[\vec{a} \cdot \vec{b} = (x+1)(1) + (2)(-x) = 0\]</div>
+    <div class="math-line">\[x + 1 - 2x = 0\]</div>
+    <div class="math-line">\[1 - x = 0 \implies \boxed{x = 1}\]</div>
+  </div>
+
+  <div class="ref">📖 근거: 14강 「벡터」 — 벡터의 내적과 수직 조건</div>
+</div>
+
+<!-- 5번 -->
+<div class="problem">
+  <div class="problem-header">
+    <div class="problem-num">5</div>
+    <div class="problem-title">두 직선 \(3x+2y-5=0\), \(3x+y-1=0\)의 교점을 지나고 \(2x-y-4=0\)에 평행한 직선의 \(y\)절편은?</div>
+  </div>
+  <div class="answer-box">답: ① 6</div>
+  <div class="caution">⚠️ 오답 주의: 2는 기울기를 \(-2\)로 잘못 구한 경우. \(2x-y-4=0 \Rightarrow y=2x-4\)이므로 기울기는 \(2\).</div>
+
+  <div class="step">
+    <div class="step-label">STEP 1. 교점 구하기</div>
+    <div class="explain">두 직선을 연립하여 교점 좌표를 구한다.</div>
+    <div class="math-line">\[3x + 2y = 5 \;\cdots (1)\]</div>
+    <div class="math-line">\[3x + y = 1 \;\cdots (2)\]</div>
+    <div class="math-line">\[(1)-(2):\; y = 4\]</div>
+    <div class="math-line">\[(2)에 대입:\; 3x + 4 = 1 \implies x = -1\]</div>
+    <div class="math-line">\[\text{교점} = (-1,\, 4)\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 2. 평행 직선의 방정식</div>
+    <div class="explain">\(2x - y - 4 = 0\)의 기울기는 2. 점 \((-1, 4)\)를 지나고 기울기 2인 직선:</div>
+    <div class="math-line">\[y - 4 = 2(x + 1) \implies y = 2x + 6\]</div>
+    <div class="math-line">\[\therefore y\text{절편} = \boxed{6}\]</div>
+  </div>
+
+  <div class="ref">📖 근거: 7강 「평면좌표」 — 직선의 방정식, 평행 조건</div>
+</div>
+
+<!-- 6번 -->
+<div class="problem">
+  <div class="problem-header">
+    <div class="problem-num">6</div>
+    <div class="problem-title">방정식 \(2\sin x + 1 = 0\) 의 해가 <b>아닌</b> 것은?</div>
+  </div>
+  <div class="answer-box">답: ④ \(\dfrac{5}{6}\pi\)</div>
+  <div class="caution">⚠️ 오답 주의: \(-\frac{1}{6}\pi\)를 해가 아닌 것으로 착각하기 쉬우나, \(\sin(-\frac{\pi}{6}) = -\frac{1}{2}\)이므로 정상적인 해.</div>
+
+  <div class="step">
+    <div class="step-label">STEP 1. 방정식 정리</div>
+    <div class="math-line">\[2\sin x + 1 = 0 \implies \sin x = -\frac{1}{2}\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 2. 각 선지 확인</div>
+    <div class="explain">각 값의 \(\sin\) 값이 \(-\frac{1}{2}\)인지 확인한다.</div>
+    <div class="math-line">\[\sin\!\left(-\frac{\pi}{6}\right) = -\frac{1}{2} \;\checkmark\]</div>
+    <div class="math-line">\[\sin\!\left(-\frac{17\pi}{6}\right) = \sin\!\left(-\frac{17\pi}{6} + 2\pi\right) = \sin\!\left(-\frac{5\pi}{6}\right) = -\frac{1}{2} \;\checkmark\]</div>
+    <div class="math-line">\[\sin\!\left(\frac{23\pi}{6}\right) = \sin\!\left(\frac{23\pi}{6} - 2\pi\right) = \sin\!\left(\frac{11\pi}{6}\right) = -\frac{1}{2} \;\checkmark\]</div>
+    <div class="math-line">\[\sin\!\left(\frac{5\pi}{6}\right) = \sin\!\left(\pi - \frac{\pi}{6}\right) = +\frac{1}{2} \neq -\frac{1}{2} \;\;\boldsymbol{\times}\]</div>
+    <div class="math-line">\[\therefore \boxed{\frac{5}{6}\pi}\text{ 는 해가 아니다}\]</div>
+  </div>
+
+  <div class="ref">📖 근거: 11~12강 「삼각함수」 — 삼각방정식의 일반해</div>
+</div>
+
+<!-- 7번 -->
+<div class="problem">
+  <div class="problem-header">
+    <div class="problem-num">7</div>
+    <div class="problem-title">길이가 1인 선분 \(AB\)와 점 \(C\)에 대해 \(\vec{AB}\cdot\vec{BC}=0\), \(|\vec{AB}+\vec{AC}|=4\) 일 때, \(|\vec{BC}|\)는?</div>
+  </div>
+  <div class="answer-box">답: ④ \(2\sqrt{3}\)</div>
+  <div class="caution">⚠️ 오답 주의: \(\sqrt{10}\)은 내적 조건을 적용하지 않은 경우.</div>
+
+  <div class="step">
+    <div class="step-label">STEP 1. 벡터 관계 정리</div>
+    <div class="explain">\(\vec{AC} = \vec{AB} + \vec{BC}\)이므로:</div>
+    <div class="math-line">\[\vec{AB} + \vec{AC} = \vec{AB} + \vec{AB} + \vec{BC} = 2\vec{AB} + \vec{BC}\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 2. 크기를 제곱하여 전개</div>
+    <div class="math-line">\[|2\vec{AB} + \vec{BC}|^2 = 4|\vec{AB}|^2 + 4(\vec{AB}\cdot\vec{BC}) + |\vec{BC}|^2\]</div>
+    <div class="explain">\(|\vec{AB}| = 1\), \(\vec{AB}\cdot\vec{BC} = 0\) 을 대입하면:</div>
+    <div class="math-line">\[16 = 4(1) + 0 + |\vec{BC}|^2\]</div>
+    <div class="math-line">\[|\vec{BC}|^2 = 12 \implies |\vec{BC}| = \boxed{2\sqrt{3}}\]</div>
+  </div>
+
+  <div class="ref">📖 근거: 14강 「벡터」 — 벡터의 내적, 크기 계산</div>
+</div>
+
+<!-- 8번 -->
+<div class="problem">
+  <div class="problem-header">
+    <div class="problem-num">8</div>
+    <div class="problem-title">두 점 \((-3,0)\), \((1,0)\)을 지름의 양 끝점으로 하는 원과 직선 \(kx+y-2=0\)이 오직 한 점에서 만나는 양수 \(k\)는?</div>
+  </div>
+  <div class="answer-box">답: ① \(\dfrac{4}{3}\)</div>
+  <div class="caution">⚠️ 오답 주의: \(\frac{2}{3}\)는 원의 중심을 원점으로 잘못 설정한 경우.</div>
+
+  <div class="step">
+    <div class="step-label">STEP 1. 원의 중심과 반지름</div>
+    <div class="math-line">\[\text{중심} = \left(\frac{-3+1}{2},\, 0\right) = (-1,\, 0),\quad r = \frac{|-3-1|}{2} \div 1 = 2\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 2. 접선 조건: 점과 직선 사이 거리 = 반지름</div>
+    <div class="explain">원과 직선이 한 점에서 만나려면 중심에서 직선까지의 거리가 반지름과 같아야 한다.</div>
+    <div class="math-line">\[\frac{|k(-1) + 0 - 2|}{\sqrt{k^2 + 1}} = 2\]</div>
+    <div class="math-line">\[\frac{|k+2|}{\sqrt{k^2+1}} = 2\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 3. 양변 제곱 후 정리</div>
+    <div class="math-line">\[(k+2)^2 = 4(k^2+1)\]</div>
+    <div class="math-line">\[k^2 + 4k + 4 = 4k^2 + 4\]</div>
+    <div class="math-line">\[3k^2 - 4k = 0 \implies k(3k-4) = 0\]</div>
+    <div class="math-line">\[k = 0 \;\text{또는}\; k = \frac{4}{3}\]</div>
+    <div class="explain">양수 \(k\)이므로:</div>
+    <div class="math-line">\[\therefore \boxed{k = \frac{4}{3}}\]</div>
+  </div>
+
+  <div class="ref">📖 근거: 7강 「평면좌표」 — 원의 방정식, 점과 직선 사이의 거리</div>
+</div>
+
+<!-- 9번 -->
+<div class="problem">
+  <div class="problem-header">
+    <div class="problem-num">9</div>
+    <div class="problem-title">부등식 \((2x+1)(2x^2+ax+b) \le 0\)의 해가 \(x \le 3\)일 때, \(a^2+b^2\)은?</div>
+  </div>
+  <div class="answer-box">답: ① 34</div>
+  <div class="caution">⚠️ 오답 주의: 13은 인수분해를 잘못한 경우. \((2x+1)\)이 \(2x^2+ax+b\)의 인수여야 연속 구간 해가 된다.</div>
+
+  <div class="step">
+    <div class="step-label">STEP 1. 해의 구조 분석</div>
+    <div class="explain">해가 \(x \le 3\) (음의 무한대부터 3까지의 연속 구간)이 되려면, \(f(x) = (2x+1)(2x^2+ax+b)\)에서 \(x=3\)이 경계이고 \(x=-\frac{1}{2}\)도 해에 포함되어야 한다.</div>
+    <div class="explain">이를 위해 \(2x^2+ax+b\)가 \((2x+1)\)을 인수로 가져야 한다.</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 2. 인수분해</div>
+    <div class="math-line">\[2x^2 + ax + b = (2x+1)(x-3) = 2x^2 - 5x - 3\]</div>
+    <div class="explain">비교하면 \(a = -5\), \(b = -3\).</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 3. 검증</div>
+    <div class="math-line">\[f(x) = (2x+1)^2(x-3)\]</div>
+    <div class="explain">\((2x+1)^2 \ge 0\)이므로 \(f(x) \le 0 \iff x - 3 \le 0 \iff x \le 3\) ✓</div>
+    <div class="math-line">\[\therefore a^2 + b^2 = 25 + 9 = \boxed{34}\]</div>
+  </div>
+
+  <div class="ref">📖 근거: 10강 「부등식의 영역」 — 이차부등식, 인수분해</div>
+</div>
+
+<!-- 10번 -->
+<div class="problem">
+  <div class="problem-header">
+    <div class="problem-num">10</div>
+    <div class="problem-title">중심각의 크기가 \(\dfrac{\pi}{4}\)이고 호의 길이가 \(\pi\)인 부채꼴의 넓이는?</div>
+  </div>
+  <div class="answer-box">답: ② \(2\pi\)</div>
+  <div class="caution">⚠️ 오답 주의: \(4\pi\)는 넓이 공식에서 \(\frac{1}{2}\)를 빠뜨린 경우. \(S = \frac{1}{2}rl\).</div>
+
+  <div class="step">
+    <div class="step-label">STEP 1. 반지름 구하기</div>
+    <div class="explain">호의 길이 공식 \(l = r\theta\)를 이용한다.</div>
+    <div class="math-line">\[\pi = r \cdot \frac{\pi}{4} \implies r = 4\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 2. 부채꼴 넓이</div>
+    <div class="math-line">\[S = \frac{1}{2} \cdot r \cdot l = \frac{1}{2} \cdot 4 \cdot \pi = \boxed{2\pi}\]</div>
+  </div>
+
+  <div class="ref">📖 근거: 11강 「삼각함수 (1)」 — 호도법, 부채꼴의 넓이</div>
+</div>
+
+<!-- 11번 -->
+<div class="problem">
+  <div class="problem-header">
+    <div class="problem-num">11</div>
+    <div class="problem-title">세 점 \(A(4,2)\), \(B(2,11)\), \(C(-6,1)\)에 대해 점 \(A\)를 지나고 삼각형 \(ABC\)의 넓이를 이등분하는 직선의 방정식은?</div>
+  </div>
+  <div class="answer-box">답: ② \(2x + 3y - 14 = 0\)</div>
+  <div class="caution">⚠️ 오답 주의: 넓이를 이등분하려면 꼭짓점에서 대변의 <b>중점</b>을 지나야 한다 (중선).</div>
+
+  <div class="step">
+    <div class="step-label">STEP 1. 대변 BC의 중점 M</div>
+    <div class="explain">꼭짓점 A를 지나면서 넓이를 이등분하는 직선은 대변 BC의 중점을 지나는 중선이다.</div>
+    <div class="math-line">\[M = \left(\frac{2+(-6)}{2},\, \frac{11+1}{2}\right) = (-2,\, 6)\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 2. 직선 AM의 방정식</div>
+    <div class="math-line">\[\text{기울기} = \frac{6-2}{-2-4} = \frac{4}{-6} = -\frac{2}{3}\]</div>
+    <div class="math-line">\[y - 2 = -\frac{2}{3}(x - 4)\]</div>
+    <div class="math-line">\[3y - 6 = -2x + 8 \implies \boxed{2x + 3y - 14 = 0}\]</div>
+  </div>
+
+  <div class="ref">📖 근거: 7강 「평면좌표」 — 중점 공식, 직선의 방정식</div>
+</div>
+
+<!-- 12번 -->
+<div class="problem">
+  <div class="problem-header">
+    <div class="problem-num">12</div>
+    <div class="problem-title">\(A=\{1,2,3,4\}\), 정의역·공역 모두 \(A\)인 함수 \(f\)에서 \(f(1)\times f(2) \ge 9\), 치역의 원소 3개일 때, 함수 \(f\)의 개수는?</div>
+  </div>
+  <div class="answer-box">답: ① 32</div>
+  <div class="caution">⚠️ 오답 주의: 27은 치역 조건(정확히 3개 원소)을 빠뜨린 경우.</div>
+
+  <div class="step">
+    <div class="step-label">STEP 1. \(f(1) \times f(2) \ge 9\)인 쌍 나열</div>
+    <div class="explain">\(f(1), f(2) \in \{1,2,3,4\}\)에서 곱이 9 이상인 쌍:</div>
+    <div class="math-line">\[(3,3),\; (3,4),\; (4,3),\; (4,4)\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 2. 각 경우에 치역이 정확히 3개인 \((f(3), f(4))\) 수</div>
+    <div class="math-line">\[(3,3):\; \text{치역} = \{3\} \to f(3) \ne 3,\, f(4) \ne 3,\, f(3) \ne f(4) \Rightarrow 3\times 2 = 6\]</div>
+    <div class="math-line">\[(3,4):\; \text{치역} = \{3,4\} \to \text{정확히 1개 새 원소 필요} \Rightarrow 10\]</div>
+    <div class="math-line">\[(4,3):\; \text{대칭} \Rightarrow 10\]</div>
+    <div class="math-line">\[(4,4):\; \text{치역} = \{4\} \to f(3) \ne 4,\, f(4) \ne 4,\, f(3) \ne f(4) \Rightarrow 3\times 2 = 6\]</div>
+    <div class="math-line">\[\therefore 6 + 10 + 10 + 6 = \boxed{32}\]</div>
+  </div>
+
+  <div class="ref">📖 근거: 8강 「함수」 — 함수의 정의, 치역</div>
+</div>
+
+<!-- 13번 -->
+<div class="problem">
+  <div class="problem-header">
+    <div class="problem-num">13</div>
+    <div class="problem-title">\(a > 0\), \(0 \le x \le 2\)에서 \(f(x) = x^2 - 2ax + 2a^2\)의 최솟값이 10일 때, 최댓값은?</div>
+  </div>
+  <div class="answer-box">답: ③ 18</div>
+  <div class="caution">⚠️ 오답 주의: 20은 최댓값을 \(f(2)\)로 계산한 경우. 꼭짓점이 구간 밖(\(a > 2\))이면 최댓값은 \(f(0)\)에서 발생.</div>
+
+  <div class="step">
+    <div class="step-label">STEP 1. 완전제곱식으로 변환</div>
+    <div class="math-line">\[f(x) = (x - a)^2 + a^2\]</div>
+    <div class="explain">꼭짓점: \(x = a\), 최솟값: \(a^2\)</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 2. 꼭짓점 위치에 따른 분류</div>
+    <div class="explain">\(0 \le a \le 2\)이면 최솟값 = \(a^2 = 10\), \(a = \sqrt{10} \approx 3.16 > 2\). 모순! ✗</div>
+    <div class="explain">\(a > 2\)이면 구간 \([0,2]\)에서 \(f\)는 감소. 최솟값은 \(x = 2\)에서 발생.</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 3. a 구하기</div>
+    <div class="math-line">\[f(2) = 4 - 4a + 2a^2 = 10\]</div>
+    <div class="math-line">\[2a^2 - 4a - 6 = 0 \implies a^2 - 2a - 3 = 0\]</div>
+    <div class="math-line">\[(a-3)(a+1) = 0 \implies a = 3 \;\;(a > 0)\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 4. 최댓값</div>
+    <div class="explain">\(a = 3 > 2\)이고 \(f\)는 감소하므로 최댓값은 \(x = 0\)에서:</div>
+    <div class="math-line">\[f(0) = 2a^2 = 2(9) = \boxed{18}\]</div>
+  </div>
+
+  <div class="ref">📖 근거: 9강 「일차함수와 이차함수」 — 이차함수의 최대·최소 (제한된 구간)</div>
+</div>
+
+<!-- 14번 -->
+<div class="problem">
+  <div class="problem-header">
+    <div class="problem-num">14</div>
+    <div class="problem-title">연립방정식 \(\begin{cases} x - y + 1 = 0 \\ x^2 - 2y^2 - 2 = 0 \end{cases}\) 의 해 \(x = \alpha,\; y = \beta\)일 때, \(\alpha + \beta\)는?</div>
+  </div>
+  <div class="answer-box">답: ④ -3</div>
+  <div class="caution">⚠️ 오답 주의: -2는 \(\alpha\)만 답한 경우. \(\alpha + \beta\)를 구해야 함.</div>
+
+  <div class="step">
+    <div class="step-label">STEP 1. 1차식에서 x를 y로 표현</div>
+    <div class="math-line">\[x = y - 1\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 2. 2차식에 대입</div>
+    <div class="math-line">\[(y-1)^2 - 2y^2 - 2 = 0\]</div>
+    <div class="math-line">\[y^2 - 2y + 1 - 2y^2 - 2 = 0\]</div>
+    <div class="math-line">\[-y^2 - 2y - 1 = 0 \implies y^2 + 2y + 1 = 0\]</div>
+    <div class="math-line">\[(y+1)^2 = 0 \implies \beta = -1\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 3. x 구하기</div>
+    <div class="math-line">\[\alpha = \beta - 1 = -1 - 1 = -2\]</div>
+    <div class="math-line">\[\therefore \alpha + \beta = -2 + (-1) = \boxed{-3}\]</div>
+  </div>
+
+  <div class="ref">📖 근거: 9강 「일차함수와 이차함수」 — 연립방정식</div>
+</div>
+
+<!-- 15번 -->
+<div class="problem">
+  <div class="problem-header">
+    <div class="problem-num">15</div>
+    <div class="problem-title">이차함수 \(y = x^2 + 4x + a\)의 그래프가 \(x\)축에 접할 때, \(a\)의 값은?</div>
+  </div>
+  <div class="answer-box">답: ② 4</div>
+  <div class="caution">⚠️ 오답 주의: 3은 판별식 \(D = b^2 - 4ac\)에서 계수를 잘못 대입한 경우.</div>
+
+  <div class="step">
+    <div class="step-label">\(x\)축에 접한다 = 판별식 \(D = 0\)</div>
+    <div class="math-line">\[D = 4^2 - 4(1)(a) = 16 - 4a = 0\]</div>
+    <div class="math-line">\[4a = 16 \implies \boxed{a = 4}\]</div>
+    <div class="explain">검증: \(y = x^2+4x+4 = (x+2)^2\) → \(x = -2\)에서 \(x\)축에 접함 ✓</div>
+  </div>
+
+  <div class="ref">📖 근거: 9강 「일차함수와 이차함수」 — 이차방정식의 판별식</div>
+</div>
+
+<!-- 16번 -->
+<div class="problem">
+  <div class="problem-header">
+    <div class="problem-num">16</div>
+    <div class="problem-title">\(\{|x|\le 2,\;|y|\le 2\}\)의 모든 점 \((a,b)\)에 대해 \((x-a)^2+(y-b)^2 \le 1\)을 만족하는 영역은?</div>
+  </div>
+  <div class="answer-box">답: ③ (둥근 모서리의 \(-3 \sim 3\) 사각형)</div>
+  <div class="caution">⚠️ 오답 주의: ①은 직각 모서리. 원의 합집합이므로 꼭짓점은 반드시 둥글다.</div>
+
+  <div class="step">
+    <div class="step-label">STEP 1. 영역 해석</div>
+    <div class="explain">정사각형 \([-2,2] \times [-2,2]\)의 모든 점을 중심으로 반지름 1인 원을 그린 합집합이다.</div>
+    <div class="explain">이는 정사각형을 모든 방향으로 1만큼 확장한 <b>민코프스키 합</b>에 해당한다.</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 2. 결과 형태</div>
+    <div class="explain">변 부분은 직선으로 1만큼 바깥으로 (\(-3 \sim 3\)), 꼭짓점 \((\pm 2, \pm 2)\) 부근은 반지름 1인 사분원으로 둥글게 처리된다.</div>
+    <div class="math-line">\[\text{→ 둥근 모서리의 } [-3,3]\times[-3,3] \text{ 형태}\]</div>
+  </div>
+
+  <div class="ref">📖 근거: 10강 「부등식의 영역」 — 연립부등식과 영역</div>
+</div>
+
+<!-- 17번 -->
+<div class="problem">
+  <div class="problem-header">
+    <div class="problem-num">17</div>
+    <div class="problem-title">삼차방정식 \(x^3 + x - 2 = 0\)의 두 허근 \(\alpha, \beta\)에 대해 \(\dfrac{\beta}{\alpha} + \dfrac{\alpha}{\beta}\)는?</div>
+  </div>
+  <div class="answer-box">답: ② \(-\dfrac{3}{2}\)</div>
+  <div class="caution">⚠️ 오답 주의: \(\frac{1}{2}\)는 분모 \(\alpha\beta = 2\)에 대입할 때 부호 실수.</div>
+
+  <div class="step">
+    <div class="step-label">STEP 1. 인수분해</div>
+    <div class="math-line">\[x^3 + x - 2 = (x - 1)(x^2 + x + 2) = 0\]</div>
+    <div class="explain">실근 \(x = 1\), 허근 \(\alpha, \beta\)는 \(x^2 + x + 2 = 0\)의 근.</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 2. 근과 계수의 관계</div>
+    <div class="math-line">\[\alpha + \beta = -1,\quad \alpha\beta = 2\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 3. 식 변환</div>
+    <div class="explain">\(\frac{\beta}{\alpha} + \frac{\alpha}{\beta}\)를 통분하면 \(\frac{\alpha^2 + \beta^2}{\alpha\beta}\)이다.</div>
+    <div class="math-line">\[\frac{\alpha^2+\beta^2}{\alpha\beta} = \frac{(\alpha+\beta)^2 - 2\alpha\beta}{\alpha\beta} = \frac{(-1)^2 - 2(2)}{2} = \frac{1-4}{2} = \boxed{-\frac{3}{2}}\]</div>
+  </div>
+
+  <div class="ref">📖 근거: 9강 「일차함수와 이차함수」 — 근과 계수의 관계</div>
+</div>
+
+<!-- 18번 -->
+<div class="problem">
+  <div class="problem-header">
+    <div class="problem-num">18</div>
+    <div class="problem-title">\(\angle C = 90°\)인 직각삼각형 \(ABC\)의 넓이가 16일 때, \(\overline{AB}^2\)의 최솟값은?</div>
+  </div>
+  <div class="answer-box">답: ② 64</div>
+  <div class="caution">⚠️ 오답 주의: 100은 \(a, b\)를 특정 값(6, 8 등)으로 대입한 경우. AM-GM 부등식으로 최솟값을 구해야 한다.</div>
+
+  <div class="step">
+    <div class="step-label">STEP 1. 조건 설정</div>
+    <div class="explain">\(AC = a\), \(BC = b\)로 놓으면:</div>
+    <div class="math-line">\[\text{넓이} = \frac{1}{2}ab = 16 \implies ab = 32\]</div>
+    <div class="math-line">\[\overline{AB}^2 = a^2 + b^2 \quad\text{(피타고라스 정리)}\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 2. 산술-기하 평균 부등식 (AM-GM)</div>
+    <div class="explain">\(a^2 + b^2 \ge 2ab\) (등호: \(a = b\))</div>
+    <div class="math-line">\[a^2 + b^2 \ge 2 \times 32 = 64\]</div>
+    <div class="math-line">\[\therefore \overline{AB}^2_{\min} = \boxed{64}\]</div>
+    <div class="explain">등호 조건: \(a = b\), 즉 이등변 직각삼각형일 때.</div>
+  </div>
+
+  <div class="ref">📖 근거: 9강 — 부등식, 산술-기하 평균 부등식</div>
+</div>
+
+<!-- 19번 -->
+<div class="problem">
+  <div class="problem-header">
+    <div class="problem-num">19</div>
+    <div class="problem-title">이차방정식 \(x^2 + 2x + k = 0\)의 두 근 \(\alpha, \beta\)에 대해 \(\alpha^2 + \beta^2 = 8\)일 때, \(k\)는?</div>
+  </div>
+  <div class="answer-box">답: ② -2</div>
+  <div class="caution">⚠️ 오답 주의: -1은 \(\alpha^2+\beta^2 = (\alpha+\beta)^2 - 2\alpha\beta\) 에서 <b>2</b>\(\alpha\beta\)가 아닌 \(\alpha\beta\)를 뺀 경우.</div>
+
+  <div class="step">
+    <div class="step-label">STEP 1. 근과 계수의 관계</div>
+    <div class="math-line">\[\alpha + \beta = -2,\quad \alpha\beta = k\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">STEP 2. \(\alpha^2 + \beta^2\)를 근과 계수로 표현</div>
+    <div class="explain">\(\alpha^2 + \beta^2 = (\alpha+\beta)^2 - 2\alpha\beta\) 항등식을 이용한다.</div>
+    <div class="math-line">\[\alpha^2+\beta^2 = (-2)^2 - 2k = 4 - 2k = 8\]</div>
+    <div class="math-line">\[-2k = 4 \implies \boxed{k = -2}\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">검증</div>
+    <div class="explain">판별식 \(D = 4 - 4(-2) = 12 > 0\) → 서로 다른 두 실근 ✓</div>
+  </div>
+
+  <div class="ref">📖 근거: 9강 「일차함수와 이차함수」 — 근과 계수의 관계</div>
+</div>
+
+<!-- 20번 -->
+<div class="problem">
+  <div class="problem-header">
+    <div class="problem-num">20</div>
+    <div class="problem-title">두 벡터 \(\vec{a} = (m-2, 3)\), \(\vec{b} = (2m+1, 9)\)가 평행할 때, \(m\)은?</div>
+  </div>
+  <div class="answer-box">답: ① 7</div>
+  <div class="caution">⚠️ 오답 주의: 5는 전개 시 \(-6m - 3\)의 부호를 잘못 처리한 경우.</div>
+
+  <div class="step">
+    <div class="step-label">평행 조건: 외적 = 0</div>
+    <div class="explain">두 벡터 \((a_1, a_2)\), \((b_1, b_2)\)가 평행이면 \(a_1 b_2 - a_2 b_1 = 0\)</div>
+    <div class="math-line">\[(m-2)(9) - (3)(2m+1) = 0\]</div>
+    <div class="math-line">\[9m - 18 - 6m - 3 = 0\]</div>
+    <div class="math-line">\[3m - 21 = 0 \implies \boxed{m = 7}\]</div>
+  </div>
+
+  <div class="step">
+    <div class="step-label">검증</div>
+    <div class="explain">\(\vec{a} = (5, 3)\), \(\vec{b} = (15, 9) = 3 \cdot (5, 3) = 3\vec{a}\) → 평행 ✓</div>
+  </div>
+
+  <div class="ref">📖 근거: 14강 「벡터」 — 벡터의 평행 조건</div>
+</div>
+
+</div>
+</body>
+</html>
