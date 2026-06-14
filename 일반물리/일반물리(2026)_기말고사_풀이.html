@@ -213,6 +213,42 @@
   border-radius: 6px; font-size: 12px; font-weight: 700;
 }
 
+/* ── Lecture Reference ── */
+.lecture-ref {
+  background: var(--bg-inset); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 24px; margin-top: 24px;
+  position: relative;
+}
+.lecture-ref::before {
+  content: '강의록 참고'; position: absolute; top: -10px; left: 16px;
+  background: var(--concept); color: white; padding: 2px 14px;
+  border-radius: 6px; font-size: 12px; font-weight: 700;
+}
+.lecture-ref h4 {
+  color: var(--concept-text); font-size: 15px; font-weight: 700;
+  margin: 8px 0 12px; display: flex; align-items: center; gap: 8px;
+}
+.lecture-ref .ref-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+@media (max-width: 900px) {
+  .lecture-ref .ref-grid { grid-template-columns: 1fr; }
+}
+.lecture-ref .ref-item { text-align: center; }
+.lecture-ref .ref-item img {
+  width: 100%; border-radius: var(--radius-md); border: 1px solid var(--border);
+  cursor: pointer; transition: border-color 0.2s;
+}
+.lecture-ref .ref-item img:hover { border-color: var(--concept); }
+.lecture-ref .ref-item .ref-caption {
+  font-size: 12px; color: var(--text-secondary); margin-top: 6px; line-height: 1.5;
+}
+.lecture-ref .ref-item .ref-tag {
+  display: inline-block; padding: 2px 8px; border-radius: 4px;
+  background: var(--concept-bg); color: var(--concept-text);
+  font-size: 11px; font-weight: 600; margin-bottom: 4px;
+}
+
 /* ── Mobile ── */
 .mobile-header-exam {
   display: none; position: fixed; top: 0; left: 0; right: 0; height: 56px;
@@ -423,6 +459,29 @@
   <p>변위: x(0.2) &approx; &minus;8.1 cm (반대 방향)</p>
   <p>속력: |v(0.2)| &approx; 0.88 m/s</p>
 </div>
+<div class="lecture-ref">
+  <h4>강의록에서 이 개념이 나오는 곳</h4>
+  <div class="ref-grid">
+    <div class="ref-item">
+      <span class="ref-tag">9강 p7 — 개념</span>
+      <img src="기말풀이_images/p1_concept1.png" alt="변위 방정식 x = x₀cos(2πt/T)">
+      <div class="ref-caption">변위 방정식 x = x₀cos(ωt) 유도 과정. ω = 2π/T 관계식이 여기서 나와!</div>
+    </div>
+    <div class="ref-item">
+      <span class="ref-tag">9강 p9 — 개념</span>
+      <img src="기말풀이_images/p1_concept2.png" alt="속도 방정식 v = -ωx₀sin(ωt)">
+      <div class="ref-caption">속도 v = -ωx₀sin(ωt). 변위를 미분하면 속도가 나오는 원리!</div>
+    </div>
+  </div>
+  <h4 style="margin-top:20px;">강의록의 동일 예제</h4>
+  <div class="ref-grid" style="grid-template-columns:1fr;">
+    <div class="ref-item">
+      <span class="ref-tag">9강 p21 — 예제 (시험문제와 동일!)</span>
+      <img src="기말풀이_images/p1_example.png" alt="SHM 예제 - 10cm 당긴 후 0.2초">
+      <div class="ref-caption">기말 1번과 <strong>완전히 동일한 문제!</strong> 평형 위치에서 10cm 당긴 후 놓음, 주기 0.5초, 원점 속력 1.5 m/s, 0.2초 후 변위와 속력 구하기</div>
+    </div>
+  </div>
+</div>
 </div><!-- /prob1 -->
 
 
@@ -523,6 +582,16 @@
   <p>진동수: 1/2로 감소 (f' = f/2)</p>
   <p>주기: 2배로 증가 (T' = 2T)</p>
 </div>
+<div class="lecture-ref">
+  <h4>강의록에서 이 개념이 나오는 곳</h4>
+  <div class="ref-grid" style="grid-template-columns:1fr;">
+    <div class="ref-item">
+      <span class="ref-tag">10강 p13 — 개념</span>
+      <img src="기말풀이_images/p2_concept.png" alt="파동의 속력 v = λf">
+      <div class="ref-caption">파동의 속력 v = λ/T = λf 공식. 속력이 일정하면 파장과 진동수는 반비례!</div>
+    </div>
+  </div>
+</div>
 </div><!-- /prob2 -->
 
 
@@ -622,6 +691,21 @@
 <div class="final-answer">
   <p>f &approx; 208.5 Hz</p>
   <p>원래 200 Hz보다 높은 음으로 들린다 (약 4.3% 증가)</p>
+</div>
+<div class="lecture-ref">
+  <h4>강의록에서 이 개념이 나오는 곳</h4>
+  <div class="ref-grid">
+    <div class="ref-item">
+      <span class="ref-tag">10강 p48 — 개념</span>
+      <img src="기말풀이_images/p3_concept.png" alt="도플러 효과 접근 공식">
+      <div class="ref-caption">음원이 접근하는 경우의 도플러 공식 유도. f' = f × 1/(1 - v<sub>s</sub>/v)</div>
+    </div>
+    <div class="ref-item">
+      <span class="ref-tag">10강 p53 — 개념 종합</span>
+      <img src="기말풀이_images/p3_concept2.png" alt="도플러 효과 종합 공식">
+      <div class="ref-caption">파원/관측자 이동 시 도플러 효과 종합 공식 정리</div>
+    </div>
+  </div>
 </div>
 </div><!-- /prob3 -->
 
@@ -732,6 +816,21 @@
   <p>크기: F = 769.5 N</p>
   <p>방향: 왼쪽 (q<sub>2</sub> 방향)</p>
 </div>
+<div class="lecture-ref">
+  <h4>강의록에서 이 개념이 나오는 곳</h4>
+  <div class="ref-grid">
+    <div class="ref-item">
+      <span class="ref-tag">11강 p5 — 개념</span>
+      <img src="기말풀이_images/p4_concept.png" alt="쿨롱의 법칙 F = kq₁q₂/r²">
+      <div class="ref-caption">쿨롱의 법칙 F = kq₁q₂/r² 공식과 정전기력의 정의</div>
+    </div>
+    <div class="ref-item">
+      <span class="ref-tag">11강 p13 — 예제 (시험문제와 동일!)</span>
+      <img src="기말풀이_images/p4_example.png" alt="정전기력 중첩 예제">
+      <div class="ref-caption">기말 4번과 <strong>완전히 동일한 문제!</strong> q₂=-44μC, q₁=+15μC, q₃=+13μC → F=770N 왼쪽</div>
+    </div>
+  </div>
+</div>
 </div><!-- /prob4 -->
 
 
@@ -841,6 +940,21 @@
   <p>방향: +x 방향 (전하에서 멀어지는 방향)</p>
   <p>전기장이 10%가 되는 거리: r' &approx; 31.6 cm (= 0.1&radic;10 m)</p>
 </div>
+<div class="lecture-ref">
+  <h4>강의록에서 이 개념이 나오는 곳</h4>
+  <div class="ref-grid">
+    <div class="ref-item">
+      <span class="ref-tag">11강 p18 — 개념</span>
+      <img src="기말풀이_images/p5_concept.png" alt="전기장 E = kQ/r²">
+      <div class="ref-caption">전기장 정의 E = F/q₀ = kQ/r². 양전하는 바깥 방향, 음전하는 안쪽 방향!</div>
+    </div>
+    <div class="ref-item">
+      <span class="ref-tag">11강 p27 — 예제 (시험문제와 동일!)</span>
+      <img src="기말풀이_images/p5_example.png" alt="전기장 예제 1350 N/C">
+      <div class="ref-caption">기말 5번과 <strong>동일한 문제!</strong> +1.5×10⁻⁹ C 전하에서 10cm → E = 1350 N/C</div>
+    </div>
+  </div>
+</div>
 </div><!-- /prob5 -->
 
 
@@ -937,6 +1051,21 @@
 <div class="final-answer">
   <p>I = 25 A</p>
 </div>
+<div class="lecture-ref">
+  <h4>강의록에서 이 개념이 나오는 곳</h4>
+  <div class="ref-grid">
+    <div class="ref-item">
+      <span class="ref-tag">12강 p8 — 개념</span>
+      <img src="기말풀이_images/p6_concept.png" alt="F = ILBsinθ 공식">
+      <div class="ref-caption">전류가 흐르는 도선에 작용하는 자기력 F = ILBsin&theta; 공식</div>
+    </div>
+    <div class="ref-item">
+      <span class="ref-tag">12강 p11 — 예제 (시험문제와 동일!)</span>
+      <img src="기말풀이_images/p6_example.png" alt="도선 자기력 예제 I=25A">
+      <div class="ref-caption">기말 6번과 <strong>동일한 문제!</strong> L=10cm, B=2.0T, F=5N → I=25A</div>
+    </div>
+  </div>
+</div>
 </div><!-- /prob6 -->
 
 
@@ -1021,6 +1150,21 @@
 
 <div class="final-answer">
   <p>B = 1.5 &times; 10<sup>&minus;6</sup> T = 1.5 &mu;T</p>
+</div>
+<div class="lecture-ref">
+  <h4>강의록에서 이 개념이 나오는 곳</h4>
+  <div class="ref-grid">
+    <div class="ref-item">
+      <span class="ref-tag">12강 p30 — 개념</span>
+      <img src="기말풀이_images/p7_concept.png" alt="B = μ₀I/(2πr) 유도">
+      <div class="ref-caption">앙페르의 법칙에서 직선도선 자기장 B = &mu;₀I/(2&pi;r) 유도 과정</div>
+    </div>
+    <div class="ref-item">
+      <span class="ref-tag">12강 p21 — 예제 (시험문제와 동일!)</span>
+      <img src="기말풀이_images/p7_example.png" alt="직선도선 자기장 예제">
+      <div class="ref-caption">기말 7번과 <strong>동일한 문제!</strong> 15A, 2.0m → B = 1.5×10⁻⁶ T</div>
+    </div>
+  </div>
 </div>
 </div><!-- /prob7 -->
 
@@ -1139,6 +1283,21 @@
 <div class="final-answer">
   <p>&epsilon; = 37.5 mV = 0.0375 V</p>
 </div>
+<div class="lecture-ref">
+  <h4>강의록에서 이 개념이 나오는 곳</h4>
+  <div class="ref-grid">
+    <div class="ref-item">
+      <span class="ref-tag">13강 p15 — 개념</span>
+      <img src="기말풀이_images/p8_concept.png" alt="패러데이 법칙 ε = -ΔΦ/Δt">
+      <div class="ref-caption">패러데이 전자기유도 법칙 V = -&Delta;&Phi;/&Delta;t. 자기선속이 변하면 기전력이 유도돼!</div>
+    </div>
+    <div class="ref-item">
+      <span class="ref-tag">13강 p20 — 예제</span>
+      <img src="기말풀이_images/p8_example.png" alt="유도기전력 계산 예제">
+      <div class="ref-caption">유도 기전력 계산 예제. &Delta;&Phi;/&Delta;t로 기전력을 구하는 과정</div>
+    </div>
+  </div>
+</div>
 </div><!-- /prob8 -->
 
 
@@ -1236,6 +1395,16 @@
 <div class="final-answer">
   <p>N<sub>2</sub> = 50회</p>
   <p>전압이 1/2로 줄어드니까 감은수도 1/2이 된다!</p>
+</div>
+<div class="lecture-ref">
+  <h4>강의록에서 이 개념이 나오는 곳</h4>
+  <div class="ref-grid" style="grid-template-columns:1fr;">
+    <div class="ref-item">
+      <span class="ref-tag">13강 p36 — 개념 + 예제</span>
+      <img src="기말풀이_images/p9_concept.png" alt="변압기 V₁/V₂ = N₁/N₂">
+      <div class="ref-caption">변압기 핵심 공식 V₁/V₂ = N₁/N₂, 에너지 보존 I₁V₁ = I₂V₂. 220V/100회→110V/50회 예시 포함</div>
+    </div>
+  </div>
 </div>
 </div><!-- /prob9 -->
 
@@ -1342,6 +1511,21 @@
 <div class="final-answer">
   <p>전류: I &approx; 4.55 A</p>
   <p>저항: R = 48.4 &Omega;</p>
+</div>
+<div class="lecture-ref">
+  <h4>강의록에서 이 개념이 나오는 곳</h4>
+  <div class="ref-grid">
+    <div class="ref-item">
+      <span class="ref-tag">14강 p24 — 개념</span>
+      <img src="기말풀이_images/p10_concept.png" alt="전력 P = IV = V²/R = I²R">
+      <div class="ref-caption">전력 공식 3가지: P = IV, P = V²/R, P = I²R</div>
+    </div>
+    <div class="ref-item">
+      <span class="ref-tag">14강 p25 — 예제 (시험문제와 동일!)</span>
+      <img src="기말풀이_images/p10_example.png" alt="헤어드라이기 220V 1kW 예제">
+      <div class="ref-caption">기말 10번과 <strong>동일한 문제!</strong> 헤어드라이기 220V/1kW → I=4.5A, R=49&Omega;</div>
+    </div>
+  </div>
 </div>
 </div><!-- /prob10 -->
 
