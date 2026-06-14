@@ -468,71 +468,71 @@
   <div class="nb-label">① 각진동수 &omega; 구하기</div>
   <div class="nb-line">
     <div class="nb-math boxed">&omega; = 2&pi; / T</div>
-    <div class="nb-comment"><strong>9강 식 8</strong> &mdash; 각진동수와 주기의 관계</div>
+    <div class="nb-comment"><strong>9강 식 8</strong> &mdash; 원 한 바퀴가 2&pi; 라디안이고, T초에 한 바퀴 도니까 1초당 각도 = 2&pi;/T야. 단순조화운동은 원운동을 옆에서 본 것과 같거든, 그래서 원운동의 각속도(&omega;)를 빌려 쓰는 거야!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">&omega; = 2&pi; / 0.5 = 4&pi; rad/s</div>
-    <div class="nb-comment">T = 0.5초 대입. 단위: 2&pi;는 rad(라디안), T는 s(초)니까 나누면 <strong>rad/s</strong>가 돼</div>
+    <div class="nb-comment">T = 0.5초를 대입했어. 2&pi; &divide; 0.5 = 4&pi;야. 단위를 보면: 2&pi;는 rad(라디안)이고 T는 s(초)니까 나누면 <strong>rad/s</strong>가 돼. 즉 1초에 4&pi; 라디안(약 720&deg;)만큼 회전하는 셈이야!</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">② 변위 방정식</div>
   <div class="nb-line">
     <div class="nb-math boxed">x = x<sub>0</sub> cos(&omega;t)</div>
-    <div class="nb-comment"><strong>9강 식 9</strong> &mdash; 최대 변위에서 출발 &rarr; cos 함수. 처음 위치가 +x<sub>0</sub>이니까 코사인!</div>
+    <div class="nb-comment"><strong>9강 식 9</strong> &mdash; 왜 cos이냐면, t=0일 때 x=x<sub>0</sub>(최대 변위)여야 하잖아. cos(0)=1이니까 x<sub>0</sub>&times;1=x<sub>0</sub>이 돼서 딱 맞아! 만약 sin을 썼다면 t=0일 때 sin(0)=0이 되니까 x=0이 되어버려서 "처음에 10cm 당겼다"는 조건에 안 맞게 되거든</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">③ t = 0.2초 변위</div>
   <div class="nb-line">
     <div class="nb-math">x(0.2) = 0.1 &times; cos(4&pi; &times; 0.2)</div>
-    <div class="nb-comment">x<sub>0</sub> = 0.1 m, &omega; = 4&pi; 대입</div>
+    <div class="nb-comment">위 공식에 x<sub>0</sub> = 0.1 m, &omega; = 4&pi; rad/s, t = 0.2 s를 대입한 거야. 괄호 안부터 계산하자!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= 0.1 &times; cos(0.8&pi;)</div>
-    <div class="nb-comment">4&pi; &times; 0.2 = 0.8&pi;</div>
+    <div class="nb-comment">4&pi; &times; 0.2를 계산하면 0.8&pi;가 나와. 4 &times; 0.2 = 0.8이고 &pi;는 그대로 남으니까!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= 0.1 &times; cos(144&deg;)</div>
-    <div class="nb-comment">0.8&pi; rad = 144&deg;</div>
+    <div class="nb-comment">라디안을 도(&deg;)로 바꾸려면 &pi; = 180&deg;니까, 0.8 &times; 180&deg; = 144&deg;야. 계산기에 라디안 모드가 없으면 이렇게 도로 바꿔서 넣으면 돼!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= 0.1 &times; (&minus;0.809)</div>
-    <div class="nb-comment">cos(144&deg;) = &minus;0.809 (계산기)</div>
+    <div class="nb-comment">cos(144&deg;)를 계산기로 치면 &minus;0.809가 나와. 144&deg;는 2사분면(90&deg;~180&deg;)이라 cos 값이 음수인 거야. 2사분면에서는 x좌표가 음수니까 cos도 음수!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">x(0.2) &approx; &minus;0.0809 m = &minus;8.09 cm</div>
-    <div class="nb-comment"><strong>음수</strong> &rarr; 반대 방향으로 8.1cm</div>
+    <div class="nb-comment"><strong>음수</strong>라는 건 처음 당긴 방향의 <strong>반대쪽</strong>에 있다는 뜻이야. 0.2초 후에 물체가 반대편으로 약 8.09cm 지점에 와 있다는 거지!</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">④ 속도 방정식</div>
   <div class="nb-line">
     <div class="nb-math boxed">v<sub>x</sub> = &minus;&omega;x<sub>0</sub> sin(&omega;t) = &minus;v<sub>0</sub> sin(&omega;t)</div>
-    <div class="nb-comment"><strong>9강 식 12</strong> &mdash; v<sub>0</sub> = &omega;x<sub>0</sub> = 속도의 진폭</div>
+    <div class="nb-comment"><strong>9강 식 12</strong> &mdash; 변위 x를 시간 t로 미분하면 속도가 나와. x = x<sub>0</sub>cos(&omega;t)를 미분하면 cos &rarr; &minus;sin이 되고, 안쪽의 &omega;가 체인룰(chain rule)로 앞으로 나와서 v = &minus;&omega;x<sub>0</sub>sin(&omega;t)이 돼. 여기서 &omega;x<sub>0</sub>를 묶어서 v<sub>0</sub>라고 부르는 거야 (속도의 진폭). 그래서 v<sub>0</sub> = &omega;x<sub>0</sub>이고, v<sub>x</sub> = &minus;v<sub>0</sub>sin(&omega;t)이 되는 거지!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math"></div>
-    <div class="nb-comment">&omega;x<sub>0</sub> = 4&pi; &times; 0.1 &approx; 1.257인데, 문제에서 v<sub>0</sub> = 1.5 m/s를 주었으므로 이 값 사용</div>
+    <div class="nb-comment">문제에서 "원점으로 돌아왔을 때 속력 1.5 m/s"라고 했어. 원점(x=0)을 지날 때가 속력이 최대인 순간이야 (탄성 위치에너지가 전부 운동에너지로 바뀌거든). 그래서 v<sub>0</sub> = 1.5 m/s야. 참고로 &omega;x<sub>0</sub> = 4&pi; &times; 0.1 &approx; 1.257인데, 문제에서 v<sub>0</sub> = 1.5를 따로 줬으니까 이 값을 쓰는 게 출제 의도야!</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">⑤ t = 0.2초 속력</div>
   <div class="nb-line">
     <div class="nb-math">v<sub>x</sub>(0.2) = &minus;1.5 &times; sin(0.8&pi;)</div>
-    <div class="nb-comment">v<sub>0</sub> = 1.5 m/s (문제에서 주어짐)</div>
+    <div class="nb-comment">v<sub>0</sub> = 1.5 m/s를 대입하고, &omega;t = 0.8&pi;는 아까 ③에서 이미 계산해놨어. 같은 값을 쓰면 돼!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= &minus;1.5 &times; sin(144&deg;)</div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">아까처럼 0.8&pi; rad = 144&deg;로 바꿨어. 라디안 &rarr; 도 변환은 &pi; = 180&deg;니까, 0.8 &times; 180 = 144&deg;!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= &minus;1.5 &times; 0.588</div>
-    <div class="nb-comment">sin(144&deg;) = 0.588 (계산기)</div>
+    <div class="nb-comment">sin(144&deg;)를 계산기로 치면 0.588이 나와. 144&deg;는 2사분면이라 sin은 양수야 (2사분면에서는 y좌표가 양수니까 sin도 양수). 그래서 앞에 &minus; 붙이면 전체는 음수가 돼</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">|v<sub>x</sub>(0.2)| &approx; 0.88 m/s</div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">계산하면 &minus;1.5 &times; 0.588 = &minus;0.882야. 음수인 건 운동 방향이 음의 방향(처음 당긴 반대쪽)이라는 뜻이야. 속력은 크기만 보니까 절대값 씌워서 <strong>0.88 m/s</strong>!</div>
   </div>
 </div>
 
@@ -624,41 +624,41 @@
   <div class="nb-label">① 파동의 기본 관계식</div>
   <div class="nb-line">
     <div class="nb-math boxed">v = f &times; &lambda;</div>
-    <div class="nb-comment"><strong>파동의 속력 = 진동수 &times; 파장</strong>. 속력이 일정하면 파장과 진동수는 반비례!</div>
+    <div class="nb-comment"><strong>파동의 속력 = 진동수 &times; 파장</strong>. 1초에 f번 진동하고, 한 번 진동할 때 &lambda;만큼 나아가니까 1초 동안 가는 거리(=속력)는 f&times;&lambda;야. 이 문제에서 v가 일정하다고 했으니까, 파장이 바뀌면 진동수가 반대로 바뀌어야 해 (반비례 관계)!</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">② 진동수 변화</div>
   <div class="nb-line">
     <div class="nb-math">f = v / &lambda;</div>
-    <div class="nb-comment">속력이 일정이니까 진동수를 파장으로 표현</div>
+    <div class="nb-comment">v = f&lambda;에서 f만 남기려고 양변을 &lambda;로 나눈 거야. 속력이 일정하니까 진동수를 파장만으로 표현할 수 있게 됐어!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">f' = v / &lambda;' = v / (2&lambda;)</div>
-    <div class="nb-comment">파장이 2배가 되면 (&lambda;' = 2&lambda;)</div>
+    <div class="nb-comment">파장이 2배가 됐으니까 &lambda; 자리에 2&lambda;를 넣은 거야. 분모가 2배가 되니까 전체 값은 반으로 줄어들지? 피자를 2명이 나눠먹다가 4명이 나눠먹으면 1인분이 반이 되는 것과 같아!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= (1/2) &times; (v / &lambda;)</div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">분모의 2를 앞으로 빼면 (1/2) &times; (v/&lambda;)가 되는데, v/&lambda;는 원래 진동수 f잖아? 그래서 f' = f/2가 되는 거야!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">f' = f / 2 &nbsp;(진동수는 1/2로 감소)</div>
-    <div class="nb-comment"><strong>반비례</strong> &mdash; 파장 2배 &rarr; 진동수 1/2</div>
+    <div class="nb-comment"><strong>반비례</strong> &mdash; 속력이 일정할 때 파장이 2배 되면 진동수는 1/2로 줄어. 파장이 길어지면 한 번 진동하는 데 더 먼 거리를 가야 하니까, 같은 시간에 진동 횟수가 줄어드는 거야!</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">③ 주기 변화</div>
   <div class="nb-line">
     <div class="nb-math boxed">T = 1 / f</div>
-    <div class="nb-comment"><strong>주기와 진동수의 관계</strong></div>
+    <div class="nb-comment"><strong>주기는 진동수의 역수야.</strong> 1초에 f번 진동하면, 1번 진동하는 데 걸리는 시간은 1/f초지! 예를 들어 1초에 10번 진동하면(f=10Hz) 한 번 진동하는 데 1/10=0.1초 걸리는 거야</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">T' = 1 / f' = 1 / (f/2) = 2 / f = 2T</div>
-    <div class="nb-comment">진동수가 반으로 줄면 주기는 2배</div>
+    <div class="nb-comment">진동수가 반이 됐으니까(f'=f/2) 한 번 진동하는 데 시간이 2배 걸리는 거야. 1/(f/2) = 2/f인 건, 분수의 분수를 뒤집어서 곱하면 되니까 1 &times; 2/f = 2/f야. 그리고 1/f가 원래 주기 T니까 2T가 되는 거지!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">T' = 2T &nbsp;(주기는 2배로 증가)</div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">정리하면: 파장 2배 &rarr; 진동수 1/2배 &rarr; 주기 2배! 주기와 진동수는 역수 관계라 항상 반대로 움직여. 진동수가 줄면 주기가 늘고, 진동수가 늘면 주기가 줄어!</div>
   </div>
 </div>
 
@@ -736,45 +736,45 @@
   <div class="nb-label">① 단위 변환</div>
   <div class="nb-line">
     <div class="nb-math">v<sub>s</sub> = 50 km/h = 50 &times; (1000/3600)</div>
-    <div class="nb-comment">km/h &rarr; m/s 변환: &times;1000 &divide;3600</div>
+    <div class="nb-comment">km/h &rarr; m/s 변환이야. 1 km = 1000 m이고, 1시간 = 3600초잖아. 그래서 km/h에서 m/s로 바꾸려면 &times;1000 &divide;3600, 즉 <strong>&divide;3.6</strong> 하면 돼. 물리에서 속도 단위는 거의 항상 m/s를 쓰니까 이 변환은 꼭 알아둬!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">v<sub>s</sub> = 50/3.6 &approx; 13.89 m/s</div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">50 &divide; 3.6 = 13.888...이야. 시속 50km는 초속 약 13.89m라는 뜻이야. 음속(340 m/s)에 비하면 아주 느린 속도지!</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">② 도플러 효과 공식</div>
   <div class="nb-line">
     <div class="nb-math boxed">f' = f &times; 1 / (1 &minus; v<sub>s</sub>/v)</div>
-    <div class="nb-comment"><strong>10강 식 29</strong> &mdash; 음원이 관측자에게 다가올 때. 다가오면 파동이 압축되어 진동수 &uarr;</div>
+    <div class="nb-comment"><strong>10강 식 29</strong> &mdash; 음원이 관측자에게 다가올 때 쓰는 공식이야. 음원이 다가오면 파동이 앞쪽으로 압축돼. 파장이 짧아지니까 진동수가 올라가는 거야. 분모가 1보다 작아지면 전체 값은 커지잖아? 그게 진동수가 올라가는 원리야!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math"></div>
-    <div class="nb-comment">음원이 <strong>다가오면 분모에서 빼고</strong>, 멀어지면 더해. 관측자가 다가가면 분자에서 더하고, 멀어지면 빼!</div>
+    <div class="nb-comment">음원이 <strong>다가오면 분모에서 빼고</strong>(분모가 작아져서 f' 커짐), 멀어지면 더해(분모가 커져서 f' 작아짐). 관측자가 다가가면 분자에서 더하고, 멀어지면 빼! 이 문제는 관측자가 정지(v<sub>o</sub>=0)니까 분자는 그냥 1이야</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">③ 값 대입</div>
   <div class="nb-line">
     <div class="nb-math">f' = 200 &times; 1 / (1 &minus; 13.89/340)</div>
-    <div class="nb-comment">f = 200, v<sub>s</sub> = 13.89, v = 340 대입</div>
+    <div class="nb-comment">f = 200 Hz, v<sub>s</sub> = 13.89 m/s, v = 340 m/s를 공식에 넣었어. 분모 괄호 안부터 계산하자!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= 200 &times; 1 / (1 &minus; 0.0409)</div>
-    <div class="nb-comment">13.89/340 = 0.0409</div>
+    <div class="nb-comment">13.89/340 = 0.0409야. 이건 음원 속도를 음속으로 나눈 비율이야. 음속 대비 약 4%로 움직이고 있다는 뜻이지. 음속보다 훨씬 느리니까 도플러 효과가 크진 않을 거야</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= 200 &times; 1 / 0.959</div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">1 &minus; 0.0409 = 0.9591이야. 0.959는 1보다 작으니까, 이걸로 나누면 1보다 커져. 그래서 진동수가 올라가는 거야! 분모가 작을수록 결과가 커지는 거 기억하지?</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= 200 &times; 1.043</div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">1 &divide; 0.959 = 1.0427...이야. 즉 원래 진동수의 약 1.043배, 4.3% 정도 올라간다는 뜻이야</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">f' &approx; 208.5 Hz</div>
-    <div class="nb-comment">원래 200 Hz보다 높은 음 (약 4.3% 증가)</div>
+    <div class="nb-comment">200 &times; 1.043 = 208.5 Hz! 원래 200 Hz보다 높은 음이야 (약 4.3% 증가). 구급차가 다가올 때 사이렌이 높게 들리는 게 바로 이 원리야!</div>
   </div>
 </div>
 
@@ -864,53 +864,53 @@
   <div class="nb-label">① q<sub>2</sub>가 q<sub>1</sub>에 미치는 힘 (F<sub>21</sub>)</div>
   <div class="nb-line">
     <div class="nb-math boxed">F = k |q<sub>1</sub>||q<sub>2</sub>| / r<sup>2</sup></div>
-    <div class="nb-comment"><strong>쿨롱의 법칙</strong> &mdash; 배치: q<sub>2</sub>(&minus;) --- 10cm --- q<sub>1</sub>(+) --- 10cm --- q<sub>3</sub>(+)</div>
+    <div class="nb-comment"><strong>쿨롱의 법칙</strong> &mdash; 절대값을 쓰는 이유: 힘의 <strong>크기</strong>만 먼저 구하고, 방향(인력/척력)은 전하의 부호로 따로 판단하는 거야. 배치: q<sub>2</sub>(&minus;) --- 10cm --- q<sub>1</sub>(+) --- 10cm --- q<sub>3</sub>(+)</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">F<sub>21</sub> = 9 &times; 10<sup>9</sup> &times; (15 &times; 10<sup>&minus;6</sup>) &times; (44 &times; 10<sup>&minus;6</sup>) / (0.1)<sup>2</sup></div>
-    <div class="nb-comment">절댓값 사용 (방향은 따로 판단)</div>
+    <div class="nb-comment">k, |q<sub>1</sub>|, |q<sub>2</sub>|, r 값을 대입했어. q<sub>2</sub> = &minus;44 &mu;C인데 절대값이니까 44를 쓰는 거야. &mu;C를 C로 바꾸려면 &times;10<sup>&minus;6</sup>을 붙이면 돼</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= 9 &times; 10<sup>9</sup> &times; 660 &times; 10<sup>&minus;12</sup> / 0.01</div>
-    <div class="nb-comment">15 &times; 44 = 660</div>
+    <div class="nb-comment">15 &times; 10<sup>&minus;6</sup> &times; 44 &times; 10<sup>&minus;6</sup> = (15&times;44) &times; 10<sup>&minus;6&minus;6</sup> = 660 &times; 10<sup>&minus;12</sup>야. 지수끼리는 더하면 돼! 그리고 (0.1)<sup>2</sup> = 0.01이야. 10cm를 m로 바꾸면 0.1m, 제곱하면 0.01!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= 9 &times; 10<sup>9</sup> &times; 6.6 &times; 10<sup>&minus;8</sup></div>
-    <div class="nb-comment">660 &times; 10<sup>&minus;12</sup> / 0.01 = 6.6 &times; 10<sup>&minus;8</sup></div>
+    <div class="nb-comment">660 &times; 10<sup>&minus;12</sup> &divide; 0.01 = 660 &times; 10<sup>&minus;12</sup> &times; 100 = 660 &times; 10<sup>&minus;10</sup> = 6.6 &times; 10<sup>&minus;8</sup>이야. 0.01로 나누는 건 &times;100(=10<sup>2</sup>)하는 거니까 지수에 +2 해주면 돼!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">F<sub>21</sub> = 594 N &nbsp;(&larr; 왼쪽)</div>
-    <div class="nb-comment"><strong>방향:</strong> q<sub>2</sub>(&minus;)와 q<sub>1</sub>(+) &rarr; 인력 &rarr; 왼쪽으로 끌어당김</div>
+    <div class="nb-comment"><strong>방향:</strong> q<sub>2</sub>는 음전하(&minus;), q<sub>1</sub>은 양전하(+)야. 다른 부호끼리는 서로 끌어당기니까(인력), q<sub>1</sub>이 q<sub>2</sub> 쪽(왼쪽)으로 당겨지는 거야. 9 &times; 6.6 = 59.4이고 10<sup>9</sup> &times; 10<sup>&minus;8</sup> = 10<sup>1</sup>이니까 59.4 &times; 10 = 594 N!</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">② q<sub>3</sub>가 q<sub>1</sub>에 미치는 힘 (F<sub>31</sub>)</div>
   <div class="nb-line">
     <div class="nb-math">F<sub>31</sub> = 9 &times; 10<sup>9</sup> &times; (15 &times; 10<sup>&minus;6</sup>) &times; (13 &times; 10<sup>&minus;6</sup>) / (0.1)<sup>2</sup></div>
-    <div class="nb-comment">같은 공식, q<sub>3</sub> = 13 &mu;C 대입</div>
+    <div class="nb-comment">같은 쿨롱 법칙 공식을 쓰되, 이번에는 q<sub>3</sub> = +13 &mu;C를 대입한 거야. 거리도 동일하게 0.1 m!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= 9 &times; 10<sup>9</sup> &times; 195 &times; 10<sup>&minus;12</sup> / 0.01</div>
-    <div class="nb-comment">15 &times; 13 = 195</div>
+    <div class="nb-comment">15 &times; 13 = 195이고, 10<sup>&minus;6</sup> &times; 10<sup>&minus;6</sup> = 10<sup>&minus;12</sup>야. 아까 ①과 똑같은 방식으로 계산하면 돼!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= 9 &times; 10<sup>9</sup> &times; 1.95 &times; 10<sup>&minus;8</sup></div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">195 &times; 10<sup>&minus;12</sup> &divide; 0.01 = 195 &times; 10<sup>&minus;10</sup> = 1.95 &times; 10<sup>&minus;8</sup>이야. 아까와 같은 원리로 0.01로 나누면 지수에 +2 해주면 돼!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">F<sub>31</sub> = 175.5 N &nbsp;(&larr; 왼쪽)</div>
-    <div class="nb-comment"><strong>방향:</strong> q<sub>3</sub>(+)와 q<sub>1</sub>(+) &rarr; 척력 &rarr; 왼쪽으로 밀어냄</div>
+    <div class="nb-comment"><strong>방향:</strong> q<sub>3</sub>와 q<sub>1</sub> 둘 다 양전하(+)야. 같은 부호끼리는 밀어내니까(척력), q<sub>3</sub>가 q<sub>1</sub>을 왼쪽으로 밀어내는 거야. q<sub>3</sub>가 q<sub>1</sub> 오른쪽에 있으니까, 밀어내면 왼쪽으로 가겠지! 9 &times; 1.95 = 17.55이고 10<sup>9</sup> &times; 10<sup>&minus;8</sup> = 10<sup>1</sup>이니까 17.55 &times; 10 = 175.5 N!</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">③ 합력</div>
   <div class="nb-line">
     <div class="nb-math">F<sub>합</sub> = F<sub>21</sub> + F<sub>31</sub> = 594 + 175.5</div>
-    <div class="nb-comment">두 힘이 같은 방향(왼쪽)이니까 더하기</div>
+    <div class="nb-comment">두 힘이 우연히 같은 방향(왼쪽)이라 단순히 더하면 돼! 왼쪽의 음전하는 끌어당기고(인력=왼쪽), 오른쪽의 양전하는 밀어내니까(척력=왼쪽) 둘 다 왼쪽이야. 만약 반대 방향이었으면 빼야 했겠지!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">F<sub>합</sub> = 769.5 N &nbsp;(왼쪽, q<sub>2</sub> 방향)</div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">594 + 175.5 = 769.5 N이야. q<sub>1</sub> 입장에서 왼쪽으로 약 770 N의 힘을 받고 있어. 두 힘이 같은 방향이라 합력이 꽤 크게 나왔지!</div>
   </div>
 </div>
 
@@ -994,56 +994,56 @@
   <div class="nb-label">① 전기장 공식</div>
   <div class="nb-line">
     <div class="nb-math boxed">E = kQ / r<sup>2</sup></div>
-    <div class="nb-comment"><strong>점전하가 만드는 전기장의 세기</strong></div>
+    <div class="nb-comment"><strong>점전하가 만드는 전기장의 세기야.</strong> 전기장은 거리의 제곱(r<sup>2</sup>)에 반비례해. 왜냐하면 전하에서 나오는 전기력선이 구 표면에 퍼지는데, 구의 표면적이 4&pi;r<sup>2</sup>으로 거리 제곱에 비례하니까, 단위 면적당 밀도(=전기장 세기)는 1/r<sup>2</sup>으로 줄어드는 거야!</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">② r = 0.1 m에서 전기장 계산</div>
   <div class="nb-line">
     <div class="nb-math">E = 9 &times; 10<sup>9</sup> &times; 1.5 &times; 10<sup>&minus;9</sup> / (0.1)<sup>2</sup></div>
-    <div class="nb-comment">k, Q, r 대입</div>
+    <div class="nb-comment">k = 9&times;10<sup>9</sup>, Q = 1.5&times;10<sup>&minus;9</sup> C, r = 0.1 m을 공식에 대입했어. 분자부터 계산하자!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= (9 &times; 1.5) &times; 10<sup>9&minus;9</sup> / 0.01</div>
-    <div class="nb-comment">10<sup>9</sup> &times; 10<sup>&minus;9</sup> = 10<sup>0</sup> = 1</div>
+    <div class="nb-comment">10<sup>9</sup> &times; 10<sup>&minus;9</sup> = 10<sup>0</sup> = 1이야. 지수끼리 더하면 9+(&minus;9) = 0이고 10<sup>0</sup>은 1이니까 숫자만 남아. 그리고 (0.1)<sup>2</sup> = 0.01이야</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= 13.5 / 0.01</div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">9 &times; 1.5 = 13.5야. 분자는 깔끔하게 13.5가 됐어. 이제 0.01로 나누기만 하면 돼!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">E = 1350 N/C</div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">13.5 &divide; 0.01 = 1350이야. 0.01로 나누는 건 &times;100 하는 거니까 13.5 &times; 100 = 1350! 단위는 N/C (뉴턴 퍼 쿨롱)으로, "1C의 전하가 이 지점에 있으면 1350N의 힘을 받는다"는 뜻이야</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">③ 전기장의 방향</div>
   <div class="nb-line">
     <div class="nb-math result">방향: 전하에서 멀어지는 방향 (+x 방향, 오른쪽)</div>
-    <div class="nb-comment"><strong>양전하(+)</strong>가 만드는 전기장은 바깥쪽으로 향해!</div>
+    <div class="nb-comment"><strong>양전하(+)</strong>가 만드는 전기장은 전하에서 바깥쪽으로 향해! 전기장의 방향은 "양의 시험 전하를 놓았을 때 힘을 받는 방향"으로 정의하거든. 양전하 옆에 양의 시험전하를 놓으면 밀어내니까(척력) 바깥쪽이야. 반대로 음전하(&minus;)가 만드는 전기장은 전하 쪽으로(안쪽) 향해!</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">④ 전기장이 10%가 되는 거리</div>
   <div class="nb-line">
     <div class="nb-math">E' = kQ / r'<sup>2</sup> = 0.1 &times; kQ / r<sup>2</sup></div>
-    <div class="nb-comment">E' = 0.1E가 되려면?</div>
+    <div class="nb-comment">"전기장이 10%가 된다"는 건 E' = 0.1 &times; E라는 뜻이야. 10% = 10/100 = 0.1이거든. 새로운 거리 r'에서의 전기장이 원래 전기장의 1/10이 되는 거리를 찾는 거야!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">1 / r'<sup>2</sup> = 0.1 / r<sup>2</sup></div>
-    <div class="nb-comment">양변에서 kQ 소거</div>
+    <div class="nb-comment">양변에서 kQ를 소거했어. 같은 전하가 만드는 전기장이니까 kQ는 변하지 않거든! kQ로 나누면 깔끔하게 거리만 남아</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">r'<sup>2</sup> = r<sup>2</sup> / 0.1 = 10 &times; r<sup>2</sup></div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">양변을 뒤집으면(역수를 취하면) r'<sup>2</sup> = r<sup>2</sup>/0.1이야. 0.1로 나누면 &times;10이니까 r'<sup>2</sup> = 10r<sup>2</sup>가 되는 거야. 전기장이 1/10이 되려면 r<sup>2</sup>이 10배가 돼야 해 (E는 1/r<sup>2</sup>에 비례하니까!)</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">r' = r &times; &radic;10 = 0.1 &times; &radic;10</div>
-    <div class="nb-comment">&radic;10 &approx; 3.162</div>
+    <div class="nb-comment">양변에 제곱근(&radic;)을 씌우면 r' = r&radic;10이 돼. r<sup>2</sup>이 10배면 r은 &radic;10배야! &radic;10 &approx; 3.162니까 원래 거리의 약 3.16배 먼 곳이야</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">r' = 0.316 m &approx; 31.6 cm</div>
-    <div class="nb-comment">거리가 &radic;10배 (&approx; 3.16배) 멀어져야 한다</div>
+    <div class="nb-comment">0.1 &times; 3.162 = 0.316 m야. 10cm에서 31.6cm로 약 3.16배 멀어지면 전기장이 1/10(=10%)이 되는 거야. 거리가 &radic;10배면 전기장은 (&radic;10)<sup>2</sup> = 10배 약해지니까!</div>
   </div>
 </div>
 
@@ -1127,33 +1127,33 @@
   <div class="nb-label">① 자기력 공식</div>
   <div class="nb-line">
     <div class="nb-math boxed">F = BIL sin&theta;</div>
-    <div class="nb-comment"><strong>자기장 속 전류 도선에 작용하는 힘</strong> &mdash; N극과 S극 사이에 도선이 있으니까 도선 길이 = 극 사이 간격</div>
+    <div class="nb-comment"><strong>자기장 속 전류 도선에 작용하는 힘이야.</strong> B는 자기장 세기, I는 전류, L은 도선 길이, &theta;는 전류 방향과 자기장 방향 사이의 각도야. sin&theta;가 붙는 이유는 자기력이 전류와 자기장의 <strong>수직 성분</strong>에만 반응하기 때문이야. N극과 S극 사이에 도선이 있으니까 도선 길이 = 극 사이 간격(10cm)이야!</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">② 전류 I에 대해 정리</div>
   <div class="nb-line">
     <div class="nb-math">F = BIL &times; 1</div>
-    <div class="nb-comment">도선이 자기장에 <strong>수직</strong>이니까 &theta; = 90&deg;, sin 90&deg; = 1</div>
+    <div class="nb-comment">도선이 자기장에 <strong>수직</strong>이니까 &theta; = 90&deg;이고 sin 90&deg; = 1이야. 왜 90&deg;냐면, N극에서 S극으로 자기장이 수평으로 나가는데 도선은 위아래(수직)로 놓여있으니까 둘 사이 각도가 90&deg;야! sin&theta; = 1이면 힘이 최대가 되는 거야. 만약 도선이 자기장과 평행하면(&theta;=0&deg;) sin0&deg;=0이라 힘이 0이 돼!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math boxed">I = F / (BL)</div>
-    <div class="nb-comment">I에 대해 정리</div>
+    <div class="nb-comment">F = BIL에서 I만 남기려고 양변을 BL로 나눴어. I = F &divide; (B &times; L)이야. 구하고 싶은 걸 한쪽에 남기고 나머지를 반대편으로 보내는 거지!</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">③ 값 대입</div>
   <div class="nb-line">
     <div class="nb-math">I = 5.0 / (2.0 &times; 0.1)</div>
-    <div class="nb-comment">F = 5.0, B = 2.0, L = 0.1 대입</div>
+    <div class="nb-comment">F = 5.0 N, B = 2.0 T, L = 0.1 m(10cm를 m로 바꾼 것)을 대입했어. 분모부터 계산하자!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= 5.0 / 0.2</div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">2.0 &times; 0.1 = 0.2야. 분모가 0.2니까 5.0을 0.2로 나누면 돼</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">I = 25 A</div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">5.0 &divide; 0.2 = 25야! 25 암페어면 상당히 큰 전류야 (가정용 콘센트는 보통 15~20A 정도). 강한 자기장(2T) 안에서 5N이나 되는 힘을 만들려면 이 정도 전류가 필요한 거야!</div>
   </div>
 </div>
 
@@ -1234,30 +1234,30 @@
   <div class="nb-label">① 직선도선 자기장 공식</div>
   <div class="nb-line">
     <div class="nb-math boxed">B = &mu;<sub>0</sub>I / (2&pi;r)</div>
-    <div class="nb-comment"><strong>앙페르의 법칙에서 유도</strong> &mdash; 직선 전류가 만드는 자기장 (거리 r에 반비례)</div>
+    <div class="nb-comment"><strong>앙페르의 법칙에서 유도한 공식이야.</strong> &mu;<sub>0</sub>(뮤 제로)는 진공의 투자율이라는 상수인데, 자기장이 얼마나 잘 만들어지는지를 나타내는 값이야. 값은 4&pi; &times; 10<sup>&minus;7</sup> T&middot;m/A로 정해져 있어. 분모의 2&pi;r은 도선을 중심으로 한 원의 둘레야 &mdash; 자기장이 도선 주위를 원형으로 감싸니까!</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">② 값 대입</div>
   <div class="nb-line">
     <div class="nb-math">B = (4&pi; &times; 10<sup>&minus;7</sup>) &times; 15 / (2&pi; &times; 2)</div>
-    <div class="nb-comment">&mu;<sub>0</sub> = 4&pi; &times; 10<sup>&minus;7</sup>, I = 15, r = 2 대입</div>
+    <div class="nb-comment">&mu;<sub>0</sub> = 4&pi; &times; 10<sup>&minus;7</sup>, I = 15 A, r = 2 m을 공식에 넣었어. 여기서 핵심 포인트! 분자에 4&pi;가 있고 분모에 2&pi;가 있으니까 약분이 될 거야!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= (4 &times; 10<sup>&minus;7</sup> &times; 15) / (2 &times; 2)</div>
-    <div class="nb-comment">&pi;가 약분돼서 깔끔해져!</div>
+    <div class="nb-comment">분자의 &pi;와 분모의 &pi;가 약분돼서 사라져! 이게 이 공식의 좋은 점이야. &mu;<sub>0</sub> = 4&pi;&times;10<sup>&minus;7</sup>에 &pi;가 이미 들어있어서 분모의 2&pi;r과 약분되면 깔끔해지거든</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= (60 &times; 10<sup>&minus;7</sup>) / 4</div>
-    <div class="nb-comment">4 &times; 15 = 60</div>
+    <div class="nb-comment">분자: 4 &times; 15 = 60이야. 분모: 2 &times; 2 = 4야. 10<sup>&minus;7</sup>은 그대로 가져가면 돼</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= 15 &times; 10<sup>&minus;7</sup></div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">60 &divide; 4 = 15야. 그래서 15 &times; 10<sup>&minus;7</sup>이 되는 거야. 이걸 좀 더 깔끔한 형태로 바꿔보자!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">B = 1.5 &times; 10<sup>&minus;6</sup> T = 1.5 &mu;T</div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">15 &times; 10<sup>&minus;7</sup> = 1.5 &times; 10<sup>&minus;6</sup>이야 (15를 1.5로 바꾸면 10을 한 번 곱하는 거니까 지수가 &minus;7에서 &minus;6으로 올라가). 10<sup>&minus;6</sup>이 &mu;(마이크로)니까 <strong>1.5 &mu;T(마이크로테슬라)</strong>야. 지구 자기장이 약 25~65 &mu;T인데 그보다 약한 자기장이네! 오른손 법칙으로 방향도 알 수 있어 &mdash; 엄지를 전류 방향으로 향하면 나머지 손가락이 감싸는 방향이 자기장 방향이야</div>
   </div>
 </div>
 
@@ -1343,59 +1343,59 @@
   <div class="nb-label">① 패러데이 법칙</div>
   <div class="nb-line">
     <div class="nb-math boxed">&epsilon; = &minus;N &times; &Delta;&Phi; / &Delta;t</div>
-    <div class="nb-comment"><strong>유도 기전력</strong> = &minus;감은수 &times; (자속 변화량 / 시간). 코일을 자기장 밖으로 꺼내면 자속이 변해!</div>
+    <div class="nb-comment"><strong>패러데이의 전자기유도 법칙이야.</strong> 코일을 통과하는 자기 선속(&Phi;)이 변하면 코일에 기전력(전압)이 유도된다는 법칙이야. &minus; 부호는 <strong>렌츠의 법칙</strong>을 나타내는 건데, 유도 기전력이 자속 변화를 방해하는 방향으로 생긴다는 뜻이야. 크기만 구할 때는 절대값을 쓰면 돼! N은 코일 감은수인데, 감은 횟수만큼 효과가 곱해지니까 N을 곱하는 거야</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">② 코일의 넓이</div>
   <div class="nb-line">
     <div class="nb-math">A = a<sup>2</sup> = (0.05)<sup>2</sup> = 0.0025 m<sup>2</sup></div>
-    <div class="nb-comment">정사각형이니까 한 변의 제곱</div>
+    <div class="nb-comment">정사각형이니까 넓이 = 한 변 &times; 한 변 = a<sup>2</sup>야. 0.05 &times; 0.05 = 0.0025 m<sup>2</sup>이야. 이 넓이를 통해 자기장이 통과하는 거야!</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">③ 자기 선속(자속) 계산</div>
   <div class="nb-line">
     <div class="nb-math">&Phi; = B &times; A &times; cos&theta;</div>
-    <div class="nb-comment"><strong>주의:</strong> "코일이 자기장과 평행" = 코일 <strong>면</strong>이 B와 평행 &rarr; B는 면에 수직 통과 &rarr; &theta; = 0&deg;</div>
+    <div class="nb-comment"><strong>자기 선속(자속)</strong>은 "코일 면을 얼마나 많은 자기장이 뚫고 지나가느냐"야. 자기장(B) &times; 면적(A)인데, 여기에 cos&theta;가 붙어. &theta;는 자기장 방향과 코일 면의 <strong>법선(수직 방향)</strong> 사이의 각도야. <strong>"코일이 자기장과 평행"</strong>이란 말은 코일 면이 B와 나란하다는 뜻인데, 이때 B는 코일 면을 수직으로 뚫고 지나가. 법선 방향과 B 방향이 같으니까 &theta; = 0&deg;야!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= 0.15 &times; 0.0025 &times; 1</div>
-    <div class="nb-comment">cos 0&deg; = 1</div>
+    <div class="nb-comment">cos 0&deg; = 1이야. &theta;=0&deg;이면 자기장이 코일을 완전히 수직으로 통과하는 거라 자속이 최대가 돼! 만약 코일이 자기장에 수직이었으면 &theta;=90&deg;, cos90&deg;=0이 돼서 자속이 0이야 (자기장이 면을 스쳐지나가니까)</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">&Phi; = 3.75 &times; 10<sup>&minus;4</sup> Wb</div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">0.15 &times; 0.0025 = 0.000375 = 3.75 &times; 10<sup>&minus;4</sup> Wb(웨버)야. 이게 처음에 코일을 통과하고 있던 자속의 양이야. 단위 Wb(웨버) = T &times; m<sup>2</sup>이야</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">④ 자속 변화량</div>
   <div class="nb-line">
     <div class="nb-math">&Delta;&Phi; = &Phi;<sub>최종</sub> &minus; &Phi;<sub>처음</sub></div>
-    <div class="nb-comment">코일을 완전히 꺼내면 자속이 0</div>
+    <div class="nb-comment">자속 변화량은 "나중 자속 &minus; 처음 자속"이야. 코일을 자기장 밖으로 완전히 꺼내면 코일을 통과하는 자기장이 없어지니까 최종 자속은 0이야!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= 0 &minus; 3.75 &times; 10<sup>&minus;4</sup> = &minus;3.75 &times; 10<sup>&minus;4</sup> Wb</div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">처음에 3.75&times;10<sup>&minus;4</sup> Wb이던 자속이 0으로 줄었으니까 변화량은 &minus;3.75&times;10<sup>&minus;4</sup>야. 음수인 건 자속이 줄어들었다는 뜻이야. 이 변화가 기전력을 만들어내는 원인이야!</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">⑤ 유도 기전력</div>
   <div class="nb-line">
     <div class="nb-math">|&epsilon;| = N &times; |&Delta;&Phi;| / &Delta;t</div>
-    <div class="nb-comment">크기만 구하면 되니까 절댓값</div>
+    <div class="nb-comment">크기만 구하면 되니까 절대값을 씌웠어. 패러데이 법칙의 &minus; 부호는 방향(렌츠의 법칙)을 나타내는 거라, 크기를 구할 때는 무시해도 돼!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= 10 &times; 3.75 &times; 10<sup>&minus;4</sup> / 0.1</div>
-    <div class="nb-comment">N = 10, &Delta;t = 0.1 대입</div>
+    <div class="nb-comment">N = 10(10바퀴 감았으니까), |&Delta;&Phi;| = 3.75 &times; 10<sup>&minus;4</sup>, &Delta;t = 0.1초를 대입했어. 코일을 10바퀴 감았으니까 1바퀴일 때보다 기전력이 10배 커지는 거야!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= 10 &times; 3.75 &times; 10<sup>&minus;3</sup></div>
-    <div class="nb-comment">10<sup>&minus;4</sup> / 0.1 = 10<sup>&minus;3</sup></div>
+    <div class="nb-comment">10<sup>&minus;4</sup> &divide; 0.1 = 10<sup>&minus;4</sup> &times; 10 = 10<sup>&minus;3</sup>이야. 0.1로 나누면 10을 곱하는 것과 같으니까 지수가 &minus;4에서 &minus;3으로 올라가!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">|&epsilon;| = 0.0375 V = 37.5 mV</div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">10 &times; 3.75 &times; 10<sup>&minus;3</sup> = 37.5 &times; 10<sup>&minus;3</sup> = 0.0375 V야. mV(밀리볼트) = 10<sup>&minus;3</sup> V니까 37.5 mV로도 쓸 수 있어. 아주 작은 전압이지만 이게 바로 발전기의 원리야! 실제 발전기는 감은수를 엄청 많이 하고, 자석을 빠르게 돌려서 큰 전압을 만들어내는 거야</div>
   </div>
 </div>
 
@@ -1476,29 +1476,29 @@
   <div class="nb-label">① 변압기 기본 공식</div>
   <div class="nb-line">
     <div class="nb-math boxed">V<sub>1</sub> / V<sub>2</sub> = N<sub>1</sub> / N<sub>2</sub></div>
-    <div class="nb-comment"><strong>전압비 = 감은수비</strong> (이상적인 변압기). 전자기 유도를 이용해서 전압을 변환!</div>
+    <div class="nb-comment"><strong>전압비 = 감은수비야!</strong> 변압기의 원리는 전자기 유도야. 1차 코일에 교류 전압을 걸면 변하는 자기장이 생기고, 이 자기장이 2차 코일에 기전력을 유도해. 코일을 많이 감을수록 유도되는 전압이 커지니까, 전압의 비가 감은수의 비와 정확히 같아지는 거야! 이상적인 변압기(에너지 손실 없음)에서 성립하는 공식이야</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">② N<sub>2</sub>에 대해 정리</div>
   <div class="nb-line">
     <div class="nb-math">N<sub>2</sub> = N<sub>1</sub> &times; V<sub>2</sub> / V<sub>1</sub></div>
-    <div class="nb-comment">교차 곱으로 정리</div>
+    <div class="nb-comment">V<sub>1</sub>/V<sub>2</sub> = N<sub>1</sub>/N<sub>2</sub>에서 N<sub>2</sub>를 구하려면 교차 곱(크로스 곱)을 해. V<sub>1</sub> &times; N<sub>2</sub> = N<sub>1</sub> &times; V<sub>2</sub>가 되고, 양변을 V<sub>1</sub>으로 나누면 N<sub>2</sub> = N<sub>1</sub> &times; V<sub>2</sub>/V<sub>1</sub>이 돼. 즉 출력 전압이 입력 전압의 몇 배인지(V<sub>2</sub>/V<sub>1</sub>)를 구해서 N<sub>1</sub>에 곱하면 되는 거야!</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">③ 값 대입</div>
   <div class="nb-line">
     <div class="nb-math">N<sub>2</sub> = 100 &times; 110 / 220</div>
-    <div class="nb-comment">N<sub>1</sub> = 100, V<sub>2</sub> = 110, V<sub>1</sub> = 220</div>
+    <div class="nb-comment">N<sub>1</sub> = 100, V<sub>2</sub> = 110 V, V<sub>1</sub> = 220 V를 대입했어. 전압이 220V에서 110V로 줄어드니까 감은수도 같은 비율로 줄어들 거야!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= 100 &times; 0.5</div>
-    <div class="nb-comment">110/220 = 0.5</div>
+    <div class="nb-comment">110/220 = 0.5야. 출력 전압이 입력 전압의 절반이라는 뜻이야. 그러니까 2차 코일의 감은수도 1차의 절반이면 되는 거야! 전압비 = 감은수비니까!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">N<sub>2</sub> = 50 (회)</div>
-    <div class="nb-comment">전압이 1/2 &rarr; 감은수도 1/2</div>
+    <div class="nb-comment">100 &times; 0.5 = 50이야. 전압이 1/2로 줄어들었으니까 감은수도 1/2인 50회가 돼야 해. 이게 강압 변압기야 &mdash; 2차 코일을 적게 감아서 전압을 낮추는 거지! 참고로 전력은 보존되니까(V<sub>1</sub>I<sub>1</sub> = V<sub>2</sub>I<sub>2</sub>), 전압이 반으로 줄면 전류는 2배로 늘어나</div>
   </div>
 </div>
 
@@ -1578,45 +1578,45 @@
   <div class="nb-label">① 전류 구하기</div>
   <div class="nb-line">
     <div class="nb-math boxed">P = V &times; I &nbsp;&nbsp;&rArr;&nbsp;&nbsp; I = P / V</div>
-    <div class="nb-comment"><strong>전력 = 전압 &times; 전류</strong></div>
+    <div class="nb-comment"><strong>전력 = 전압 &times; 전류야.</strong> 전력(P)은 "1초에 얼마나 많은 에너지를 쓰느냐"인데, 전압(V)이 "전하 하나를 밀어주는 힘"이고 전류(I)가 "1초에 지나가는 전하량"이니까 둘을 곱하면 "1초에 쓰는 에너지" = 전력이 되는 거야! I를 구하려면 양변을 V로 나누면 I = P/V가 돼</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">I = 1000 / 220</div>
-    <div class="nb-comment">P = 1000 W, V = 220 V 대입</div>
+    <div class="nb-comment">P = 1 kW = 1000 W (킬로 = 1000이니까 1 kW = 1000 W), V = 220 V를 대입했어. 1000을 220으로 나누면 돼!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">I &approx; 4.5 A</div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">1000 &divide; 220 = 4.545...이니까 약 4.5 A야. 가정용 전자제품치고는 꽤 큰 전류야! 참고로 가정의 차단기는 보통 15~20A까지 허용하니까 헤어드라이기 하나는 문제없어</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">② 저항 구하기 (방법 1: 옴의 법칙)</div>
   <div class="nb-line">
     <div class="nb-math boxed">R = V / I</div>
-    <div class="nb-comment"><strong>옴의 법칙:</strong> 저항 = 전압 / 전류</div>
+    <div class="nb-comment"><strong>옴의 법칙이야:</strong> V = IR에서 R = V/I로 정리한 거야. 전압을 전류로 나누면 저항이 나와. "220V의 전압을 걸었을 때 4.5A의 전류가 흐르는 저항은 얼마인가?"를 구하는 거지!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">R = 220 / 4.5</div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">①에서 구한 전류 I = 4.5 A를 여기에 대입했어. 이렇게 이전 단계 결과를 활용하는 방법이야</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">R &approx; 49 &Omega;</div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">220 &divide; 4.5 = 48.88...이니까 약 49 &Omega;(옴)이야. 헤어드라이기의 열선(니크롬선)이 이 정도 저항을 갖는다는 뜻이야!</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">③ 저항 구하기 (방법 2: 전력 공식)</div>
   <div class="nb-line">
     <div class="nb-math boxed">R = V<sup>2</sup> / P</div>
-    <div class="nb-comment"><strong>전력 공식을 저항에 대해 정리</strong> &mdash; 전류를 안 구해도 바로 가능!</div>
+    <div class="nb-comment"><strong>전류를 안 구해도 바로 저항을 구할 수 있는 공식이야!</strong> P = VI에서 I = V/R(옴의 법칙)을 대입하면 P = V &times; V/R = V<sup>2</sup>/R이 돼. 이걸 R에 대해 정리하면 R = V<sup>2</sup>/P야. 전압과 전력만 알면 바로 저항이 나오니까 편하지!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">R = 220<sup>2</sup> / 1000 = 48400 / 1000</div>
-    <div class="nb-comment">어느 방법을 쓰든 같은 답!</div>
+    <div class="nb-comment">220<sup>2</sup> = 220 &times; 220 = 48400이야. 이걸 P = 1000으로 나누면 끝! 방법 1처럼 전류를 먼저 구할 필요 없이 한 번에 R을 구할 수 있어. 어느 방법을 쓰든 같은 답이 나오는 거 확인!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">R &approx; 49 &Omega;</div>
-    <div class="nb-comment"></div>
+    <div class="nb-comment">48400 &divide; 1000 = 48.4 &approx; 49 &Omega;야. 방법 1(R=V/I=220/4.5&approx;49&Omega;)과 같은 답이 나왔지! 두 방법이 같은 답을 주는 건 당연해 &mdash; P=VI와 V=IR은 같은 물리 법칙에서 나온 거니까. 시험에서는 더 편한 방법을 골라 쓰면 돼!</div>
   </div>
 </div>
 
