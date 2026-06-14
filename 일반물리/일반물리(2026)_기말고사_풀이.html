@@ -213,6 +213,24 @@
   border-radius: 6px; font-size: 12px; font-weight: 700;
 }
 
+/* ── Problem Statement Highlights ── */
+.ps-given {
+  text-decoration: underline; text-decoration-color: var(--formula);
+  text-underline-offset: 3px; text-decoration-thickness: 2px;
+  color: var(--formula-text); font-weight: 600;
+}
+.ps-find {
+  text-decoration: underline; text-decoration-color: var(--example);
+  text-underline-offset: 3px; text-decoration-thickness: 2px;
+  color: var(--example-text); font-weight: 600;
+}
+.ps-legend {
+  display: flex; gap: 20px; margin-top: 12px; font-size: 12px; color: var(--text-secondary);
+}
+.ps-legend span { display: flex; align-items: center; gap: 6px; }
+.ps-legend .dot-given { width: 24px; height: 3px; background: var(--formula); border-radius: 2px; }
+.ps-legend .dot-find { width: 24px; height: 3px; background: var(--example); border-radius: 2px; }
+
 /* ── Lecture Reference ── */
 .lecture-ref {
   background: var(--bg-inset); border: 1px solid var(--border);
@@ -339,7 +357,8 @@
 </div>
 
 <div class="problem-statement">
-  <p>용수철에 매달린 질량 m인 물체를 마찰 없는 평면에서 <strong>10 cm 당긴 후 놓았다</strong>. 주기 T = 0.5초, 원점 돌아왔을 때 속력 1.5 m/s이다. 운동 시작 후 <strong>0.2초 후의 변위와 속력</strong>을 구하시오.</p>
+  <p>용수철에 매달린 질량이 m인 물체를 마찰이 없는 평면에서 길어지는 방향으로 <span class="ps-given">10 cm 당긴 후에</span> 놓아주었다. 이 물체는 좌-우로 왕복운동을 하는데, <span class="ps-given">주기는 0.5초</span>이고 <span class="ps-given">원점으로 돌아왔을 때의 속력은 1.5 m/s</span>이다. 운동 시작 후 <span class="ps-given">0.2초</span> 후의 <span class="ps-find">변위와 속력</span>을 구하시오.</p>
+  <div class="ps-legend"><span><span class="dot-given"></span>주어진 값</span><span><span class="dot-find"></span>구할 것</span></div>
 </div>
 
 <div class="given-find">
@@ -496,7 +515,8 @@
 </div>
 
 <div class="problem-statement">
-  <p><strong>일정한 속력</strong>의 파동에서 <strong>파장이 2배 증가</strong>하면, 진동수와 주기는 어떻게 달라지는가?</p>
+  <p><span class="ps-given">일정한 속력</span>의 파동에 대하여 <span class="ps-given">파장이 2배 증가</span>하는 경우, <span class="ps-find">진동수와 주기</span>는 어떻게 달라지는가?</p>
+  <div class="ps-legend"><span><span class="dot-given"></span>주어진 값</span><span><span class="dot-find"></span>구할 것</span></div>
 </div>
 
 <div class="given-find">
@@ -606,7 +626,8 @@
 </div>
 
 <div class="problem-statement">
-  <p>정지한 소방차 사이렌의 진동수는 <strong>200 Hz</strong>. 소방차가 시속 <strong>50 km/h</strong>로 나를 향해 올 때, 내가 듣는 주파수는? (음속 = 340 m/s)</p>
+  <p><span class="ps-given">정지해 있는</span> 소방차의 사이렌이 <span class="ps-given">200 Hz</span>라면, 이 소방차가 <span class="ps-given">시속 50 km/h로 나를 향해</span> 달려올 때, <span class="ps-find">내가 듣는 주파수</span>는 얼마인가?</p>
+  <div class="ps-legend"><span><span class="dot-given"></span>주어진 값</span><span><span class="dot-find"></span>구할 것</span></div>
 </div>
 
 <div class="given-find">
@@ -721,7 +742,9 @@
 </div>
 
 <div class="problem-statement">
-  <p>세 전하가 일직선에 놓여 있다. 왼쪽부터 <strong>q<sub>2</sub> = &minus;44 &mu;C</strong>, <strong>q<sub>1</sub> = +15 &mu;C</strong>, <strong>q<sub>3</sub> = +13 &mu;C</strong>. q<sub>2</sub>와 q<sub>1</sub> 간격 10 cm, q<sub>1</sub>과 q<sub>3</sub> 간격 10 cm. <strong>q<sub>1</sub>에 작용하는 힘의 크기와 방향</strong>을 구하시오. (k = 9 &times; 10<sup>9</sup> N&middot;m<sup>2</sup>/C<sup>2</sup>)</p>
+  <p>아래 그림과 같이 <span class="ps-given">전하 세 개</span>가 놓여 있다. 전하 <span class="ps-find">q<sub>1</sub>에 작용하는 힘의 크기와 방향</span>을 구하시오.</p>
+  <p style="font-size:13px; color:var(--text-secondary); margin-top:8px;">그림: <span class="ps-given">q<sub>2</sub> = &minus;44 &mu;C</span> --- <span class="ps-given">10 cm</span> --- <span class="ps-given">q<sub>1</sub> = +15 &mu;C</span> --- <span class="ps-given">10 cm</span> --- <span class="ps-given">q<sub>3</sub> = +13 &mu;C</span></p>
+  <div class="ps-legend"><span><span class="dot-given"></span>주어진 값</span><span><span class="dot-find"></span>구할 것</span></div>
 </div>
 
 <div class="given-find">
@@ -845,7 +868,8 @@
 </div>
 
 <div class="problem-statement">
-  <p>x축 원점에 <strong>+1.5 &times; 10<sup>&minus;9</sup> C</strong> 전하가 있다. <strong>10 cm 떨어진 지점</strong>의 전기장 세기와 방향을 구하고, <strong>전기장이 10%가 되는 지점</strong>의 거리를 구하시오.</p>
+  <p><span class="ps-given">x축 상의 원점</span>에 놓여있는 전하 <span class="ps-given">+1.5 &times; 10<sup>&minus;9</sup> C</span>이 놓여져 있다. 이 전하로부터 거리 <span class="ps-given">10 cm</span> 떨어진 지점에서의 <span class="ps-find">전기장의 세기와 방향</span>을 구하시오. 그리고 위에서 구한 전기장의 세기가 <span class="ps-given">10%</span>가 되는 <span class="ps-find">지점</span>을 구하시오.</p>
+  <div class="ps-legend"><span><span class="dot-given"></span>주어진 값</span><span><span class="dot-find"></span>구할 것</span></div>
 </div>
 
 <div class="given-find">
@@ -969,7 +993,8 @@
 </div>
 
 <div class="problem-statement">
-  <p>전자석 N극과 S극 간격 <strong>10 cm</strong>, 자기장 <strong>2.0 T</strong>, 도선에 작용하는 힘 <strong>5.0 N</strong>일 때 도선에 흐르는 전류는?</p>
+  <p>전자석의 N극과 S극 사이의 간격은 <span class="ps-given">10 cm</span>이다. 전자석이 만드는 자기장의 세기가 <span class="ps-given">2.0 T</span>일 때, 도선에 작용하는 힘이 <span class="ps-given">5.0 N</span>이라면 <span class="ps-find">도선에 흐르는 전류</span>는 얼마인가?</p>
+  <div class="ps-legend"><span><span class="dot-given"></span>주어진 값</span><span><span class="dot-find"></span>구할 것</span></div>
 </div>
 
 <div class="given-find">
@@ -1080,7 +1105,8 @@
 </div>
 
 <div class="problem-statement">
-  <p>직선도선에 <strong>15 A</strong> 전류가 흐를 때, 도선으로부터 <strong>2 m</strong> 떨어진 지점의 자기장을 구하시오. (&mu;<sub>0</sub> = 4&pi; &times; 10<sup>&minus;7</sup> T&middot;m/A)</p>
+  <p>직선도선에 <span class="ps-given">15 A의 전류</span>가 흐르는 경우, 도선으로부터 <span class="ps-given">2 m</span> 떨어진 지점에서의 <span class="ps-find">자기장</span>을 구하시오.</p>
+  <div class="ps-legend"><span><span class="dot-given"></span>주어진 값</span><span><span class="dot-find"></span>구할 것</span></div>
 </div>
 
 <div class="given-find">
@@ -1180,7 +1206,8 @@
 </div>
 
 <div class="problem-statement">
-  <p>자기장 <strong>0.15 T</strong>, 감은수 <strong>10</strong>, 한 변 <strong>0.05 m</strong>인 정사각형 코일이 자기장과 <strong>평행하게</strong> 놓여있다. <strong>0.1초</strong> 동안 자기장 밖으로 꺼내면 코일에 발생하는 기전력은?</p>
+  <p><span class="ps-given">자기장이 0.15 T</span>인 전자석 안에 <span class="ps-given">감은수가 10</span>이고 <span class="ps-given">한 변의 길이가 0.05 m</span>인 정사각형 코일이 <span class="ps-given">자기장과 평행하게</span> 놓여 있다. 이 코일을 <span class="ps-given">0.1초 동안에</span> 자기장 밖으로 꺼낸다면, 코일에 발생하는 <span class="ps-find">기전력</span>은 얼마인가?</p>
+  <div class="ps-legend"><span><span class="dot-given"></span>주어진 값</span><span><span class="dot-find"></span>구할 것</span></div>
 </div>
 
 <div class="given-find">
@@ -1312,7 +1339,8 @@
 </div>
 
 <div class="problem-statement">
-  <p><strong>강압 트랜스:</strong> 220V &rarr; 110V, 1차 코일 감은수 <strong>100</strong>일 때, 2차 코일 감은수는?</p>
+  <p>강압 트랜스 중의 하나는 <span class="ps-given">220 V를 110 V로</span> 낮추는 변압기이다. 이 강압 트랜스의 <span class="ps-given">1차 코일의 감은수가 100</span>일 때, 출력 전압을 <span class="ps-given">110 V로</span> 낮추려면 <span class="ps-find">2차 코일의 감은수</span>는 얼마여야 하는가?</p>
+  <div class="ps-legend"><span><span class="dot-given"></span>주어진 값</span><span><span class="dot-find"></span>구할 것</span></div>
 </div>
 
 <div class="given-find">
@@ -1420,7 +1448,8 @@
 </div>
 
 <div class="problem-statement">
-  <p><strong>220V, 1kW</strong> 헤어드라이기의 <strong>소모전류</strong>와 <strong>저항</strong>을 구하시오.</p>
+  <p>가정에서 사용하는 <span class="ps-given">220 V, 1 kW</span> 헤어드라이기의 <span class="ps-find">소모전류와 저항</span>을 구하시오.</p>
+  <div class="ps-legend"><span><span class="dot-given"></span>주어진 값</span><span><span class="dot-find"></span>구할 것</span></div>
 </div>
 
 <div class="given-find">
