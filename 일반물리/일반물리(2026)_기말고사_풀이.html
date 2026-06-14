@@ -267,6 +267,71 @@
   font-size: 11px; font-weight: 600; margin-bottom: 4px;
 }
 
+/* ── Notebook Layout ── */
+.notebook {
+  margin: 16px 0;
+}
+.nb-line {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 20px;
+  align-items: baseline;
+  min-height: 32px;
+  padding: 2px 0;
+}
+.nb-math {
+  font-family: 'Georgia', 'STIX Two Math', serif;
+  font-size: 17px;
+  color: var(--formula-text);
+  line-height: 1.8;
+  padding-left: 8px;
+}
+.nb-math.result {
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--example-text);
+  border-left: 3px solid var(--example);
+  padding-left: 12px;
+  margin: 4px 0;
+}
+.nb-math.boxed {
+  background: var(--border-subtle);
+  border: 2px solid var(--formula);
+  border-radius: 10px;
+  padding: 14px 20px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 8px 0;
+}
+.nb-comment {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  border-left: 2px solid var(--border);
+  padding-left: 12px;
+}
+.nb-comment strong { color: var(--concept-text); }
+.nb-spacer { height: 12px; }
+.nb-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--concept);
+  margin: 16px 0 8px;
+  padding-left: 8px;
+}
+@media (max-width: 900px) {
+  .nb-line {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .nb-comment {
+    border-left: none;
+    padding-left: 8px;
+    margin-bottom: 8px;
+  }
+}
+
 /* ── Mobile ── */
 .mobile-header-exam {
   display: none; position: fixed; top: 0; left: 0; right: 0; height: 56px;
@@ -399,72 +464,76 @@
 
 <div class="solution-label">풀이</div>
 
-<div class="example-box" style="margin-bottom:24px;">
-  <p style="margin-top:8px;">단순조화운동(SHM)에서 물체를 <strong>최대 변위에서 놓으면</strong> 코사인 함수로 표현해! 처음 위치가 +x<sub>0</sub>이니까 x = x<sub>0</sub> cos(&omega;t) 형태야.</p>
-</div>
-
-<div class="calc-steps">
-
-  <div class="calc-step">
-    <div class="calc-step-num">1</div>
-    <div class="calc-step-content">
-      <p class="explain">먼저 <strong>각진동수 &omega;</strong>를 구하자. 주기 T와 각진동수의 관계식을 써!</p>
-      <div class="formula-box">
-        <div class="formula">w = 2&pi; / T</div>
-        <div class="formula-desc">각진동수와 주기의 관계</div>
-      </div>
-      <p class="math">w = 2&pi; / 0.5 = 4&pi; rad/s</p>
-    </div>
+<div class="notebook">
+  <div class="nb-label">① 각진동수 &omega; 구하기</div>
+  <div class="nb-line">
+    <div class="nb-math boxed">&omega; = 2&pi; / T</div>
+    <div class="nb-comment"><strong>9강 식 8</strong> &mdash; 각진동수와 주기의 관계</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">&omega; = 2&pi; / 0.5 = 4&pi; rad/s</div>
+    <div class="nb-comment">T = 0.5초 대입</div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">2</div>
-    <div class="calc-step-content">
-      <p class="explain">물체를 <strong>+x<sub>0</sub> (10 cm) 위치에서 놓았으니까</strong>, 초기 위치 = 최대 변위야. 그래서 <strong>코사인 함수</strong>를 쓰면 돼!</p>
-      <div class="formula-box">
-        <div class="formula">x = x<sub>0</sub> cos(&omega;t)</div>
-        <div class="formula-desc">최대 변위에서 출발하는 단순조화운동의 변위 방정식 (9강 식 9)</div>
-      </div>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">② 변위 방정식</div>
+  <div class="nb-line">
+    <div class="nb-math boxed">x = x<sub>0</sub> cos(&omega;t)</div>
+    <div class="nb-comment"><strong>9강 식 9</strong> &mdash; 최대 변위에서 출발 &rarr; cos 함수. 처음 위치가 +x<sub>0</sub>이니까 코사인!</div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">3</div>
-    <div class="calc-step-content">
-      <p class="explain">t = 0.2초를 대입해서 <strong>변위</strong>를 구하자!</p>
-      <p class="math">x(0.2) = 0.1 &times; cos(4&pi; &times; 0.2)</p>
-      <p class="math">= 0.1 &times; cos(0.8&pi;)</p>
-      <p class="explain">0.8&pi; = 144&deg;이니까, 공학용 계산기에서 <strong>cos(144)</strong>를 입력하면 바로 값이 나와!</p>
-      <p class="math">cos(144&deg;) = &minus;0.809 &nbsp;(계산기)</p>
-      <p class="math">x(0.2) = 0.1 &times; (&minus;0.809) = &minus;0.0809 m</p>
-      <p class="math"><strong>x(0.2) &approx; &minus;0.081 m = &minus;8.1 cm</strong></p>
-      <p class="explain">음수니까 원점 기준으로 <strong>반대 방향으로 8.1 cm</strong> 떨어진 위치야!</p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">③ t = 0.2초 변위</div>
+  <div class="nb-line">
+    <div class="nb-math">x(0.2) = 0.1 &times; cos(4&pi; &times; 0.2)</div>
+    <div class="nb-comment">x<sub>0</sub> = 0.1 m, &omega; = 4&pi; 대입</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">= 0.1 &times; cos(0.8&pi;)</div>
+    <div class="nb-comment">4&pi; &times; 0.2 = 0.8&pi;</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">= 0.1 &times; cos(144&deg;)</div>
+    <div class="nb-comment">0.8&pi; rad = 144&deg;</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">= 0.1 &times; (&minus;0.809)</div>
+    <div class="nb-comment">cos(144&deg;) = &minus;0.809 (계산기)</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math result">x(0.2) &approx; &minus;0.081 m = &minus;8.1 cm</div>
+    <div class="nb-comment"><strong>음수</strong> &rarr; 반대 방향으로 8.1cm</div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">4</div>
-    <div class="calc-step-content">
-      <p class="explain">이제 <strong>속도 방정식</strong>을 세우자. 변위를 시간에 대해 미분하면 속도야!</p>
-      <div class="formula-box">
-        <div class="formula">v<sub>x</sub> = &minus;&omega;x<sub>0</sub> sin(&omega;t)</div>
-        <div class="formula-desc">단순조화운동의 속도 방정식 (9강 식 12)</div>
-      </div>
-      <p class="explain">여기서 <strong>속도의 진폭</strong> v<sub>0</sub> = &omega;x<sub>0</sub> = 4&pi; &times; 0.1 = 0.4&pi; &approx; 1.257 m/s인데, 문제에서 원점 통과 시 속력이 1.5 m/s라고 했으니 문제에서 주어진 v<sub>0</sub> = 1.5 m/s를 사용하자.</p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">④ 속도 방정식</div>
+  <div class="nb-line">
+    <div class="nb-math boxed">v<sub>x</sub> = &minus;&omega;x<sub>0</sub> sin(&omega;t) = &minus;v<sub>0</sub> sin(&omega;t)</div>
+    <div class="nb-comment"><strong>9강 식 12</strong> &mdash; v<sub>0</sub> = &omega;x<sub>0</sub> = 속도의 진폭</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math"></div>
+    <div class="nb-comment">&omega;x<sub>0</sub> = 4&pi; &times; 0.1 &approx; 1.257인데, 문제에서 v<sub>0</sub> = 1.5 m/s를 주었으므로 이 값 사용</div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">5</div>
-    <div class="calc-step-content">
-      <p class="explain">t = 0.2초에서의 <strong>속력</strong>을 구해보자!</p>
-      <p class="math">v<sub>x</sub>(0.2) = &minus;v<sub>0</sub> sin(4&pi; &times; 0.2) = &minus;1.5 &times; sin(0.8&pi;)</p>
-      <p class="explain">sin(144&deg;) = 0.588 &nbsp;(계산기)</p>
-      <p class="math">v<sub>x</sub>(0.2) = &minus;1.5 &times; 0.588 = &minus;0.882 m/s</p>
-      <p class="math"><strong>|v<sub>x</sub>(0.2)| &approx; 0.88 m/s</strong></p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">⑤ t = 0.2초 속력</div>
+  <div class="nb-line">
+    <div class="nb-math">v<sub>x</sub>(0.2) = &minus;1.5 &times; sin(0.8&pi;)</div>
+    <div class="nb-comment">v<sub>0</sub> = 1.5 m/s (문제에서 주어짐)</div>
   </div>
-
+  <div class="nb-line">
+    <div class="nb-math">= &minus;1.5 &times; sin(144&deg;)</div>
+    <div class="nb-comment"></div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">= &minus;1.5 &times; 0.588</div>
+    <div class="nb-comment">sin(144&deg;) = 0.588 (계산기)</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math result">|v<sub>x</sub>(0.2)| &approx; 0.88 m/s</div>
+    <div class="nb-comment"></div>
+  </div>
 </div>
 
 <div class="tip-box" style="margin-top:24px;">
@@ -551,47 +620,46 @@
 
 <div class="solution-label">풀이</div>
 
-<div class="example-box" style="margin-bottom:24px;">
-  <p style="margin-top:8px;">파동의 기본 관계식 v = f&lambda;를 떠올려봐! 속력이 일정하면 파장과 진동수는 <strong>반비례</strong> 관계야.</p>
-</div>
-
-<div class="calc-steps">
-
-  <div class="calc-step">
-    <div class="calc-step-num">1</div>
-    <div class="calc-step-content">
-      <p class="explain"><strong>파동의 기본 관계식</strong>부터 쓰자!</p>
-      <div class="formula-box">
-        <div class="formula">v = f &times; &lambda;</div>
-        <div class="formula-desc">파동의 속력 = 진동수 &times; 파장</div>
-      </div>
-    </div>
+<div class="notebook">
+  <div class="nb-label">① 파동의 기본 관계식</div>
+  <div class="nb-line">
+    <div class="nb-math boxed">v = f &times; &lambda;</div>
+    <div class="nb-comment"><strong>파동의 속력 = 진동수 &times; 파장</strong>. 속력이 일정하면 파장과 진동수는 반비례!</div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">2</div>
-    <div class="calc-step-content">
-      <p class="explain">속력이 일정하니까, 진동수를 파장으로 표현하면:</p>
-      <p class="math">f = v / &lambda;</p>
-      <p class="explain">파장이 2배가 되면 (&lambda;' = 2&lambda;):</p>
-      <p class="math">f' = v / &lambda;' = v / (2&lambda;) = (1/2) &times; (v / &lambda;) = f / 2</p>
-      <p class="explain"><strong>진동수는 1/2로 줄어든다!</strong> 속력이 일정할 때 파장과 진동수는 반비례하니까 당연한 결과야.</p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">② 진동수 변화</div>
+  <div class="nb-line">
+    <div class="nb-math">f = v / &lambda;</div>
+    <div class="nb-comment">속력이 일정이니까 진동수를 파장으로 표현</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">f' = v / &lambda;' = v / (2&lambda;)</div>
+    <div class="nb-comment">파장이 2배가 되면 (&lambda;' = 2&lambda;)</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">= (1/2) &times; (v / &lambda;)</div>
+    <div class="nb-comment"></div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math result">f' = f / 2 &nbsp;(진동수는 1/2로 감소)</div>
+    <div class="nb-comment"><strong>반비례</strong> &mdash; 파장 2배 &rarr; 진동수 1/2</div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">3</div>
-    <div class="calc-step-content">
-      <p class="explain">주기는 진동수의 역수니까:</p>
-      <div class="formula-box">
-        <div class="formula">T = 1 / f</div>
-        <div class="formula-desc">주기와 진동수의 관계</div>
-      </div>
-      <p class="math">T' = 1 / f' = 1 / (f/2) = 2 / f = 2T</p>
-      <p class="explain"><strong>주기는 2배로 늘어난다!</strong></p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">③ 주기 변화</div>
+  <div class="nb-line">
+    <div class="nb-math boxed">T = 1 / f</div>
+    <div class="nb-comment"><strong>주기와 진동수의 관계</strong></div>
   </div>
-
+  <div class="nb-line">
+    <div class="nb-math">T' = 1 / f' = 1 / (f/2) = 2 / f = 2T</div>
+    <div class="nb-comment">진동수가 반으로 줄면 주기는 2배</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math result">T' = 2T &nbsp;(주기는 2배로 증가)</div>
+    <div class="nb-comment"></div>
+  </div>
 </div>
 
 <div class="tip-box" style="margin-top:24px;">
@@ -664,43 +732,50 @@
 
 <div class="solution-label">풀이</div>
 
-<div class="example-box" style="margin-bottom:24px;">
-  <p style="margin-top:8px;">도플러 효과: 음원이 다가오면 파동이 압축되니까 진동수가 올라가고(높은 음), 멀어지면 진동수가 내려가(낮은 음). 구급차가 다가올 때 사이렌 소리가 높아지는 경험 해봤지?</p>
-</div>
-
-<div class="calc-steps">
-
-  <div class="calc-step">
-    <div class="calc-step-num">1</div>
-    <div class="calc-step-content">
-      <p class="explain">먼저 단위를 통일하자! km/h &rarr; m/s 변환이 필요해.</p>
-      <p class="math">v<sub>s</sub> = 50 km/h = 50 &times; (1000/3600) = 50/3.6 &approx; 13.89 m/s</p>
-    </div>
+<div class="notebook">
+  <div class="nb-label">① 단위 변환</div>
+  <div class="nb-line">
+    <div class="nb-math">v<sub>s</sub> = 50 km/h = 50 &times; (1000/3600)</div>
+    <div class="nb-comment">km/h &rarr; m/s 변환: &times;1000 &divide;3600</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math result">v<sub>s</sub> = 50/3.6 &approx; 13.89 m/s</div>
+    <div class="nb-comment"></div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">2</div>
-    <div class="calc-step-content">
-      <p class="explain"><strong>도플러 효과 공식</strong>을 써보자. 관측자는 정지, 음원이 다가오는 경우야!</p>
-      <div class="formula-box">
-        <div class="formula">f' = f &times; 1 / (1 &minus; v<sub>s</sub>/v)</div>
-        <div class="formula-desc">음원이 관측자에게 다가올 때 (10강 식 29)</div>
-      </div>
-      <p class="explain">음원이 <strong>다가오면 분모에서 빼고</strong>, 멀어지면 더해. 관측자가 다가가면 분자에서 더하고, 멀어지면 빼는 거야.</p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">② 도플러 효과 공식</div>
+  <div class="nb-line">
+    <div class="nb-math boxed">f' = f &times; 1 / (1 &minus; v<sub>s</sub>/v)</div>
+    <div class="nb-comment"><strong>10강 식 29</strong> &mdash; 음원이 관측자에게 다가올 때. 다가오면 파동이 압축되어 진동수 &uarr;</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math"></div>
+    <div class="nb-comment">음원이 <strong>다가오면 분모에서 빼고</strong>, 멀어지면 더해. 관측자가 다가가면 분자에서 더하고, 멀어지면 빼!</div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">3</div>
-    <div class="calc-step-content">
-      <p class="explain">값을 대입하자!</p>
-      <p class="math">f' = 200 &times; 1 / (1 &minus; 13.89/340)</p>
-      <p class="math">= 200 &times; 1 / (1 &minus; 0.0409)</p>
-      <p class="math">= 200 &times; 1 / 0.959</p>
-      <p class="math">= 200 &times; 1.043 &approx; 208.5 Hz</p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">③ 값 대입</div>
+  <div class="nb-line">
+    <div class="nb-math">f' = 200 &times; 1 / (1 &minus; 13.89/340)</div>
+    <div class="nb-comment">f = 200, v<sub>s</sub> = 13.89, v = 340 대입</div>
   </div>
-
+  <div class="nb-line">
+    <div class="nb-math">= 200 &times; 1 / (1 &minus; 0.0409)</div>
+    <div class="nb-comment">13.89/340 = 0.0409</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">= 200 &times; 1 / 0.959</div>
+    <div class="nb-comment"></div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">= 200 &times; 1.043</div>
+    <div class="nb-comment"></div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math result">f' &approx; 208.5 Hz</div>
+    <div class="nb-comment">원래 200 Hz보다 높은 음 (약 4.3% 증가)</div>
+  </div>
 </div>
 
 <div class="tip-box" style="margin-top:24px;">
@@ -785,50 +860,58 @@
 
 <div class="solution-label">풀이</div>
 
-<div class="example-box" style="margin-bottom:24px;">
-  <p style="margin-top:8px;">전하 배치: q<sub>2</sub>(&minus;) --- 10cm --- q<sub>1</sub>(+) --- 10cm --- q<sub>3</sub>(+)<br>
-  q<sub>1</sub>에 작용하는 힘을 구하려면 q<sub>2</sub>가 q<sub>1</sub>에 미치는 힘(F<sub>21</sub>)과 q<sub>3</sub>가 q<sub>1</sub>에 미치는 힘(F<sub>31</sub>)을 각각 구해서 더하면 돼!</p>
-</div>
-
-<div class="calc-steps">
-
-  <div class="calc-step">
-    <div class="calc-step-num">1</div>
-    <div class="calc-step-content">
-      <p class="explain"><strong>q<sub>2</sub>가 q<sub>1</sub>에 미치는 힘 (F<sub>21</sub>)</strong>을 구하자.</p>
-      <div class="formula-box">
-        <div class="formula">F = k |q<sub>1</sub>||q<sub>2</sub>| / r<sup>2</sup></div>
-        <div class="formula-desc">쿨롱의 법칙</div>
-      </div>
-      <p class="math">F<sub>21</sub> = 9 &times; 10<sup>9</sup> &times; (15 &times; 10<sup>&minus;6</sup>) &times; (44 &times; 10<sup>&minus;6</sup>) / (0.1)<sup>2</sup></p>
-      <p class="math">= 9 &times; 10<sup>9</sup> &times; 660 &times; 10<sup>&minus;12</sup> / 0.01</p>
-      <p class="math">= 9 &times; 10<sup>9</sup> &times; 6.6 &times; 10<sup>&minus;8</sup></p>
-      <p class="math">= 594 N</p>
-      <p class="explain"><strong>방향:</strong> q<sub>2</sub>는 음전하, q<sub>1</sub>은 양전하 &rarr; 서로 끌어당기니까 F<sub>21</sub>은 <strong>왼쪽</strong>(&larr;) 방향!</p>
-    </div>
+<div class="notebook">
+  <div class="nb-label">① q<sub>2</sub>가 q<sub>1</sub>에 미치는 힘 (F<sub>21</sub>)</div>
+  <div class="nb-line">
+    <div class="nb-math boxed">F = k |q<sub>1</sub>||q<sub>2</sub>| / r<sup>2</sup></div>
+    <div class="nb-comment"><strong>쿨롱의 법칙</strong> &mdash; 배치: q<sub>2</sub>(&minus;) --- 10cm --- q<sub>1</sub>(+) --- 10cm --- q<sub>3</sub>(+)</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">F<sub>21</sub> = 9 &times; 10<sup>9</sup> &times; (15 &times; 10<sup>&minus;6</sup>) &times; (44 &times; 10<sup>&minus;6</sup>) / (0.1)<sup>2</sup></div>
+    <div class="nb-comment">절댓값 사용 (방향은 따로 판단)</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">= 9 &times; 10<sup>9</sup> &times; 660 &times; 10<sup>&minus;12</sup> / 0.01</div>
+    <div class="nb-comment">15 &times; 44 = 660</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">= 9 &times; 10<sup>9</sup> &times; 6.6 &times; 10<sup>&minus;8</sup></div>
+    <div class="nb-comment">660 &times; 10<sup>&minus;12</sup> / 0.01 = 6.6 &times; 10<sup>&minus;8</sup></div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math result">F<sub>21</sub> = 594 N &nbsp;(&larr; 왼쪽)</div>
+    <div class="nb-comment"><strong>방향:</strong> q<sub>2</sub>(&minus;)와 q<sub>1</sub>(+) &rarr; 인력 &rarr; 왼쪽으로 끌어당김</div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">2</div>
-    <div class="calc-step-content">
-      <p class="explain"><strong>q<sub>3</sub>가 q<sub>1</sub>에 미치는 힘 (F<sub>31</sub>)</strong>을 구하자.</p>
-      <p class="math">F<sub>31</sub> = 9 &times; 10<sup>9</sup> &times; (15 &times; 10<sup>&minus;6</sup>) &times; (13 &times; 10<sup>&minus;6</sup>) / (0.1)<sup>2</sup></p>
-      <p class="math">= 9 &times; 10<sup>9</sup> &times; 195 &times; 10<sup>&minus;12</sup> / 0.01</p>
-      <p class="math">= 9 &times; 10<sup>9</sup> &times; 1.95 &times; 10<sup>&minus;8</sup></p>
-      <p class="math">= 175.5 N</p>
-      <p class="explain"><strong>방향:</strong> q<sub>3</sub>와 q<sub>1</sub>은 둘 다 양전하 &rarr; 서로 밀어내니까 F<sub>31</sub>은 <strong>왼쪽</strong>(&larr;) 방향!</p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">② q<sub>3</sub>가 q<sub>1</sub>에 미치는 힘 (F<sub>31</sub>)</div>
+  <div class="nb-line">
+    <div class="nb-math">F<sub>31</sub> = 9 &times; 10<sup>9</sup> &times; (15 &times; 10<sup>&minus;6</sup>) &times; (13 &times; 10<sup>&minus;6</sup>) / (0.1)<sup>2</sup></div>
+    <div class="nb-comment">같은 공식, q<sub>3</sub> = 13 &mu;C 대입</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">= 9 &times; 10<sup>9</sup> &times; 195 &times; 10<sup>&minus;12</sup> / 0.01</div>
+    <div class="nb-comment">15 &times; 13 = 195</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">= 9 &times; 10<sup>9</sup> &times; 1.95 &times; 10<sup>&minus;8</sup></div>
+    <div class="nb-comment"></div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math result">F<sub>31</sub> = 175.5 N &nbsp;(&larr; 왼쪽)</div>
+    <div class="nb-comment"><strong>방향:</strong> q<sub>3</sub>(+)와 q<sub>1</sub>(+) &rarr; 척력 &rarr; 왼쪽으로 밀어냄</div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">3</div>
-    <div class="calc-step-content">
-      <p class="explain"><strong>합력</strong>을 구하자. 두 힘이 같은 방향(왼쪽)이니까 더하면 돼!</p>
-      <p class="math">F<sub>합</sub> = F<sub>21</sub> + F<sub>31</sub> = 594 + 175.5 = 769.5 N</p>
-      <p class="explain">방향: <strong>왼쪽</strong> (q<sub>2</sub> 방향)</p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">③ 합력</div>
+  <div class="nb-line">
+    <div class="nb-math">F<sub>합</sub> = F<sub>21</sub> + F<sub>31</sub> = 594 + 175.5</div>
+    <div class="nb-comment">두 힘이 같은 방향(왼쪽)이니까 더하기</div>
   </div>
-
+  <div class="nb-line">
+    <div class="nb-math result">F<sub>합</sub> = 769.5 N &nbsp;(왼쪽, q<sub>2</sub> 방향)</div>
+    <div class="nb-comment"></div>
+  </div>
 </div>
 
 <div class="tip-box" style="margin-top:24px;">
@@ -907,52 +990,61 @@
 
 <div class="solution-label">풀이</div>
 
-<div class="calc-steps">
-
-  <div class="calc-step">
-    <div class="calc-step-num">1</div>
-    <div class="calc-step-content">
-      <p class="explain"><strong>점전하의 전기장 공식</strong>을 쓰자!</p>
-      <div class="formula-box">
-        <div class="formula">E = kQ / r<sup>2</sup></div>
-        <div class="formula-desc">점전하가 만드는 전기장의 세기</div>
-      </div>
-    </div>
+<div class="notebook">
+  <div class="nb-label">① 전기장 공식</div>
+  <div class="nb-line">
+    <div class="nb-math boxed">E = kQ / r<sup>2</sup></div>
+    <div class="nb-comment"><strong>점전하가 만드는 전기장의 세기</strong></div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">2</div>
-    <div class="calc-step-content">
-      <p class="explain">r = 0.1 m에서의 전기장을 계산하자!</p>
-      <p class="math">E = 9 &times; 10<sup>9</sup> &times; 1.5 &times; 10<sup>&minus;9</sup> / (0.1)<sup>2</sup></p>
-      <p class="math">= (9 &times; 1.5) &times; 10<sup>9&minus;9</sup> / 0.01</p>
-      <p class="math">= 13.5 / 0.01</p>
-      <p class="math"><strong>E = 1350 N/C</strong></p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">② r = 0.1 m에서 전기장 계산</div>
+  <div class="nb-line">
+    <div class="nb-math">E = 9 &times; 10<sup>9</sup> &times; 1.5 &times; 10<sup>&minus;9</sup> / (0.1)<sup>2</sup></div>
+    <div class="nb-comment">k, Q, r 대입</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">= (9 &times; 1.5) &times; 10<sup>9&minus;9</sup> / 0.01</div>
+    <div class="nb-comment">10<sup>9</sup> &times; 10<sup>&minus;9</sup> = 10<sup>0</sup> = 1</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">= 13.5 / 0.01</div>
+    <div class="nb-comment"></div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math result">E = 1350 N/C</div>
+    <div class="nb-comment"></div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">3</div>
-    <div class="calc-step-content">
-      <p class="explain"><strong>방향:</strong> 양전하(+)가 만드는 전기장은 전하에서 <strong>바깥쪽으로</strong> 향해! x축 양의 방향이면 +x 방향, 음의 방향이면 &minus;x 방향이야.</p>
-      <p class="math">방향: 전하에서 멀어지는 방향 (+x 방향, 오른쪽)</p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">③ 전기장의 방향</div>
+  <div class="nb-line">
+    <div class="nb-math result">방향: 전하에서 멀어지는 방향 (+x 방향, 오른쪽)</div>
+    <div class="nb-comment"><strong>양전하(+)</strong>가 만드는 전기장은 바깥쪽으로 향해!</div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">4</div>
-    <div class="calc-step-content">
-      <p class="explain">이제 <strong>전기장이 10%</strong>가 되는 거리를 구하자! E' = 0.1E가 되려면?</p>
-      <p class="math">E' = kQ / r'<sup>2</sup> = 0.1 &times; kQ / r<sup>2</sup></p>
-      <p class="explain">양변에서 kQ를 소거하면:</p>
-      <p class="math">1 / r'<sup>2</sup> = 0.1 / r<sup>2</sup></p>
-      <p class="math">r'<sup>2</sup> = r<sup>2</sup> / 0.1 = 10 &times; r<sup>2</sup></p>
-      <p class="math">r' = r &times; &radic;10 = 0.1 &times; &radic;10</p>
-      <p class="math">r' = 0.1 &times; 3.162 = 0.316 m</p>
-      <p class="math"><strong>r' &approx; 31.6 cm</strong></p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">④ 전기장이 10%가 되는 거리</div>
+  <div class="nb-line">
+    <div class="nb-math">E' = kQ / r'<sup>2</sup> = 0.1 &times; kQ / r<sup>2</sup></div>
+    <div class="nb-comment">E' = 0.1E가 되려면?</div>
   </div>
-
+  <div class="nb-line">
+    <div class="nb-math">1 / r'<sup>2</sup> = 0.1 / r<sup>2</sup></div>
+    <div class="nb-comment">양변에서 kQ 소거</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">r'<sup>2</sup> = r<sup>2</sup> / 0.1 = 10 &times; r<sup>2</sup></div>
+    <div class="nb-comment"></div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">r' = r &times; &radic;10 = 0.1 &times; &radic;10</div>
+    <div class="nb-comment">&radic;10 &approx; 3.162</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math result">r' = 0.316 m &approx; 31.6 cm</div>
+    <div class="nb-comment">거리가 &radic;10배 (&approx; 3.16배) 멀어져야 한다</div>
+  </div>
 </div>
 
 <div class="tip-box" style="margin-top:24px;">
@@ -1031,42 +1123,38 @@
 
 <div class="solution-label">풀이</div>
 
-<div class="example-box" style="margin-bottom:24px;">
-  <p style="margin-top:8px;">자기장 안에 전류가 흐르는 도선을 놓으면 힘을 받아! N극과 S극 사이에 도선이 있으니까 도선 길이 = 극 사이 간격이야.</p>
-</div>
-
-<div class="calc-steps">
-
-  <div class="calc-step">
-    <div class="calc-step-num">1</div>
-    <div class="calc-step-content">
-      <p class="explain">전류가 흐르는 도선이 자기장에서 받는 힘의 공식:</p>
-      <div class="formula-box">
-        <div class="formula">F = BIL sin&theta;</div>
-        <div class="formula-desc">자기장 속 전류 도선에 작용하는 힘 (B: 자기장, I: 전류, L: 도선 길이, &theta;: 전류와 자기장 사이 각도)</div>
-      </div>
-    </div>
+<div class="notebook">
+  <div class="nb-label">① 자기력 공식</div>
+  <div class="nb-line">
+    <div class="nb-math boxed">F = BIL sin&theta;</div>
+    <div class="nb-comment"><strong>자기장 속 전류 도선에 작용하는 힘</strong> &mdash; N극과 S극 사이에 도선이 있으니까 도선 길이 = 극 사이 간격</div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">2</div>
-    <div class="calc-step-content">
-      <p class="explain">도선이 자기장에 <strong>수직</strong>이니까 &theta; = 90&deg;, sin 90&deg; = 1이야. 전류 I에 대해 정리하자!</p>
-      <p class="math">F = BIL &times; 1</p>
-      <p class="math">I = F / (BL)</p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">② 전류 I에 대해 정리</div>
+  <div class="nb-line">
+    <div class="nb-math">F = BIL &times; 1</div>
+    <div class="nb-comment">도선이 자기장에 <strong>수직</strong>이니까 &theta; = 90&deg;, sin 90&deg; = 1</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math boxed">I = F / (BL)</div>
+    <div class="nb-comment">I에 대해 정리</div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">3</div>
-    <div class="calc-step-content">
-      <p class="explain">값을 대입하자!</p>
-      <p class="math">I = 5.0 / (2.0 &times; 0.1)</p>
-      <p class="math">= 5.0 / 0.2</p>
-      <p class="math"><strong>I = 25 A</strong></p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">③ 값 대입</div>
+  <div class="nb-line">
+    <div class="nb-math">I = 5.0 / (2.0 &times; 0.1)</div>
+    <div class="nb-comment">F = 5.0, B = 2.0, L = 0.1 대입</div>
   </div>
-
+  <div class="nb-line">
+    <div class="nb-math">= 5.0 / 0.2</div>
+    <div class="nb-comment"></div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math result">I = 25 A</div>
+    <div class="nb-comment"></div>
+  </div>
 </div>
 
 <div class="tip-box" style="margin-top:24px;">
@@ -1142,32 +1230,35 @@
 
 <div class="solution-label">풀이</div>
 
-<div class="calc-steps">
-
-  <div class="calc-step">
-    <div class="calc-step-num">1</div>
-    <div class="calc-step-content">
-      <p class="explain">무한히 긴 직선도선이 만드는 자기장 공식 (앙페르의 법칙에서 유도):</p>
-      <div class="formula-box">
-        <div class="formula">B = &mu;<sub>0</sub>I / (2&pi;r)</div>
-        <div class="formula-desc">직선 전류가 만드는 자기장 (거리 r에 반비례)</div>
-      </div>
-    </div>
+<div class="notebook">
+  <div class="nb-label">① 직선도선 자기장 공식</div>
+  <div class="nb-line">
+    <div class="nb-math boxed">B = &mu;<sub>0</sub>I / (2&pi;r)</div>
+    <div class="nb-comment"><strong>앙페르의 법칙에서 유도</strong> &mdash; 직선 전류가 만드는 자기장 (거리 r에 반비례)</div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">2</div>
-    <div class="calc-step-content">
-      <p class="explain">값을 대입하자!</p>
-      <p class="math">B = (4&pi; &times; 10<sup>&minus;7</sup>) &times; 15 / (2&pi; &times; 2)</p>
-      <p class="explain">&pi;가 약분돼서 깔끔해져!</p>
-      <p class="math">= (4 &times; 10<sup>&minus;7</sup> &times; 15) / (2 &times; 2)</p>
-      <p class="math">= (60 &times; 10<sup>&minus;7</sup>) / 4</p>
-      <p class="math">= 15 &times; 10<sup>&minus;7</sup></p>
-      <p class="math"><strong>B = 1.5 &times; 10<sup>&minus;6</sup> T = 1.5 &mu;T</strong></p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">② 값 대입</div>
+  <div class="nb-line">
+    <div class="nb-math">B = (4&pi; &times; 10<sup>&minus;7</sup>) &times; 15 / (2&pi; &times; 2)</div>
+    <div class="nb-comment">&mu;<sub>0</sub> = 4&pi; &times; 10<sup>&minus;7</sup>, I = 15, r = 2 대입</div>
   </div>
-
+  <div class="nb-line">
+    <div class="nb-math">= (4 &times; 10<sup>&minus;7</sup> &times; 15) / (2 &times; 2)</div>
+    <div class="nb-comment">&pi;가 약분돼서 깔끔해져!</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">= (60 &times; 10<sup>&minus;7</sup>) / 4</div>
+    <div class="nb-comment">4 &times; 15 = 60</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">= 15 &times; 10<sup>&minus;7</sup></div>
+    <div class="nb-comment"></div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math result">B = 1.5 &times; 10<sup>&minus;6</sup> T = 1.5 &mu;T</div>
+    <div class="nb-comment"></div>
+  </div>
 </div>
 
 <div class="tip-box" style="margin-top:24px;">
@@ -1248,59 +1339,64 @@
 
 <div class="solution-label">풀이</div>
 
-<div class="example-box" style="margin-bottom:24px;">
-  <p style="margin-top:8px;">패러데이 법칙: 코일을 통과하는 <strong>자기 선속(자속)이 변하면</strong> 기전력이 유도돼! 코일을 자기장 밖으로 꺼내면 자속이 변하니까 기전력이 생겨.</p>
-  <p style="margin-top:8px;"><strong>주의:</strong> "코일이 자기장과 평행"이라는 건 코일의 <strong>면</strong>이 자기장과 평행하다는 뜻이야. 그러면 자기장은 코일 면에 <strong>수직</strong>으로 통과하니까 &theta; = 0&deg;, cos&theta; = 1이 돼!</p>
-</div>
-
-<div class="calc-steps">
-
-  <div class="calc-step">
-    <div class="calc-step-num">1</div>
-    <div class="calc-step-content">
-      <p class="explain"><strong>패러데이 법칙</strong>을 쓰자!</p>
-      <div class="formula-box">
-        <div class="formula">&epsilon; = &minus;N &times; &Delta;&Phi; / &Delta;t</div>
-        <div class="formula-desc">유도 기전력 = &minus;감은수 &times; (자기 선속의 변화량 / 시간)</div>
-      </div>
-    </div>
+<div class="notebook">
+  <div class="nb-label">① 패러데이 법칙</div>
+  <div class="nb-line">
+    <div class="nb-math boxed">&epsilon; = &minus;N &times; &Delta;&Phi; / &Delta;t</div>
+    <div class="nb-comment"><strong>유도 기전력</strong> = &minus;감은수 &times; (자속 변화량 / 시간). 코일을 자기장 밖으로 꺼내면 자속이 변해!</div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">2</div>
-    <div class="calc-step-content">
-      <p class="explain">먼저 코일의 <strong>넓이</strong>를 구하자 (정사각형이니까 한 변의 제곱):</p>
-      <p class="math">A = a<sup>2</sup> = (0.05)<sup>2</sup> = 0.0025 m<sup>2</sup></p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">② 코일의 넓이</div>
+  <div class="nb-line">
+    <div class="nb-math">A = a<sup>2</sup> = (0.05)<sup>2</sup> = 0.0025 m<sup>2</sup></div>
+    <div class="nb-comment">정사각형이니까 한 변의 제곱</div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">3</div>
-    <div class="calc-step-content">
-      <p class="explain"><strong>자기 선속(자속)</strong>을 계산하자. 자기장이 코일 면에 수직으로 통과하니까:</p>
-      <p class="math">&Phi; = B &times; A &times; cos&theta; = B &times; A &times; 1 = 0.15 &times; 0.0025 = 3.75 &times; 10<sup>&minus;4</sup> Wb</p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">③ 자기 선속(자속) 계산</div>
+  <div class="nb-line">
+    <div class="nb-math">&Phi; = B &times; A &times; cos&theta;</div>
+    <div class="nb-comment"><strong>주의:</strong> "코일이 자기장과 평행" = 코일 <strong>면</strong>이 B와 평행 &rarr; B는 면에 수직 통과 &rarr; &theta; = 0&deg;</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">= 0.15 &times; 0.0025 &times; 1</div>
+    <div class="nb-comment">cos 0&deg; = 1</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math result">&Phi; = 3.75 &times; 10<sup>&minus;4</sup> Wb</div>
+    <div class="nb-comment"></div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">4</div>
-    <div class="calc-step-content">
-      <p class="explain">코일을 완전히 꺼내면 자속이 0이 되니까, <strong>자속 변화량</strong>은:</p>
-      <p class="math">&Delta;&Phi; = &Phi;<sub>최종</sub> &minus; &Phi;<sub>처음</sub> = 0 &minus; 3.75 &times; 10<sup>&minus;4</sup> = &minus;3.75 &times; 10<sup>&minus;4</sup> Wb</p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">④ 자속 변화량</div>
+  <div class="nb-line">
+    <div class="nb-math">&Delta;&Phi; = &Phi;<sub>최종</sub> &minus; &Phi;<sub>처음</sub></div>
+    <div class="nb-comment">코일을 완전히 꺼내면 자속이 0</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">= 0 &minus; 3.75 &times; 10<sup>&minus;4</sup> = &minus;3.75 &times; 10<sup>&minus;4</sup> Wb</div>
+    <div class="nb-comment"></div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">5</div>
-    <div class="calc-step-content">
-      <p class="explain"><strong>유도 기전력</strong>을 구하자!</p>
-      <p class="math">|&epsilon;| = N &times; |&Delta;&Phi;| / &Delta;t</p>
-      <p class="math">= 10 &times; 3.75 &times; 10<sup>&minus;4</sup> / 0.1</p>
-      <p class="math">= 10 &times; 3.75 &times; 10<sup>&minus;3</sup></p>
-      <p class="math"><strong>|&epsilon;| = 0.0375 V = 37.5 mV</strong></p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">⑤ 유도 기전력</div>
+  <div class="nb-line">
+    <div class="nb-math">|&epsilon;| = N &times; |&Delta;&Phi;| / &Delta;t</div>
+    <div class="nb-comment">크기만 구하면 되니까 절댓값</div>
   </div>
-
+  <div class="nb-line">
+    <div class="nb-math">= 10 &times; 3.75 &times; 10<sup>&minus;4</sup> / 0.1</div>
+    <div class="nb-comment">N = 10, &Delta;t = 0.1 대입</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">= 10 &times; 3.75 &times; 10<sup>&minus;3</sup></div>
+    <div class="nb-comment">10<sup>&minus;4</sup> / 0.1 = 10<sup>&minus;3</sup></div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math result">|&epsilon;| = 0.0375 V = 37.5 mV</div>
+    <div class="nb-comment"></div>
+  </div>
 </div>
 
 <div class="tip-box" style="margin-top:24px;">
@@ -1376,41 +1472,34 @@
 
 <div class="solution-label">풀이</div>
 
-<div class="example-box" style="margin-bottom:24px;">
-  <p style="margin-top:8px;">변압기(트랜스포머)는 전자기 유도를 이용해서 전압을 바꿔! 1차 코일의 교류 전류가 자기장을 만들고, 이 변하는 자기장이 2차 코일에 기전력을 유도하는 원리야.</p>
-</div>
-
-<div class="calc-steps">
-
-  <div class="calc-step">
-    <div class="calc-step-num">1</div>
-    <div class="calc-step-content">
-      <p class="explain"><strong>변압기의 기본 공식</strong>을 쓰자!</p>
-      <div class="formula-box">
-        <div class="formula">V<sub>1</sub> / V<sub>2</sub> = N<sub>1</sub> / N<sub>2</sub></div>
-        <div class="formula-desc">전압비 = 감은수비 (이상적인 변압기)</div>
-      </div>
-    </div>
+<div class="notebook">
+  <div class="nb-label">① 변압기 기본 공식</div>
+  <div class="nb-line">
+    <div class="nb-math boxed">V<sub>1</sub> / V<sub>2</sub> = N<sub>1</sub> / N<sub>2</sub></div>
+    <div class="nb-comment"><strong>전압비 = 감은수비</strong> (이상적인 변압기). 전자기 유도를 이용해서 전압을 변환!</div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">2</div>
-    <div class="calc-step-content">
-      <p class="explain">N<sub>2</sub>에 대해 정리하면:</p>
-      <p class="math">N<sub>2</sub> = N<sub>1</sub> &times; V<sub>2</sub> / V<sub>1</sub></p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">② N<sub>2</sub>에 대해 정리</div>
+  <div class="nb-line">
+    <div class="nb-math">N<sub>2</sub> = N<sub>1</sub> &times; V<sub>2</sub> / V<sub>1</sub></div>
+    <div class="nb-comment">교차 곱으로 정리</div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">3</div>
-    <div class="calc-step-content">
-      <p class="explain">값을 대입하자!</p>
-      <p class="math">N<sub>2</sub> = 100 &times; 110 / 220</p>
-      <p class="math">= 100 &times; 0.5</p>
-      <p class="math"><strong>N<sub>2</sub> = 50 (회)</strong></p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">③ 값 대입</div>
+  <div class="nb-line">
+    <div class="nb-math">N<sub>2</sub> = 100 &times; 110 / 220</div>
+    <div class="nb-comment">N<sub>1</sub> = 100, V<sub>2</sub> = 110, V<sub>1</sub> = 220</div>
   </div>
-
+  <div class="nb-line">
+    <div class="nb-math">= 100 &times; 0.5</div>
+    <div class="nb-comment">110/220 = 0.5</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math result">N<sub>2</sub> = 50 (회)</div>
+    <div class="nb-comment">전압이 1/2 &rarr; 감은수도 1/2</div>
+  </div>
 </div>
 
 <div class="tip-box" style="margin-top:24px;">
@@ -1485,48 +1574,50 @@
 
 <div class="solution-label">풀이</div>
 
-<div class="calc-steps">
-
-  <div class="calc-step">
-    <div class="calc-step-num">1</div>
-    <div class="calc-step-content">
-      <p class="explain">먼저 <strong>전류</strong>를 구하자! 전력 공식 P = VI에서 I를 구해!</p>
-      <div class="formula-box">
-        <div class="formula">P = V &times; I &nbsp;&nbsp;&rArr;&nbsp;&nbsp; I = P / V</div>
-        <div class="formula-desc">전력 = 전압 &times; 전류</div>
-      </div>
-      <p class="math">I = 1000 / 220 &approx; 4.5 A</p>
-      <p class="math"><strong>I &approx; 4.5 A</strong></p>
-    </div>
+<div class="notebook">
+  <div class="nb-label">① 전류 구하기</div>
+  <div class="nb-line">
+    <div class="nb-math boxed">P = V &times; I &nbsp;&nbsp;&rArr;&nbsp;&nbsp; I = P / V</div>
+    <div class="nb-comment"><strong>전력 = 전압 &times; 전류</strong></div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">I = 1000 / 220</div>
+    <div class="nb-comment">P = 1000 W, V = 220 V 대입</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math result">I &approx; 4.5 A</div>
+    <div class="nb-comment"></div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">2</div>
-    <div class="calc-step-content">
-      <p class="explain">다음으로 <strong>저항</strong>을 구하자! 두 가지 방법이 있어:</p>
-      <p class="explain"><strong>방법 1: 옴의 법칙</strong> V = IR에서</p>
-      <div class="formula-box">
-        <div class="formula">R = V / I</div>
-        <div class="formula-desc">옴의 법칙: 저항 = 전압 / 전류</div>
-      </div>
-      <p class="math">R = 220 / 4.5 &approx; 49 &Omega;</p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">② 저항 구하기 (방법 1: 옴의 법칙)</div>
+  <div class="nb-line">
+    <div class="nb-math boxed">R = V / I</div>
+    <div class="nb-comment"><strong>옴의 법칙:</strong> 저항 = 전압 / 전류</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math">R = 220 / 4.5</div>
+    <div class="nb-comment"></div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math result">R &approx; 49 &Omega;</div>
+    <div class="nb-comment"></div>
   </div>
 
-  <div class="calc-step">
-    <div class="calc-step-num">3</div>
-    <div class="calc-step-content">
-      <p class="explain"><strong>방법 2: 전력 공식</strong> P = V<sup>2</sup>/R에서 직접 구하기</p>
-      <div class="formula-box">
-        <div class="formula">R = V<sup>2</sup> / P</div>
-        <div class="formula-desc">전력 공식을 저항에 대해 정리</div>
-      </div>
-      <p class="math">R = 220<sup>2</sup> / 1000 = 48400 / 1000</p>
-      <p class="math"><strong>R &approx; 49 &Omega;</strong></p>
-      <p class="explain">두 방법 다 같은 답이 나와! 어느 방법을 쓰든 상관없어.</p>
-    </div>
+  <div class="nb-spacer"></div>
+  <div class="nb-label">③ 저항 구하기 (방법 2: 전력 공식)</div>
+  <div class="nb-line">
+    <div class="nb-math boxed">R = V<sup>2</sup> / P</div>
+    <div class="nb-comment"><strong>전력 공식을 저항에 대해 정리</strong> &mdash; 전류를 안 구해도 바로 가능!</div>
   </div>
-
+  <div class="nb-line">
+    <div class="nb-math">R = 220<sup>2</sup> / 1000 = 48400 / 1000</div>
+    <div class="nb-comment">어느 방법을 쓰든 같은 답!</div>
+  </div>
+  <div class="nb-line">
+    <div class="nb-math result">R &approx; 49 &Omega;</div>
+    <div class="nb-comment"></div>
+  </div>
 </div>
 
 <div class="tip-box" style="margin-top:24px;">
