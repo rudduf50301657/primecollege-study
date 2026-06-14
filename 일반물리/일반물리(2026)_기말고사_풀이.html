@@ -346,9 +346,9 @@
   <div class="given-box">
     <h4>주어진 것 (Given)</h4>
     <ul>
-      <li>진폭 A = 10 cm = 0.1 m</li>
+      <li>변위의 진폭 x<sub>0</sub> = 10 cm = 0.1 m</li>
       <li>주기 T = 0.5 s</li>
-      <li>원점에서 속력 v<sub>max</sub> = 1.5 m/s</li>
+      <li>원점에서 속력 v<sub>0</sub> = 1.5 m/s (속도의 진폭)</li>
       <li>t = 0.2 s</li>
     </ul>
   </div>
@@ -366,12 +366,12 @@
   <table class="compare-table" style="font-size:14px;">
     <thead><tr><th>기호</th><th>의미</th><th>단위</th></tr></thead>
     <tbody>
-      <tr><td><strong>x(t)</strong></td><td>시간 t에서의 변위 (평형 위치로부터 떨어진 거리)</td><td>m</td></tr>
-      <tr><td><strong>A</strong></td><td>진폭 — 평형 위치에서 최대로 벗어난 거리</td><td>m</td></tr>
+      <tr><td><strong>x</strong></td><td>시간 t에서의 변위 (평형 위치로부터 떨어진 거리)</td><td>m</td></tr>
+      <tr><td><strong>x<sub>0</sub></strong></td><td>변위의 진폭 — 평형 위치에서 최대로 벗어난 거리</td><td>m</td></tr>
       <tr><td><strong>T</strong></td><td>주기 — 한 번 왕복하는 데 걸리는 시간</td><td>s (초)</td></tr>
-      <tr><td><strong>&omega; (w)</strong></td><td>각진동수 — 단위 시간당 회전하는 각도 (= 2&pi;/T)</td><td>rad/s</td></tr>
-      <tr><td><strong>v(t)</strong></td><td>시간 t에서의 속도 (변위를 시간으로 미분한 값)</td><td>m/s</td></tr>
-      <tr><td><strong>v<sub>max</sub></strong></td><td>최대 속력 — 평형 위치(원점) 통과 시의 속력 (= A&omega;)</td><td>m/s</td></tr>
+      <tr><td><strong>&omega;</strong></td><td>각진동수 — 단위 시간당 회전하는 각도 (= 2&pi;/T)</td><td>rad/s</td></tr>
+      <tr><td><strong>v<sub>x</sub></strong></td><td>시간 t에서의 속도 (변위를 시간으로 미분한 값)</td><td>m/s</td></tr>
+      <tr><td><strong>v<sub>0</sub></strong></td><td>속도의 진폭 — 평형 위치(원점) 통과 시의 최대 속력 (= &omega;x<sub>0</sub>)</td><td>m/s</td></tr>
       <tr><td><strong>m</strong></td><td>물체의 질량</td><td>kg</td></tr>
       <tr><td><strong>t</strong></td><td>경과 시간</td><td>s (초)</td></tr>
     </tbody>
@@ -381,7 +381,7 @@
 <div class="solution-label">풀이</div>
 
 <div class="example-box" style="margin-bottom:24px;">
-  <p style="margin-top:8px;">단순조화운동(SHM)에서 물체를 <strong>최대 변위에서 놓으면</strong> 코사인 함수로 표현해! 처음 위치가 +A이니까 x(t) = A cos(&omega;t) 형태야.</p>
+  <p style="margin-top:8px;">단순조화운동(SHM)에서 물체를 <strong>최대 변위에서 놓으면</strong> 코사인 함수로 표현해! 처음 위치가 +x<sub>0</sub>이니까 x = x<sub>0</sub> cos(&omega;t) 형태야.</p>
 </div>
 
 <div class="calc-steps">
@@ -401,10 +401,10 @@
   <div class="calc-step">
     <div class="calc-step-num">2</div>
     <div class="calc-step-content">
-      <p class="explain">물체를 <strong>+A (10 cm) 위치에서 놓았으니까</strong>, 초기 위치 = 최대 변위야. 그래서 <strong>코사인 함수</strong>를 쓰면 돼!</p>
+      <p class="explain">물체를 <strong>+x<sub>0</sub> (10 cm) 위치에서 놓았으니까</strong>, 초기 위치 = 최대 변위야. 그래서 <strong>코사인 함수</strong>를 쓰면 돼!</p>
       <div class="formula-box">
-        <div class="formula">x(t) = A cos(wt)</div>
-        <div class="formula-desc">최대 변위에서 출발하는 단순조화운동의 변위 방정식</div>
+        <div class="formula">x = x<sub>0</sub> cos(&omega;t)</div>
+        <div class="formula-desc">최대 변위에서 출발하는 단순조화운동의 변위 방정식 (9강 식 9)</div>
       </div>
     </div>
   </div>
@@ -428,10 +428,10 @@
     <div class="calc-step-content">
       <p class="explain">이제 <strong>속도 방정식</strong>을 세우자. 변위를 시간에 대해 미분하면 속도야!</p>
       <div class="formula-box">
-        <div class="formula">v(t) = &minus;Aw sin(wt)</div>
-        <div class="formula-desc">단순조화운동의 속도 방정식 (변위의 시간 미분)</div>
+        <div class="formula">v<sub>x</sub> = &minus;&omega;x<sub>0</sub> sin(&omega;t)</div>
+        <div class="formula-desc">단순조화운동의 속도 방정식 (9강 식 12)</div>
       </div>
-      <p class="explain">여기서 최대 속력 Aw = 0.1 &times; 4&pi; = 0.4&pi; &approx; 1.257 m/s인데, 문제에서 원점 통과 시 속력이 1.5 m/s라고 했으니 문제에서 주어진 v<sub>max</sub> = 1.5 m/s를 사용하자.</p>
+      <p class="explain">여기서 <strong>속도의 진폭</strong> v<sub>0</sub> = &omega;x<sub>0</sub> = 4&pi; &times; 0.1 = 0.4&pi; &approx; 1.257 m/s인데, 문제에서 원점 통과 시 속력이 1.5 m/s라고 했으니 문제에서 주어진 v<sub>0</sub> = 1.5 m/s를 사용하자.</p>
     </div>
   </div>
 
@@ -439,25 +439,25 @@
     <div class="calc-step-num">5</div>
     <div class="calc-step-content">
       <p class="explain">t = 0.2초에서의 <strong>속력</strong>을 구해보자!</p>
-      <p class="math">v(0.2) = &minus;Aw sin(4&pi; &times; 0.2) = &minus;1.5 &times; sin(0.8&pi;)</p>
+      <p class="math">v<sub>x</sub>(0.2) = &minus;v<sub>0</sub> sin(4&pi; &times; 0.2) = &minus;1.5 &times; sin(0.8&pi;)</p>
       <p class="explain">sin(0.8&pi;) = sin(144&deg;) = sin(36&deg;) = 0.588</p>
-      <p class="math">v(0.2) = &minus;1.5 &times; 0.588 = &minus;0.882 m/s</p>
-      <p class="math"><strong>|v(0.2)| &approx; 0.88 m/s</strong></p>
+      <p class="math">v<sub>x</sub>(0.2) = &minus;1.5 &times; 0.588 = &minus;0.882 m/s</p>
+      <p class="math"><strong>|v<sub>x</sub>(0.2)| &approx; 0.88 m/s</strong></p>
     </div>
   </div>
 
 </div>
 
 <div class="tip-box" style="margin-top:24px;">
-  <p style="margin-top:8px;"><strong>검증:</strong> 에너지 보존으로 확인해볼 수 있어! v&sup2; = v<sub>max</sub>&sup2; &minus; w&sup2;x&sup2;에 대입하면:<br>
-  v&sup2; = 1.5&sup2; &minus; (4&pi;)&sup2; &times; 0.0809&sup2; = 2.25 &minus; 1.034 = 1.216, v = 1.10 m/s<br>
-  Aw = 4&pi; &times; 0.1 = 1.257 m/s를 쓰면: v&sup2; = 1.257&sup2; &minus; (4&pi;)&sup2; &times; 0.0809&sup2; = 1.58 &minus; 1.03 = 0.55, v = 0.74 m/s<br>
-  문제에서 v<sub>max</sub> = 1.5 m/s가 주어져 있으므로 이 값을 최대 속력으로 사용하는 게 출제 의도야!</p>
+  <p style="margin-top:8px;"><strong>검증:</strong> 에너지 보존으로 확인해볼 수 있어! v<sub>x</sub>&sup2; = v<sub>0</sub>&sup2; &minus; &omega;&sup2;x&sup2;에 대입하면:<br>
+  v<sub>x</sub>&sup2; = 1.5&sup2; &minus; (4&pi;)&sup2; &times; 0.0809&sup2; = 2.25 &minus; 1.034 = 1.216, v<sub>x</sub> = 1.10 m/s<br>
+  &omega;x<sub>0</sub> = 4&pi; &times; 0.1 = 1.257 m/s를 쓰면: v<sub>x</sub>&sup2; = 1.257&sup2; &minus; (4&pi;)&sup2; &times; 0.0809&sup2; = 1.58 &minus; 1.03 = 0.55, v<sub>x</sub> = 0.74 m/s<br>
+  문제에서 v<sub>0</sub> = 1.5 m/s가 주어져 있으므로 이 값을 속도의 진폭으로 사용하는 게 출제 의도야!</p>
 </div>
 
 <div class="final-answer">
   <p>변위: x(0.2) &approx; &minus;8.1 cm (반대 방향)</p>
-  <p>속력: |v(0.2)| &approx; 0.88 m/s</p>
+  <p>속력: |v<sub>x</sub>(0.2)| &approx; 0.88 m/s</p>
 </div>
 <div class="lecture-ref">
   <h4>강의록에서 이 개념이 나오는 곳</h4>
@@ -613,7 +613,7 @@
   <div class="given-box">
     <h4>주어진 것 (Given)</h4>
     <ul>
-      <li>음원 진동수 f<sub>0</sub> = 200 Hz</li>
+      <li>음원 진동수 f = 200 Hz</li>
       <li>음원 속력 v<sub>s</sub> = 50 km/h</li>
       <li>관측자 속력 v<sub>o</sub> = 0 (정지)</li>
       <li>음속 v = 340 m/s</li>
@@ -622,7 +622,7 @@
   <div class="find-box">
     <h4>구할 것 (Find)</h4>
     <ul>
-      <li>관측자가 듣는 주파수 f</li>
+      <li>관측자가 듣는 진동수 f'</li>
     </ul>
   </div>
 </div>
@@ -632,8 +632,8 @@
   <table class="compare-table" style="font-size:14px;">
     <thead><tr><th>기호</th><th>의미</th><th>단위</th></tr></thead>
     <tbody>
-      <tr><td><strong>f<sub>0</sub></strong></td><td>음원의 고유 진동수 (정지 상태에서 발생하는 소리의 주파수)</td><td>Hz</td></tr>
-      <tr><td><strong>f</strong></td><td>관측자가 실제로 듣는 진동수 (도플러 효과 적용 후)</td><td>Hz</td></tr>
+      <tr><td><strong>f</strong></td><td>음원의 고유 진동수 (정지 상태에서 발생하는 소리의 진동수)</td><td>Hz</td></tr>
+      <tr><td><strong>f'</strong></td><td>관측자가 실제로 듣는 진동수 (도플러 효과 적용 후)</td><td>Hz</td></tr>
       <tr><td><strong>v</strong></td><td>음속 — 소리가 공기 중에서 전파되는 속력</td><td>m/s</td></tr>
       <tr><td><strong>v<sub>s</sub></strong></td><td>음원(소방차)의 이동 속력</td><td>m/s</td></tr>
       <tr><td><strong>v<sub>o</sub></strong></td><td>관측자(나)의 이동 속력 (이 문제에서는 0)</td><td>m/s</td></tr>
@@ -662,8 +662,8 @@
     <div class="calc-step-content">
       <p class="explain"><strong>도플러 효과 공식</strong>을 써보자. 관측자는 정지, 음원이 다가오는 경우야!</p>
       <div class="formula-box">
-        <div class="formula">f = f<sub>0</sub> &times; v / (v &minus; v<sub>s</sub>)</div>
-        <div class="formula-desc">음원이 관측자에게 다가올 때 (분모에서 빼기)</div>
+        <div class="formula">f' = f &times; 1 / (1 &minus; v<sub>s</sub>/v)</div>
+        <div class="formula-desc">음원이 관측자에게 다가올 때 (10강 식 29)</div>
       </div>
       <p class="explain">음원이 <strong>다가오면 분모에서 빼고</strong>, 멀어지면 더해. 관측자가 다가가면 분자에서 더하고, 멀어지면 빼는 거야.</p>
     </div>
@@ -673,10 +673,10 @@
     <div class="calc-step-num">3</div>
     <div class="calc-step-content">
       <p class="explain">값을 대입하자!</p>
-      <p class="math">f = 200 &times; 340 / (340 &minus; 13.89)</p>
-      <p class="math">= 200 &times; 340 / 326.11</p>
-      <p class="math">= 200 &times; 1.0426</p>
-      <p class="math">= 208.5 Hz</p>
+      <p class="math">f' = 200 &times; 1 / (1 &minus; 13.89/340)</p>
+      <p class="math">= 200 &times; 1 / (1 &minus; 0.0409)</p>
+      <p class="math">= 200 &times; 1 / 0.959</p>
+      <p class="math">= 200 &times; 1.043 &approx; 208.5 Hz</p>
     </div>
   </div>
 
@@ -684,12 +684,12 @@
 
 <div class="tip-box" style="margin-top:24px;">
   <p style="margin-top:8px;">도플러 효과 공식 외우는 법: <strong>"관측자는 위, 음원은 아래"</strong><br>
-  f = f<sub>0</sub> &times; (v &plusmn; v<sub>o</sub>) / (v &mp; v<sub>s</sub>)<br>
+  f' = f &times; 1 / (1 &mp; v<sub>s</sub>/v)<br>
   다가오면 진동수 &uarr; (관측자 +, 음원 &minus;), 멀어지면 진동수 &darr; (관측자 &minus;, 음원 +)</p>
 </div>
 
 <div class="final-answer">
-  <p>f &approx; 208.5 Hz</p>
+  <p>f' &approx; 208.5 Hz</p>
   <p>원래 200 Hz보다 높은 음으로 들린다 (약 4.3% 증가)</p>
 </div>
 <div class="lecture-ref">
@@ -1466,8 +1466,8 @@
         <div class="formula">P = V &times; I &nbsp;&nbsp;&rArr;&nbsp;&nbsp; I = P / V</div>
         <div class="formula-desc">전력 = 전압 &times; 전류</div>
       </div>
-      <p class="math">I = 1000 / 220</p>
-      <p class="math"><strong>I &approx; 4.55 A</strong></p>
+      <p class="math">I = 1000 / 220 &approx; 4.5 A</p>
+      <p class="math"><strong>I &approx; 4.5 A</strong></p>
     </div>
   </div>
 
@@ -1480,7 +1480,7 @@
         <div class="formula">R = V / I</div>
         <div class="formula-desc">옴의 법칙: 저항 = 전압 / 전류</div>
       </div>
-      <p class="math">R = 220 / 4.55 = 48.4 &Omega;</p>
+      <p class="math">R = 220 / 4.5 &approx; 49 &Omega;</p>
     </div>
   </div>
 
@@ -1493,7 +1493,7 @@
         <div class="formula-desc">전력 공식을 저항에 대해 정리</div>
       </div>
       <p class="math">R = 220<sup>2</sup> / 1000 = 48400 / 1000</p>
-      <p class="math"><strong>R = 48.4 &Omega;</strong></p>
+      <p class="math"><strong>R &approx; 49 &Omega;</strong></p>
       <p class="explain">두 방법 다 같은 답이 나와! 어느 방법을 쓰든 상관없어.</p>
     </div>
   </div>
@@ -1509,8 +1509,8 @@
 </div>
 
 <div class="final-answer">
-  <p>전류: I &approx; 4.55 A</p>
-  <p>저항: R = 48.4 &Omega;</p>
+  <p>전류: I &approx; 4.5 A</p>
+  <p>저항: R &approx; 49 &Omega;</p>
 </div>
 <div class="lecture-ref">
   <h4>강의록에서 이 개념이 나오는 곳</h4>
