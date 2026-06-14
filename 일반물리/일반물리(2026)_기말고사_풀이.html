@@ -453,9 +453,9 @@
       <tr><td><strong>x</strong></td><td>시간 t에서의 변위 (평형 위치로부터 떨어진 거리)</td><td>m</td></tr>
       <tr><td><strong>x<sub>0</sub></strong></td><td>변위의 진폭 — 평형 위치에서 최대로 벗어난 거리</td><td>m</td></tr>
       <tr><td><strong>T</strong></td><td>주기 — 한 번 왕복하는 데 걸리는 시간</td><td>s (초)</td></tr>
-      <tr><td><strong>&omega;</strong></td><td>각진동수 — 단위 시간당 회전하는 각도 (= 2&pi;/T)</td><td>rad/s</td></tr>
+      <tr><td><strong>2&pi;/T</strong></td><td>각진동수 &omega; — 단위 시간당 회전하는 각도. 강의에서는 &omega;를 따로 구하지 않고 2&pi;t/T 형태로 직접 사용</td><td>rad/s</td></tr>
       <tr><td><strong>v<sub>x</sub></strong></td><td>시간 t에서의 속도 (변위를 시간으로 미분한 값)</td><td>m/s</td></tr>
-      <tr><td><strong>v<sub>0</sub></strong></td><td>속도의 진폭 — 평형 위치(원점) 통과 시의 최대 속력 (= &omega;x<sub>0</sub>)</td><td>m/s</td></tr>
+      <tr><td><strong>v<sub>0</sub></strong></td><td>속도의 진폭 — 평형 위치(원점) 통과 시의 최대 속력 (= (2&pi;/T)x<sub>0</sub>)</td><td>m/s</td></tr>
       <tr><td><strong>m</strong></td><td>물체의 질량</td><td>kg</td></tr>
       <tr><td><strong>t</strong></td><td>경과 시간</td><td>s (초)</td></tr>
     </tbody>
@@ -465,32 +465,25 @@
 <div class="solution-label">풀이</div>
 
 <div class="notebook">
-  <div class="nb-label">① 각진동수 &omega; 구하기</div>
+  <div class="nb-label">① 변위 방정식</div>
   <div class="nb-line">
-    <div class="nb-math boxed">&omega; = 2&pi; / T</div>
-    <div class="nb-comment"><strong>9강 식 8</strong> &mdash; 원 한 바퀴가 2&pi; 라디안이고, T초에 한 바퀴 도니까 1초당 각도 = 2&pi;/T야. 단순조화운동은 원운동을 옆에서 본 것과 같거든, 그래서 원운동의 각속도(&omega;)를 빌려 쓰는 거야!</div>
-  </div>
-  <div class="nb-line">
-    <div class="nb-math">&omega; = 2&pi; / 0.5 = 4&pi; rad/s</div>
-    <div class="nb-comment">T = 0.5초를 대입했어. 2&pi; &divide; 0.5 = 4&pi;야. 단위를 보면: 2&pi;는 rad(라디안)이고 T는 s(초)니까 나누면 <strong>rad/s</strong>가 돼. 즉 1초에 4&pi; 라디안(약 720&deg;)만큼 회전하는 셈이야!</div>
+    <div class="nb-math boxed">x = x<sub>0</sub> cos(2&pi;t/T)</div>
+    <div class="nb-comment"><strong>9강 식 9</strong> &mdash; 왜 cos이냐면, t=0일 때 x=x<sub>0</sub>(최대 변위)여야 하잖아. cos(0)=1이니까 x<sub>0</sub>&times;1=x<sub>0</sub>이 돼서 딱 맞아! 만약 sin을 썼다면 t=0일 때 sin(0)=0이 되니까 x=0이 되어버려서 "처음에 10cm 당겼다"는 조건에 안 맞게 되거든. 2&pi;/T가 바로 각진동수 &omega;인데, 강의에서는 &omega;를 따로 구하지 않고 2&pi;t/T를 직접 사용해!</div>
   </div>
 
   <div class="nb-spacer"></div>
-  <div class="nb-label">② 변위 방정식</div>
+  <div class="nb-label">② t = 0.2초 변위</div>
   <div class="nb-line">
-    <div class="nb-math boxed">x = x<sub>0</sub> cos(&omega;t)</div>
-    <div class="nb-comment"><strong>9강 식 9</strong> &mdash; 왜 cos이냐면, t=0일 때 x=x<sub>0</sub>(최대 변위)여야 하잖아. cos(0)=1이니까 x<sub>0</sub>&times;1=x<sub>0</sub>이 돼서 딱 맞아! 만약 sin을 썼다면 t=0일 때 sin(0)=0이 되니까 x=0이 되어버려서 "처음에 10cm 당겼다"는 조건에 안 맞게 되거든</div>
+    <div class="nb-math">x(0.2) = 0.1 &times; cos(2&pi; &times; 0.2 / 0.5)</div>
+    <div class="nb-comment">x<sub>0</sub> = 0.1 m, t = 0.2 s, T = 0.5 s를 직접 대입한 거야. 괄호 안부터 계산하자!</div>
   </div>
-
-  <div class="nb-spacer"></div>
-  <div class="nb-label">③ t = 0.2초 변위</div>
   <div class="nb-line">
-    <div class="nb-math">x(0.2) = 0.1 &times; cos(4&pi; &times; 0.2)</div>
-    <div class="nb-comment">위 공식에 x<sub>0</sub> = 0.1 m, &omega; = 4&pi; rad/s, t = 0.2 s를 대입한 거야. 괄호 안부터 계산하자!</div>
+    <div class="nb-math">= 0.1 &times; cos(2&pi; &times; 0.4)</div>
+    <div class="nb-comment">0.2/0.5 = 0.4야. 즉 주기의 40%만큼 시간이 지났다는 뜻이야!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= 0.1 &times; cos(0.8&pi;)</div>
-    <div class="nb-comment">4&pi; &times; 0.2를 계산하면 0.8&pi;가 나와. 4 &times; 0.2 = 0.8이고 &pi;는 그대로 남으니까!</div>
+    <div class="nb-comment">2&pi; &times; 0.4 = 0.8&pi;야. 2 &times; 0.4 = 0.8이고 &pi;는 그대로 남으니까!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= 0.1 &times; cos(144&deg;)</div>
@@ -506,25 +499,25 @@
   </div>
 
   <div class="nb-spacer"></div>
-  <div class="nb-label">④ 속도 방정식</div>
+  <div class="nb-label">③ 속도 방정식</div>
   <div class="nb-line">
-    <div class="nb-math boxed">v<sub>x</sub> = &minus;&omega;x<sub>0</sub> sin(&omega;t) = &minus;v<sub>0</sub> sin(&omega;t)</div>
-    <div class="nb-comment"><strong>9강 식 12</strong> &mdash; 변위 x를 시간 t로 미분하면 속도가 나와. x = x<sub>0</sub>cos(&omega;t)를 미분하면 cos &rarr; &minus;sin이 되고, 안쪽의 &omega;가 체인룰(chain rule)로 앞으로 나와서 v = &minus;&omega;x<sub>0</sub>sin(&omega;t)이 돼. 여기서 &omega;x<sub>0</sub>를 묶어서 v<sub>0</sub>라고 부르는 거야 (속도의 진폭). 그래서 v<sub>0</sub> = &omega;x<sub>0</sub>이고, v<sub>x</sub> = &minus;v<sub>0</sub>sin(&omega;t)이 되는 거지!</div>
+    <div class="nb-math boxed">v<sub>x</sub> = &minus;v<sub>0</sub> sin(2&pi;t/T)</div>
+    <div class="nb-comment"><strong>9강 식 12</strong> &mdash; 변위 x를 시간 t로 미분하면 속도가 나와. x = x<sub>0</sub>cos(2&pi;t/T)를 미분하면 cos &rarr; &minus;sin이 되고, 안쪽의 2&pi;/T가 체인룰(chain rule)로 앞으로 나와서 v = &minus;(2&pi;/T)x<sub>0</sub>sin(2&pi;t/T)이 돼. 여기서 (2&pi;/T)x<sub>0</sub>를 묶어서 v<sub>0</sub>라고 부르는 거야 (속도의 진폭). 그래서 v<sub>x</sub> = &minus;v<sub>0</sub>sin(2&pi;t/T)이 되는 거지!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math"></div>
-    <div class="nb-comment">문제에서 "원점으로 돌아왔을 때 속력 1.5 m/s"라고 했어. 원점(x=0)을 지날 때가 속력이 최대인 순간이야 (탄성 위치에너지가 전부 운동에너지로 바뀌거든). 그래서 v<sub>0</sub> = 1.5 m/s야. 참고로 &omega;x<sub>0</sub> = 4&pi; &times; 0.1 &approx; 1.257인데, 문제에서 v<sub>0</sub> = 1.5를 따로 줬으니까 이 값을 쓰는 게 출제 의도야!</div>
+    <div class="nb-comment">문제에서 "원점으로 돌아왔을 때 속력 1.5 m/s"라고 했어. 원점(x=0)을 지날 때가 속력이 최대인 순간이야 (탄성 위치에너지가 전부 운동에너지로 바뀌거든). 그래서 v<sub>0</sub> = 1.5 m/s야. 참고로 (2&pi;/T)x<sub>0</sub> = (2&pi;/0.5) &times; 0.1 &approx; 1.257인데, 문제에서 v<sub>0</sub> = 1.5를 따로 줬으니까 이 값을 쓰는 게 출제 의도야!</div>
   </div>
 
   <div class="nb-spacer"></div>
-  <div class="nb-label">⑤ t = 0.2초 속력</div>
+  <div class="nb-label">④ t = 0.2초 속력</div>
   <div class="nb-line">
-    <div class="nb-math">v<sub>x</sub>(0.2) = &minus;1.5 &times; sin(0.8&pi;)</div>
-    <div class="nb-comment">v<sub>0</sub> = 1.5 m/s를 대입하고, &omega;t = 0.8&pi;는 아까 ③에서 이미 계산해놨어. 같은 값을 쓰면 돼!</div>
+    <div class="nb-math">v<sub>x</sub>(0.2) = &minus;1.5 &times; sin(2&pi; &times; 0.2 / 0.5)</div>
+    <div class="nb-comment">v<sub>0</sub> = 1.5 m/s를 대입하고, 2&pi;t/T는 아까 ②에서 이미 계산해놨어. 같은 값을 쓰면 돼!</div>
   </div>
   <div class="nb-line">
-    <div class="nb-math">= &minus;1.5 &times; sin(144&deg;)</div>
-    <div class="nb-comment">아까처럼 0.8&pi; rad = 144&deg;로 바꿨어. 라디안 &rarr; 도 변환은 &pi; = 180&deg;니까, 0.8 &times; 180 = 144&deg;!</div>
+    <div class="nb-math">= &minus;1.5 &times; sin(0.8&pi;) = &minus;1.5 &times; sin(144&deg;)</div>
+    <div class="nb-comment">2&pi; &times; 0.2/0.5 = 0.8&pi; = 144&deg;야. 아까 변위에서 계산한 것과 동일한 각도!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math">= &minus;1.5 &times; 0.588</div>
@@ -537,9 +530,9 @@
 </div>
 
 <div class="tip-box" style="margin-top:24px;">
-  <p style="margin-top:8px;"><strong>검증:</strong> 에너지 보존으로 확인해볼 수 있어! v<sub>x</sub>&sup2; = v<sub>0</sub>&sup2; &minus; &omega;&sup2;x&sup2;에 대입하면:<br>
-  v<sub>x</sub>&sup2; = 1.5&sup2; &minus; (4&pi;)&sup2; &times; 0.0809&sup2; = 2.25 &minus; 1.034 = 1.216, v<sub>x</sub> = 1.10 m/s<br>
-  &omega;x<sub>0</sub> = 4&pi; &times; 0.1 = 1.257 m/s를 쓰면: v<sub>x</sub>&sup2; = 1.257&sup2; &minus; (4&pi;)&sup2; &times; 0.0809&sup2; = 1.58 &minus; 1.03 = 0.55, v<sub>x</sub> = 0.74 m/s<br>
+  <p style="margin-top:8px;"><strong>검증:</strong> 에너지 보존으로 확인해볼 수 있어! v<sub>x</sub>&sup2; = v<sub>0</sub>&sup2; &minus; (2&pi;/T)&sup2;x&sup2;에 대입하면:<br>
+  v<sub>x</sub>&sup2; = 1.5&sup2; &minus; (2&pi;/0.5)&sup2; &times; 0.0809&sup2; = 2.25 &minus; 1.034 = 1.216, v<sub>x</sub> = 1.10 m/s<br>
+  (2&pi;/T)x<sub>0</sub> = (2&pi;/0.5) &times; 0.1 = 1.257 m/s를 쓰면: v<sub>x</sub>&sup2; = 1.257&sup2; &minus; (2&pi;/0.5)&sup2; &times; 0.0809&sup2; = 1.58 &minus; 1.03 = 0.55, v<sub>x</sub> = 0.74 m/s<br>
   문제에서 v<sub>0</sub> = 1.5 m/s가 주어져 있으므로 이 값을 속도의 진폭으로 사용하는 게 출제 의도야!</p>
 </div>
 
@@ -850,8 +843,8 @@
       <tr><td><strong>q<sub>1</sub>, q<sub>2</sub>, q<sub>3</sub></strong></td><td>각 전하의 전하량 (양수면 양전하, 음수면 음전하)</td><td>C (쿨롱)</td></tr>
       <tr><td><strong>&mu;C</strong></td><td>마이크로쿨롱 = 10<sup>-6</sup> C (전하량의 단위)</td><td>C</td></tr>
       <tr><td><strong>F</strong></td><td>두 전하 사이에 작용하는 전기력 (힘)</td><td>N (뉴턴)</td></tr>
-      <tr><td><strong>F<sub>21</sub></strong></td><td>q<sub>2</sub>가 q<sub>1</sub>에 미치는 힘</td><td>N</td></tr>
-      <tr><td><strong>F<sub>31</sub></strong></td><td>q<sub>3</sub>가 q<sub>1</sub>에 미치는 힘</td><td>N</td></tr>
+      <tr><td><strong>F<sub>2,1</sub></strong></td><td>q<sub>2</sub>가 q<sub>1</sub>에 미치는 힘</td><td>N</td></tr>
+      <tr><td><strong>F<sub>3,1</sub></strong></td><td>q<sub>3</sub>가 q<sub>1</sub>에 미치는 힘</td><td>N</td></tr>
       <tr><td><strong>r</strong></td><td>두 전하 사이의 거리</td><td>m</td></tr>
       <tr><td><strong>k</strong></td><td>쿨롱 상수 (= 9 &times; 10<sup>9</sup> N&middot;m<sup>2</sup>/C<sup>2</sup>)</td><td>N&middot;m<sup>2</sup>/C<sup>2</sup></td></tr>
     </tbody>
@@ -861,56 +854,40 @@
 <div class="solution-label">풀이</div>
 
 <div class="notebook">
-  <div class="nb-label">① q<sub>2</sub>가 q<sub>1</sub>에 미치는 힘 (F<sub>21</sub>)</div>
+  <div class="nb-label">① q<sub>2</sub>가 q<sub>1</sub>에 미치는 힘 (F<sub>2,1</sub>)</div>
   <div class="nb-line">
-    <div class="nb-math boxed">F = k |q<sub>1</sub>||q<sub>2</sub>| / r<sup>2</sup></div>
-    <div class="nb-comment"><strong>쿨롱의 법칙</strong> &mdash; 절대값을 쓰는 이유: 힘의 <strong>크기</strong>만 먼저 구하고, 방향(인력/척력)은 전하의 부호로 따로 판단하는 거야. 배치: q<sub>2</sub>(&minus;) --- 10cm --- q<sub>1</sub>(+) --- 10cm --- q<sub>3</sub>(+)</div>
+    <div class="nb-math boxed">F<sub>2,1</sub> = k(q<sub>2</sub>q<sub>1</sub>) / r<sup>2</sup><sub>2,1</sub></div>
+    <div class="nb-comment"><strong>쿨롱의 법칙</strong> &mdash; F<sub>2,1</sub>은 "q<sub>2</sub>가 q<sub>1</sub>에 미치는 힘"이라는 뜻이야. 배치: q<sub>2</sub>(&minus;) --- 10cm --- q<sub>1</sub>(+) --- 10cm --- q<sub>3</sub>(+). 힘의 크기를 구하고, 방향은 전하의 부호로 따로 판단해!</div>
   </div>
   <div class="nb-line">
-    <div class="nb-math">F<sub>21</sub> = 9 &times; 10<sup>9</sup> &times; (15 &times; 10<sup>&minus;6</sup>) &times; (44 &times; 10<sup>&minus;6</sup>) / (0.1)<sup>2</sup></div>
-    <div class="nb-comment">k, |q<sub>1</sub>|, |q<sub>2</sub>|, r 값을 대입했어. q<sub>2</sub> = &minus;44 &mu;C인데 절대값이니까 44를 쓰는 거야. &mu;C를 C로 바꾸려면 &times;10<sup>&minus;6</sup>을 붙이면 돼</div>
+    <div class="nb-math">F<sub>2,1</sub> = 9 &times; 10<sup>9</sup> &times; (&minus;44 &times; 10<sup>&minus;6</sup>)(15 &times; 10<sup>&minus;6</sup>) / (0.1)<sup>2</sup></div>
+    <div class="nb-comment">k, q<sub>2</sub>, q<sub>1</sub>, r 값을 대입했어. 강의에서는 부호를 포함해서 대입하고, 크기는 절대값으로 판단해. &mu;C를 C로 바꾸려면 &times;10<sup>&minus;6</sup>을 붙이면 돼</div>
   </div>
   <div class="nb-line">
-    <div class="nb-math">= 9 &times; 10<sup>9</sup> &times; 660 &times; 10<sup>&minus;12</sup> / 0.01</div>
-    <div class="nb-comment">15 &times; 10<sup>&minus;6</sup> &times; 44 &times; 10<sup>&minus;6</sup> = (15&times;44) &times; 10<sup>&minus;6&minus;6</sup> = 660 &times; 10<sup>&minus;12</sup>야. 지수끼리는 더하면 돼! 그리고 (0.1)<sup>2</sup> = 0.01이야. 10cm를 m로 바꾸면 0.1m, 제곱하면 0.01!</div>
-  </div>
-  <div class="nb-line">
-    <div class="nb-math">= 9 &times; 10<sup>9</sup> &times; 6.6 &times; 10<sup>&minus;8</sup></div>
-    <div class="nb-comment">660 &times; 10<sup>&minus;12</sup> &divide; 0.01 = 660 &times; 10<sup>&minus;12</sup> &times; 100 = 660 &times; 10<sup>&minus;10</sup> = 6.6 &times; 10<sup>&minus;8</sup>이야. 0.01로 나누는 건 &times;100(=10<sup>2</sup>)하는 거니까 지수에 +2 해주면 돼!</div>
-  </div>
-  <div class="nb-line">
-    <div class="nb-math result">F<sub>21</sub> = 594 N &nbsp;(&larr; 왼쪽)</div>
-    <div class="nb-comment"><strong>방향:</strong> q<sub>2</sub>는 음전하(&minus;), q<sub>1</sub>은 양전하(+)야. 다른 부호끼리는 서로 끌어당기니까(인력), q<sub>1</sub>이 q<sub>2</sub> 쪽(왼쪽)으로 당겨지는 거야. 9 &times; 6.6 = 59.4이고 10<sup>9</sup> &times; 10<sup>&minus;8</sup> = 10<sup>1</sup>이니까 59.4 &times; 10 = 594 N!</div>
+    <div class="nb-math result">F<sub>2,1</sub> = 594 N &nbsp;(&larr; 왼쪽)</div>
+    <div class="nb-comment"><strong>방향:</strong> q<sub>2</sub>는 음전하(&minus;), q<sub>1</sub>은 양전하(+)야. 다른 부호끼리는 서로 끌어당기니까(인력), q<sub>1</sub>이 q<sub>2</sub> 쪽(왼쪽)으로 당겨지는 거야. 계산: 9&times;10<sup>9</sup> &times; 44&times;15 &times; 10<sup>&minus;12</sup> / 0.01 = 9 &times; 6.6 &times; 10 = 594 N!</div>
   </div>
 
   <div class="nb-spacer"></div>
-  <div class="nb-label">② q<sub>3</sub>가 q<sub>1</sub>에 미치는 힘 (F<sub>31</sub>)</div>
+  <div class="nb-label">② q<sub>3</sub>가 q<sub>1</sub>에 미치는 힘 (F<sub>3,1</sub>)</div>
   <div class="nb-line">
-    <div class="nb-math">F<sub>31</sub> = 9 &times; 10<sup>9</sup> &times; (15 &times; 10<sup>&minus;6</sup>) &times; (13 &times; 10<sup>&minus;6</sup>) / (0.1)<sup>2</sup></div>
+    <div class="nb-math">F<sub>3,1</sub> = k(q<sub>3</sub>q<sub>1</sub>) / r<sup>2</sup><sub>3,1</sub> = 9 &times; 10<sup>9</sup> &times; (13 &times; 10<sup>&minus;6</sup>)(15 &times; 10<sup>&minus;6</sup>) / (0.1)<sup>2</sup></div>
     <div class="nb-comment">같은 쿨롱 법칙 공식을 쓰되, 이번에는 q<sub>3</sub> = +13 &mu;C를 대입한 거야. 거리도 동일하게 0.1 m!</div>
   </div>
   <div class="nb-line">
-    <div class="nb-math">= 9 &times; 10<sup>9</sup> &times; 195 &times; 10<sup>&minus;12</sup> / 0.01</div>
-    <div class="nb-comment">15 &times; 13 = 195이고, 10<sup>&minus;6</sup> &times; 10<sup>&minus;6</sup> = 10<sup>&minus;12</sup>야. 아까 ①과 똑같은 방식으로 계산하면 돼!</div>
-  </div>
-  <div class="nb-line">
-    <div class="nb-math">= 9 &times; 10<sup>9</sup> &times; 1.95 &times; 10<sup>&minus;8</sup></div>
-    <div class="nb-comment">195 &times; 10<sup>&minus;12</sup> &divide; 0.01 = 195 &times; 10<sup>&minus;10</sup> = 1.95 &times; 10<sup>&minus;8</sup>이야. 아까와 같은 원리로 0.01로 나누면 지수에 +2 해주면 돼!</div>
-  </div>
-  <div class="nb-line">
-    <div class="nb-math result">F<sub>31</sub> = 175.5 N &nbsp;(&larr; 왼쪽)</div>
-    <div class="nb-comment"><strong>방향:</strong> q<sub>3</sub>와 q<sub>1</sub> 둘 다 양전하(+)야. 같은 부호끼리는 밀어내니까(척력), q<sub>3</sub>가 q<sub>1</sub>을 왼쪽으로 밀어내는 거야. q<sub>3</sub>가 q<sub>1</sub> 오른쪽에 있으니까, 밀어내면 왼쪽으로 가겠지! 9 &times; 1.95 = 17.55이고 10<sup>9</sup> &times; 10<sup>&minus;8</sup> = 10<sup>1</sup>이니까 17.55 &times; 10 = 175.5 N!</div>
+    <div class="nb-math result">F<sub>3,1</sub> = 176 N &nbsp;(&larr; 왼쪽)</div>
+    <div class="nb-comment"><strong>방향:</strong> q<sub>3</sub>와 q<sub>1</sub> 둘 다 양전하(+)야. 같은 부호끼리는 밀어내니까(척력), q<sub>3</sub>가 q<sub>1</sub>을 왼쪽으로 밀어내는 거야. 계산: 9&times;10<sup>9</sup> &times; 13&times;15 &times; 10<sup>&minus;12</sup> / 0.01 = 9 &times; 1.95 &times; 10 = 175.5 &approx; 176 N!</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">③ 합력</div>
   <div class="nb-line">
-    <div class="nb-math">F<sub>합</sub> = F<sub>21</sub> + F<sub>31</sub> = 594 + 175.5</div>
+    <div class="nb-math">F = F<sub>2,1</sub> + F<sub>3,1</sub> = 594 + 176</div>
     <div class="nb-comment">두 힘이 우연히 같은 방향(왼쪽)이라 단순히 더하면 돼! 왼쪽의 음전하는 끌어당기고(인력=왼쪽), 오른쪽의 양전하는 밀어내니까(척력=왼쪽) 둘 다 왼쪽이야. 만약 반대 방향이었으면 빼야 했겠지!</div>
   </div>
   <div class="nb-line">
-    <div class="nb-math result">F<sub>합</sub> = 769.5 N &nbsp;(왼쪽, q<sub>2</sub> 방향)</div>
-    <div class="nb-comment">594 + 175.5 = 769.5 N이야. q<sub>1</sub> 입장에서 왼쪽으로 약 770 N의 힘을 받고 있어. 두 힘이 같은 방향이라 합력이 꽤 크게 나왔지!</div>
+    <div class="nb-math result">F = 770 N &nbsp;(왼쪽, q<sub>2</sub> 방향)</div>
+    <div class="nb-comment">594 + 176 = 770 N이야. q<sub>1</sub> 입장에서 왼쪽으로 770 N의 힘을 받고 있어. 두 힘이 같은 방향이라 합력이 꽤 크게 나왔지!</div>
   </div>
 </div>
 
@@ -919,7 +896,7 @@
 </div>
 
 <div class="final-answer">
-  <p>크기: F = 769.5 N</p>
+  <p>크기: F = 770 N</p>
   <p>방향: 왼쪽 (q<sub>2</sub> 방향)</p>
 </div>
 <div class="lecture-ref">
@@ -991,29 +968,18 @@
 <div class="solution-label">풀이</div>
 
 <div class="notebook">
-  <div class="nb-label">① 전기장 공식</div>
+  <div class="nb-label">① 전기장 계산</div>
   <div class="nb-line">
     <div class="nb-math boxed">E = kQ / r<sup>2</sup></div>
     <div class="nb-comment"><strong>점전하가 만드는 전기장의 세기야.</strong> 전기장은 거리의 제곱(r<sup>2</sup>)에 반비례해. 왜냐하면 전하에서 나오는 전기력선이 구 표면에 퍼지는데, 구의 표면적이 4&pi;r<sup>2</sup>으로 거리 제곱에 비례하니까, 단위 면적당 밀도(=전기장 세기)는 1/r<sup>2</sup>으로 줄어드는 거야!</div>
   </div>
-
-  <div class="nb-spacer"></div>
-  <div class="nb-label">② r = 0.1 m에서 전기장 계산</div>
   <div class="nb-line">
-    <div class="nb-math">E = 9 &times; 10<sup>9</sup> &times; 1.5 &times; 10<sup>&minus;9</sup> / (0.1)<sup>2</sup></div>
-    <div class="nb-comment">k = 9&times;10<sup>9</sup>, Q = 1.5&times;10<sup>&minus;9</sup> C, r = 0.1 m을 공식에 대입했어. 분자부터 계산하자!</div>
-  </div>
-  <div class="nb-line">
-    <div class="nb-math">= (9 &times; 1.5) &times; 10<sup>9&minus;9</sup> / 0.01</div>
-    <div class="nb-comment">10<sup>9</sup> &times; 10<sup>&minus;9</sup> = 10<sup>0</sup> = 1이야. 지수끼리 더하면 9+(&minus;9) = 0이고 10<sup>0</sup>은 1이니까 숫자만 남아. 그리고 (0.1)<sup>2</sup> = 0.01이야</div>
-  </div>
-  <div class="nb-line">
-    <div class="nb-math">= 13.5 / 0.01</div>
-    <div class="nb-comment">9 &times; 1.5 = 13.5야. 분자는 깔끔하게 13.5가 됐어. 이제 0.01로 나누기만 하면 돼!</div>
+    <div class="nb-math">E = (9.0 &times; 10<sup>9</sup>)(1.5 &times; 10<sup>&minus;9</sup>) / (0.1)<sup>2</sup></div>
+    <div class="nb-comment">k = 9.0&times;10<sup>9</sup>, Q = 1.5&times;10<sup>&minus;9</sup> C, r = 0.1 m을 한 번에 대입! 분자: 10<sup>9</sup> &times; 10<sup>&minus;9</sup> = 10<sup>0</sup> = 1이라 9 &times; 1.5 = 13.5만 남아. 분모: (0.1)<sup>2</sup> = 0.01. 13.5/0.01 = 1350!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">E = 1350 N/C</div>
-    <div class="nb-comment">13.5 &divide; 0.01 = 1350이야. 0.01로 나누는 건 &times;100 하는 거니까 13.5 &times; 100 = 1350! 단위는 N/C (뉴턴 퍼 쿨롱)으로, "1C의 전하가 이 지점에 있으면 1350N의 힘을 받는다"는 뜻이야</div>
+    <div class="nb-comment">단위는 N/C (뉴턴 퍼 쿨롱)으로, "1C의 전하가 이 지점에 있으면 1350N의 힘을 받는다"는 뜻이야. 강의에서도 공식 &rarr; 대입 &rarr; 답, 이렇게 두 줄로 깔끔하게 풀었어!</div>
   </div>
 
   <div class="nb-spacer"></div>
@@ -1096,7 +1062,7 @@
       <li>도선 길이 L = 10 cm = 0.1 m</li>
       <li>자기장 B = 2.0 T</li>
       <li>힘 F = 5.0 N</li>
-      <li>도선이 자기장에 수직 (sin 90&deg; = 1)</li>
+      <li>도선이 자기장에 수직 (sin(&pi;/2) = 1)</li>
     </ul>
   </div>
   <div class="find-box">
@@ -1124,36 +1090,21 @@
 <div class="solution-label">풀이</div>
 
 <div class="notebook">
-  <div class="nb-label">① 자기력 공식</div>
+  <div class="nb-label">① 자기력 공식에서 전류 구하기</div>
   <div class="nb-line">
-    <div class="nb-math boxed">F = BIL sin&theta;</div>
-    <div class="nb-comment"><strong>자기장 속 전류 도선에 작용하는 힘이야.</strong> B는 자기장 세기, I는 전류, L은 도선 길이, &theta;는 전류 방향과 자기장 방향 사이의 각도야. sin&theta;가 붙는 이유는 자기력이 전류와 자기장의 <strong>수직 성분</strong>에만 반응하기 때문이야. N극과 S극 사이에 도선이 있으니까 도선 길이 = 극 사이 간격(10cm)이야!</div>
+    <div class="nb-math boxed">F = ILB sin&theta; &nbsp;&rArr;&nbsp; I = F / (LB sin&theta;)</div>
+    <div class="nb-comment"><strong>자기장 속 전류 도선에 작용하는 힘이야.</strong> B는 자기장 세기, I는 전류, L은 도선 길이, &theta;는 전류 방향과 자기장 방향 사이의 각도야. sin&theta;가 붙는 이유는 자기력이 전류와 자기장의 <strong>수직 성분</strong>에만 반응하기 때문이야. 먼저 I에 대해 정리한 뒤 한 번에 대입해!</div>
   </div>
 
   <div class="nb-spacer"></div>
-  <div class="nb-label">② 전류 I에 대해 정리</div>
+  <div class="nb-label">② 값 대입</div>
   <div class="nb-line">
-    <div class="nb-math">F = BIL &times; 1</div>
-    <div class="nb-comment">도선이 자기장에 <strong>수직</strong>이니까 &theta; = 90&deg;이고 sin 90&deg; = 1이야. 왜 90&deg;냐면, N극에서 S극으로 자기장이 수평으로 나가는데 도선은 위아래(수직)로 놓여있으니까 둘 사이 각도가 90&deg;야! sin&theta; = 1이면 힘이 최대가 되는 거야. 만약 도선이 자기장과 평행하면(&theta;=0&deg;) sin0&deg;=0이라 힘이 0이 돼!</div>
-  </div>
-  <div class="nb-line">
-    <div class="nb-math boxed">I = F / (BL)</div>
-    <div class="nb-comment">F = BIL에서 I만 남기려고 양변을 BL로 나눴어. I = F &divide; (B &times; L)이야. 구하고 싶은 걸 한쪽에 남기고 나머지를 반대편으로 보내는 거지!</div>
-  </div>
-
-  <div class="nb-spacer"></div>
-  <div class="nb-label">③ 값 대입</div>
-  <div class="nb-line">
-    <div class="nb-math">I = 5.0 / (2.0 &times; 0.1)</div>
-    <div class="nb-comment">F = 5.0 N, B = 2.0 T, L = 0.1 m(10cm를 m로 바꾼 것)을 대입했어. 분모부터 계산하자!</div>
-  </div>
-  <div class="nb-line">
-    <div class="nb-math">= 5.0 / 0.2</div>
-    <div class="nb-comment">2.0 &times; 0.1 = 0.2야. 분모가 0.2니까 5.0을 0.2로 나누면 돼</div>
+    <div class="nb-math">I = 5 / ((0.1)(2.0)(sin &pi;/2))</div>
+    <div class="nb-comment">F = 5.0 N, L = 0.1 m, B = 2.0 T를 대입했어. 도선이 자기장에 수직이니까 &theta; = &pi;/2이고 sin(&pi;/2) = 1이야! N극에서 S극으로 자기장이 수평으로 나가는데 도선은 위아래(수직)로 놓여있으니까 둘 사이 각도가 &pi;/2야. 만약 도선이 자기장과 평행하면(&theta;=0) sin0=0이라 힘이 0이 돼!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">I = 25 A</div>
-    <div class="nb-comment">5.0 &divide; 0.2 = 25야! 25 암페어면 상당히 큰 전류야 (가정용 콘센트는 보통 15~20A 정도). 강한 자기장(2T) 안에서 5N이나 되는 힘을 만들려면 이 정도 전류가 필요한 거야!</div>
+    <div class="nb-comment">5 / (0.1 &times; 2.0 &times; 1) = 5 / 0.2 = 25야! 25 암페어면 상당히 큰 전류야 (가정용 콘센트는 보통 15~20A 정도). 강한 자기장(2T) 안에서 5N이나 되는 힘을 만들려면 이 정도 전류가 필요한 거야!</div>
   </div>
 </div>
 
@@ -1202,8 +1153,8 @@
     <h4>주어진 것 (Given)</h4>
     <ul>
       <li>전류 I = 15 A</li>
-      <li>거리 r = 2 m</li>
-      <li>&mu;<sub>0</sub> = 4&pi; &times; 10<sup>&minus;7</sup> T&middot;m/A</li>
+      <li>거리 d = 2.00 m</li>
+      <li>k' = 10<sup>&minus;7</sup> N/A<sup>2</sup></li>
     </ul>
   </div>
   <div class="find-box">
@@ -1221,8 +1172,8 @@
     <tbody>
       <tr><td><strong>B</strong></td><td>도선 주변에 생기는 자기장의 세기</td><td>T (테슬라)</td></tr>
       <tr><td><strong>I</strong></td><td>직선 도선에 흐르는 전류의 세기</td><td>A (암페어)</td></tr>
-      <tr><td><strong>r</strong></td><td>도선으로부터 자기장을 측정하는 지점까지의 수직 거리</td><td>m</td></tr>
-      <tr><td><strong>&mu;<sub>0</sub></strong></td><td>진공의 투자율 — 자기장 공식에 등장하는 상수 (= 4&pi; &times; 10<sup>&minus;7</sup> T&middot;m/A)</td><td>T&middot;m/A</td></tr>
+      <tr><td><strong>d</strong></td><td>도선으로부터 자기장을 측정하는 지점까지의 수직 거리</td><td>m</td></tr>
+      <tr><td><strong>k'</strong></td><td>자기 상수 — &mu;<sub>0</sub>/(2&pi;) = 10<sup>&minus;7</sup> N/A<sup>2</sup>. 강의에서는 이 값을 직접 사용</td><td>N/A<sup>2</sup></td></tr>
       <tr><td><strong>&mu;T</strong></td><td>마이크로테슬라 = 10<sup>&minus;6</sup> T (자기장 세기의 단위)</td><td>T</td></tr>
     </tbody>
   </table>
@@ -1231,33 +1182,21 @@
 <div class="solution-label">풀이</div>
 
 <div class="notebook">
-  <div class="nb-label">① 직선도선 자기장 공식</div>
+  <div class="nb-label">① 직선도선 자기장 공식 (k' 표기)</div>
   <div class="nb-line">
-    <div class="nb-math boxed">B = &mu;<sub>0</sub>I / (2&pi;r)</div>
-    <div class="nb-comment"><strong>앙페르의 법칙에서 유도한 공식이야.</strong> &mu;<sub>0</sub>(뮤 제로)는 진공의 투자율이라는 상수인데, 자기장이 얼마나 잘 만들어지는지를 나타내는 값이야. 값은 4&pi; &times; 10<sup>&minus;7</sup> T&middot;m/A로 정해져 있어. 분모의 2&pi;r은 도선을 중심으로 한 원의 둘레야 &mdash; 자기장이 도선 주위를 원형으로 감싸니까!</div>
+    <div class="nb-math boxed">B = k' &times; 2I / d</div>
+    <div class="nb-comment"><strong>앙페르의 법칙에서 유도한 공식이야.</strong> 원래 B = &mu;<sub>0</sub>I/(2&pi;r)인데, 강의에서는 k' = &mu;<sub>0</sub>/(2&pi;) = 10<sup>&minus;7</sup> N/A<sup>2</sup>로 묶어서 B = k' &times; 2I/d 형태로 사용해. &pi;가 약분돼서 깔끔하게 계산할 수 있거든! d는 도선으로부터의 거리야</div>
   </div>
 
   <div class="nb-spacer"></div>
   <div class="nb-label">② 값 대입</div>
   <div class="nb-line">
-    <div class="nb-math">B = (4&pi; &times; 10<sup>&minus;7</sup>) &times; 15 / (2&pi; &times; 2)</div>
-    <div class="nb-comment">&mu;<sub>0</sub> = 4&pi; &times; 10<sup>&minus;7</sup>, I = 15 A, r = 2 m을 공식에 넣었어. 여기서 핵심 포인트! 분자에 4&pi;가 있고 분모에 2&pi;가 있으니까 약분이 될 거야!</div>
-  </div>
-  <div class="nb-line">
-    <div class="nb-math">= (4 &times; 10<sup>&minus;7</sup> &times; 15) / (2 &times; 2)</div>
-    <div class="nb-comment">분자의 &pi;와 분모의 &pi;가 약분돼서 사라져! 이게 이 공식의 좋은 점이야. &mu;<sub>0</sub> = 4&pi;&times;10<sup>&minus;7</sup>에 &pi;가 이미 들어있어서 분모의 2&pi;r과 약분되면 깔끔해지거든</div>
-  </div>
-  <div class="nb-line">
-    <div class="nb-math">= (60 &times; 10<sup>&minus;7</sup>) / 4</div>
-    <div class="nb-comment">분자: 4 &times; 15 = 60이야. 분모: 2 &times; 2 = 4야. 10<sup>&minus;7</sup>은 그대로 가져가면 돼</div>
-  </div>
-  <div class="nb-line">
-    <div class="nb-math">= 15 &times; 10<sup>&minus;7</sup></div>
-    <div class="nb-comment">60 &divide; 4 = 15야. 그래서 15 &times; 10<sup>&minus;7</sup>이 되는 거야. 이걸 좀 더 깔끔한 형태로 바꿔보자!</div>
+    <div class="nb-math">B = (10<sup>&minus;7</sup> N/A<sup>2</sup>)(2 &times; 15 A / 2.00 m)</div>
+    <div class="nb-comment">k' = 10<sup>&minus;7</sup>, I = 15 A, d = 2.00 m을 공식에 넣었어. 2 &times; 15 = 30이고, 30/2 = 15니까 10<sup>&minus;7</sup> &times; 15만 계산하면 끝!</div>
   </div>
   <div class="nb-line">
     <div class="nb-math result">B = 1.5 &times; 10<sup>&minus;6</sup> T = 1.5 &mu;T</div>
-    <div class="nb-comment">15 &times; 10<sup>&minus;7</sup> = 1.5 &times; 10<sup>&minus;6</sup>이야 (15를 1.5로 바꾸면 10을 한 번 곱하는 거니까 지수가 &minus;7에서 &minus;6으로 올라가). 10<sup>&minus;6</sup>이 &mu;(마이크로)니까 <strong>1.5 &mu;T(마이크로테슬라)</strong>야. 지구 자기장이 약 25~65 &mu;T인데 그보다 약한 자기장이네! 오른손 법칙으로 방향도 알 수 있어 &mdash; 엄지를 전류 방향으로 향하면 나머지 손가락이 감싸는 방향이 자기장 방향이야</div>
+    <div class="nb-comment">10<sup>&minus;7</sup> &times; 15 = 15 &times; 10<sup>&minus;7</sup> = 1.5 &times; 10<sup>&minus;6</sup> T야. 10<sup>&minus;6</sup>이 &mu;(마이크로)니까 <strong>1.5 &mu;T(마이크로테슬라)</strong>야. 지구 자기장이 약 25~65 &mu;T인데 그보다 약한 자기장이네! 오른손 법칙으로 방향도 알 수 있어 &mdash; 엄지를 전류 방향으로 향하면 나머지 손가락이 감싸는 방향이 자기장 방향이야</div>
   </div>
 </div>
 
@@ -1273,8 +1212,8 @@
   <div class="ref-grid">
     <div class="ref-item">
       <span class="ref-tag">12강 p30 — 개념</span>
-      <img src="기말풀이_images/p7_concept.png" alt="B = μ₀I/(2πr) 유도">
-      <div class="ref-caption">앙페르의 법칙에서 직선도선 자기장 B = &mu;₀I/(2&pi;r) 유도 과정</div>
+      <img src="기말풀이_images/p7_concept.png" alt="B = k'×2I/d 유도">
+      <div class="ref-caption">앙페르의 법칙에서 직선도선 자기장 B = k'&times;2I/d 유도 과정 (k' = 10<sup>&minus;7</sup> N/A<sup>2</sup>)</div>
     </div>
     <div class="ref-item">
       <span class="ref-tag">12강 p21 — 예제 (시험문제와 동일!)</span>
@@ -1577,46 +1516,15 @@
 <div class="notebook">
   <div class="nb-label">① 전류 구하기</div>
   <div class="nb-line">
-    <div class="nb-math boxed">P = V &times; I &nbsp;&nbsp;&rArr;&nbsp;&nbsp; I = P / V</div>
-    <div class="nb-comment"><strong>전력 = 전압 &times; 전류야.</strong> 전력(P)은 "1초에 얼마나 많은 에너지를 쓰느냐"인데, 전압(V)이 "전하 하나를 밀어주는 힘"이고 전류(I)가 "1초에 지나가는 전하량"이니까 둘을 곱하면 "1초에 쓰는 에너지" = 전력이 되는 거야! I를 구하려면 양변을 V로 나누면 I = P/V가 돼</div>
-  </div>
-  <div class="nb-line">
-    <div class="nb-math">I = 1000 / 220</div>
-    <div class="nb-comment">P = 1 kW = 1000 W (킬로 = 1000이니까 1 kW = 1000 W), V = 220 V를 대입했어. 1000을 220으로 나누면 돼!</div>
-  </div>
-  <div class="nb-line">
-    <div class="nb-math result">I &approx; 4.5 A</div>
-    <div class="nb-comment">1000 &divide; 220 = 4.545...이니까 약 4.5 A야. 가정용 전자제품치고는 꽤 큰 전류야! 참고로 가정의 차단기는 보통 15~20A까지 허용하니까 헤어드라이기 하나는 문제없어</div>
+    <div class="nb-math">I = P / V = 1000 / 220 = 4.5 A</div>
+    <div class="nb-comment"><strong>전력 = 전압 &times; 전류</strong>(P = VI)에서 I = P/V로 정리한 거야. 전력(P)은 "1초에 얼마나 많은 에너지를 쓰느냐"인데, 전압(V)이 "전하 하나를 밀어주는 힘"이고 전류(I)가 "1초에 지나가는 전하량"이니까 둘을 곱하면 전력이 돼. P = 1 kW = 1000 W, V = 220 V를 대입하면 1000/220 = 4.545... &approx; 4.5 A야! 가정의 차단기는 보통 15~20A까지 허용하니까 헤어드라이기 하나는 문제없어</div>
   </div>
 
   <div class="nb-spacer"></div>
-  <div class="nb-label">② 저항 구하기 (방법 1: 옴의 법칙)</div>
+  <div class="nb-label">② 저항 구하기</div>
   <div class="nb-line">
-    <div class="nb-math boxed">R = V / I</div>
-    <div class="nb-comment"><strong>옴의 법칙이야:</strong> V = IR에서 R = V/I로 정리한 거야. 전압을 전류로 나누면 저항이 나와. "220V의 전압을 걸었을 때 4.5A의 전류가 흐르는 저항은 얼마인가?"를 구하는 거지!</div>
-  </div>
-  <div class="nb-line">
-    <div class="nb-math">R = 220 / 4.5</div>
-    <div class="nb-comment">①에서 구한 전류 I = 4.5 A를 여기에 대입했어. 이렇게 이전 단계 결과를 활용하는 방법이야</div>
-  </div>
-  <div class="nb-line">
-    <div class="nb-math result">R &approx; 49 &Omega;</div>
-    <div class="nb-comment">220 &divide; 4.5 = 48.88...이니까 약 49 &Omega;(옴)이야. 헤어드라이기의 열선(니크롬선)이 이 정도 저항을 갖는다는 뜻이야!</div>
-  </div>
-
-  <div class="nb-spacer"></div>
-  <div class="nb-label">③ 저항 구하기 (방법 2: 전력 공식)</div>
-  <div class="nb-line">
-    <div class="nb-math boxed">R = V<sup>2</sup> / P</div>
-    <div class="nb-comment"><strong>전류를 안 구해도 바로 저항을 구할 수 있는 공식이야!</strong> P = VI에서 I = V/R(옴의 법칙)을 대입하면 P = V &times; V/R = V<sup>2</sup>/R이 돼. 이걸 R에 대해 정리하면 R = V<sup>2</sup>/P야. 전압과 전력만 알면 바로 저항이 나오니까 편하지!</div>
-  </div>
-  <div class="nb-line">
-    <div class="nb-math">R = 220<sup>2</sup> / 1000 = 48400 / 1000</div>
-    <div class="nb-comment">220<sup>2</sup> = 220 &times; 220 = 48400이야. 이걸 P = 1000으로 나누면 끝! 방법 1처럼 전류를 먼저 구할 필요 없이 한 번에 R을 구할 수 있어. 어느 방법을 쓰든 같은 답이 나오는 거 확인!</div>
-  </div>
-  <div class="nb-line">
-    <div class="nb-math result">R &approx; 49 &Omega;</div>
-    <div class="nb-comment">48400 &divide; 1000 = 48.4 &approx; 49 &Omega;야. 방법 1(R=V/I=220/4.5&approx;49&Omega;)과 같은 답이 나왔지! 두 방법이 같은 답을 주는 건 당연해 &mdash; P=VI와 V=IR은 같은 물리 법칙에서 나온 거니까. 시험에서는 더 편한 방법을 골라 쓰면 돼!</div>
+    <div class="nb-math">R = V / I = 220 / 4.5 = 49 &Omega;</div>
+    <div class="nb-comment"><strong>옴의 법칙</strong>(V = IR)에서 R = V/I로 정리한 거야. ①에서 구한 전류 I = 4.5 A를 대입하면 220/4.5 = 48.88... &approx; 49 &Omega;이야. 헤어드라이기의 열선(니크롬선)이 이 정도 저항을 갖는다는 뜻이야! 참고로 R = V<sup>2</sup>/P = 220<sup>2</sup>/1000 = 48400/1000 = 48.4 &approx; 49 &Omega;로도 같은 답이 나와</div>
   </div>
 </div>
 
